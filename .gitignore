@@ -1,0 +1,9 @@
+research/regentribe/genesis-zero-bot/
+*/.DS_Store
+node_modules/
+dist/
+.env
+scripts/__pycache__/
+.worktrees/
+.DS_Store
+.DS_Store

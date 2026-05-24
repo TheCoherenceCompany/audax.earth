@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+  .demo { font-size:18px; font-weight:300; color:var(--ink-900); padding:18px 22px; background:#fff; border:1px solid var(--border-1); border-radius:12px; animation: fadeUp 600ms cubic-bezier(0.22,0.61,0.36,1) infinite alternate; }
+  .curve { width:120px; height:60px; }
+</style>
+</head>
+<body style="padding:28px 32px;">
+  <div class="label">Motion · 12px fade up</div>
+  <div class="row" style="gap:24px; align-items:center;">
+    <div class="demo">Coherent.</div>
+    <svg class="curve" viewBox="0 0 120 60">
+      <path d="M0 60 C 30 60, 50 0, 120 0" stroke="#4BDBDB" stroke-width="2" fill="none"/>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="#E6E6E6"/>
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#E6E6E6"/>
+    </svg>
+    <div class="col" style="gap:4px;">
+      <div style="font-size:13px; font-weight:500; color:var(--ink-900);">ease-out</div>
+      <div class="meta">cubic-bezier(0.22, 0.61, 0.36, 1)</div>
+      <div class="meta">180ms default · 260ms layered</div>
+    </div>
+  </div>
+  <div style="font-size:12px; color:var(--ink-500);">No bounce, no scale, no slide-from-side. Entrances fade up 12px. State changes are 180ms.</div>
+</body></html>
