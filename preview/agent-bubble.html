@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  .bubble { background: #fff; border: 1px solid var(--border-1); border-radius: 12px; padding: 16px 18px; max-width: 480px; }
+  .bubble-agent { border-left: 2px solid var(--forest-300); background: var(--bg-accent); }
+  .meta-row { display:flex; align-items:center; gap:10px; margin-bottom: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-500); }
+  .meta-row img { width: 16px; height: 16px; }
+  .body { font-size: 14px; font-weight: 300; line-height: 1.6; color: var(--ink-800); }
+  .body em { font-style: italic; color: var(--forest-800); }
+</style>
+</head>
+<body style="padding:24px 28px; gap:14px;">
+  <div class="label">Agent · message bubble</div>
+  <div class="bubble bubble-agent">
+    <div class="meta-row">
+      <img src="../assets/audax-os-logo-128.png" alt="">
+      <span style="color:var(--forest-800);">Iris · Agent</span>
+      <span style="color:var(--ink-400); font-weight:400; letter-spacing:0.04em;">· 9:12</span>
+    </div>
+    <div class="body">good morning. you held three threads open yesterday — the <em>Field Notes brief</em>, the steward meeting, and the practice review. shall we look at them in that order?</div>
+  </div>
+  <div class="bubble">
+    <div class="meta-row" style="color: var(--ink-800);">
+      <span>You</span><span style="color:var(--ink-400); font-weight:400; letter-spacing:0.04em;">· 9:14</span>
+    </div>
+    <div class="body">start with the practice review. just the shape of it.</div>
+  </div>
+  <div style="font-size:12px; color:var(--ink-500);">Agents speak in lowercase first-person, plain prose, no emoji. The 2px <span style="font-family:var(--font-mono); color:var(--ink-700);">forest-300</span> left edge + sigil = "an agent has spoken."</div>
+</body></html>

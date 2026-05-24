@@ -3,8 +3,9 @@
 <style>
   .chip { display:inline-flex; align-items:center; gap:6px; font-family: var(--font-sans); font-weight: 400; font-size: 13px; padding: 6px 12px; border-radius: 999px; line-height: 1; }
   .chip-default { background: var(--ink-050); color: var(--ink-700); border: 1px solid var(--border-1); }
-  .chip-active { background: var(--teal-800); color: #fff; }
-  .chip-accent { background: var(--teal-050); color: var(--teal-900); border: 1px solid var(--teal-200); }
+  .chip-active { background: var(--forest-700); color: #fff; }
+  .chip-accent { background: var(--forest-050); color: var(--forest-800); border: 1px solid var(--forest-200); }
+  .chip-lichen { background: var(--lichen-100); color: var(--forest-900); border: 1px solid var(--lichen-300); }
   .chip-dot::before { content:""; width:6px; height:6px; border-radius:999px; background: currentColor; opacity:0.8; }
 </style>
 </head>
@@ -12,15 +13,16 @@
   <div class="label">Chips · tags · filters</div>
   <div class="row" style="flex-wrap:wrap; gap:8px;">
     <span class="chip chip-active">All</span>
-    <span class="chip chip-default">Identity</span>
-    <span class="chip chip-default">Product</span>
-    <span class="chip chip-default">Editorial</span>
-    <span class="chip chip-default">Research</span>
+    <span class="chip chip-default">Practice</span>
+    <span class="chip chip-default">Agents</span>
+    <span class="chip chip-default">Circles</span>
+    <span class="chip chip-default">Pulse</span>
   </div>
   <div class="row" style="flex-wrap:wrap; gap:8px;">
+    <span class="chip chip-lichen chip-dot">Now</span>
     <span class="chip chip-accent chip-dot">Live</span>
-    <span class="chip chip-default chip-dot" style="color:var(--ink-500);">Draft</span>
+    <span class="chip chip-default chip-dot" style="color:var(--ink-500);">Held</span>
     <span class="chip chip-default chip-dot" style="color:var(--ink-500);">Archived</span>
   </div>
-  <div style="font-size:12px; color:var(--ink-500);">Filters live above grids. State chips live inline. Never stack chips inside a card.</div>
+  <div style="font-size:12px; color:var(--ink-500);">Filters above grids. State chips inline. <strong style="color:var(--forest-800); font-weight:500;">Lichen</strong> is reserved for "Now" — never two on a screen.</div>
 </body></html>

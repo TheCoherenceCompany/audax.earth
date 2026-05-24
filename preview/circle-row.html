@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  .row-c { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid var(--border-1); border-radius: 12px; }
+  .row-c + .row-c { margin-top: 8px; }
+  .glyph { width: 44px; height: 44px; border-radius: 12px; background: var(--forest-050); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .glyph img { width: 38px; height: 38px; opacity: 0.85; mix-blend-mode: multiply; }
+  .glyph.lichen { background: var(--lichen-100); }
+  .name { font-family: var(--font-display); font-size: 20px; font-weight: 400; letter-spacing: -0.02em; color: var(--ink-900); line-height: 1.1; }
+  .meta { font-size: 12px; font-weight: 300; color: var(--ink-500); margin-top: 4px; }
+  .pulse { display:flex; gap:4px; }
+  .pulse i { width: 6px; height: 18px; border-radius: 1px; background: var(--forest-300); }
+  .pulse i.on { background: var(--forest-700); }
+  .pulse i.now { background: var(--lichen-500); }
+</style>
+</head>
+<body style="padding:20px 28px;">
+  <div class="label">Circle · list row</div>
+  <div>
+    <div class="row-c">
+      <div class="glyph"><img src="../assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png" alt=""></div>
+      <div>
+        <div class="name">Stewards</div>
+        <div class="meta">6 humans · 2 agents · met Mon</div>
+      </div>
+      <div class="pulse" title="weekly pulse">
+        <i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="now"></i>
+      </div>
+    </div>
+    <div class="row-c">
+      <div class="glyph lichen"><img src="../assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png" alt=""></div>
+      <div>
+        <div class="name">Field Notes</div>
+        <div class="meta">4 humans · 1 agent · met today</div>
+      </div>
+      <div class="pulse">
+        <i></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="now"></i>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:12px; color:var(--ink-500); margin-top: 10px;">A circle = a small group of humans + agents holding work together. The pulse strip shows the week. <span style="font-family:var(--font-mono); color:var(--forest-800);">lichen</span> = "now".</div>
+</body></html>

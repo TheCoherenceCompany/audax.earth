@@ -1,6 +1,10 @@
-# Coherence Design System
+# Audax OS — Design System
 
-A design system for **The Coherence Company** — built from the brand mark, the hero reference, and the brief: *primarily white, light, teal-accented, simple, minimal, generous whitespace.*
+A design system for **Audax OS** — the operating system for a wise society bringing together AI agents and humans into thriving collaboration. The visual language is **regenerative, calm, intelligent, and quietly alive** — drawn from living systems, mycelial networks, constellations, neural pathways, and human ritual.
+
+This system is forked from the structural skeleton of [`TheCoherenceCompany/audax.earth`](https://github.com/TheCoherenceCompany/audax.earth) — the same spacing rhythm, type pairing, motion principles, and component vocabulary — and re-pigmented for Audax OS using the deep forest watercolor / sumi‑e brand imagery dropped into `assets/`. If you are picking this system up to design new product surfaces, **explore that repo for the original component scaffolding and reasoning**; this README explains everything we changed and why.
+
+> Audax OS is not a productivity app with AI bolted on. It is a calm, ritualised workspace where humans and AI agents collaborate across every scale: individual, team, organisation, network, ecosystem. The design language must **express AI as coach, connector, and companion — never supervisor.**
 
 ---
 
@@ -8,62 +12,66 @@ A design system for **The Coherence Company** — built from the brand mark, the
 
 | Source | Path | Notes |
 | --- | --- | --- |
-| Brand mark (vector) | `uploads/coherence.svg` → `assets/coherence-logo.svg` | Calligraphic mark — intertwined flowing strokes forming a sphere. Original artwork on a 2000×2000 canvas. |
-| Wordmark/logo PNG | (mentioned in brief, not delivered) | Listed in the prompt as `Coherence Logo - transparent.png` but not present in `uploads/`. Flagged below. |
-| Brand reference | `uploads/2.png` → `assets/coherence-hero-reference.png` | 1920×1080 hero — vibrant teal at top fading through pale teal to white, ghost watermark on the right, vertical "THE COHERENCE COMPANY" wordmark in the right margin. This was the primary input for color, gradient direction, and layout cadence. |
-| Brand brief | conversation | "Primarily white, light colours, with teal accents — simple, professional, minimal, good use of whitespace. Noto Sans Light for body text." |
+| Structural origin | github.com/TheCoherenceCompany/audax.earth | Coherence design system — provided the spacing, type pairing, motion, component vocabulary. Adapted, not copied. |
+| Audax OS brand mark | `assets/audax-os-logo.png` (1254×1254) + 128/256/512 variants + white | Calligraphic sacred‑geometry sigil: a vesica‑piscis "eye" inside a circle, with a vertical seed‑drop above and a teardrop / flame below. Reads as eye, seed, gathering, and constellation simultaneously. Always set in `--ink-900` on light, `--surface-white` on dark/forest. Never tinted, never recoloured. |
+| Backgrounds | `assets/backgrounds/` (12 images) | Wide horizontal sumi‑e + watercolor washes in deep forest green. Use **full‑bleed** at the top of heroes or large ritual moments. The brand earns its weight here. |
+| Accent images | `assets/accent-images/` (12 images) | Smaller painterly fragments — enso circles, calligraphic gestures, tree clusters, halftone moons. Use as **embedded illustration** inside cards, section openers, dividers — never stretched, always with breathing room. |
 
-> **Substitutions / open items**
-> - Both **Instrument Serif** (display) and **Lexend** (body) are loaded from Google Fonts. If you have licensed `.woff2` files for either, drop them in `fonts/` and we'll swap the `@import` for a local `@font-face`.
-> - The high-res wordmark PNG is in `assets/coherence-logo-hd.png` and used in the site hero.
+> **Substitutions / open items (flag for the user):**
+> - **Type.** *Instrument Serif* (display) and *Hanken Grotesk* (body) are loaded from Google Fonts. If you have licensed `.woff2` files for either — especially a bespoke Audax display face — drop them in `/fonts` and swap the `@import` for a local `@font-face`. **We swapped Lexend (in the Coherence source) for Hanken Grotesk** — slightly warmer, less corporate, pairs better with the painterly imagery. Flagging in case you want Lexend back.
+> - **Icon set.** No icons were provided. We use **Lucide** (1.5px stroke) from CDN — matches the linework of the calligraphic brand mark. Swap to a bespoke set once it exists.
+> - **Bg image filenames.** The Midjourney URLs are kept verbatim for traceability. Rename freely if you'd rather see `forest-wash-01.png` etc.
 
 ---
 
 ## At a glance
 
-- **Mark.** A dense calligraphic cluster — intertwined organic strokes with floating dots. Reads as a sphere, a knot, a constellation. Always set in pure black (`--ink-900`) on light, or white on teal. Never tinted. Never recolored.
-- **Palette.** White and near-whites carry 80%+ of any surface. Teal — `#4BDBDB` — is the single accent. No secondary brand hues.
-- **Gradient.** The signature wash: teal at top, fading to white. Vertical, full-bleed, generous height. Used for hero, headers, section openers.
-- **Type.** A pairing: **Instrument Serif** (regular + italic) for display, **Lexend Light (300)** for body. Italic-in-teal is the brand's only typographic accent.
-- **Whitespace.** A constraint, not a leftover. Default page gutters are 64–96px on desktop. Cards prefer 32–48px internal padding.
-- **Decoration.** None. No emoji, no illustration system, no gradients other than the signature wash, no colored shadows.
+- **Mark.** A dense calligraphic sigil — vesica‑piscis eye inside a circle, vertical seed above, teardrop below. Reads as a gathering, a seed of life, a watchful eye. Always pure black on light, white on forest. Never tinted, recoloured, or set below 32px.
+- **Palette.** Warm parchment and white carry 70%+ of any surface. Deep forest green — `#1F4D2E` — is the primary accent. A muted lichen yellow‑green — `#B8C766` — is the only secondary highlight, used rarely.
+- **Gradient.** The signature wash: deep forest at top, fading down through sage to warm parchment. Vertical, full‑bleed, generous height. Hero, section opener, ritual masthead.
+- **Type.** **Instrument Serif** (regular + italic) for display, **Hanken Grotesk Light (300)** for body. Italic in deep forest is the brand's only typographic accent.
+- **Imagery.** Sumi‑e brushstrokes and watercolor washes from `assets/`. Painterly, hand‑made, monochromatic forest green. Never combined with photography; never tinted.
+- **Whitespace.** A constraint, not a leftover. Page gutters 64–96px on desktop. Card padding 32–48px. Hero/section openers use 128–160px vertical padding.
+- **Decoration.** None. No emoji, no illustrated UI, no extra gradients, no colored shadows.
 
 ---
 
 ## Content fundamentals
 
-The brand voice is **calm, precise, and unhurried** — the visual quietness extends to copy.
+The voice is **calm, precise, present, and unhurried.** AI agents are coaches, connectors, and companions — never assistants, never supervisors. Humans are practitioners, not "users." The brand sounds like a thoughtful operator at a quiet desk, not a SaaS landing page.
 
 **Tone**
-- Declarative, not promotional. Statements over slogans.
-- Lowercase / sentence-case in most UI. Title Case for product names. UPPERCASE only for tracked overline labels (e.g. the vertical wordmark, section eyebrows).
-- "We" for the company, "you" for the reader. Never "us / our team / our customers" — keep the frame on the work, not the company.
-- No exclamation marks. No rhetorical questions. No "delight."
+- Declarative, never promotional. Statements over slogans.
+- Sentence case for almost everything. Title Case only for product names and proper nouns. UPPERCASE reserved for tracked overline labels.
+- "We" for the studio/team building Audax. "You" for the reader. The agent uses "I" sparingly and never refers to itself as "we" or "the assistant."
+- No exclamation marks. No rhetorical questions. No "delight." No "AI‑powered."
+- Lean into systems language: **practice, ritual, circle, gathering, pulse, weave, tend, hold, attend.** Avoid SaaS verbs: leverage, unlock, supercharge, transform.
 
 **Length**
-- Headlines: 3–8 words. One idea. No wordplay.
-- Sub-copy: one or two sentences. Sentence-case. Full stops.
-- Buttons: 1–2 words, sentence-case. "Get in touch", "Read more", "Start project". Never "Click here", never "→ Learn more!".
+- Headlines: 3–8 words. One idea per heading. No wordplay.
+- Sub‑copy: one or two sentences, sentence case, full stops.
+- Buttons: 1–3 words, sentence case. *Start a circle*, *Open the agent*, *Hold this thought*. Never *Click here*, never *Get started →*.
+- Empty states are a sentence. Loading is a single verb in present tense (*Listening.*, *Weaving.*, *Holding.*).
 
-**What we do**
-- Lead with the work or the outcome, not the company.
-  > "Quiet systems for complicated work." (✓)
-  > "We are a leading provider of…" (✗)
-- Use precise nouns over adjectives.
-  > "A weekly digest. One page. Plain text." (✓)
-  > "Beautiful, modern, intuitive insights." (✗)
+**How agents talk**
+- The agent speaks in plain language, in lowercase first‑person, with full stops. No emoji, no "Sure!", no "I'm an AI and don't have feelings."
+- Asks one question at a time. Reflects back what it heard before suggesting.
+- Names what it cannot do plainly: *I haven't seen the meeting notes yet — share them when you can.*
+- Never apologises for being slow. Never says "as an AI language model."
+
+**Examples (drop‑in copy)**
+- Hero: *An operating system for the work that matters.*
+- Sub: *Audax OS is the calm desk where humans and AI agents practise, decide, and build together — across teams, circles, and ecosystems.*
+- CTA: *Open the OS* · *Start a circle* · *Talk to an agent*
+- Section eyebrow: `THE PRACTICE` · `THE AGENTS` · `THE ECOSYSTEM`
+- Agent opener: *good morning. a few things have moved since you stepped away. shall we look at them together?*
 
 **What we don't do**
-- No emoji in product or marketing copy.
+- No emoji anywhere — product, marketing, internal.
 - No exclamation marks outside genuine errors.
-- No "amazing / incredible / game-changing / revolutionary".
+- No "amazing / incredible / game‑changing / revolutionary / supercharged".
+- No "AI" as adjective ("AI‑first", "AI‑driven"). Say what the agent actually does.
 - No corporate filler ("at the end of the day", "leverage", "synergize").
-
-**Examples (drop-in copy)**
-- Hero: *Coherent work, by design.*
-- Sub: *A small studio building quiet systems for teams that take their craft seriously.*
-- CTA: *Start a project* · *Read the journal* · *Get in touch*
-- Section eyebrow: `WHAT WE MAKE` · `RECENT WORK` · `OUR APPROACH`
 
 ---
 
@@ -71,99 +79,104 @@ The brand voice is **calm, precise, and unhurried** — the visual quietness ext
 
 ### Color
 
-- **White and near-whites do the work.** `#FFFFFF` on most surfaces, `#FAFBFB` (`--surface-off`) for an alternate page background, `#F8F8F8` (`--ink-050`) for a subtle inset surface (sidebar, code, inline tag).
-- **Teal is the only accent.** `#4BDBDB` is canonical. Its softer steps (`teal-200`, `teal-100`, `teal-050`) carry the brand's mood without overpowering. `teal-700` (`#2BB8B8`) and deeper are hover/active states only — never set headlines or large fields in them.
-- **Ink is true black-leaning.** `--ink-900` (`#0F0F0F`) for body and headings; lower steps for hierarchy and disabled states. Avoid bluish or warm grays — the system reads cold-neutral.
-- **No secondary brand hue.** Semantic states (success/warning/danger) exist as tokens but are used sparingly, only when functionally required.
+- **Parchment and white do the work.** `#FBFAF3` (`--surface-parchment`) is the canonical page background — warm, off‑white, slightly green‑tinted to harmonise with the forest palette. `#FFFFFF` (`--surface-card`) for cards and panels. `#F7F5EC` (`--surface-paper`) for inset / sidebar surfaces.
+- **Forest is the only primary accent.** `--forest-700` (`#1F4D2E`) is canonical — buttons, links, primary states. `--forest-800` for hover, `--forest-900` (sumi‑e ink) for the deepest moments. Lighter steps (`forest-100`–`forest-300`) carry the brand's mood without overpowering.
+- **Lichen yellow‑green is the *only* secondary highlight.** `--lichen-500` (`#B8C766`) — never on body text, never on long surfaces. Use sparingly: a single highlighted tag, the active node in a constellation graph, a "now" indicator. It earns weight by being rare.
+- **Ink is warm, slightly green‑black.** `--ink-900` (`#14130E`) for headings and body. The whole neutral ramp leans warm to harmonise with parchment. Avoid bluish or cool greys — the system reads earthy, not clinical.
+- **Semantic states are restrained.** `--success` is on‑brand forest. `--warning` is a warm honey, not gold. `--danger` is iron‑oxide, not pure red. Used only when functionally required.
 
 ### Type
 
 - **A pairing, not a single family.**
-  - **Display — Instrument Serif** (regular 400 + italic). Used for h1 / h2, hero, big stat numbers, and any editorial moment. The brand's quietness sits well with a soft, contemporary serif rather than a thin sans.
-  - **Body — Lexend Light (300)** everywhere else. Loaded weights 200, 300, 400, 500, 600, 700. Smaller headings (h3+) stay sans, usually at 400. Body carries a global `-0.005em` letter-spacing tighten to compensate for Lexend's generous x-height.
-- **Italic is the accent.** Whenever a display heading needs emphasis, italicise 1–2 words in `--teal-800`. This is the brand's only typographic flourish — don't reach for bold, all-caps, or color shifts on the sans side.
-- **Tracking.** Negative on display (−0.02em). Near-normal on body (−0.005em). Wide (+0.22em) and uppercase for overline labels — this is also how the vertical wordmark in the hero is set.
-- **Line height.** Body lives at 1.5–1.65. Display lives at 1.0–1.15. Never set body lower than 1.5.
+  - **Display — Instrument Serif** (regular 400 + italic). Used for h1 / h2, hero, big stat numbers, ritual moments. Negative tracking (−0.025em), tight line‑height (1.04).
+  - **Body — Hanken Grotesk Light (300)** everywhere else. Loaded weights 300, 400, 500, 600, 700. Smaller headings (h3+) stay sans, usually at 400. Body carries a global `-0.005em` letter‑spacing tighten.
+- **Italic is the accent.** When a display heading needs emphasis, italicise 1–2 words in `--forest-700`. This is the brand's only typographic flourish — don't reach for bold, all‑caps, or hue shifts on the sans side.
+- **Tracking.** Negative on display (−0.025em). Near‑normal on body (−0.005em). Wide (+0.22em) and uppercase for overline labels — also how product‑level wordmarks (`AUDAX OS`) are set.
+- **Line height.** Body 1.5–1.65. Display 1.0–1.15. Never set body lower than 1.5.
 
 ### Spacing & layout
 
-- **4px base.** The whole scale is multiples (`--space-1` … `--space-14`).
+- **4px base.** Whole scale is multiples (`--space-1` … `--space-14`).
 - **Sections breathe.** Vertical rhythm between sections is `--space-12` (96px) and up. Hero/section openers commonly use 128–160px top padding.
-- **Containers.** `--container-narrow` (720px) for long-form text, `--container-base` (1080px) for primary content, `--container-wide` (1280px) for grids, `--container-full` (1440px) cap.
-- **Gutter.** 32px standard on desktop, 20px on tablet, 16px on mobile.
+- **Containers.** `--container-narrow` (720px) for long‑form text, `--container-base` (1080px) for primary content, `--container-wide` (1280px) for grids, `--container-full` (1440px) cap.
+- **Gutter.** 32px desktop, 20px tablet, 16px mobile.
 
 ### Backgrounds
 
-- **Default surface.** Solid white. The brand is comfortable with empty.
-- **The signature gradient** (`--grad-hero`). Vertical, teal → white. Always full-bleed across the section. Used at the top of a hero, a section opener, or the masthead of a slide. Never as a card background, never short and squat — the gradient must have room to actually fade.
-- **Watermark.** The mark, scaled large (60–80% of section height), set in `rgba(15,15,15,0.05–0.08)` and parked in a corner. It is decoration, not content. Don't overlap it with body copy.
-- **No images by default.** When photography is used, it skews **cool-neutral, soft, slightly desaturated** — no warm filters, no grain, no high contrast. Plenty of negative space in the composition.
+- **Default surface.** Warm parchment (`--surface-parchment`). The brand is comfortable with empty.
+- **The signature gradient** (`--grad-hero`). Vertical, deep forest → sage → parchment. Always full‑bleed. Used at the top of a hero, a section opener, or the masthead of a slide. Never as a card background, never short — the gradient must have room to fade.
+- **The signature imagery.** Sumi‑e brushstrokes and watercolor washes from `assets/backgrounds/` and `assets/accent-images/`. **Always paired with whitespace** — never tiled, never cropped, never tinted away from the painterly green. Used at low opacity (40–80%) as a section background, or at full opacity inside a card as an accent illustration. The brushstroke should always feel like it could keep going past the frame.
+- **Watermark.** The mark, scaled large (60–80% of section height), set in `rgba(20,19,14,0.05–0.08)` and parked in a corner. Decoration only.
+- **Inverse / "ritual" surfaces.** Deep forest (`--bg-deep`) with white text. Reserved for moments of focus — a Today opening, a meditation, an end‑of‑day reflection. Never default product chrome.
 
 ### Borders & dividers
 
-- 1px hairlines in `--ink-200` (`#E6E6E6`) or `--ink-100` for whisper-level separation.
-- The brand prefers **whitespace over rules**. If a border can be replaced by spacing, replace it.
-- Accent borders (`--teal-200`) only on focus states and selected items.
+- 1px hairlines in `--ink-200` or `--ink-100` for whisper separation.
+- **Whitespace over rules.** If a border can be replaced by spacing, replace it.
+- Accent borders (`--forest-300`) only on focus, selected items, and the "agent has spoken" marker.
 
 ### Shadows & elevation
 
-- **Whisper-soft.** Long blur, low opacity, vertical offset only. No spread. No colored shadows except `--shadow-teal` (used sparingly on the primary CTA hover).
-- Four steps: `--shadow-1` (resting card) → `--shadow-4` (modal). Most surfaces are *flat with a hairline* — shadow is a last-resort affordance.
-- Inner shadows (`--shadow-inset`) optionally on filled buttons to add a 1px white top edge.
+- **Whisper‑soft, warm‑tinted.** Long blur, low opacity, vertical offset only. Shadow base is warm ink (`rgba(20,19,14,…)`), not cold black. Four steps: `--shadow-1` (resting card) → `--shadow-4` (modal).
+- **No coloured shadows** except `--shadow-forest`, used sparingly on the primary CTA hover.
+- Most surfaces are *flat with a hairline* — shadow is a last‑resort affordance.
 
 ### Radii
 
 - Cards: 12–16px (`--radius-3`, `--radius-4`).
-- Inputs and small buttons: 8px (`--radius-2`).
+- Inputs, small buttons: 8px (`--radius-2`).
 - Chips, pills, tags: 999px (`--radius-pill`).
-- Hard corners (`--radius-0`) for full-bleed sections and modals on tablet+. We are not playful — small radii read serious.
+- Hard corners (`--radius-0`) for full‑bleed sections, modals on tablet+.
 
 ### Hover, press, focus
 
-- **Hover.** Text links: border-bottom darkens from `teal-200` to `teal-500`. Filled buttons: background steps down to `teal-700`. Cards: a subtle lift via `--shadow-2` and a 1–2px upward translate (`transform: translateY(-1px)`); no scale.
-- **Press.** Drop one shadow step and `translateY(0)` — never scale below 1.0. Color shifts to a slightly deeper teal (`teal-800`).
-- **Focus.** Always `--ring-focus` (3px teal at 35% alpha). Never remove the focus ring.
-- **Disabled.** 40% opacity OR `--ink-300` for fills. Cursor `not-allowed`. Don't remove the element.
+- **Hover.** Text links: border darkens from `forest-300` to `forest-700`, color shifts to `forest-800`. Filled buttons: background steps to `forest-800`. Cards: `--shadow-2` + `translateY(-1px)`. No scale.
+- **Press.** Drop one shadow step and `translateY(0)`. Color shifts to `forest-900`. Never scale below 1.0.
+- **Focus.** Always `--ring-focus` (3px forest at 35% alpha). Never remove the ring.
+- **Disabled.** 40% opacity OR `--ink-300` fill. Cursor `not-allowed`.
 
 ### Motion
 
-- Duration is short. `--dur-2` (180ms) is the default; `--dur-3` (260ms) for layered states. Anything over 400ms is reserved for hero/section reveals.
-- Easing is `--ease-out` (`cubic-bezier(0.22, 0.61, 0.36, 1)`) for entrances, `--ease-soft` for state changes. Bounces and elastic curves are out of voice.
-- Default entrance: 12px upward fade. No slides from the side, no scale-from-zero.
+- Duration short. `--dur-2` (200ms) default; `--dur-3` (320ms) for layered states; `--dur-4`/`--dur-5` for hero / ritual reveals.
+- Easing is `--ease-out` for entrances, `--ease-soft` for state changes. **No bounce, no elastic, no spring.** The brand does not spring.
+- Default entrance: 12px upward fade. Cascade siblings at 80–120ms intervals — like sequential brushstrokes settling.
+- **Watercolor reveal** (special): for ritual moments, fade a sumi‑e brush image in at ease‑out 720ms with `mask: linear-gradient(left)`. Used sparingly — agent introductions, end‑of‑day summaries.
 
 ### Transparency & blur
 
-- Used sparingly. Sticky headers can use a translucent white (`rgba(255,255,255,0.78)`) with `backdrop-filter: blur(12px)` — only on scroll, not at rest.
-- Glass / frosted UI is not part of the brand. Stick to solid white surfaces and rely on shadow + spacing for depth.
+- Sticky headers use translucent parchment (`rgba(251,250,243,0.82)`) with `backdrop-filter: blur(14px)` — only on scroll.
+- **Glass / frosted UI is not part of the brand.** Stick to solid parchment surfaces and rely on shadow + spacing for depth.
 
 ### Cards
 
 - White surface, 12–16px radius, 1px `--border-1` hairline, **no shadow at rest**. On hover, `--shadow-2` and `translateY(-1px)`.
 - Internal padding 32–48px. Headings stay Light. Avoid stacking colored chips inside cards — chips are for navigation, not for tagging cards.
+- A card may contain a sumi‑e accent image — placed top‑right or full‑bleed across the card's header band, never as a watermark behind body text.
 
 ### Layout rules
 
-- Stick to a 12-column grid at 1080–1280px max.
-- Vertical rhythm is more important than horizontal alignment — keep section paddings consistent (96–160px) across the page.
-- Fixed elements: the top nav (translucent on scroll), nothing else. No floating action buttons. No chat widgets in the design system.
+- 12‑column grid at 1080–1280px max. Vertical rhythm matters more than horizontal alignment — keep section paddings consistent across the page.
+- Fixed elements: the top nav (translucent on scroll), and the **agent rail** in the OS workspace (right edge, collapsible). Nothing else floats.
 
 ---
 
 ## Iconography
 
-The brand was delivered without an icon set. The chosen system is **Lucide** (1.5px stroke, rounded line caps) — it matches the brand's calm, line-based, organic feel and pairs cleanly with the calligraphic logomark.
+No icon set was delivered with the brand. We use **Lucide** (1.5px stroke, rounded line caps) — matches the calm, line‑based, organic feel and pairs cleanly with the calligraphic brand mark.
 
-- **Loaded from CDN** in `ui_kits/coherence/index.html` via `https://unpkg.com/lucide@latest`.
-- **Size scale:** 16, 20, 24, 32, 48.
-- **Stroke width:** 1.5px (one step lighter than Lucide's default 2) — matches Lexend Light's stroke contrast.
-- **Color:** `--ink-700` for default, `--accent` for active, `--ink-400` for disabled.
+- **Loaded from CDN** in `ui_kits/audax-os/index.html` via `https://unpkg.com/lucide@latest`.
+- **Size scale:** 14, 16, 20, 24, 32, 48.
+- **Stroke width:** 1.5px (one step lighter than Lucide's default 2) — matches Hanken Light's stroke contrast.
+- **Color:** `--ink-700` default, `--forest-700` active, `--ink-400` disabled.
 - **Padding inside buttons:** 8px on each side of the icon.
 
-**No emoji.** The brand does not use emoji or unicode pictographs anywhere — in product, marketing, or internal copy.
+**No emoji.** The brand uses no emoji or unicode pictographs anywhere — in product, marketing, or internal copy. AI agents do not use them in their responses either.
 
-**The mark itself is not an icon.** Don't shrink the calligraphic logo below 32px or use it as a UI glyph. For favicons we recommend a simplified single-stroke abstraction (pending — flagged for a follow-up).
+**The mark is not an icon.** Do not shrink the sigil below 32px or use it as a UI glyph. The mark exists at three layers only: hero (80–120px), nav (28–32px), favicon (16×16, hand‑traced — pending).
 
-> If Lucide doesn't have an icon you need, prefer a missing icon (or a single Lexend glyph in a circle) over drawing one in a foreign style. Don't mix icon families.
+**The painterly imagery is not iconography.** It is illustration. Treat as the band of art — never as inline glyphs.
+
+> If Lucide doesn't have an icon you need, prefer a missing icon (or a single Hanken glyph in a circle) over drawing one in a foreign style. Don't mix icon families. **Never** draw a custom icon as inline SVG — copy an existing one from `lucide` or substitute.
 
 ---
 
@@ -175,39 +188,34 @@ SKILL.md                          ← cross-compatible with Agent Skills
 colors_and_type.css               ← all design tokens + semantic element styles
 
 assets/
-  coherence-logo.svg              ← primary mark (black)
-  coherence-logo-white.svg        ← white version for teal/dark surfaces
-  coherence-logo-teal.svg         ← teal accent variant (deep teal)
-  coherence-hero-reference.png    ← original brand reference
+  audax-os-logo.png               ← primary mark, 1254×1254 (master)
+  audax-os-logo-128.png           ← nav-scale optimised
+  audax-os-logo-256.png           ← mid-scale
+  audax-os-logo-512.png           ← hero-scale
+  audax-os-logo-white-512.png     ← white-on-forest variant
+  backgrounds/                    ← 12 wide sumi-e + watercolor washes (full-bleed)
+  accent-images/                  ← 12 painterly fragments (in-card illustrations)
 
-fonts/                            ← (empty — Lexend + Instrument Serif loaded via Google Fonts)
+fonts/                            ← empty — Instrument Serif + Hanken Grotesk via Google Fonts
 
 preview/                          ← Design System tab cards
+  _base.css
   brand-mark.html
-  color-brand.html
-  color-neutrals.html
-  color-semantic.html
-  type-display.html
-  type-body.html
-  type-overline.html
-  type-scale.html
-  spacing-scale.html
-  radii.html
-  shadows.html
-  gradient.html
-  buttons.html
-  inputs.html
-  chips-and-tags.html
-  card.html
-  nav-and-footer.html
-  motion.html
-  iconography.html
+  color-brand.html · color-neutrals.html · color-lichen.html · color-semantic.html
+  type-display.html · type-body.html · type-overline.html · type-scale.html
+  spacing-scale.html · radii.html · shadows.html
+  gradient.html · imagery.html · imagery-accent.html
+  buttons.html · inputs.html · chips-and-tags.html · card.html
+  nav-and-footer.html · motion.html · iconography.html
+  agent-bubble.html · circle-row.html
 
 ui_kits/
-  coherence/
+  audax-os/                       ← the product (workspace) — primary kit
     README.md
-    index.html                    ← interactive marketing site
-    Hero.jsx · Nav.jsx · Footer.jsx
-    SectionOpener.jsx · WorkGrid.jsx · JournalList.jsx
-    Button.jsx · Field.jsx · Chip.jsx · Card.jsx
+    index.html · site.css
+    primitives.jsx                ← Logo, Button, IconBtn, Eyebrow, Who
+    Sidebar.jsx · Topbar.jsx
+    TodayView.jsx · CirclesView.jsx · PlaceholderView.jsx
+    AgentRail.jsx                 ← right-side agent (Iris) + composer
+    app.jsx                       ← shell + state + canned agent replies
 ```

@@ -1,104 +1,148 @@
 /* ============================================================
-   COHERENCE DESIGN SYSTEM — TOKENS
+   AUDAX OS — DESIGN TOKENS
    ------------------------------------------------------------
-   Brand: The Coherence Company
-   Style: minimal · light · teal-accented · generous whitespace
+   Brand: Audax OS — the operating system for a wise society
+          bringing humans and AI agents into thriving collaboration.
+   Visual DNA: sumi-e ink on parchment · regenerative forest greens
+               · sacred geometry · watercolor washes · calm light
+   Adapted from the structural system at github.com/TheCoherenceCompany/audax.earth
+   (typography pairing, scale, spacing rhythm). Colors, gradients and
+   surface tones replaced with the Audax palette drawn from the
+   watercolor / sumi-e brand imagery in assets/.
    ============================================================ */
 
 /* --- Type --------------------------------------------------- */
-/* Body/UI is Lexend (Light 300 preferred per brand brief).
-   Display is Instrument Serif (regular + italic) — used for hero,
-   section titles, big stat numbers and editorial moments.
-   No font files were provided, so we load both from Google Fonts.
-   Noto Sans is kept as a token fallback only — do not use directly. */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Lexend:wght@200;300;400;500;600;700&family=Noto+Serif:wght@300;400;500;600&display=swap');
+/* Display: Instrument Serif (regular + italic) — calm, contemporary, slightly
+   editorial. Used for h1 / h2, the hero, big stat numbers, ritual moments.
+   Body: Hanken Grotesk (Light 300 preferred) — a warm humanist sans, less
+   neutral than Inter or Lexend; pairs well with the painterly imagery.
+   Mono: JetBrains Mono — used in code, agent traces, system prompts.
+   No font files were provided, so all three load from Google Fonts.
+   Once you have licensed .woff2 files, drop them in /fonts and swap
+   the @import for local @font-face blocks. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* ────────── COLOR — BRAND ────────── */
-  --teal-500: #4BDBDB;   /* primary accent — gradient top of brand hero */
-  --teal-400: #6FE2E2;
-  --teal-300: #9DECEC;
-  --teal-200: #B1EFEF;   /* light teal — gradient mid */
-  --teal-100: #D6F6F6;   /* pale teal */
-  --teal-050: #EEFBFB;   /* ghost teal — backgrounds */
-  --teal-700: #2BB8B8;   /* deep — hover/active */
-  --teal-800: #1F9A9A;
-  --teal-900: #156D6D;
+  /* ────────── COLOR — BRAND (FOREST / EMERALD) ────────── */
+  /* Drawn from the deep watercolor washes in assets/backgrounds/.
+     Primary is a deep ink-green that reads as both forest canopy
+     and sumi-e ink. Use sparingly — like the brushstroke imagery,
+     it earns weight by sitting in lots of whitespace. */
+  --forest-900: #0E2419;   /* sumi-e ink — bottom of a brushstroke */
+  --forest-800: #163322;   /* deep emerald — primary heading on light */
+  --forest-700: #1F4D2E;   /* canonical brand — buttons, links */
+  --forest-600: #2D6B41;   /* mid emerald — hover/active */
+  --forest-500: #3F8657;   /* leaf — accents, charts */
+  --forest-400: #6BA37C;   /* sage — secondary surfaces */
+  --forest-300: #9CBFA3;   /* pale sage */
+  --forest-200: #C8DBC9;   /* whisper sage */
+  --forest-100: #E2EBDD;   /* mist sage — backgrounds */
+  --forest-050: #F0F4EC;   /* parchment-sage */
 
-  /* ────────── COLOR — INK & SURFACE ────────── */
-  --ink-900: #0F0F0F;     /* logo black, headings */
-  --ink-800: #1A1A1A;
-  --ink-700: #333333;     /* primary body */
-  --ink-600: #555555;     /* secondary body */
-  --ink-500: #777777;     /* tertiary / captions */
-  --ink-400: #9A9A9A;     /* hints */
-  --ink-300: #C4C4C4;     /* disabled */
-  --ink-200: #E6E6E6;     /* borders */
-  --ink-100: #F1F1F1;     /* hairlines */
-  --ink-050: #F8F8F8;     /* subtle surface */
+  /* ────────── COLOR — LICHEN ACCENT ────────── */
+  /* The yellow-green that appears at the edges of the brand
+     imagery. Used only as a secondary accent — never on body
+     copy, never as a primary fill. Think: a single moss-yellow
+     highlight on a calligraphic stroke. */
+  --lichen-500: #B8C766;   /* canonical lichen */
+  --lichen-400: #C7D27B;
+  --lichen-300: #D6DD96;
+  --lichen-200: #E3E8B5;
+  --lichen-100: #EEF0D2;
+  --lichen-050: #F6F7E6;
 
-  --surface-white: #FFFFFF;
-  --surface-off:   #FAFBFB;   /* page bg alternative */
-  --surface-card:  #FFFFFF;
+  /* ────────── COLOR — INK & PARCHMENT ────────── */
+  /* Ink is warm-black, slightly green-tinted to harmonise
+     with the forest palette and the sumi-e brushwork.
+     Parchment surfaces lean warm and quiet — never blue-cool. */
+  --ink-900: #14130E;     /* primary ink — headings, body */
+  --ink-800: #1F1E18;
+  --ink-700: #3A3830;     /* primary body text */
+  --ink-600: #5C5A50;     /* secondary body */
+  --ink-500: #807D72;     /* tertiary / captions */
+  --ink-400: #A8A59B;     /* hints, placeholder */
+  --ink-300: #C9C6BD;     /* disabled */
+  --ink-200: #E3E0D6;     /* borders */
+  --ink-100: #EFEDE4;     /* hairlines */
+  --ink-050: #F7F5EC;     /* warm inset surface */
+
+  --surface-white:     #FFFFFF;
+  --surface-parchment: #FBFAF3;   /* primary page background — warm off-white */
+  --surface-paper:     #F7F5EC;   /* alternate / inset surface */
+  --surface-card:      #FFFFFF;
 
   /* ────────── COLOR — SEMANTIC ────────── */
-  --fg-1: var(--ink-900);     /* highest emphasis text */
+  --fg-1: var(--ink-900);     /* highest emphasis */
   --fg-2: var(--ink-700);     /* body text */
   --fg-3: var(--ink-500);     /* secondary / metadata */
   --fg-4: var(--ink-400);     /* placeholder */
-  --fg-on-teal: var(--ink-900);
-  --fg-on-dark: #FFFFFF;
+  --fg-on-forest: #FFFFFF;
+  --fg-on-lichen: var(--forest-900);
 
-  --bg-1: var(--surface-white);
-  --bg-2: var(--surface-off);
-  --bg-3: var(--ink-050);
-  --bg-accent: var(--teal-050);
+  --bg-1: var(--surface-parchment);
+  --bg-2: var(--surface-white);
+  --bg-3: var(--surface-paper);
+  --bg-accent: var(--forest-050);
+  --bg-deep:   var(--forest-900);   /* full-bleed dark moments */
 
   --border-1: var(--ink-200);
   --border-2: var(--ink-100);
   --border-strong: var(--ink-300);
-  --border-accent: var(--teal-200);
+  --border-accent: var(--forest-300);
 
-  --accent: var(--teal-500);
-  --accent-hover: var(--teal-700);
-  --accent-soft: var(--teal-100);
+  --accent: var(--forest-700);
+  --accent-hover: var(--forest-800);
+  --accent-soft: var(--forest-100);
 
-  --success: #2BB874;
-  --warning: #E0A02C;
-  --danger:  #D9534F;
-  --info:    var(--teal-500);
+  --highlight: var(--lichen-500);     /* the secondary accent — use rarely */
+
+  --success: #2D6B41;          /* = forest-600, on-brand */
+  --warning: #B8884A;          /* warm honey, not gold */
+  --danger:  #9E3B2E;          /* iron-oxide, not pure red */
+  --info:    var(--forest-500);
 
   /* ────────── BRAND GRADIENT ────────── */
-  /* The signature wash: bright teal → white, top → bottom.
-     Use full-bleed for headers/heroes; use teal-050 for cards. */
+  /* The signature wash: deep forest fading down through sage to parchment.
+     Mirrors the watercolor brand imagery. Always full-bleed; never short.
+     `--grad-hero` is the hero wash, `--grad-soft` for subtler section
+     openers, `--grad-deep` for inverse / "ritual" surfaces. */
   --grad-hero: linear-gradient(180deg,
-                  var(--teal-500) 0%,
-                  var(--teal-200) 22%,
-                  var(--teal-100) 38%,
-                  var(--teal-050) 55%,
-                  #FFFFFF 80%);
-  --grad-soft: linear-gradient(180deg, var(--teal-050) 0%, #FFFFFF 100%);
-  --grad-edge: linear-gradient(180deg, var(--teal-500) 0%, var(--teal-200) 100%);
+                  var(--forest-800) 0%,
+                  var(--forest-600) 18%,
+                  var(--forest-400) 38%,
+                  var(--forest-200) 58%,
+                  var(--forest-100) 74%,
+                  var(--surface-parchment) 92%);
+  --grad-soft: linear-gradient(180deg,
+                  var(--forest-100) 0%,
+                  var(--surface-parchment) 100%);
+  --grad-lichen: linear-gradient(180deg,
+                  var(--lichen-100) 0%,
+                  var(--surface-parchment) 100%);
+  --grad-deep: radial-gradient(120% 80% at 50% 0%,
+                  var(--forest-700) 0%,
+                  var(--forest-900) 60%,
+                  #060D09 100%);
+  --grad-edge: linear-gradient(180deg, var(--forest-700) 0%, var(--forest-400) 100%);
 
   /* ────────── TYPE — FAMILIES ────────── */
-  --font-sans:    "Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-display: "Instrument Serif", "Noto Serif", Georgia, "Times New Roman", serif;
-  --font-serif:   "Noto Serif", Georgia, "Times New Roman", serif;
-  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-sans:    "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-serif:   "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* ────────── TYPE — WEIGHTS ────────── */
   --w-thin: 200;
-  --w-light: 300;     /* default body per brand brief */
+  --w-light: 300;     /* default body */
   --w-regular: 400;
   --w-medium: 500;
   --w-semibold: 600;
   --w-bold: 700;
 
   /* ────────── TYPE — SCALE ────────── */
-  /* A minimal scale — generous, calm, like the brand. */
-  --t-display: 72px;   /* hero */
-  --t-h1: 48px;
-  --t-h2: 36px;
+  --t-display: 84px;   /* hero / ritual moments */
+  --t-h1: 52px;
+  --t-h2: 38px;
   --t-h3: 28px;
   --t-h4: 22px;
   --t-h5: 18px;
@@ -106,21 +150,21 @@
   --t-body: 16px;
   --t-body-sm: 14px;
   --t-caption: 12px;
-  --t-overline: 11px;  /* uppercase, wide-tracked */
+  --t-overline: 11px;
 
-  --lh-tight: 1.1;
+  --lh-tight: 1.05;
   --lh-snug: 1.25;
   --lh-normal: 1.5;
   --lh-relaxed: 1.65;
   --lh-loose: 1.8;
 
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.022em;
   --tracking-normal: 0;
   --tracking-wide: 0.04em;
-  --tracking-overline: 0.22em;   /* vertical brand text "THE COHERENCE COMPANY" */
+  --tracking-overline: 0.22em;
 
   /* ────────── SPACING ────────── */
-  /* 4px base. Generous whitespace is part of the brand. */
+  /* 4px base. Generous — empty space is part of the brand. */
   --space-0: 0;
   --space-1: 4px;
   --space-2: 8px;
@@ -138,7 +182,6 @@
   --space-14: 160px;
 
   /* ────────── RADII ────────── */
-  /* Soft, not playful. Cards 12-16; chips 999. */
   --radius-0: 0;
   --radius-1: 4px;
   --radius-2: 8px;
@@ -148,25 +191,29 @@
   --radius-pill: 999px;
 
   /* ────────── SHADOWS ────────── */
-  /* Whisper-soft. Long blur, low opacity. No colored shadows. */
+  /* Whisper-soft, warm-tinted (the ink-900 base shifts shadows away
+     from cold blue grey). No colored shadows except `--shadow-forest`
+     used sparingly on the primary CTA hover. */
   --shadow-0: none;
-  --shadow-1: 0 1px 2px rgba(15,15,15,0.04), 0 1px 1px rgba(15,15,15,0.03);
-  --shadow-2: 0 2px 8px rgba(15,15,15,0.04), 0 1px 2px rgba(15,15,15,0.03);
-  --shadow-3: 0 8px 24px rgba(15,15,15,0.06), 0 2px 6px rgba(15,15,15,0.03);
-  --shadow-4: 0 16px 48px rgba(15,15,15,0.08), 0 4px 12px rgba(15,15,15,0.04);
-  --shadow-teal: 0 8px 24px rgba(75,219,219,0.25);
-  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.6);
-  --ring-focus: 0 0 0 3px rgba(75,219,219,0.35);
+  --shadow-1: 0 1px 2px rgba(20,19,14,0.05), 0 1px 1px rgba(20,19,14,0.03);
+  --shadow-2: 0 2px 10px rgba(20,19,14,0.05), 0 1px 2px rgba(20,19,14,0.04);
+  --shadow-3: 0 10px 28px rgba(20,19,14,0.07), 0 2px 6px rgba(20,19,14,0.04);
+  --shadow-4: 0 20px 56px rgba(20,19,14,0.10), 0 4px 14px rgba(20,19,14,0.05);
+  --shadow-forest: 0 10px 28px rgba(31,77,46,0.30);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.55);
+  --ring-focus: 0 0 0 3px rgba(63,134,87,0.35);
+  --ring-focus-lichen: 0 0 0 3px rgba(184,199,102,0.45);
 
   /* ────────── MOTION ────────── */
-  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);     /* default fades, slides */
+  /* Calm. Nothing bounces. */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
   --dur-1: 120ms;
-  --dur-2: 180ms;
-  --dur-3: 260ms;
-  --dur-4: 400ms;
-  --dur-5: 600ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 480ms;
+  --dur-5: 720ms;
 
   /* ────────── LAYOUT ────────── */
   --container-narrow: 720px;
@@ -185,7 +232,7 @@ html, body {
   font-weight: var(--w-light);
   font-size: var(--t-body);
   line-height: var(--lh-relaxed);
-  letter-spacing: -0.005em;     /* Lexend has a wider x-height; tighten slightly. */
+  letter-spacing: -0.005em;
   color: var(--fg-2);
   background: var(--bg-1);
   -webkit-font-smoothing: antialiased;
@@ -194,37 +241,35 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--fg-1);
-  font-weight: var(--w-light);     /* light by default per brand */
+  font-weight: var(--w-light);
   letter-spacing: var(--tracking-tight);
   line-height: var(--lh-tight);
   margin: 0;
   text-wrap: balance;
 }
 
-/* Display headings (h1, h2) use the serif. Smaller headings stay sans. */
+/* Display headings (h1, h2) use the serif. */
 h1, h2, .t-display {
   font-family: var(--font-display);
   font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
 }
-/* Italic em inside a display heading is the brand accent. */
+/* Italic em inside a display heading is the brand's only typographic accent. */
 h1 em, h2 em, .t-display em {
   font-style: italic;
   font-weight: 400;
-  color: var(--teal-800);
+  color: var(--forest-700);
 }
 
 h1 { font-size: var(--t-h1); }
 h2 { font-size: var(--t-h2); }
-h3 { font-size: var(--t-h3); line-height: var(--lh-snug); }
+h3 { font-size: var(--t-h3); line-height: var(--lh-snug); font-weight: var(--w-regular); }
 h4 { font-size: var(--t-h4); line-height: var(--lh-snug); font-weight: var(--w-regular); }
 h5 { font-size: var(--t-h5); line-height: var(--lh-snug); font-weight: var(--w-medium); letter-spacing: 0; }
 
 .t-display {
-  font-family: var(--font-display);
   font-size: var(--t-display);
-  font-weight: 400;
-  letter-spacing: var(--tracking-tight);
-  line-height: var(--lh-tight);
   color: var(--fg-1);
 }
 
@@ -254,10 +299,10 @@ small { font-size: var(--t-body-sm); color: var(--fg-3); }
 a {
   color: var(--ink-900);
   text-decoration: none;
-  border-bottom: 1px solid var(--teal-200);
+  border-bottom: 1px solid var(--forest-300);
   transition: border-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
 }
-a:hover { border-bottom-color: var(--teal-500); }
+a:hover { border-bottom-color: var(--forest-700); color: var(--forest-800); }
 
 code, kbd, samp, pre {
   font-family: var(--font-mono);
@@ -268,7 +313,7 @@ code {
   border: 1px solid var(--border-2);
   padding: 1px 6px;
   border-radius: var(--radius-1);
-  color: var(--ink-800);
+  color: var(--forest-800);
 }
 
 hr {
@@ -278,4 +323,4 @@ hr {
   margin: var(--space-9) 0;
 }
 
-::selection { background: var(--teal-200); color: var(--ink-900); }
+::selection { background: var(--forest-200); color: var(--forest-900); }
