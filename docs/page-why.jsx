@@ -144,7 +144,7 @@ const PageWhy = ({ onNav }) => (
             Audax OS is an open framework for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
           </p>
           <div className="hero-ctas">
-            <Button size="lg" icon="arrow-right" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>Join the dialogue</Button>
+            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
           </div>
           <div style={{ marginTop: 64, maxWidth: 760 }}>
             <TransitionVisual />
@@ -511,7 +511,7 @@ const PageWhy = ({ onNav }) => (
           We are not looking for spectators. We are looking for people carrying pieces of the answer.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')} icon="arrow-right">Join the dialogue</Button>
+          <Button onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join the dialogue</Button>
           <Button variant="ghost" onClick={() => onNav('spheres')}>Explore the Spheres</Button>
         </div>
       </div>

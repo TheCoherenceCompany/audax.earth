@@ -86,7 +86,7 @@ const PageWhoFor = ({ onNav }) => (
             We have identified a problem space that is becoming impossible to ignore. We are inviting the people who can help turn the first map into shared practice.
           </p>
           <div className="hero-ctas" style={{ marginTop: 48 }}>
-            <Button size="lg" icon="arrow-right" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>
+            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join the dialogue
             </Button>
           </div>
@@ -224,7 +224,7 @@ const PageWhoFor = ({ onNav }) => (
                 <div>
                   <h6>What you might help shape</h6>
                   <ul>{a.bring.map(x => <li key={x}>{x}</li>)}</ul>
-                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open('https://invite.the-gathering.earth/coherence', '_blank'); }}>
+                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open(JOIN_URL, '_blank'); }}>
                     Join the dialogue <span style={{ fontSize: 16 }}>&rarr;</span>
                   </a>
                 </div>
@@ -273,7 +273,7 @@ const PageWhoFor = ({ onNav }) => (
                 <div>
                   <h6>What you might help shape</h6>
                   <ul>{a.bring.map(x => <li key={x}>{x}</li>)}</ul>
-                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open('https://invite.the-gathering.earth/coherence', '_blank'); }}>
+                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open(JOIN_URL, '_blank'); }}>
                     Join the dialogue <span style={{ fontSize: 16 }}>&rarr;</span>
                   </a>
                 </div>
@@ -649,7 +649,7 @@ const PageWhoFor = ({ onNav }) => (
             <p style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: '0 0 32px', maxWidth: 520 }}>
               Audax OS begins as a shared inquiry. It becomes real through the people willing to shape it.
             </p>
-            <Button size="lg" icon="arrow-right" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>
+            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join the founding dialogue
             </Button>
           </div>
@@ -679,7 +679,7 @@ const PageWhoFor = ({ onNav }) => (
       title="If you are carrying<br />part of this question — <em>join the table.</em>"
       body="Audax OS begins as a shared inquiry. It becomes real through the people willing to shape it."
       primary="Join the dialogue"
-      onPrimary={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}
+      onPrimary={() => window.open(JOIN_URL, '_blank')}
     />
   </>
 );

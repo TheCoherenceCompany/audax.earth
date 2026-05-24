@@ -109,7 +109,7 @@ const PageSpheres = ({ onNav }) => (
           </div>
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>Explore the five spheres</Button>
-            <Button size="lg" variant="secondary" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>Join the dialogue</Button>
+            <Button size="lg" variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
           </div>
         </div>
       </div>
@@ -475,7 +475,7 @@ const PageSpheres = ({ onNav }) => (
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button onClick={() => onNav('layers')} icon="arrow-right">Explore the Layers</Button>
-          <Button variant="ghost" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>Join the dialogue</Button>
+          <Button variant="ghost" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
         </div>
       </div>
     </section>

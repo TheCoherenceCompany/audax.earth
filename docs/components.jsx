@@ -118,7 +118,7 @@ const SectionHead = ({ eyebrow, title, sub, center }) => (
 
 // Generic CTA band (deep forest with subtle wash + lichen primary CTA)
 const CTA_WASH = '../assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
-const JOIN_URL = 'https://invite.the-gathering.earth/coherence';
+const JOIN_URL = 'https://t.me/+msbQmsbxpAg4Yjk8';
 
 const CtaBand = ({ title, body, primary = 'Join the dialogue', secondary = null, onPrimary, onSecondary }) => (
   <section className="cta-band" style={{ '--cta-image': `url(${CTA_WASH})` }}>

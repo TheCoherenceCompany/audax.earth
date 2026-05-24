@@ -127,7 +127,7 @@ const PageLayers = ({ onNav }) => (
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
               Explore the five layers
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>
+            <Button size="lg" variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join the dialogue
             </Button>
           </div>
@@ -617,7 +617,7 @@ const PageLayers = ({ onNav }) => (
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
             <Button size="lg" icon="arrow-right" onClick={() => onNav('modes')}>Explore Modes</Button>
-            <Button variant="secondary" onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')}>Join the dialogue</Button>
+            <Button variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
           </div>
         </div>
       </div>
@@ -630,7 +630,7 @@ const PageLayers = ({ onNav }) => (
         <h2>Help design coherence <em>across every scale.</em></h2>
         <p>The layers are where everything else has to land. Bring your scale, your context, your question.</p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => window.open('https://invite.the-gathering.earth/coherence', '_blank')} icon="arrow-right">Join the dialogue</Button>
+          <Button onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join the dialogue</Button>
           <Button variant="ghost" onClick={() => onNav('modes')}>Explore Modes</Button>
         </div>
       </div>
