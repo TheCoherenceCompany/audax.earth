@@ -13,10 +13,10 @@ const PAGES = [
 
 const Logo = ({ size = 30, variant }) => {
   const src = variant === 'white'
-    ? '../assets/audax-os-logo-white-512.png'
-    : size <= 32 ? '../assets/audax-os-logo-128.png'
-    : size <= 64 ? '../assets/audax-os-logo-256.png'
-    :              '../assets/audax-os-logo-512.png';
+    ? 'assets/audax-os-logo-white-512.png'
+    : size <= 32 ? 'assets/audax-os-logo-128.png'
+    : size <= 64 ? 'assets/audax-os-logo-256.png'
+    :              'assets/audax-os-logo-512.png';
   return <img src={src} width={size} height={size} alt="Audax OS" style={{ display: 'block' }} />;
 };
 
@@ -117,7 +117,7 @@ const SectionHead = ({ eyebrow, title, sub, center }) => (
 );
 
 // Generic CTA band (deep forest with subtle wash + lichen primary CTA)
-const CTA_WASH = '../assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+const CTA_WASH = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
 const JOIN_URL = 'https://t.me/+msbQmsbxpAg4Yjk8';
 
 const CtaBand = ({ title, body, primary = 'Join the dialogue', secondary = null, onPrimary, onSecondary }) => (

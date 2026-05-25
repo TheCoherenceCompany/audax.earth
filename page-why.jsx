@@ -2,8 +2,8 @@
    13 question-led sections, manifesto + field guide.
    Source copy: client brief (Audax OS — Why Page Revised Draft). */
 
-const HERO_WHY = '../assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
-const NODE_FIELD_BG = '../assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png';
+const HERO_WHY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
+const NODE_FIELD_BG = 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png';
 
 const Section = ({ n, q, children, bg, narrow }) => (
   <section className="section" style={bg ? { background: bg } : null}>

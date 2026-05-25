@@ -2,7 +2,7 @@
    16 question-led sections.
    An invitation to co-creators, not a customer segmentation page. */
 
-const HERO_WHO = '../assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const HERO_WHO = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
 
 const PRIMARY_AUDIENCES = [
   {

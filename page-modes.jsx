@@ -3,7 +3,7 @@
    Three modes of collaboration:
    Human to Human · Human to Agent · Agent to Agent */
 
-const HERO_MOD = '../assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+const HERO_MOD = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
 
 const MODES_META = [
   {
@@ -11,21 +11,21 @@ const MODES_META = [
     coreQ: 'How do people collaborate with trust, clarity, commitment, and care?',
     needs: ['purpose', 'agreements', 'trust', 'communication', 'conflict pathways', 'visible commitments', 'value recognition', 'learning loops', 'human presence'],
     principle: 'Use agents to make human collaboration more humane, not more managed.',
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png'
   },
   {
     n: 'II', glyph: 'H ↔ A', name: 'Human to Agent',
     coreQ: 'How do humans delegate to, collaborate with, guide, and learn from AI agents?',
     needs: ['context', 'role clarity', 'permissions', 'boundaries', 'decision rights', 'memory visibility', 'feedback loops', 'escalation rules', 'human accountability'],
     principle: 'Agents need role clarity before autonomy.',
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png'
   },
   {
     n: 'III', glyph: 'A ↔ A', name: 'Agent to Agent',
     coreQ: 'How do agents coordinate with other agents without creating invisible bureaucracy?',
     needs: ['agent identity', 'capability registry', 'shared work ontology', 'delegation contracts', 'provenance', 'audit trails', 'conflict detection', 'interruption points', 'human-readable summaries'],
     principle: 'Protocols before autonomy.',
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.png'
   }
 ];
 

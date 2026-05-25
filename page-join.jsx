@@ -1,6 +1,6 @@
 /* Audax OS site · Join page */
 
-const HERO_JOIN = '../assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const HERO_JOIN = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
 
 const ROLES = [
   'Organisation designer',

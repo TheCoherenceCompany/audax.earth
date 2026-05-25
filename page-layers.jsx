@@ -3,38 +3,38 @@
    The vertical architecture of Audax OS:
    Individual · Team · Organisation · Organisation Family · Ecosystem */
 
-const HERO_LAY = '../assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
+const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
 
 const LAYERS_META = [
   {
     n: 'I', key: 'individual', name: 'Individual',
     coreQ: 'How does one person stay coherent across commitments, contribution, learning, capacity, boundaries, and livelihood?',
     visible: ['commitments', 'capacity', 'contribution history', 'learning goals', 'income visibility', 'reputation', 'agency', 'boundaries', 'personal agents'],
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_665f5682-387b-4bfc-8d42-1ec3a675a53c_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_665f5682-387b-4bfc-8d42-1ec3a675a53c_2.png'
   },
   {
     n: 'II', key: 'team', name: 'Team',
     coreQ: 'How does a group coordinate work, trust, rhythm, decisions, delivery, and learning?',
     visible: ['agreements', 'missions', 'roles', 'commitments', 'decision norms', 'relationship health', 'learning loops', 'delivery rhythm', 'supporting agents'],
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png'
   },
   {
     n: 'III', key: 'org', name: 'Organisation',
     coreQ: 'How does the whole organisation coordinate purpose, governance, value, culture, work, communication, and agents?',
     visible: ['purpose', 'strategy', 'governance', 'value flows', 'organisational health', 'cross-team dependencies', 'agent governance', 'communication rhythms', 'learning systems'],
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_da3bc6e8-30ff-4a17-a128-88483a0499f1_3.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_da3bc6e8-30ff-4a17-a128-88483a0499f1_3.png'
   },
   {
     n: 'IV', key: 'family', name: 'Organisation Family',
     coreQ: 'How do related organisations share infrastructure, talent, learning, capital, and purpose without becoming one?',
     visible: ['shared infrastructure', 'talent flow', 'capital flow', 'shared services', 'cross-org missions', 'common agreements', 'portfolio learning', 'synergies', 'agent interoperability'],
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_2.png'
   },
   {
     n: 'V', key: 'ecosystem', name: 'Ecosystem',
     coreQ: 'How do independent actors discover alignment, build trust, coordinate missions, and learn together without central control?',
     visible: ['ecosystem actors', 'open missions', 'shared questions', 'trust signals', 'partnership pathways', 'contribution flows', 'learning commons', 'collective intelligence', 'ecosystem agents'],
-    art: '../assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_2.png'
   }
 ];
 
