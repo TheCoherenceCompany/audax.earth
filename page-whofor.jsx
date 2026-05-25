@@ -178,36 +178,127 @@ const ConvergingForces = () => {
   );
 };
 
-/* ─── 5 · REMOTE CONSTELLATION (rhythm lines) ─────────────────────────── */
+/* ─── 5 · REMOTE CONSTELLATION — Mayan Sun Stone calendar ─────────────── */
 const RemoteConstellation = () => {
-  const nodes = [
-    [120, 80], [300, 60], [490, 100], [620, 180],
-    [560, 320], [380, 360], [200, 320], [70, 220],
-    [240, 200], [430, 220]
-  ];
+  const [t, setT] = React.useState(0);
+  React.useEffect(() => {
+    let raf, last = performance.now();
+    const tick = (now) => { setT(x => x + (now - last) / 1000); last = now; raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  /* rotation angles in degrees */
+  const r1 = t * 12;    /* inner ring  — fastest, clockwise */
+  const r2 = -(t * 8);  /* middle ring — counter-clockwise */
+  const r3 = t * 5;     /* outer ring  — slow, clockwise */
+
+  /* helper: evenly-spaced tick lines on a circle */
+  const ticks = (radius, count, inset, outset, stroke, sw) =>
+    [...Array(count)].map((_, i) => {
+      const a = (i / count) * Math.PI * 2;
+      const c = Math.cos(a), s = Math.sin(a);
+      return <line key={i} x1={c*(radius-inset)} y1={s*(radius-inset)} x2={c*(radius+outset)} y2={s*(radius+outset)} stroke={stroke} strokeWidth={sw} />;
+    });
+
+  const TEAM_ANGLES = [0, 60, 120, 180, 240, 300].map(d => d * Math.PI / 180);
+
   return (
-    <svg viewBox="0 0 720 420" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
-      {/* rhythm lines — async pulses */}
-      <g stroke={FOREST_MID} strokeWidth="0.6" fill="none" opacity="0.5">
-        {nodes.map((a, i) => nodes.slice(i + 1, i + 4).map((b, j) => (
-          <line key={`${i}-${j}`} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} strokeDasharray="3 6" />
-        )))}
+    <svg viewBox="-330 -330 660 740" preserveAspectRatio="xMidYMid meet"
+         style={{ width: '100%', maxWidth: 560, margin: '0 auto', display: 'block' }}>
+      <defs>
+        <radialGradient id="rc-core" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#4A9E63" />
+          <stop offset="100%" stopColor="#1F4D2E" />
+        </radialGradient>
+        <radialGradient id="rc-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#E2EBDD" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#E2EBDD" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* ambient glow */}
+      <circle cx="0" cy="0" r="320" fill="url(#rc-glow)" />
+
+      {/* static outer frame — two concentric hairlines */}
+      <circle cx="0" cy="0" r="314" fill="none" stroke="#C8D4C4" strokeWidth="1.2" />
+      <circle cx="0" cy="0" r="308" fill="none" stroke="#C8D4C4" strokeWidth="0.4" strokeDasharray="1 10" />
+
+      {/* ── Ring 3: outer / slow CW / 20-division (Mayan month) / 6 team dots ── */}
+      <g transform={`rotate(${r3})`}>
+        <circle cx="0" cy="0" r="268" fill="none" stroke={LICHEN} strokeWidth="0.9" />
+        {ticks(268, 20, 5, 7, LICHEN, 1.4)}
+        {/* larger accent marks at 5-step intervals */}
+        {ticks(268, 4, 8, 14, LICHEN, 2.2)}
+        {/* 6 team-member dots */}
+        {TEAM_ANGLES.map((a, i) => {
+          const x = Math.cos(a) * 268, y = Math.sin(a) * 268;
+          return (
+            <g key={i}>
+              <circle cx={x} cy={y} r="12" fill="#FBFAF3" stroke={FOREST} strokeWidth="1.5" />
+              <circle cx={x} cy={y} r="4.5" fill={FOREST} />
+            </g>
+          );
+        })}
       </g>
-      {/* commitment ledgers — labelled dots */}
-      {nodes.map(([x, y], i) => (
-        <g key={i}>
-          <circle cx={x} cy={y} r="9" fill="#FBFAF3" stroke={FOREST} strokeWidth="1.4" />
-          <circle cx={x} cy={y} r="3" fill={FOREST} />
-        </g>
-      ))}
-      {/* pulse glyph */}
-      <g transform="translate(360 200)">
-        <circle r="48" fill="none" stroke={FOREST} strokeWidth="1" />
-        <circle r="78" fill="none" stroke={FOREST} strokeWidth="0.5" strokeDasharray="2 6" />
-        <text y="-4" textAnchor="middle" fontFamily={SERIF} fontSize="15" fill={INK}>rhythm</text>
-        <text y="14" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>ASYNC · TRUST</text>
+
+      {/* ── Ring 2: middle / counter-CW / 13-division (Mayan trecena) / diamond accents ── */}
+      <g transform={`rotate(${r2})`}>
+        <circle cx="0" cy="0" r="200" fill="none" stroke={FOREST_MID} strokeWidth="1" />
+        {ticks(200, 13, 5, 7, FOREST_MID, 1.3)}
+        {/* 4 diamond accent marks at cardinal positions */}
+        {[0, 90, 180, 270].map((deg, i) => {
+          const a = deg * Math.PI / 180;
+          const cx = Math.cos(a) * 200, cy = Math.sin(a) * 200;
+          const tx = -Math.sin(a), ty = Math.cos(a); /* tangent */
+          return (
+            <polygon key={i}
+              points={`${cx+tx*6},${cy+ty*6} ${cx+Math.cos(a)*9},${cy+Math.sin(a)*9} ${cx-tx*6},${cy-ty*6} ${cx-Math.cos(a)*5},${cy-Math.sin(a)*5}`}
+              fill={FOREST_MID}
+            />
+          );
+        })}
       </g>
-      <text x="360" y="402" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>REMOTE TEAM · INTENTIONAL COORDINATION</text>
+
+      {/* ── Ring 1: inner / fast CW / 8 cardinal marks + triangular sun-ray notches ── */}
+      <g transform={`rotate(${r1})`}>
+        <circle cx="0" cy="0" r="138" fill="none" stroke={FOREST} strokeWidth="1.5" />
+        {/* 8 ticks, alternating long/short */}
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => {
+          const a = deg * Math.PI / 180;
+          const isCard = i % 2 === 0;
+          return (
+            <line key={i}
+              x1={Math.cos(a)*(138-7)} y1={Math.sin(a)*(138-7)}
+              x2={Math.cos(a)*(138+(isCard?13:7))} y2={Math.sin(a)*(138+(isCard?13:7))}
+              stroke={FOREST} strokeWidth={isCard ? 2.4 : 1.4}
+            />
+          );
+        })}
+        {/* 4 sun-ray triangles at cardinal positions */}
+        {[0, 90, 180, 270].map((deg, i) => {
+          const a = deg * Math.PI / 180;
+          const cx0 = Math.cos(a) * 138, cy0 = Math.sin(a) * 138;
+          const tx = -Math.sin(a), ty = Math.cos(a);
+          return (
+            <polygon key={i}
+              points={`${cx0+tx*7},${cy0+ty*7} ${cx0+Math.cos(a)*18},${cy0+Math.sin(a)*18} ${cx0-tx*7},${cy0-ty*7}`}
+              fill={FOREST} opacity="0.85"
+            />
+          );
+        })}
+      </g>
+
+      {/* ── Core ── */}
+      <circle cx="0" cy="0" r="95" fill="url(#rc-core)" />
+      <circle cx="0" cy="0" r="92" fill="none" stroke="#4A9E63" strokeWidth="1" />
+      <circle cx="0" cy="0" r="84" fill="none" stroke="#4A9E63" strokeWidth="0.4" opacity="0.5" />
+      <text x="0" y="12" textAnchor="middle" fontFamily={SERIF} fontSize="30" fill="#fff" fontStyle="italic">rhythm</text>
+
+      {/* bottom label */}
+      <text x="0" y="378" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>
+        REMOTE TEAM · INTENTIONAL COORDINATION
+      </text>
     </svg>
   );
 };

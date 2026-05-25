@@ -4,6 +4,11 @@
    Human to Human · Human to Agent · Agent to Agent */
 
 const HERO_MOD = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+// Chapter-band backgrounds (kept distinct from the page hero so each break
+// brings a new atmosphere rather than echoing the opener).
+const BAND_MODE_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.png';
+const BAND_MODE_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
+const BAND_MODE_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
 
 const MODES_META = [
   {
@@ -176,6 +181,13 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 5 · MODE I — HUMAN TO HUMAN ──────────────────────────────────────── */}
+    <ChapterBand
+      image={BAND_MODE_1}
+      kicker="Mode I"
+      numeral="H ↔ H"
+      label="Human to Human"
+      tint="forest"
+    />
     <ModeSection
       mode={MODES_META[0]}
       deep={{
@@ -202,6 +214,13 @@ const PageModes = ({ onNav }) => (
     />
 
     {/* ─── 6 · MODE II — HUMAN TO AGENT ─────────────────────────────────────── */}
+    <ChapterBand
+      image={BAND_MODE_2}
+      kicker="Mode II"
+      numeral="H ↔ A"
+      label="Human to Agent"
+      tint="paper"
+    />
     <ModeSection
       mode={MODES_META[1]}
       deep={{
@@ -228,6 +247,13 @@ const PageModes = ({ onNav }) => (
     />
 
     {/* ─── 7 · MODE III — AGENT TO AGENT ────────────────────────────────────── */}
+    <ChapterBand
+      image={BAND_MODE_3}
+      kicker="Mode III"
+      numeral="A ↔ A"
+      label="Agent to Agent"
+      tint="deep"
+    />
     <ModeSection
       mode={MODES_META[2]}
       deep={{

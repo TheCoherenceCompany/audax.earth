@@ -196,4 +196,19 @@ const PullQuote = ({ children, html }) => (
     : <blockquote className="pull-quote">{children}</blockquote>
 );
 
-Object.assign(window, { PAGES, Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote });
+// Cinematic horizontal slice used between major chapters.
+// Image bleeds full width, parchment fades top & bottom so it composites into
+// the surrounding flow; an over-laid roman numeral + label gives the break a name.
+const ChapterBand = ({ image, numeral, label, kicker, tint = 'forest' }) => (
+  <aside className={`chapter-band tint-${tint}`} style={{ '--band-image': `url(${image})` }} aria-hidden="false">
+    <div className="chapter-band-art"></div>
+    <div className="chapter-band-grain"></div>
+    <div className="chapter-band-inner">
+      {kicker && <span className="chapter-kicker">{kicker}</span>}
+      <span className="chapter-numeral">{numeral}</span>
+      <span className="chapter-label">{label}</span>
+    </div>
+  </aside>
+);
+
+Object.assign(window, { PAGES, Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote, ChapterBand });

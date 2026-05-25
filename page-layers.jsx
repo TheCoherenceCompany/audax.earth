@@ -4,6 +4,12 @@
    Individual · Team · Organisation · Organisation Family · Ecosystem */
 
 const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
+// Chapter-band backgrounds (one per layer — distinct from the page hero).
+const BAND_LAY_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.png';
+const BAND_LAY_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
+const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.png';
+const BAND_LAY_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+const BAND_LAY_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
 
 const LAYERS_META = [
   {
@@ -231,6 +237,7 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 5 · LAYER I — INDIVIDUAL ─────────────────────────────────────────── */}
+    <ChapterBand image={BAND_LAY_1} kicker="Layer I" numeral="I" label="Individual" tint="forest" />
     <LayerSection
       layer={LAYERS_META[0]}
       deep={{
@@ -255,6 +262,7 @@ const PageLayers = ({ onNav }) => (
     />
 
     {/* ─── 6 · LAYER II — TEAM ──────────────────────────────────────────────── */}
+    <ChapterBand image={BAND_LAY_2} kicker="Layer II" numeral="II" label="Team" tint="paper" />
     <LayerSection
       layer={LAYERS_META[1]}
       deep={{
@@ -280,6 +288,7 @@ const PageLayers = ({ onNav }) => (
     />
 
     {/* ─── 7 · LAYER III — ORGANISATION ────────────────────────────────────── */}
+    <ChapterBand image={BAND_LAY_3} kicker="Layer III" numeral="III" label="Organisation" tint="forest" />
     <LayerSection
       layer={LAYERS_META[2]}
       deep={{
@@ -303,6 +312,7 @@ const PageLayers = ({ onNav }) => (
     />
 
     {/* ─── 8 · LAYER IV — ORGANISATION FAMILY ──────────────────────────────── */}
+    <ChapterBand image={BAND_LAY_4} kicker="Layer IV" numeral="IV" label="Organisation Family" tint="paper" />
     <LayerSection
       layer={LAYERS_META[3]}
       deep={{
@@ -327,6 +337,7 @@ const PageLayers = ({ onNav }) => (
     />
 
     {/* ─── 9 · LAYER V — ECOSYSTEM ──────────────────────────────────────────── */}
+    <ChapterBand image={BAND_LAY_5} kicker="Layer V" numeral="V" label="Ecosystem" tint="deep" />
     <LayerSection
       layer={LAYERS_META[4]}
       deep={{

@@ -142,6 +142,64 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .hero-small .hero-inner { max-width: 760px; }
 .hero-small h1 { font-size: clamp(48px, 6vw, 88px); margin: 0 0 22px; }
 
+/* ---------- chapter band (cinematic break between major sections) ---------- */
+.chapter-band {
+  position: relative;
+  height: clamp(220px, 32vh, 320px);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-parchment);
+  isolation: isolate;
+}
+.chapter-band-art {
+  position: absolute; inset: 0;
+  background-image: var(--band-image, none);
+  background-size: cover; background-position: center;
+  opacity: 0.78;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%);
+}
+.chapter-band.tint-forest .chapter-band-art { mix-blend-mode: multiply; }
+.chapter-band.tint-paper  .chapter-band-art { mix-blend-mode: luminosity; opacity: 0.55; }
+.chapter-band.tint-deep   .chapter-band-art { mix-blend-mode: screen; opacity: 0.6; }
+.chapter-band.tint-deep   { background: var(--forest-900, #0E2419); }
+.chapter-band-grain {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(80% 60% at 50% 50%, transparent 0%, rgba(20,19,14,0.18) 100%),
+    linear-gradient(90deg, var(--surface-parchment) 0%, transparent 12%, transparent 88%, var(--surface-parchment) 100%);
+  mix-blend-mode: multiply;
+}
+.chapter-band-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center;
+  padding: 0 32px;
+  text-shadow: 0 1px 16px rgba(251,250,243,0.55);
+}
+.chapter-band .chapter-kicker {
+  font-family: var(--font-sans);
+  font-size: 10px; font-weight: 500; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--ink-700);
+}
+.chapter-band .chapter-numeral {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 112px);
+  font-weight: 400; font-style: italic;
+  letter-spacing: -0.04em; line-height: 0.9;
+  color: var(--forest-800);
+}
+.chapter-band .chapter-label {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 400; letter-spacing: -0.01em;
+  color: var(--ink-800);
+}
+.chapter-band.tint-deep .chapter-kicker { color: rgba(255,255,255,0.7); }
+.chapter-band.tint-deep .chapter-numeral { color: var(--lichen-400); }
+.chapter-band.tint-deep .chapter-label   { color: rgba(255,255,255,0.86); }
+.chapter-band.tint-deep .chapter-band-inner { text-shadow: 0 1px 16px rgba(8,16,11,0.45); }
+
 /* ---------- buttons ---------- */
 .btn {
   font-family: var(--font-sans); font-weight: 400; font-size: 14px;

@@ -16,7 +16,7 @@ const LivingHero = ({ children, minHeight = '92vh' }) => {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return; // CSS static gradient stands in
 
-    const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
     const m = { px: -999, py: -999 };
     const onMove = (e) => { const r = host.getBoundingClientRect(); m.px = e.clientX - r.left; m.py = e.clientY - r.top; };
     const onLeave = () => { m.px = -999; m.py = -999; };
@@ -33,11 +33,11 @@ const LivingHero = ({ children, minHeight = '92vh' }) => {
         'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);' +
         'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
         'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*noise(p);p*=2.0;a*=.5;}return v;}' +
-        'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;vec2 p=uv*vec2(1.4,1.9);' +
-        'float t=u_time*0.04;' +
+        'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;vec2 p=uv*vec2(3.2,4.2);' +
+        'float t=u_time*0.14;' +
         'vec2 q=vec2(fbm(p+vec2(0.0,t)),fbm(p+vec2(3.1,-t*0.7)));' +
         'float n=fbm(p+1.3*q);' +
-        'float band=smoothstep(0.05,1.05,uv.y+0.10*sin(uv.x*1.6+t)+0.42*(n-0.5));' +
+        'float band=smoothstep(0.05,1.05,uv.y+0.14*sin(uv.x*1.6+t*1.3)+0.45*(n-0.5));' +
         'vec3 ink=vec3(0.040,0.110,0.075),forest=vec3(0.122,0.302,0.180),' +
         'sage=vec3(0.420,0.643,0.486),mist=vec3(0.784,0.859,0.788),parch=vec3(0.984,0.980,0.953);' +
         'vec3 col=mix(ink,forest,smoothstep(0.0,0.34,band));' +

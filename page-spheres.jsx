@@ -4,6 +4,12 @@
    Value · Work · Relationship & Purpose · Learning · Communication */
 
 const HERO_SPH = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
+// Chapter-band backgrounds (one per sphere — distinct from the page hero).
+const BAND_SPH_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
+const BAND_SPH_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.png';
+const BAND_SPH_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const BAND_SPH_4 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_f86772ab-5233-4a7c-a2ff-b9f7dcf7d9f8_0.png';
+const BAND_SPH_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
 
 const SPHERES = [
   {
@@ -215,6 +221,7 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 5. SPHERE 1 — VALUE ACCOUNTING */}
+    <ChapterBand image={BAND_SPH_1} kicker="Sphere I" numeral="I" label="Value Accounting" tint="forest" />
     <SphereSection
       sphere={SPHERES[0]}
       deep={{
@@ -238,6 +245,7 @@ const PageSpheres = ({ onNav }) => (
     />
 
     {/* 6. SPHERE 2 — ORGANISATION OF WORK */}
+    <ChapterBand image={BAND_SPH_2} kicker="Sphere II" numeral="II" label="Organisation of Work" tint="paper" />
     <SphereSection
       sphere={SPHERES[1]}
       deep={{
@@ -263,6 +271,7 @@ const PageSpheres = ({ onNav }) => (
     />
 
     {/* 7. SPHERE 3 — RELATIONSHIP & PURPOSE */}
+    <ChapterBand image={BAND_SPH_3} kicker="Sphere III" numeral="III" label="Human Relationship &amp; Purpose" tint="forest" />
     <SphereSection
       sphere={SPHERES[2]}
       deep={{
@@ -286,6 +295,7 @@ const PageSpheres = ({ onNav }) => (
     />
 
     {/* 8. SPHERE 4 — DEVELOPMENT & LEARNING */}
+    <ChapterBand image={BAND_SPH_4} kicker="Sphere IV" numeral="IV" label="Development &amp; Learning" tint="paper" />
     <SphereSection
       sphere={SPHERES[3]}
       deep={{
@@ -310,6 +320,7 @@ const PageSpheres = ({ onNav }) => (
     />
 
     {/* 9. SPHERE 5 — COMMUNICATION */}
+    <ChapterBand image={BAND_SPH_5} kicker="Sphere V" numeral="V" label="Communication" tint="deep" />
     <SphereSection
       sphere={SPHERES[4]}
       deep={{
