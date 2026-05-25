@@ -8,7 +8,7 @@ const PAGES = [
   { key: 'layers',  label: 'Layers' },
   { key: 'modes',   label: 'Modes' },
   { key: 'whofor',  label: 'Who For?' },
-  { key: 'join',    label: 'Join' }
+  { key: 'build',   label: "Let's Build" }
 ];
 
 const Logo = ({ size = 30, variant }) => {
@@ -74,8 +74,8 @@ const BottomSheet = ({ page, onNav }) => {
               {p.label}
             </button>
           ))}
-          <button className="msheet-join" type="button" onClick={() => window.open(JOIN_URL, '_blank')}>
-            Join the dialogue
+          <button className="msheet-join" type="button" onClick={() => { onNav('build'); setOpen(false); }}>
+            Join &amp; Build the OS
           </button>
         </div>
       </div>
@@ -108,8 +108,8 @@ const Nav = ({ page, onNav }) => {
               {p.label}
             </button>
           ))}
-          <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
-            Join the dialogue
+          <button className="nav-cta" onClick={() => onNav('build')} type="button">
+            Join &amp; Build the OS
           </button>
         </div>
       </nav>
@@ -125,7 +125,7 @@ const Footer = ({ onNav }) => (
         <Logo size={36} />
         <div className="footer-brand-text">Audax OS</div>
         <div className="footer-tagline">An organisation OS for the agentic age.</div>
-        <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className="footer-join-btn">Join the dialogue</a>
+        <a onClick={(e)=>{e.preventDefault(); onNav('build');}} href="#build" className="footer-join-btn">Join &amp; Build the OS</a>
       </div>
       <div className="footer-col">
         <h6>Explore</h6>
@@ -134,6 +134,7 @@ const Footer = ({ onNav }) => (
         <a onClick={(e)=>{e.preventDefault(); onNav('layers');}} href="#">Layers</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('modes');}} href="#">Modes</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('whofor');}} href="#">Who For?</a>
+        <a onClick={(e)=>{e.preventDefault(); onNav('build');}} href="#">Let's Build the OS</a>
       </div>
     </div>
     <div className="footer-bottom">
@@ -175,7 +176,7 @@ const SectionHead = ({ eyebrow, title, sub, center }) => (
 const CTA_WASH = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
 const JOIN_URL = 'https://t.me/+msbQmsbxpAg4Yjk8';
 
-const CtaBand = ({ title, body, primary = 'Join the dialogue', secondary = null, onPrimary, onSecondary }) => (
+const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null, onPrimary, onSecondary }) => (
   <section className="cta-band" style={{ '--cta-image': `url(${CTA_WASH})` }}>
     <div className="wash"></div>
     <div className="cta-band-inner">

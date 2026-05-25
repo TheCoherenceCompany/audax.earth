@@ -1,92 +1,558 @@
-/* Audax OS site · Who For? page — full implementation
-   16 question-led sections.
-   An invitation to co-creators, not a customer segmentation page. */
+/* Audax OS site · Who For? page — full redesign
+   17 question-led sections answering: who is this OS actually for?
+   Each major audience gets a bespoke diagram. Hero is an animated
+   ecosystem of organisational species. */
 
 const HERO_WHO = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
 
-const PRIMARY_AUDIENCES = [
-  {
-    n: '01', name: 'Organisation Designers',
-    q: 'Are you designing how humans work together?',
-    who: 'People who design how teams, companies, networks, and institutions actually work — governance, roles, decision-making, culture, trust, facilitation, learning, power, and structure.',
-    bring: ['team agreements', 'governance patterns', 'decision protocols', 'conflict pathways', 'culture diagnostics', 'trust infrastructure', 'organisational health maps'],
-    invite: 'If you have spent years trying to make organisations more human, more adaptive, more honest, or more alive, Audax OS needs your scar tissue and your imagination.'
-  },
-  {
-    n: '02', name: 'Agentic AI Builders',
-    q: 'Are you building agents that need better organisations to live inside?',
-    who: 'People building AI agents, agent platforms, AI-native tools, workflow automations, knowledge systems, and human-agent interfaces.',
-    bring: ['agent role cards', 'permission profiles', 'agent-ready mission canvases', 'context packets', 'escalation rules', 'inter-agent handoff protocols', 'inspectable autonomy models'],
-    invite: 'If you are building agents and keep finding that the hardest problem is not the model, but the messy organisation around it, you are exactly in the problem space of Audax OS.'
-  },
-  {
-    n: '03', name: 'Collaboration Infrastructure Builders',
-    q: 'Are you building the tools collective work now depends on?',
-    who: 'People building tools for coordination, knowledge, governance, communication, contribution, and distributed work — the plumbing of collective intelligence.',
-    bring: ['shared work ontologies', 'commitment ledgers', 'portable contributor profiles', 'open protocols', 'tool interoperability models', 'human-agent collaboration interfaces'],
-    invite: 'If you are building the pipes, rooms, ledgers, maps, dashboards, agents, or rituals through which modern collaboration happens, Audax OS is an invitation to make the pieces speak to each other.'
-  },
-  {
-    n: '04', name: 'Regenerative Practitioners',
-    q: 'Are you working to make organisations more alive?',
-    who: 'People working with living systems, teal and turquoise organisations, developmental culture, regenerative leadership, and ecological ways of organising.',
-    bring: ['living systems principles', 'developmental pathways', 'relational rituals', 'regenerative diagnostics', 'purpose practices', 'consent and care protocols', 'culture and maturity maps'],
-    invite: 'If your work sits at the edge of organisational design, human development, living systems, and regeneration, Audax OS needs your depth. Otherwise the future becomes a spreadsheet with wings.'
-  },
-  {
-    n: '05', name: 'Future-of-Work Operators',
-    q: 'Are you already living the problem?',
-    who: 'People running distributed teams, AI-native startups, fractional organisations, communities, DAOs, venture studios, and ecosystem initiatives.',
-    bring: ['real use cases', 'failure stories', 'adoption pathways', 'minimum viable protocols', 'practical diagnostics', 'operational constraints', 'what must stay simple'],
-    invite: 'If you are already trying to run an organisation that does not fit the old model, Audax OS is a place to turn the pain into pattern.'
-  },
-  {
-    n: '06', name: 'Governance Designers',
-    q: 'Are you designing how decisions and accountability work?',
-    who: 'People designing decision systems, consent processes, contribution models, DAO governance, legal structures, accountability systems, and agent permission models.',
-    bring: ['governance frameworks', 'decision architectures', 'accountability models', 'permission systems', 'agent governance patterns', 'consent protocols'],
-    invite: 'If you have been building trustworthy systems for collective decision-making, Audax OS needs governance intelligence at its core.'
-  },
-  {
-    n: '07', name: 'Ecosystem Weavers',
-    q: 'Are you helping many centres act together?',
-    who: 'People who help independent actors discover alignment, form trust, coordinate missions, and learn together without central control.',
-    bring: ['ecosystem mapping', 'trust and reputation signals', 'partnership protocols', 'open mission frameworks', 'contribution pathways', 'collective intelligence practices'],
-    invite: 'If you understand the art of making many centres act together without forcing them into one container, you are building the outer layer of Audax OS.'
-  }
+/* ─── helpers ─────────────────────────────────────────────────────────── */
+const MONO = 'JetBrains Mono, monospace';
+const SERIF = 'Instrument Serif, serif';
+const FOREST = '#1F4D2E', FOREST_MID = '#3F8657', LICHEN = '#9CBFA3';
+const INK = '#0E2419', MUTED = '#807D72';
+
+/* ─── 1 · HERO DIAGRAM ─ Animated ecosystem of organisational species ── */
+const EcosystemDiagram = () => {
+  const [t, setT] = React.useState(0);
+  React.useEffect(() => {
+    let raf, last = performance.now();
+    const tick = (now) => {
+      setT(x => x + (now - last) / 1000); last = now;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const species = [
+    { label: 'Startup',    glyph: '◆', ring: 0, ang: 0.00 },
+    { label: 'Nonprofit',  glyph: '✦', ring: 0, ang: 0.33 },
+    { label: 'DAO',        glyph: '◇', ring: 0, ang: 0.66 },
+    { label: 'Community',  glyph: '◉', ring: 1, ang: 0.08 },
+    { label: 'Studio',     glyph: '▲', ring: 1, ang: 0.25 },
+    { label: 'Research',   glyph: '○', ring: 1, ang: 0.42 },
+    { label: 'Student',    glyph: '✺', ring: 1, ang: 0.59 },
+    { label: 'Civic',      glyph: '✚', ring: 1, ang: 0.76 },
+    { label: 'Cooperative',glyph: '◑', ring: 1, ang: 0.93 },
+    { label: 'Network',    glyph: '✣', ring: 2, ang: 0.05 },
+    { label: 'Movement',   glyph: '✶', ring: 2, ang: 0.20 },
+    { label: 'Lab',        glyph: '⬡', ring: 2, ang: 0.35 },
+    { label: 'Venture',    glyph: '⬢', ring: 2, ang: 0.50 },
+    { label: 'Guild',      glyph: '✱', ring: 2, ang: 0.65 },
+    { label: 'Alliance',   glyph: '◐', ring: 2, ang: 0.80 },
+    { label: 'Field',      glyph: '✥', ring: 2, ang: 0.95 }
+  ];
+  const ringR = [110, 195, 280];
+  const ringSpeed = [0.06, -0.035, 0.022];
+
+  return (
+    <div className="diagram-axes" style={{ maxWidth: 720, margin: '40px auto 0' }}>
+      <svg viewBox="-340 -340 680 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ecosystem of organisational species around Audax OS">
+        <defs>
+          <radialGradient id="wf-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#E2EBDD" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#E2EBDD" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="wf-core" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stopColor="#4A9E63" />
+            <stop offset="100%" stopColor="#1F4D2E" />
+          </radialGradient>
+        </defs>
+
+        <circle cx="0" cy="0" r="320" fill="url(#wf-glow)" />
+
+        {/* orbit rings */}
+        {ringR.map((r, i) => (
+          <circle key={i} cx="0" cy="0" r={r} fill="none" stroke={LICHEN} strokeWidth="0.8" opacity="0.4" strokeDasharray={i === 2 ? '3 5' : 'none'} />
+        ))}
+
+        {/* mycelial connections from core to ring 1 species */}
+        <g stroke={FOREST_MID} strokeWidth="0.5" fill="none" opacity="0.35">
+          {species.filter(s => s.ring < 2).map((s, i) => {
+            const a = (s.ang + t * ringSpeed[s.ring]) * Math.PI * 2;
+            const r = ringR[s.ring];
+            const x = Math.cos(a) * r, y = Math.sin(a) * r;
+            return <path key={i} d={`M 0 0 Q ${x * 0.4} ${y * 0.4 - 20} ${x} ${y}`} />;
+          })}
+        </g>
+
+        {/* species nodes */}
+        {species.map((s, i) => {
+          const a = (s.ang + t * ringSpeed[s.ring]) * Math.PI * 2;
+          const r = ringR[s.ring];
+          const x = Math.cos(a) * r, y = Math.sin(a) * r;
+          const nodeR = s.ring === 0 ? 30 : s.ring === 1 ? 24 : 18;
+          const fillCol = s.ring === 0 ? '#FFFFFF' : s.ring === 1 ? '#FBFAF3' : '#F0F4EC';
+          const labelOpacity = s.ring === 2 ? 0.5 : 1;
+          return (
+            <g key={i} transform={`translate(${x} ${y})`} opacity={labelOpacity}>
+              <circle cx="0" cy="0" r={nodeR} fill={fillCol} stroke={FOREST} strokeWidth="1.1" />
+              <text x="0" y="2" textAnchor="middle" fontFamily={SERIF} fontSize={s.ring === 0 ? 18 : 14} fill={INK}>{s.glyph}</text>
+              <text x="0" y={nodeR + 14} textAnchor="middle" fontFamily={MONO} fontSize={s.ring === 2 ? 8 : 9} letterSpacing="0.14em" fill={MUTED}>
+                {s.label.toUpperCase()}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* core */}
+        <g>
+          <circle cx="0" cy="0" r="62" fill="url(#wf-core)" />
+          <text x="0" y="-4" textAnchor="middle" fontFamily={SERIF} fontSize="22" fill="#fff" fontStyle="italic">Audax</text>
+          <text x="0" y="18" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.28em" fill="#A8CDB0">OS</text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+/* ─── 2 · META-CATEGORY ─ many forms → shared functions ───────────────── */
+const MetaCategoryDiagram = () => {
+  const forms = ['Company', 'Nonprofit', 'DAO', 'Community', 'Studio', 'Cooperative', 'Network', 'Movement'];
+  const funcs = ['Purpose', 'Agreements', 'Work', 'Value', 'Trust', 'Communication', 'Learning', 'Decisions', 'Boundaries', 'Memory'];
+  const lh = 32;
+  return (
+    <div style={{ maxWidth: 880, margin: '0 auto' }}>
+      <svg viewBox="0 0 880 360" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+        <text x="60" y="30" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill={MUTED}>FORMS</text>
+        <text x="820" y="30" textAnchor="end" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill={MUTED}>SHARED OPERATING NEEDS</text>
+        {forms.map((f, i) => {
+          const y = 60 + i * lh;
+          return (
+            <g key={f}>
+              <rect x="40" y={y - 13} width="180" height="22" rx="11" fill="#FBFAF3" stroke={LICHEN} strokeWidth="1" />
+              <text x="130" y={y + 4} textAnchor="middle" fontFamily={SERIF} fontSize="15" fill={INK}>{f}</text>
+              {funcs.map((_, j) => {
+                const yf = 60 + j * (lh * 8 / 10);
+                return <path key={j} d={`M 220 ${y} C 420 ${y}, 480 ${yf}, 660 ${yf}`} stroke={FOREST} strokeWidth="0.4" opacity="0.18" fill="none" />;
+              })}
+            </g>
+          );
+        })}
+        {funcs.map((fn, j) => {
+          const y = 60 + j * (lh * 8 / 10);
+          return (
+            <g key={fn}>
+              <rect x="660" y={y - 11} width="180" height="18" rx="9" fill={FOREST} />
+              <text x="750" y={y + 3} textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.14em" fill="#fff">{fn.toUpperCase()}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
+
+/* ─── 3 · CONVERGING FORCES ───────────────────────────────────────────── */
+const ConvergingForces = () => {
+  const items = [
+    { label: 'Distributed work', sub: 'office osmosis is gone', x: 160, y: 140 },
+    { label: 'Fractional contribution', sub: 'one person, many contexts', x: 540, y: 140 },
+    { label: 'Agentic collaborators', sub: 'AI inside the workflow', x: 350, y: 320 }
+  ];
+  return (
+    <div style={{ maxWidth: 760, margin: '0 auto' }}>
+      <svg viewBox="0 0 700 480" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+        <defs>
+          <radialGradient id="cf-bubble" cx="40%" cy="35%" r="70%">
+            <stop offset="0%" stopColor="#E2EBDD" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#E2EBDD" stopOpacity="0.2" />
+          </radialGradient>
+        </defs>
+        {items.map(it => (
+          <circle key={it.label} cx={it.x} cy={it.y} r="130" fill="url(#cf-bubble)" stroke={FOREST_MID} strokeWidth="1" opacity="0.85" />
+        ))}
+        {items.map(it => (
+          <g key={'l' + it.label}>
+            <text x={it.x} y={it.y - 8} textAnchor="middle" fontFamily={SERIF} fontSize="22" fill={INK}>{it.label}</text>
+            <text x={it.x} y={it.y + 14} textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.14em" fill={MUTED}>{it.sub.toUpperCase()}</text>
+          </g>
+        ))}
+        {/* central intersection */}
+        <circle cx="350" cy="220" r="58" fill={FOREST} />
+        <text x="350" y="216" textAnchor="middle" fontFamily={SERIF} fontSize="16" fill="#fff" fontStyle="italic">need a new</text>
+        <text x="350" y="236" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill="#A8CDB0">ORG OS</text>
+        <text x="350" y="450" textAnchor="middle" fontFamily={MONO} fontSize="11" letterSpacing="0.22em" fill={MUTED}>THREE FORCES · ONE CONVERGENCE</text>
+      </svg>
+    </div>
+  );
+};
+
+/* ─── 5 · REMOTE CONSTELLATION (rhythm lines) ─────────────────────────── */
+const RemoteConstellation = () => {
+  const nodes = [
+    [120, 80], [300, 60], [490, 100], [620, 180],
+    [560, 320], [380, 360], [200, 320], [70, 220],
+    [240, 200], [430, 220]
+  ];
+  return (
+    <svg viewBox="0 0 720 420" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {/* rhythm lines — async pulses */}
+      <g stroke={FOREST_MID} strokeWidth="0.6" fill="none" opacity="0.5">
+        {nodes.map((a, i) => nodes.slice(i + 1, i + 4).map((b, j) => (
+          <line key={`${i}-${j}`} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} strokeDasharray="3 6" />
+        )))}
+      </g>
+      {/* commitment ledgers — labelled dots */}
+      {nodes.map(([x, y], i) => (
+        <g key={i}>
+          <circle cx={x} cy={y} r="9" fill="#FBFAF3" stroke={FOREST} strokeWidth="1.4" />
+          <circle cx={x} cy={y} r="3" fill={FOREST} />
+        </g>
+      ))}
+      {/* pulse glyph */}
+      <g transform="translate(360 200)">
+        <circle r="48" fill="none" stroke={FOREST} strokeWidth="1" />
+        <circle r="78" fill="none" stroke={FOREST} strokeWidth="0.5" strokeDasharray="2 6" />
+        <text y="-4" textAnchor="middle" fontFamily={SERIF} fontSize="15" fill={INK}>rhythm</text>
+        <text y="14" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>ASYNC · TRUST</text>
+      </g>
+      <text x="360" y="402" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>REMOTE TEAM · INTENTIONAL COORDINATION</text>
+    </svg>
+  );
+};
+
+/* ─── 6 · FRACTIONAL — overlapping contribution paths ─────────────────── */
+const FractionalPaths = () => {
+  const tracks = [
+    { y: 70,  label: 'Founding · Project A',     color: '#1F4D2E', a: 80,  b: 360 },
+    { y: 130, label: 'Advisory · Project B',     color: '#3F8657', a: 240, b: 580 },
+    { y: 190, label: 'Contributor · Project C',  color: '#6BA37C', a: 120, b: 500 },
+    { y: 250, label: 'Community · Project D',    color: '#9CBFA3', a: 320, b: 660 },
+    { y: 310, label: 'Steward · Project E',      color: '#2D6B41', a: 60,  b: 280 }
+  ];
+  return (
+    <svg viewBox="0 0 720 400" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      <line x1="60" y1="360" x2="680" y2="360" stroke={MUTED} strokeWidth="0.5" opacity="0.5" />
+      <text x="60" y="378" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>JAN</text>
+      <text x="680" y="378" textAnchor="end" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>DEC</text>
+      {tracks.map(t => (
+        <g key={t.label}>
+          <rect x={t.a} y={t.y - 8} width={t.b - t.a} height="16" rx="8" fill={t.color} opacity="0.85" />
+          <text x={t.a - 8} y={t.y + 4} textAnchor="end" fontFamily={MONO} fontSize="10" letterSpacing="0.12em" fill={INK}>{t.label}</text>
+        </g>
+      ))}
+      {/* personal coherence layer underneath */}
+      <rect x="60" y="340" width="620" height="6" rx="3" fill="none" stroke={FOREST} strokeDasharray="4 4" />
+      <text x="370" y="335" textAnchor="middle" fontFamily={SERIF} fontSize="13" fill={FOREST} fontStyle="italic">one personal coherence layer</text>
+    </svg>
+  );
+};
+
+/* ─── 7 · AGENTIC — human/agent boundary map ──────────────────────────── */
+const AgenticBoundary = () => {
+  return (
+    <svg viewBox="0 0 720 420" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      <defs>
+        <linearGradient id="ag-divide" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#1F4D2E" stopOpacity="0.05" />
+          <stop offset="50%" stopColor="#1F4D2E" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#1F4D2E" stopOpacity="0.05" />
+        </linearGradient>
+      </defs>
+      <rect x="40" y="40" width="640" height="340" rx="14" fill="#FBFAF3" stroke={LICHEN} />
+      <line x1="360" y1="60" x2="360" y2="360" stroke="url(#ag-divide)" strokeWidth="2" strokeDasharray="6 5" />
+      <text x="200" y="70" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill={FOREST}>HUMAN DOMAIN</text>
+      <text x="520" y="70" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill={MUTED}>AGENT DOMAIN</text>
+
+      {[
+        ['Judgment', 200, 120], ['Meaning', 200, 160], ['Ethics', 200, 200],
+        ['Care', 200, 240], ['Imagination', 200, 280], ['Responsibility', 200, 320]
+      ].map(([t, x, y]) => (
+        <g key={t}>
+          <circle cx={x} cy={y} r="4" fill={FOREST} />
+          <text x={x + 14} y={y + 4} fontFamily={SERIF} fontSize="15" fill={INK}>{t}</text>
+        </g>
+      ))}
+      {[
+        ['Memory', 520, 120], ['Synthesis', 520, 160], ['Coordination', 520, 200],
+        ['Patterns', 520, 240], ['Translation', 520, 280], ['Preparation', 520, 320]
+      ].map(([t, x, y]) => (
+        <g key={t}>
+          <circle cx={x} cy={y} r="4" fill={MUTED} />
+          <text x={x + 14} y={y + 4} fontFamily={SERIF} fontSize="15" fill={INK}>{t}</text>
+        </g>
+      ))}
+
+      {/* escalation arrows */}
+      {[140, 220, 300].map((y, i) => (
+        <g key={i}>
+          <path d={`M 470 ${y} L 250 ${y}`} stroke={FOREST_MID} strokeWidth="1" strokeDasharray="3 3" fill="none" markerEnd="url(#wf-ag-arr)" />
+        </g>
+      ))}
+      <defs>
+        <marker id="wf-ag-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M1 1 L7 4 L1 7" fill="none" stroke={FOREST_MID} strokeWidth="1.5" />
+        </marker>
+      </defs>
+      <text x="360" y="395" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>PERMISSIONS · MEMORY · ESCALATION · ACCOUNTABILITY</text>
+    </svg>
+  );
+};
+
+/* ─── 8 · SEED → SAPLING ──────────────────────────────────────────────── */
+const SeedSapling = () => {
+  const stages = [
+    { x: 80,  r: 8,  label: 'Spark' },
+    { x: 220, r: 18, label: 'Seed' },
+    { x: 380, r: 34, label: 'Sprout' },
+    { x: 560, r: 58, label: 'Sapling' }
+  ];
+  return (
+    <svg viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      <line x1="60" y1="160" x2="680" y2="160" stroke={LICHEN} strokeDasharray="2 6" />
+      {stages.map((s, i) => (
+        <g key={s.label}>
+          <circle cx={s.x} cy="160" r={s.r} fill="#FBFAF3" stroke={FOREST} strokeWidth="1.2" />
+          <circle cx={s.x} cy="160" r={s.r * 0.4} fill={FOREST} />
+          <text x={s.x} y="220" textAnchor="middle" fontFamily={SERIF} fontSize="15" fill={INK}>{s.label}</text>
+          <text x={s.x} y="240" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>STAGE {i + 1}</text>
+        </g>
+      ))}
+      {stages.slice(0, -1).map((s, i) => (
+        <path key={i} d={`M ${s.x + s.r + 4} 160 L ${stages[i+1].x - stages[i+1].r - 4} 160`} stroke={FOREST_MID} strokeWidth="1" markerEnd="url(#ss-arr)" />
+      ))}
+      <defs>
+        <marker id="ss-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M1 1 L7 4 L1 7" fill="none" stroke={FOREST_MID} strokeWidth="1.4" />
+        </marker>
+      </defs>
+    </svg>
+  );
+};
+
+/* ─── 11 · COMMUNITY CIRCLES → ACTION ─────────────────────────────────── */
+const CommunityFlow = () => {
+  const cols = [
+    { x: 100, label: 'Belonging',     r: 60 },
+    { x: 280, label: 'Contribution',  r: 52 },
+    { x: 460, label: 'Decisions',     r: 44 },
+    { x: 620, label: 'Action',        r: 36 }
+  ];
+  return (
+    <svg viewBox="0 0 720 280" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {cols.map(c => (
+        <g key={c.label}>
+          <circle cx={c.x} cy="130" r={c.r} fill="#FBFAF3" stroke={FOREST} strokeWidth="1.3" />
+          <circle cx={c.x} cy="130" r={c.r * 0.6} fill="none" stroke={LICHEN} strokeWidth="0.8" />
+          <text x={c.x} y="135" textAnchor="middle" fontFamily={SERIF} fontSize="15" fill={INK}>{c.label}</text>
+          <text x={c.x} y="230" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.18em" fill={MUTED}>{['GATHER','OFFER','CHOOSE','MOVE'][cols.indexOf(c)]}</text>
+        </g>
+      ))}
+      {cols.slice(0, -1).map((c, i) => (
+        <path key={i} d={`M ${c.x + c.r} 130 L ${cols[i+1].x - cols[i+1].r} 130`} stroke={FOREST_MID} strokeWidth="1" markerEnd="url(#cf-arr)" />
+      ))}
+      <defs>
+        <marker id="cf-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M1 1 L7 4 L1 7" fill="none" stroke={FOREST_MID} strokeWidth="1.4" />
+        </marker>
+      </defs>
+    </svg>
+  );
+};
+
+/* ─── 12 · DAO LAYERED LEDGERS ────────────────────────────────────────── */
+const LayeredLedgers = () => {
+  const layers = [
+    { y: 60,  label: 'Bounties',         w: 480, fill: '#1F4D2E' },
+    { y: 110, label: 'Peer recognition', w: 540, fill: '#2D6B41' },
+    { y: 160, label: 'Retroactive funding', w: 460, fill: '#3F8657' },
+    { y: 210, label: 'Dynamic equity',    w: 520, fill: '#6BA37C' },
+    { y: 260, label: 'Reputation',        w: 420, fill: '#9CBFA3' }
+  ];
+  return (
+    <svg viewBox="0 0 720 340" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {layers.map(l => (
+        <g key={l.label}>
+          <rect x="80" y={l.y - 16} width={l.w} height="32" rx="4" fill={l.fill} opacity="0.9" />
+          <text x="92" y={l.y + 5} fontFamily={MONO} fontSize="11" letterSpacing="0.14em" fill="#fff">{l.label.toUpperCase()}</text>
+          {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+            <rect key={i} x={92 + i * (l.w / 9)} y={l.y - 4} width={l.w / 18} height="8" rx="1" fill="#fff" opacity="0.35" />
+          ))}
+        </g>
+      ))}
+      <text x="370" y="320" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>CONTRIBUTION ECOLOGY · MANY KINDS OF VALUE</text>
+    </svg>
+  );
+};
+
+/* ─── 13 · LINEAGE RIVER ──────────────────────────────────────────────── */
+const LineageRiver = () => {
+  const streams = [
+    { label: 'Agile',                  y: 60,  c: '#9CBFA3' },
+    { label: 'Teal',                   y: 100, c: '#6BA37C' },
+    { label: 'Deliberately Developmental', y: 140, c: '#4A9E63' },
+    { label: 'Regenerative leadership', y: 180, c: '#3F8657' },
+    { label: 'Slicing Pie · dynamic equity', y: 220, c: '#2D6B41' },
+    { label: 'DAOs · open contribution', y: 260, c: '#1F4D2E' }
+  ];
+  return (
+    <svg viewBox="0 0 760 360" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {streams.map(s => (
+        <g key={s.label}>
+          <path d={`M 40 ${s.y} C 260 ${s.y}, 360 ${s.y + (170 - s.y) * 0.9}, 600 170`} stroke={s.c} strokeWidth="2.2" fill="none" opacity="0.85" />
+          <text x="32" y={s.y + 4} textAnchor="end" fontFamily={MONO} fontSize="10" letterSpacing="0.12em" fill={INK}>{s.label.toUpperCase()}</text>
+        </g>
+      ))}
+      <circle cx="640" cy="170" r="52" fill={FOREST} />
+      <text x="640" y="166" textAnchor="middle" fontFamily={SERIF} fontSize="20" fill="#fff" fontStyle="italic">Audax</text>
+      <text x="640" y="186" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.28em" fill="#A8CDB0">OS</text>
+      <text x="380" y="330" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>COMPOSTING WISDOM · NOT REJECTING IT</text>
+    </svg>
+  );
+};
+
+/* ─── 14 · NESTED CONSTELLATIONS ──────────────────────────────────────── */
+const NestedConstellation = () => {
+  const rings = [
+    { r: 80,  label: 'Individual' },
+    { r: 140, label: 'Team' },
+    { r: 200, label: 'Organisation' },
+    { r: 260, label: 'Family' },
+    { r: 320, label: 'Ecosystem' }
+  ];
+  return (
+    <svg viewBox="-360 -360 720 720" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', maxWidth: 540, margin: '0 auto', display: 'block' }}>
+      {rings.map((r, i) => (
+        <circle key={r.label} cx="0" cy="0" r={r.r} fill="none" stroke={LICHEN} strokeWidth="0.9" strokeDasharray={i === 4 ? '4 5' : 'none'} opacity="0.65" />
+      ))}
+      {/* satellites at each layer */}
+      {[[140, [0, 1, 2, 3]], [200, [0, 1, 2, 3, 4]], [260, [0, 1, 2, 3, 4, 5]], [320, [0, 1, 2, 3, 4, 5, 6, 7]]].map(([r, idxs], k) => (
+        <g key={k}>
+          {idxs.map(i => {
+            const a = (i / idxs.length) * Math.PI * 2 + k * 0.4;
+            return <circle key={i} cx={Math.cos(a) * r} cy={Math.sin(a) * r} r="6" fill="#fff" stroke={FOREST} strokeWidth="1.2" />;
+          })}
+        </g>
+      ))}
+      {/* core */}
+      <circle cx="0" cy="0" r="44" fill={FOREST} />
+      <text x="0" y="4" textAnchor="middle" fontFamily={SERIF} fontSize="14" fill="#fff" fontStyle="italic">you</text>
+      {rings.map((r, i) => (
+        <text key={r.label} x="0" y={-r.r + 16} textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.2em" fill={MUTED}>{r.label.toUpperCase()}</text>
+      ))}
+    </svg>
+  );
+};
+
+/* ─── 15 · SHARED GRAMMAR ARCHITECTURE ────────────────────────────────── */
+const GrammarArchitecture = () => {
+  const tools = ['Chat', 'Docs', 'Tasks', 'CRM', 'Calendar', 'Agents', 'Governance', 'Knowledge'];
+  return (
+    <svg viewBox="0 0 760 360" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      <rect x="80" y="40" width="600" height="64" rx="10" fill="#FBFAF3" stroke={LICHEN} />
+      <text x="380" y="68" textAnchor="middle" fontFamily={MONO} fontSize="11" letterSpacing="0.22em" fill={MUTED}>MANY TOOLS</text>
+      <g>
+        {tools.map((t, i) => (
+          <g key={t} transform={`translate(${110 + i * 72} ${82})`}>
+            <rect x="-26" y="-12" width="52" height="22" rx="11" fill="#fff" stroke={FOREST} strokeWidth="0.9" />
+            <text x="0" y="3" textAnchor="middle" fontFamily={MONO} fontSize="9" letterSpacing="0.08em" fill={INK}>{t}</text>
+          </g>
+        ))}
+      </g>
+      {/* arrows down to grammar */}
+      {tools.map((_, i) => (
+        <line key={i} x1={110 + i * 72} y1="100" x2={110 + i * 72} y2="180" stroke={FOREST_MID} strokeWidth="0.6" strokeDasharray="2 4" />
+      ))}
+      <rect x="80" y="180" width="600" height="100" rx="14" fill={FOREST} />
+      <text x="380" y="216" textAnchor="middle" fontFamily={SERIF} fontSize="22" fill="#fff" fontStyle="italic">one shared grammar</text>
+      <text x="380" y="246" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.22em" fill="#A8CDB0">MISSIONS · COMMITMENTS · CONTRIBUTION · DECISIONS · AGENTS</text>
+      <text x="380" y="320" textAnchor="middle" fontFamily={MONO} fontSize="10" letterSpacing="0.18em" fill={MUTED}>INFRASTRUCTURE · NOT PLATFORM CAPTURE</text>
+    </svg>
+  );
+};
+
+/* ─── 17 · PERSONAL COHERENCE DASHBOARD ───────────────────────────────── */
+const PersonalCoherence = () => {
+  const commitments = [
+    { name: 'Project A',  load: 0.85, type: 'founding' },
+    { name: 'Project B',  load: 0.45, type: 'advisory' },
+    { name: 'Project C',  load: 0.65, type: 'contributor' },
+    { name: 'Community',  load: 0.30, type: 'steward' },
+    { name: 'Research',   load: 0.20, type: 'observer' }
+  ];
+  return (
+    <div style={{
+      background: 'var(--surface-white)', border: '1px solid var(--border-1)',
+      borderRadius: 18, padding: '32px 36px', maxWidth: 640, margin: '0 auto'
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 24 }}>
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', color: 'var(--ink-500)' }}>PERSONAL COHERENCE</div>
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.18em', color: 'var(--forest-700)' }}>CAPACITY · 73%</div>
+      </div>
+      {commitments.map(c => (
+        <div key={c.name} style={{ marginBottom: 18 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
+            <span style={{ fontFamily: SERIF, fontSize: 16, color: 'var(--ink-900)' }}>{c.name}</span>
+            <span style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.14em', color: 'var(--ink-500)' }}>{c.type.toUpperCase()}</span>
+          </div>
+          <div style={{ height: 6, background: 'var(--forest-050)', borderRadius: 3, overflow: 'hidden' }}>
+            <div style={{
+              width: `${c.load * 100}%`, height: '100%',
+              background: c.load > 0.8 ? 'var(--lichen-500)' : 'var(--forest-700)',
+              transition: 'width 800ms ease'
+            }} />
+          </div>
+        </div>
+      ))}
+      <div style={{ marginTop: 28, padding: '14px 18px', background: 'var(--forest-050)', borderRadius: 10, fontSize: 13, color: 'var(--forest-800)', fontFamily: SERIF, fontStyle: 'italic' }}>
+        Project A is approaching capacity. Renegotiate before trust breaks.
+      </div>
+    </div>
+  );
+};
+
+/* ─── Reusable section header bits ────────────────────────────────────── */
+const NumQ = ({ n, kicker, children }) => (
+  <h1 className="q-h1">
+    <span className="num">{n} · {kicker}</span>
+    {children}
+  </h1>
+);
+
+/* ─── AUDIENCE CARDS ──────────────────────────────────────────────────── */
+const AUDIENCES = [
+  { tag: 'Remote',     name: 'Remote-First Organisations', pain: 'Replacing office osmosis with intentional rhythm.', mod: 'Communication Architecture' },
+  { tag: 'Fractional', name: 'Fractional Collaborations',  pain: 'People contributing across many contexts.',         mod: 'Contribution Ecology Ledger' },
+  { tag: 'Agentic',    name: 'Agentic Organisations',      pain: 'AI as first-class collaborators, not browser-tab tools.', mod: 'Agent Role Card' },
+  { tag: 'Starting',   name: 'New Organisation Starters',  pain: 'Better defaults from day one.',                     mod: 'Organisation Starter Canvas' },
+  { tag: 'Startup',    name: 'Next-Generation Startups',   pain: 'Dynamic contribution, agents, fractional founders.', mod: 'Dynamic Contribution Ledger' },
+  { tag: 'Mission',    name: 'Nonprofits & Purpose-Led',   pain: 'Clearer without becoming corporate.',               mod: 'Mission & Stakeholder Map' },
+  { tag: 'Community',  name: 'Communities & Grassroots',   pain: 'Enough structure to act, not theatre.',             mod: 'Community Starter Canvas' },
+  { tag: 'Student',    name: 'Student & Learning Groups',  pain: 'Continuity through annual turnover.',               mod: 'Student Continuity Kit' },
+  { tag: 'DAO',        name: 'DAOs & Open Contribution',   pain: 'Counting contribution without gaming.',             mod: 'Contribution Ecology Ledger' },
+  { tag: 'Family',     name: 'Org Families & Studios',     pain: 'Shared grammar without forced sameness.',           mod: 'Organisation Family Map' },
+  { tag: 'Builder',    name: 'Tool & Agent Builders',      pain: 'A grammar to design products around.',              mod: 'Audax Object Model' },
+  { tag: 'Designer',   name: 'Consultants & Org Designers',pain: 'Implementation, not only inspiration.',             mod: 'Diagnostic Wheel' }
 ];
 
-const PATHWAYS = [
-  { n: '01', title: 'Join the Dialogue', body: 'Participate in conversations about the organisational OS needed for the agentic age. Bring questions, challenges, and half-formed ideas.' },
-  { n: '02', title: 'Bring a Use Case', body: 'Share a real organisational challenge involving distributed work, fractional contribution, human-agent collaboration, or ecosystem coordination.' },
-  { n: '03', title: 'Contribute to the OS', body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics, and language.' },
-  { n: '04', title: 'Build an Implementation', body: 'Create tools, agents, interfaces, templates, workshops, or integrations based on Audax OS concepts.' },
-  { n: '05', title: 'Host a Conversation', body: 'Bring together organisation designers, AI builders, operators, or ecosystem actors to explore the problem space.' },
-  { n: '06', title: 'Become a Living Lab', body: 'Use Audax OS as a lens for your own organisation, team, or community, and share what is learned.' }
-];
-
+/* ─── PAGE ────────────────────────────────────────────────────────────── */
 const PageWhoFor = ({ onNav }) => (
   <>
 
-    {/* ─── 1 · HERO ─────────────────────────────────────────────────────────── */}
+    {/* ─── 1 · HERO ─────────────────────────────────────────────────────── */}
     <section className="hero" style={{ '--hero-image': `url(${HERO_WHO})`, minHeight: '92vh', alignItems: 'center' }}>
       <div className="hero-wash"></div>
       <div className="hero-fade"></div>
-      <div className="hero-vertical"><span>An invitation to co-creators of the OS</span></div>
+      <div className="hero-vertical"><span>Who Audax OS is designed to serve</span></div>
       <div className="container">
-        <div className="hero-inner" style={{ maxWidth: 960 }}>
+        <div className="hero-inner" style={{ maxWidth: 980 }}>
           <Eyebrow>Who for?</Eyebrow>
           <h1 className="display lg">
-            Who should help shape<br />the organisational OS<br /><em>for the agentic age?</em>
+            Who is Audax OS<br /><em>actually for?</em>
           </h1>
-          <p className="lede" style={{ maxWidth: 720 }}>
-            Audax OS is not finished. That is the point.
+          <p className="lede" style={{ maxWidth: 760 }}>
+            Any group of people and agents trying to coordinate around shared purpose, contribution, work, learning, and value.
           </p>
-          <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
-            We have identified a problem space that is becoming impossible to ignore. We are inviting the people who can help turn the first map into shared practice.
+          <p className="lede" style={{ maxWidth: 760, marginTop: 14 }}>
+            Companies. Nonprofits. DAOs. Communities. Studios. Student groups. Research collectives. Ecosystem networks. Different forms — the same deeper coordination question.
           </p>
-          <div className="hero-ctas" style={{ marginTop: 48 }}>
-            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
+          <EcosystemDiagram />
+          <div className="hero-ctas" style={{ marginTop: 40 }}>
+            <Button size="lg" icon="arrow-down" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+              See who it serves
+            </Button>
+            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
               Join the dialogue
             </Button>
           </div>
@@ -94,592 +560,318 @@ const PageWhoFor = ({ onNav }) => (
       </div>
     </section>
 
-    {/* ─── 2 · THE INVITATION ───────────────────────────────────────────────── */}
+    {/* ─── 2 · META-CATEGORY ───────────────────────────────────────────── */}
     <section className="section manifesto">
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">02 · The invitation</span>
-          What are we <em>inviting people into?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>We are inviting a founding dialogue around one question:</p>
+        <NumQ n="02" kicker="Meta-category">What counts as an <em>organisation?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>An organisation is any group trying to coordinate around shared purpose, activity, and value. Most organisational tools were built around the company. The world is full of organisations that do not behave like one.</p>
+          <p className="lead">The forms differ. <em>The operating questions rhyme.</em></p>
         </div>
-
-        <div style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(32px, 4vw, 56px)',
-          fontWeight: 400, letterSpacing: '-0.025em', lineHeight: 1.1,
-          color: 'var(--ink-900)', textWrap: 'balance',
-          maxWidth: 920,
-          padding: '48px 0',
-          borderTop: '2px solid var(--forest-700)',
-          borderBottom: '1px solid var(--border-1)',
-          margin: '24px 0 40px'
-        }}>
-          What organisational operating system is worthy of <em style={{ color: 'var(--forest-700)', fontStyle: 'italic' }}>humans and AI agents working together?</em>
+        <div style={{ margin: '56px 0' }}>
+          <MetaCategoryDiagram />
         </div>
-
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>This dialogue is not theoretical decoration. It should lead to principles, protocols, tools, language, practices, diagnostics, experiments, and implementations.</p>
-          <p>Audax OS begins with a proposed architecture: <strong>Five Spheres</strong> (what every healthy organisation must care for), <strong>Five Layers</strong> (where those functions operate), and <strong>Three Modes</strong> (how collaboration happens between humans and agents).</p>
-          <p>But the details still need to be shaped. What should a contribution ledger include? How should personal agents protect consent? What does trust look like in a fractional organisation? How do agent-to-agent workflows remain inspectable?</p>
-          <p>These are not small questions. They need many kinds of intelligence: organisation intelligence, technical intelligence, governance intelligence, regenerative intelligence, and the quiet intelligence of people who have seen enough failed systems to recognise a real edge when they find one.</p>
-        </div>
-
-        <PullQuote>Audax OS is not a product looking for users. <em>It is a problem space looking for co-creators.</em></PullQuote>
+        <PullQuote>A legal form tells you what something is registered as. <em>An operating system reveals how it actually lives.</em></PullQuote>
       </div>
     </section>
 
-    {/* ─── 3 · WHO IS NEEDED FIRST ──────────────────────────────────────────── */}
-    <section className="section" style={{ background: 'var(--surface-paper)' }}>
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">03 · First circle</span>
-          Who is needed <em>at the beginning?</em>
-        </h1>
-        <p className="lede" style={{ marginBottom: 56, maxWidth: 760 }}>
-          At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners, and thinkers who understand that the organisation itself is now the design frontier.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
-          {PRIMARY_AUDIENCES.slice(0, 4).map(a => (
-            <article key={a.n} style={{
-              background: 'var(--surface-white)',
-              border: '1px solid var(--border-1)',
-              borderRadius: 16, padding: '28px 22px',
-              display: 'flex', flexDirection: 'column', minHeight: 220
-            }}>
-              <div style={{
-                fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-                letterSpacing: '0.22em', color: 'var(--forest-700)', marginBottom: 14
-              }}>CIRCLE {a.n}</div>
-              <h4 style={{
-                fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 400,
-                letterSpacing: '-0.02em', lineHeight: 1.05,
-                color: 'var(--ink-900)', margin: '0 0 12px'
-              }}>{a.name}</h4>
-              <p style={{
-                fontSize: 13, fontWeight: 300, lineHeight: 1.45,
-                color: 'var(--ink-600)', margin: 0, fontStyle: 'italic'
-              }}>{a.q}</p>
-            </article>
-          ))}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginTop: 14 }}>
-          {PRIMARY_AUDIENCES.slice(4).map(a => (
-            <article key={a.n} style={{
-              background: 'var(--surface-white)',
-              border: '1px solid var(--border-1)',
-              borderRadius: 16, padding: '28px 22px',
-              display: 'flex', flexDirection: 'column', minHeight: 200
-            }}>
-              <div style={{
-                fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-                letterSpacing: '0.22em', color: 'var(--forest-700)', marginBottom: 14
-              }}>CIRCLE {a.n}</div>
-              <h4 style={{
-                fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 400,
-                letterSpacing: '-0.02em', lineHeight: 1.05,
-                color: 'var(--ink-900)', margin: '0 0 12px'
-              }}>{a.name}</h4>
-              <p style={{
-                fontSize: 13, fontWeight: 300, lineHeight: 1.45,
-                color: 'var(--ink-600)', margin: 0, fontStyle: 'italic'
-              }}>{a.q}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ─── 4–8 · AUDIENCE DEEP DIVES ────────────────────────────────────────── */}
+    {/* ─── 3 · CONVERGING FORCES ───────────────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">04–08 · Deep dives</span>
-          What does each <em>first circle need?</em>
-        </h1>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {PRIMARY_AUDIENCES.slice(0, 5).map((a, i) => (
-            <div key={a.n} className="aud-row" style={{ paddingTop: i === 0 ? 56 : undefined }}>
-              <div>
-                <h6>{a.n} · First circle</h6>
-                <h3>{a.name}</h3>
-              </div>
-              <div className="who-grid">
-                <div>
-                  <h6>Who you are</h6>
-                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 24px' }}>
-                    {a.who}
-                  </p>
-                  <p style={{
-                    fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
-                    letterSpacing: '-0.01em', lineHeight: 1.35,
-                    color: 'var(--forest-900)', fontStyle: 'italic',
-                    background: 'var(--forest-050)', border: '1px solid var(--forest-200)',
-                    borderRadius: 12, padding: '16px 18px', margin: 0
-                  }}>
-                    {a.invite}
-                  </p>
-                </div>
-                <div>
-                  <h6>What you might help shape</h6>
-                  <ul>{a.bring.map(x => <li key={x}>{x}</li>)}</ul>
-                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open(JOIN_URL, '_blank'); }}>
-                    Join the dialogue <span style={{ fontSize: 16 }}>&rarr;</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        <NumQ n="03" kicker="Convergence">Why are so many different groups facing <em>the same problem?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Three shifts are converging. Work has become distributed. Contribution has become fractional. Agents have entered the room.</p>
+          <p>The old organisational model was already struggling. Remote work exposed the cracks. Fractional work widened them. AI agents now make redesign unavoidable.</p>
         </div>
+        <div style={{ margin: '48px 0' }}>
+          <ConvergingForces />
+        </div>
+        <PullQuote>The future organisation is not defined by its legal wrapper. <em>It is defined by how humans and agents coordinate.</em></PullQuote>
       </div>
     </section>
 
-    {/* Pull quote between audience sections */}
-    <section className="section manifesto" style={{ paddingTop: 80, paddingBottom: 80 }}>
-      <div className="container">
-        <PullQuote>The agentic age needs organisation designers, <em>not just AI engineers with admin access.</em></PullQuote>
-        <PullQuote>Agents do not only need better prompts. <em>They need better organisational habitats.</em></PullQuote>
-        <PullQuote>The next organisational OS should be interoperable, <em>not imperial.</em></PullQuote>
-      </div>
-    </section>
-
-    {/* Sections 06–07 deep dives */}
+    {/* ─── 4 · AUDIENCE GRID ───────────────────────────────────────────── */}
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {PRIMARY_AUDIENCES.slice(5).map((a, i) => (
-            <div key={a.n} className="aud-row" style={{ paddingTop: i === 0 ? 0 : undefined }}>
-              <div>
-                <h6>{a.n} · First circle</h6>
-                <h3>{a.name}</h3>
-              </div>
-              <div className="who-grid">
-                <div>
-                  <h6>Who you are</h6>
-                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 24px' }}>
-                    {a.who}
-                  </p>
-                  <p style={{
-                    fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
-                    letterSpacing: '-0.01em', lineHeight: 1.35,
-                    color: 'var(--forest-900)', fontStyle: 'italic',
-                    background: 'var(--forest-050)', border: '1px solid var(--forest-200)',
-                    borderRadius: 12, padding: '16px 18px', margin: 0
-                  }}>
-                    {a.invite}
-                  </p>
-                </div>
-                <div>
-                  <h6>What you might help shape</h6>
-                  <ul>{a.bring.map(x => <li key={x}>{x}</li>)}</ul>
-                  <a href="#" className="aud-cta" onClick={(e) => { e.preventDefault(); window.open(JOIN_URL, '_blank'); }}>
-                    Join the dialogue <span style={{ fontSize: 16 }}>&rarr;</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ─── 9 · STRATEGIC PARTNERS ───────────────────────────────────────────── */}
-    <section className="section">
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">09 · Partners</span>
-          Who can <em>build with Audax OS?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach, and build upon. Strategic partners are not future customers. They are potential co-creators.</p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
-          <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 18, padding: '36px 36px' }}>
-            <h6 style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--forest-700)', margin: '0 0 16px' }}>Partner types</h6>
-            {[
-              'Organisation design consultancies',
-              'AI agent platforms',
-              'Collaboration tool vendors',
-              'Governance and DAO platforms',
-              'Knowledge management tools',
-              'Learning and development platforms',
-              'Community and network platforms',
-              'Research labs and foundations',
-              'Open-source communities',
-              'Venture studios and funders'
-            ].map((p, i) => (
-              <div key={p} style={{
-                padding: '10px 0', borderBottom: '1px solid var(--border-2)',
-                fontSize: 15, fontWeight: 400, color: 'var(--ink-800)',
-                display: 'flex', gap: 12, alignItems: 'center'
-              }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--forest-600)', letterSpacing: '0.04em', flexShrink: 0 }}>{String(i + 1).padStart(2, '0')}</span>
-                {p}
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ background: 'var(--forest-050)', border: '1px solid var(--forest-200)', borderRadius: 18, padding: '32px 32px' }}>
-              <h6 style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--forest-800)', margin: '0 0 16px' }}>What partners might build</h6>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
-                {['Diagnostics', 'Protocols', 'Training programmes', 'Workshops', 'AI agents', 'Tool integrations', 'Standards', 'Case studies', 'Research papers', 'Pilot programmes'].map(x => (
-                  <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--forest-200)', fontSize: 13, color: 'var(--forest-900)' }}>{x}</div>
-                ))}
-              </div>
-            </div>
-            <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 18, padding: '32px 32px', flex: 1 }}>
-              <p style={{
-                fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 400,
-                letterSpacing: '-0.015em', lineHeight: 1.2,
-                color: 'var(--ink-900)', fontStyle: 'italic', margin: 0
-              }}>
-                "The goal is not platform capture. The goal is shared infrastructure."
-              </p>
-            </div>
-          </div>
-        </div>
-        <PullQuote>Audax OS should become a shared grammar many builders can use, <em>not a castle one vendor owns.</em></PullQuote>
-      </div>
-    </section>
-
-    {/* ─── 10 · FUTURE AUDIENCES ────────────────────────────────────────────── */}
-    <section className="section" style={{ background: 'var(--surface-paper)' }}>
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">10 · Eventually</span>
-          Who will Audax OS <em>eventually serve?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>The first invitation is to co-creators. But the OS is being developed because many kinds of people and organisations will need it.</p>
+        <NumQ n="04" kicker="Audiences">Who would <em>use Audax OS?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780, marginBottom: 48 }}>
+          <p>Some will use it as a starter framework. Some as a diagnostic lens. Some as a redesign method. Some as a technical architecture. Some as a shared language across ecosystems.</p>
         </div>
         <div className="join-grid">
-          {[
-            { label: 'Founders', desc: 'People building companies, labs, communities, and ventures that need healthier organisational foundations from the beginning.' },
-            { label: 'Teams', desc: 'Small groups that need clearer agreements, missions, commitments, communication, learning, and trust.' },
-            { label: 'Contributors', desc: 'People working fractionally across multiple contexts who need visibility, agency, and contribution recognition.' },
-            { label: 'Organisations', desc: 'Companies, nonprofits, cooperatives, and associations that want to become more coherent, adaptive, and agent-ready.' },
-            { label: 'Organisation Families', desc: 'Venture studios, federations, alliances, and constellations of related organisations that need shared grammar without forced sameness.' },
-            { label: 'Ecosystems', desc: 'Fields of independent actors coordinating around shared missions without central control.' }
-          ].map((a, i) => (
-            <div key={a.label} className="join-card">
-              <div className="num" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500, color: 'var(--ink-400)', marginBottom: 12 }}>
-                {String(i + 1).padStart(2, '0')}
+          {AUDIENCES.map((a, i) => (
+            <div key={a.name} className="join-card">
+              <div className="num" style={{ fontFamily: MONO, fontSize: 11, fontWeight: 500, color: 'var(--forest-700)', marginBottom: 8, letterSpacing: '0.18em' }}>
+                {String(i + 1).padStart(2, '0')} · {a.tag.toUpperCase()}
               </div>
-              <h4>{a.label}</h4>
-              <p>{a.desc}</p>
+              <h4>{a.name}</h4>
+              <p>{a.pain}</p>
+              <div style={{
+                marginTop: 14, paddingTop: 14, borderTop: '1px solid var(--border-2)',
+                fontSize: 12, color: 'var(--ink-500)', fontFamily: MONO, letterSpacing: '0.06em'
+              }}>
+                <span style={{ color: 'var(--ink-400)' }}>first module · </span>
+                <span style={{ color: 'var(--forest-700)' }}>{a.mod}</span>
+              </div>
             </div>
           ))}
         </div>
-        <p className="q-body" style={{ marginTop: 32 }}>
-          <p style={{ fontStyle: 'italic', color: 'var(--ink-500)', maxWidth: 640, fontSize: 15 }}>
-            The current page emphasises: first, we need the people who can help shape the OS.
-          </p>
-        </p>
       </div>
     </section>
 
-    {/* ─── 11 · WHO IS THIS NOT FOR ─────────────────────────────────────────── */}
+    {/* ─── 5 · REMOTE-FIRST ────────────────────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">11 · Threshold</span>
-          Who is <em>this not for?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>Audax OS is open, but it is not vague. The early dialogue needs people who can hold complexity without turning it into fog, and people who can build structure without turning it into a cage.</p>
+        <NumQ n="05" kicker="Remote-first">Are you remote-first but still running on <em>office assumptions?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>A physical office used to provide hidden coordination: noticing who was stressed, context in corridors, trust through small encounters. Remote-first organisations do not get this for free. They need to design it.</p>
+          <p>Without intentional structure, remote work becomes a strange soup of meetings, missing context, lonely contributors, and hidden overload. That is not remote work failing. <strong>That is underdesigned organisation.</strong></p>
+        </div>
+        <div style={{ margin: '48px 0 32px' }}>
+          <RemoteConstellation />
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-          <div style={{ background: 'var(--forest-050)', border: '1px solid var(--forest-200)', borderRadius: 18, padding: '36px 36px' }}>
-            <h6 style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--forest-800)', margin: '0 0 20px' }}>What this space needs</h6>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {[
-                'People willing to question assumptions',
-                'People willing to test ideas in practice',
-                'People willing to disagree cleanly',
-                'People willing to build in public',
-                'People who hold both structure and soul',
-                'People who care about both the API and the conversation after the meeting',
-                'People who protect human agency while designing agentic systems'
-              ].map(x => (
-                <li key={x} style={{
-                  padding: '12px 0', borderBottom: '1px solid var(--forest-200)',
-                  fontSize: 15, fontWeight: 400, color: 'var(--ink-800)',
-                  display: 'flex', gap: 12, alignItems: 'baseline'
-                }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--forest-700)', flexShrink: 0 }}>→</span>
-                  {x}
-                </li>
-              ))}
-            </ul>
+          <div style={{ background: 'var(--forest-050)', border: '1px solid var(--forest-200)', borderRadius: 14, padding: '28px 28px' }}>
+            <h6 style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--forest-800)', margin: '0 0 16px' }}>What Audax OS helps remote teams see</h6>
+            {['what matters now', 'who is committed to what', 'where context lives', 'which decisions have been made', 'where people are overloaded', 'what agents can summarise & remember'].map(x => (
+              <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--forest-200)', fontSize: 14, color: 'var(--ink-800)' }}>· {x}</div>
+            ))}
           </div>
-          <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 18, padding: '36px 36px' }}>
-            <h6 style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--ink-400)', margin: '0 0 20px' }}>May not be the right place for</h6>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {[
-                'People looking for a finished product to buy next week',
-                'AI as a way to replace humans or intensify control',
-                'The belief that every problem can be solved with dashboards',
-                'People who enjoy abstraction but avoid implementation',
-                'People who want to own the whole category before it has learned how to breathe',
-                'Extractive productivity maximalism',
-                'Mystical fog without operational discipline'
-              ].map(x => (
-                <li key={x} style={{
-                  padding: '12px 0', borderBottom: '1px solid var(--border-2)',
-                  fontSize: 15, fontWeight: 300, color: 'var(--ink-400)',
-                  textDecoration: 'line-through', textDecorationColor: 'var(--ink-200)',
-                  display: 'flex', gap: 12, alignItems: 'baseline'
-                }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--ink-300)', flexShrink: 0, textDecoration: 'none' }}>✕</span>
-                  {x}
-                </li>
-              ))}
-            </ul>
+          <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 14, padding: '28px 28px' }}>
+            <h6 style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--ink-500)', margin: '0 0 16px' }}>Useful modules</h6>
+            {['Team Agreements', 'Communication Architecture', 'Commitment Ledger', 'Decision Log', 'Remote Onboarding Pathway', 'Meeting & Async Rhythm', 'Agent Meeting Memory'].map(x => (
+              <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--border-2)', fontSize: 14, color: 'var(--ink-700)', fontFamily: MONO, letterSpacing: '0.04em' }}>{x}</div>
+            ))}
           </div>
         </div>
-        <PullQuote>Not everyone needs to join early. <em>The early circle should be made of people who can help the question mature.</em></PullQuote>
+        <PullQuote>Remote work does not remove the need for organisation. <em>It removes the illusion that organisation happens automatically.</em></PullQuote>
       </div>
     </section>
 
-    {/* ─── 12 · PARTICIPATION PATHWAYS ──────────────────────────────────────── */}
+    {/* ─── 6 · FRACTIONAL ──────────────────────────────────────────────── */}
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">12 · Ways in</span>
-          How can people <em>help shape Audax OS?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 56 }}>
-          <p>There are many ways to contribute. The goal is not to make everyone contribute in the same way. The goal is to make contribution visible, useful, and alive.</p>
+        <NumQ n="06" kicker="Fractional">Are people contributing without belonging to <em>one full-time box?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>One person may be a founder in one project, an advisor in another, a contributor in a third, a community member in a fourth, and a curious observer in a fifth. The old model asks: what is your job title? The new model asks a much better — and heavier — question.</p>
+          <p>Goodwill alone is a poor ledger. It works until money, ownership, pressure, or memory disagreements arrive wearing boots.</p>
         </div>
-        <div className="join-grid">
-          {PATHWAYS.map(p => (
-            <div key={p.n} className="join-card">
-              <div className="num">{p.n}</div>
-              <h4>{p.title}</h4>
-              <p>{p.body}</p>
+        <div style={{ margin: '48px 0 32px' }}>
+          <FractionalPaths />
+        </div>
+        <PullQuote>Fractional work does not need less structure. <em>It needs lighter, clearer, more humane structure.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 7 · AGENTIC ─────────────────────────────────────────────────── */}
+    <section className="section">
+      <div className="container">
+        <NumQ n="07" kicker="Agentic">Are AI agents becoming <em>part of the work itself?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>A chatbot can survive a vague prompt. An organisational agent cannot. When agents support meetings, research, drafting, coordination, decisions, the organisation needs a new level of clarity: roles, access, authority, memory, escalation, accountability.</p>
+          <p className="lead">Humans hold judgment, meaning, care, ethics, imagination, responsibility. <em>Agents extend memory, synthesis, coordination, patterns, translation, preparation.</em></p>
+        </div>
+        <div style={{ margin: '48px 0' }}>
+          <AgenticBoundary />
+        </div>
+        <PullQuote>Agents need better organisational habitats, <em>not just better prompts.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 8 · STARTERS ────────────────────────────────────────────────── */}
+    <section className="section" style={{ background: 'var(--surface-paper)' }}>
+      <div className="container">
+        <NumQ n="08" kicker="Starting">Are you starting something <em>before the operating system exists?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Most new organisations start with a name, a logo, a WhatsApp group, a shared drive, a half-written strategy, and a faint hope that governance will somehow emerge politely after lunch. It usually does not.</p>
+          <p>Audax OS helps new organisation starters begin with better defaults. Not a giant system. A starter kit for organisational coherence.</p>
+        </div>
+        <div style={{ margin: '48px 0' }}>
+          <SeedSapling />
+        </div>
+        <PullQuote>Starting an organisation should not require heroic improvisation <em>and three years of avoidable confusion.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 9 · STARTUPS ────────────────────────────────────────────────── */}
+    <section className="section">
+      <div className="container">
+        <NumQ n="09" kicker="Startups">Are you building a startup that does not look like <em>a 20th-century company?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780, marginBottom: 40 }}>
+          <p>Remote from day one. Fractional founders, advisors, contractors, AI agents. Pre-revenue. Dynamic contribution before conventional compensation is possible. The traditional startup stack handles product better than it handles contribution, agreements, learning, culture, and value fairness.</p>
+        </div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12,
+          margin: '24px 0 40px'
+        }}>
+          {['Product', 'Capital', 'Market', 'Team', 'Contribution', 'Agents', 'Learning', 'Governance'].map((s, i) => (
+            <div key={s} style={{
+              padding: '24px 18px',
+              background: i < 4 ? 'var(--surface-white)' : 'var(--forest-050)',
+              border: `1px solid ${i < 4 ? 'var(--border-1)' : 'var(--forest-200)'}`,
+              borderRadius: 12, textAlign: 'center'
+            }}>
+              <div style={{ fontFamily: MONO, fontSize: 10, color: i < 4 ? 'var(--ink-400)' : 'var(--forest-700)', letterSpacing: '0.18em', marginBottom: 6 }}>
+                {i < 4 ? 'CLASSIC' : 'NEW'}
+              </div>
+              <div style={{ fontFamily: SERIF, fontSize: 19, color: 'var(--ink-900)' }}>{s}</div>
             </div>
           ))}
         </div>
-        <PullQuote>The OS will become real through <em>the quality of the people and practices that gather around it.</em></PullQuote>
+        <PullQuote>The next startup advantage may not be only product speed. <em>It may be organisational coherence.</em></PullQuote>
       </div>
     </section>
 
-    {/* ─── 13 · THE COHERENCE COMPANY ───────────────────────────────────────── */}
+    {/* ─── 10 · NONPROFITS ─────────────────────────────────────────────── */}
+    <section className="section" style={{ background: 'var(--surface-paper)' }}>
+      <div className="container">
+        <NumQ n="10" kicker="Mission-led">Are you coordinating mission without <em>enough infrastructure?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Nonprofits and purpose-led organisations often carry complex work with fragile infrastructure: staff, volunteers, donors, boards, partners, communities, campaigns, funders, reporting. High emotional load. Limited budgets. Shifting funding cycles.</p>
+          <p>Purpose-led work needs more than inspiration. <strong>It needs an operating system that protects the purpose from overload, drift, and informal power.</strong></p>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, margin: '40px 0' }}>
+          {[
+            { h: 'What it helps see', items: ['what the mission currently requires', 'who is carrying which responsibilities', 'where volunteer energy is fading', 'what funders need to understand', 'where purpose is being stretched thin'] },
+            { h: 'Useful modules', items: ['Mission & Stakeholder Map', 'Volunteer Contribution Ledger', 'Programme Mission Canvas', 'Board–Staff Agreement', 'Impact Learning Loop', 'Agent-Assisted Reporting'] }
+          ].map((col, i) => (
+            <div key={col.h} style={{ background: i ? 'var(--forest-050)' : 'var(--surface-white)', border: `1px solid ${i ? 'var(--forest-200)' : 'var(--border-1)'}`, borderRadius: 14, padding: '28px 28px' }}>
+              <h6 style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: i ? 'var(--forest-800)' : 'var(--ink-500)', margin: '0 0 16px' }}>{col.h}</h6>
+              {col.items.map(x => (
+                <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--border-2)', fontSize: 14, color: 'var(--ink-800)', fontFamily: i ? 'inherit' : MONO, letterSpacing: i ? 0 : '0.04em' }}>· {x}</div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <PullQuote>Purpose does not remove the need for structure. <em>It raises the ethical demand for better structure.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 11 · COMMUNITIES & STUDENTS ─────────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">13 · Living lab</span>
-          Where does this <em>begin in practice?</em>
-        </h1>
-        <div style={{
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56,
-          background: 'var(--surface-white)',
-          border: '1px solid var(--border-1)',
-          borderRadius: 20, padding: '56px 56px',
-          alignItems: 'start'
-        }}>
-          <div>
-            <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-              letterSpacing: '0.22em', textTransform: 'uppercase',
-              color: 'var(--forest-700)', marginBottom: 16
-            }}>First living lab</div>
-            <h3 style={{
-              fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3vw, 40px)',
-              fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.05,
-              color: 'var(--ink-900)', margin: '0 0 24px'
-            }}>The Coherence Company</h3>
-            <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 16px' }}>
-              The Coherence Company is the first organisation joining to develop, test, and evolve Audax OS in real organisational life.
-            </p>
-            <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 16px' }}>
-              It is not the owner of the OS. It is the first living lab — using Audax OS to explore how a distributed, fractional, AI-native organisation can organise work, contribution, learning, communication, human relationship, and agentic collaboration.
-            </p>
-            <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: 0 }}>
-              The future organisational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects, and real learning loops.
-            </p>
-          </div>
-          <div>
-            <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-              letterSpacing: '0.22em', textTransform: 'uppercase',
-              color: 'var(--ink-500)', marginBottom: 16
-            }}>The constellation grows</div>
-            <div style={{
-              background: 'var(--forest-050)',
-              border: '1px solid var(--forest-200)',
-              borderRadius: 16, padding: '28px 28px', marginBottom: 16
-            }}>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 400, letterSpacing: '-0.01em', lineHeight: 1.3, color: 'var(--forest-900)', fontStyle: 'italic', margin: 0 }}>
-                "The first living lab is not the owner of the field. It is the first place where the OS learns from reality."
-              </p>
-            </div>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: 0 }}>
-              The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners, and living labs. One node in a growing constellation — not the whole sky.
-            </p>
-          </div>
+        <NumQ n="11" kicker="Communities">Are you a community that wants to do <em>more than gather?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Communities often begin with belonging. That is beautiful. But when a community wants to act, it needs structure — not corporate structure, not heavy governance theatre, just enough coherence to turn shared energy into shared action.</p>
+          <p>Student groups especially need this. They are laboratories for the next generation of organising. But they suffer from fast turnover, weak continuity, lost knowledge, and structures that reset every year like <em>organisational amnesia with merch.</em></p>
         </div>
+        <div style={{ margin: '48px 0' }}>
+          <CommunityFlow />
+        </div>
+        <PullQuote>Community is not the opposite of organisation. <em>It is one of the oldest forms of it.</em></PullQuote>
       </div>
     </section>
 
-    {/* ─── 14 · THE KIND OF DIALOGUE ────────────────────────────────────────── */}
+    {/* ─── 12 · DAOs ───────────────────────────────────────────────────── */}
+    <section className="section" style={{ background: 'var(--surface-paper)' }}>
+      <div className="container">
+        <NumQ n="12" kicker="Open contribution">Are you experimenting with <em>tokens, bounties, or dynamic ownership?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>DAOs and crypto communities have already explored many of the problems Audax OS cares about: bounties, reputation, treasury allocation, retroactive funding, peer recognition, decentralised governance. Slicing Pie offers a useful logic for early teams where people contribute at-risk before normal compensation is possible.</p>
+          <p>But these systems also reveal the hard truth: <strong>counting contribution is not enough.</strong> Someone must decide what counts. Someone must verify. Someone must handle disputes. Someone must prevent gaming. Someone must translate contribution into value without destroying trust.</p>
+        </div>
+        <div style={{ margin: '40px 0' }}>
+          <LayeredLedgers />
+        </div>
+        <PullQuote>The future of contribution accounting is not only tokens or cap tables. <em>It is trust made discussable.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 13 · LINEAGE ────────────────────────────────────────────────── */}
     <section className="section manifesto">
       <div className="container">
-        <h1 className="q-h1">
-          <span className="num">14 · Culture</span>
-          What kind of conversation <em>are we trying to host?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>The founding dialogue should be serious, generous, practical, and alive.</p>
-          <p>Not a panel series where everyone performs insight and nothing changes. Not a Discord swamp where good ideas go to slowly become scroll sediment. Not a closed expert committee pretending the future has already been decided.</p>
-          <p className="lead">We want conversations that <em>move.</em></p>
-          <p>From question to pattern. From pattern to protocol. From protocol to test. From test to learning. From learning to better questions.</p>
-          <p>The dialogue should welcome disagreement. Audax OS will be stronger if people challenge the language, test the assumptions, expose blind spots, bring edge cases, and refuse lazy consensus.</p>
-          <p><strong>Co-creation is not polite agreement. It is disciplined imagination.</strong></p>
+        <NumQ n="13" kicker="Lineage">What comes after Teal <em>when agents enter the room?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Audax OS sits in a lineage. Agile challenged rigid planning. Teal helped imagine self-management and evolutionary purpose. Deliberately Developmental Organisations placed human growth at the centre. Regenerative leadership reframed organisations as living systems. Slicing Pie and DAOs experimented with contribution accounting and open coordination.</p>
+          <p className="lead">Audax OS should not discard the earlier wisdom. <em>It should compost it.</em></p>
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0 64px', margin: '48px 0 0' }}>
-          {[
-            'Start from real problems.',
-            'Stay close to practice.',
-            'Make concepts legible.',
-            'Name tensions early.',
-            'Protect human agency.',
-            'Respect technical reality.',
-            'Prefer protocols over slogans.',
-            'Treat critique as contribution.',
-            'Build with enough openness that others can extend it.',
-            'Keep asking what this makes possible for people, teams, and ecosystems.'
-          ].map((p, i) => (
-            <div key={i} style={{
-              padding: '22px 0',
-              borderBottom: '1px solid var(--border-2)',
-              display: 'flex', gap: 20, alignItems: 'flex-start'
-            }}>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-                letterSpacing: '0.04em', color: 'var(--forest-700)',
-                flexShrink: 0, minWidth: 28, paddingTop: 2
-              }}>{String(i + 1).padStart(2, '0')}</span>
-              <div style={{
-                fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 400,
-                letterSpacing: '-0.01em', color: 'var(--ink-900)', lineHeight: 1.25
-              }}>{p}</div>
-            </div>
-          ))}
+        <div style={{ margin: '48px 0' }}>
+          <LineageRiver />
         </div>
-
-        <PullQuote>We are not gathering to admire complexity. <em>We are gathering to make it workable.</em></PullQuote>
+        <PullQuote>Audax OS is not a rejection of Teal. <em>It is one possible evolution of Teal for the agentic, fractional, distributed age.</em></PullQuote>
       </div>
     </section>
 
-    {/* ─── 15 · WHAT COULD THIS BECOME ──────────────────────────────────────── */}
-    <section className="section" style={{ background: 'var(--surface-paper)' }}>
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">15 · Horizon</span>
-          What could this become <em>if we build it well?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>If Audax OS works, it will not become one company's proprietary method. It will become a shared language for designing organisations in the agentic age.</p>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14 }}>
-          {[
-            { for: 'Organisation designers', becomes: 'A way to speak with AI builders around shared organisational objects.' },
-            { for: 'Founders', becomes: 'A way to think beyond roles and task boards from the beginning.' },
-            { for: 'Contributors', becomes: 'A way to see commitments, value, learning, and agency across contexts.' },
-            { for: 'Teams', becomes: 'A way to make work legible without becoming bureaucratic.' },
-            { for: 'Agents', becomes: 'A way to participate with context, permissions, feedback, and clear boundaries.' },
-            { for: 'Vendors', becomes: 'A way to build interoperable tools around shared organisational objects.' },
-            { for: 'Ecosystems', becomes: 'A way to coordinate missions without central control.' },
-            { for: 'The future of work', becomes: 'A way to become more humane, not merely more automated.' },
-            { for: 'Many builders', becomes: 'A shared grammar many systems may one day use.' }
-          ].map((c, i) => (
-            <div key={i} style={{
-              background: 'var(--surface-white)',
-              border: '1px solid var(--border-1)',
-              borderRadius: 14, padding: '24px 22px'
-            }}>
-              <div style={{
-                fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500,
-                letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: 'var(--forest-700)', marginBottom: 10
-              }}>For {c.for}</div>
-              <p style={{
-                fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
-                letterSpacing: '-0.01em', lineHeight: 1.25,
-                color: 'var(--ink-900)', margin: 0, fontStyle: 'italic'
-              }}>{c.becomes}</p>
-            </div>
-          ))}
-        </div>
-        <PullQuote>Audax OS will be valuable only if it becomes <em>bigger than the people who started it.</em></PullQuote>
-      </div>
-    </section>
-
-    {/* ─── 16 · TRANSITION → JOIN ───────────────────────────────────────────── */}
+    {/* ─── 14 · ORG FAMILIES & ECOSYSTEMS ──────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '56px 64px',
-          background: 'var(--surface-white)',
-          border: '1px solid var(--border-1)',
-          borderRadius: 20
-        }}>
-          <div style={{ maxWidth: 620 }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
-              letterSpacing: '0.22em', textTransform: 'uppercase',
-              color: 'var(--ink-500)', marginBottom: 12
-            }}>16 · THE NEXT PAGE</div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4vw, 52px)',
-              fontWeight: 400, letterSpacing: '-0.025em', lineHeight: 1.05,
-              color: 'var(--ink-900)', margin: '0 0 20px'
-            }}>
-              Are you carrying<br /><em style={{ color: 'var(--forest-700)' }}>part of this question?</em>
-            </h2>
-            <p style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: '0 0 16px', maxWidth: 520 }}>
-              Bring your questions, your prototypes, your field experience, your doubts, and the beautiful failed thing that taught you more than the successful slide deck.
-            </p>
-            <p style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: '0 0 32px', maxWidth: 520 }}>
-              Audax OS begins as a shared inquiry. It becomes real through the people willing to shape it.
-            </p>
-            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
-              Join the founding dialogue
-            </Button>
-          </div>
-          <div style={{
-            width: 220, height: 220, flexShrink: 0,
-            background: 'var(--forest-050)',
-            border: '1px solid var(--forest-200)',
-            borderRadius: '50%',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            marginLeft: 48
-          }}>
-            <div style={{
-              textAlign: 'center',
-              fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 400,
-              letterSpacing: '-0.01em', lineHeight: 1.4,
-              color: 'var(--forest-700)', fontStyle: 'italic',
-              padding: '0 24px'
-            }}>
-              Come to the table if you are already carrying part of this question.
-            </div>
-          </div>
+        <NumQ n="14" kicker="Constellations">Are you coordinating across <em>more than one organisation?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Some users of Audax OS will not be single organisations. They will be organisation families: a venture studio with several startups. A foundation supporting multiple initiatives. A regenerative network connecting land projects, communities, funders. A federation of local chapters. A field-building ecosystem.</p>
+          <p>The question shifts from <em>how does our team work?</em> to <em>how do multiple organisations share learning, talent, capital, infrastructure, trust, and agents while maintaining autonomy?</em></p>
         </div>
+        <div style={{ margin: '48px 0' }}>
+          <NestedConstellation />
+        </div>
+        <PullQuote>The future may belong less to isolated companies <em>and more to coherent constellations.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 15 · TOOL BUILDERS ──────────────────────────────────────────── */}
+    <section className="section" style={{ background: 'var(--surface-paper)' }}>
+      <div className="container">
+        <NumQ n="15" kicker="Builders">Are you building tools <em>for the new organisation?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>The problem is not tool scarcity. It is fragmentation. Tools do not share enough language around contribution, commitments, missions, decisions, learning, value, roles, permissions, and agents. Audax OS can give builders a shared grammar to design around.</p>
+        </div>
+        <div style={{ margin: '48px 0' }}>
+          <GrammarArchitecture />
+        </div>
+        <PullQuote>Audax OS should become infrastructure others can build with, <em>not a castle others must move into.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 16 · CONSULTANTS ────────────────────────────────────────────── */}
+    <section className="section">
+      <div className="container">
+        <NumQ n="16" kicker="Practitioners">Are you helping organisations <em>redesign themselves?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780, marginBottom: 40 }}>
+          <p>Audax OS is for consultants, facilitators, organisation designers, coaches, governance practitioners, and regenerative leadership practitioners. It gives a map across five spheres, five layers, and three modes — and practical objects to design with.</p>
+          <p>This helps practitioners move beyond inspiration into implementation. Not because inspiration is bad — but because inspiration without structure becomes <em>expensive incense.</em></p>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, margin: '32px 0' }}>
+          {[
+            { h: 'Diagnose', items: ['Diagnostic Wheel', 'Spheres × Layers Assessment', 'Modes Mapping'] },
+            { h: 'Design', items: ['Starter Kit', 'Contribution Accounting', 'Agent Governance Workshop'] },
+            { h: 'Implement', items: ['Remote & Fractional Audit', 'Ecosystem Coherence Mapping', 'Tool Implementation'] }
+          ].map((col, i) => (
+            <div key={col.h} style={{
+              background: i === 1 ? 'var(--forest-050)' : 'var(--surface-white)',
+              border: `1px solid ${i === 1 ? 'var(--forest-200)' : 'var(--border-1)'}`,
+              borderRadius: 14, padding: '28px 24px'
+            }}>
+              <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', color: 'var(--forest-700)', marginBottom: 6 }}>STAGE {String(i + 1).padStart(2, '0')}</div>
+              <h4 style={{ fontFamily: SERIF, fontSize: 24, color: 'var(--ink-900)', margin: '0 0 16px', fontWeight: 400, letterSpacing: '-0.02em' }}>{col.h}</h4>
+              {col.items.map(x => (
+                <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--border-2)', fontSize: 13, color: 'var(--ink-700)', fontFamily: MONO, letterSpacing: '0.04em' }}>{x}</div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <PullQuote>The next organisation design practice must understand humans, agents, value, learning, governance, and tools <em>as one field.</em></PullQuote>
+      </div>
+    </section>
+
+    {/* ─── 17 · INDIVIDUALS ────────────────────────────────────────────── */}
+    <section className="section" style={{ background: 'var(--surface-paper)' }}>
+      <div className="container">
+        <NumQ n="17" kicker="The contributor">What about <em>the individual?</em></NumQ>
+        <div className="q-body" style={{ maxWidth: 780 }}>
+          <p>Audax OS is also for people trying to live inside the new world of work without becoming a scattered pile of obligations with a nice LinkedIn headline.</p>
+          <p>In fractional work, one person may hold commitments across many teams. They need visibility: what have I promised, where am I over capacity, what is paid, what is speculative, where am I under-recognised, where do I need to renegotiate before trust breaks.</p>
+          <p className="lead">This is not productivity optimisation. <em>It is livelihood clarity.</em></p>
+        </div>
+        <div style={{ margin: '48px 0' }}>
+          <PersonalCoherence />
+        </div>
+        <PullQuote>People do not need to become more productive machines. <em>They need clearer ways to live inside many commitments.</em></PullQuote>
       </div>
     </section>
 
     <CtaBand
-      title="If you are carrying<br />part of this question — <em>join the table.</em>"
-      body="Audax OS begins as a shared inquiry. It becomes real through the people willing to shape it."
-      primary="Join the dialogue"
-      onPrimary={() => window.open(JOIN_URL, '_blank')}
+      title="Help build the OS<br />for the <em>organisations that come next.</em>"
+      body="If you recognise yourself in any of these — come help write the protocols. The grammar is still being shaped."
+      primary="Join &amp; Build the OS"
+      onPrimary={() => onNav('build')}
     />
   </>
 );

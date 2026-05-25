@@ -37,7 +37,7 @@ const PageJoin = () => {
           <div className="hero-inner reveal">
             <Eyebrow>Join</Eyebrow>
             <h1 className="display">
-              Join the dialogue.<br /><em>Help shape</em> Audax OS.
+              Join to co-create.<br /><em>Help shape</em> Audax OS.
             </h1>
             <p className="lede">
               We are convening organisation designers, agentic AI builders, and future-facing practitioners to explore the company OS needed for humans and agents working together.
@@ -177,7 +177,7 @@ const PageJoin = () => {
               </div>
             </div>
             <div style={{ marginTop: 32, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-              <Button size="lg" icon="arrow-right" onClick={submit}>Join the Audax OS dialogue</Button>
+              <Button size="lg" icon="arrow-right" onClick={submit}>Join to co-create</Button>
               <span style={{ fontSize: 13, color: 'var(--ink-500)' }}>We reply to every application. Usually within a week.</span>
             </div>
           </form>

@@ -105,30 +105,14 @@ const PageLayers = ({ onNav }) => (
           <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
             Coherence must be felt and practiced across scale — inside the individual, inside the team, across the organisation, across a family of organisations, and across the wider ecosystem.
           </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: '40px 0', maxWidth: 460 }}>
-            {LAYERS_META.map(l => (
-              <li key={l.n} style={{
-                display: 'flex', alignItems: 'baseline', gap: 16,
-                padding: '13px 0', borderBottom: '1px solid var(--border-2)',
-                fontFamily: 'var(--font-display)', fontSize: 22,
-                fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--ink-900)'
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500,
-                  letterSpacing: '0.22em', color: 'var(--forest-600)',
-                  minWidth: 20, flexShrink: 0
-                }}>{l.n}</span>
-                {l.name}
-              </li>
-            ))}
-          </ul>
+          <LayersDiagram />
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down"
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
               Explore the five layers
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>
-              Join the dialogue
+            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
+              Join to co-create
             </Button>
           </div>
         </div>
@@ -163,8 +147,6 @@ const PageLayers = ({ onNav }) => (
           <p>They are nested. Each layer shapes the others. Individuals form teams. Teams form organisations. Organisations form organisation families. Organisation families participate in ecosystems. Ecosystems shape what individuals can imagine, choose, and become.</p>
           <p>This is why Audax OS cannot be only a personal productivity tool, only a team operating model, only an organisational design model, or only an ecosystem map. <strong>It must connect all of them.</strong></p>
         </div>
-
-        <NestedCircles />
 
         <div className="q-body" style={{ marginTop: 48 }}>
           <div className="def-split">
@@ -617,7 +599,7 @@ const PageLayers = ({ onNav }) => (
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
             <Button size="lg" icon="arrow-right" onClick={() => onNav('modes')}>Explore Modes</Button>
-            <Button variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
+            <Button variant="secondary" onClick={() => onNav('build')}>Join to co-create</Button>
           </div>
         </div>
       </div>
@@ -630,7 +612,7 @@ const PageLayers = ({ onNav }) => (
         <h2>Help design coherence <em>across every scale.</em></h2>
         <p>The layers are where everything else has to land. Bring your scale, your context, your question.</p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join the dialogue</Button>
+          <Button onClick={() => onNav('build')} icon="arrow-right">Join to co-create</Button>
           <Button variant="ghost" onClick={() => onNav('modes')}>Explore Modes</Button>
         </div>
       </div>

@@ -272,7 +272,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .fr-axes {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-  margin-top: 48px;
+  margin-top: 0;
 }
 .fr-axis { text-align: left; }
 .fr-axis .ax-num {

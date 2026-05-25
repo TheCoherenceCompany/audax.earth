@@ -48,12 +48,6 @@ const ModeSection = ({ mode, deep }) => (
 
       <div className="sphere-deep">
         <div className="col">
-          <h6 className="holds">What this mode holds</h6>
-          <ul>{deep.holds.map(x => <li key={x}>{x}</li>)}</ul>
-          <h6 className="weak">When this mode is weak</h6>
-          <ul>{deep.weak.map(x => <li key={x}>{x}</li>)}</ul>
-        </div>
-        <div className="col">
           <div style={{
             aspectRatio: '4/3',
             background: `url(${mode.art}) center/cover no-repeat`,
@@ -66,6 +60,12 @@ const ModeSection = ({ mode, deep }) => (
             <div className="name">{deep.adds.name}</div>
             <p>{deep.adds.body}</p>
           </div>
+        </div>
+        <div className="col">
+          <h6 className="holds">What this mode holds</h6>
+          <ul>{deep.holds.map(x => <li key={x}>{x}</li>)}</ul>
+          <h6 className="weak">When this mode is weak</h6>
+          <ul>{deep.weak.map(x => <li key={x}>{x}</li>)}</ul>
         </div>
       </div>
 
@@ -96,31 +96,14 @@ const PageModes = ({ onNav }) => (
           <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
             That mode still matters. In fact, it matters more than ever. But the collaboration field has changed. Audax OS is designed for all three modes.
           </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: '40px 0', maxWidth: 480 }}>
-            {MODES_META.map(m => (
-              <li key={m.n} style={{
-                display: 'flex', alignItems: 'baseline', gap: 16,
-                padding: '13px 0', borderBottom: '1px solid var(--border-2)',
-                fontFamily: 'var(--font-display)', fontSize: 22,
-                fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--ink-900)'
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500,
-                  letterSpacing: '0.22em', color: 'var(--forest-600)',
-                  minWidth: 24, flexShrink: 0
-                }}>{m.n}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: 'var(--forest-700)', marginRight: 8 }}>{m.glyph}</span>
-                {m.name}
-              </li>
-            ))}
-          </ul>
+          <ModesDiagram />
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down"
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
               Explore the three modes
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>
-              Join the dialogue
+            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
+              Join to co-create
             </Button>
           </div>
         </div>
@@ -136,72 +119,27 @@ const PageModes = ({ onNav }) => (
         </h1>
         <div className="q-body">
           <p>A mode is a pattern of collaboration. It describes who or what is working together, and what kind of structure that collaboration requires.</p>
-          <p>A human-to-human conversation needs trust, context, presence, meaning, conflict skills, shared language, and commitments.</p>
-          <p>A human-to-agent interaction needs context, instructions, permissions, boundaries, feedback, and human accountability.</p>
-          <p>An agent-to-agent workflow needs protocols, provenance, roles, limits, escalation, logs, and human-readable summaries.</p>
           <p>The same work may move through all three modes. A person frames a mission with another person. A human asks an agent to research it. That agent asks another agent to analyse the data. A third agent drafts a summary. The team reviews. A human makes the judgment. The system records the learning.</p>
           <p className="lead">If the modes are not designed, <em>collaboration becomes fog.</em></p>
-        </div>
 
-        <ModesTriad />
-
-        <div className="q-body" style={{ marginTop: 48 }}>
           <div className="def-split" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
             <div className="def-block">
-              <h6>Sphere</h6>
-              <h3>A living function.</h3>
-              <p>What every healthy organisation must care for — value, work, relationship, learning, communication.</p>
+              <h6>Mode I</h6>
+              <h3>Human ↔ Human</h3>
+              <p>Needs trust, context, presence, meaning, conflict skills, shared language, and commitments.</p>
             </div>
             <div className="def-block layer">
-              <h6>Layer</h6>
-              <h3>A scale of operation.</h3>
-              <p>Where that function operates — individual, team, organisation, organisation family, ecosystem.</p>
+              <h6>Mode II</h6>
+              <h3>Human ↔ Agent</h3>
+              <p>Needs context, instructions, permissions, boundaries, feedback, and human accountability.</p>
             </div>
             <div className="def-block" style={{ background: 'var(--ink-050)' }}>
-              <h6 style={{ color: 'var(--ink-600)' }}>Mode</h6>
-              <h3>A pattern of collaboration.</h3>
-              <p>Who or what is working together — humans with humans, humans with agents, agents with agents.</p>
+              <h6 style={{ color: 'var(--ink-600)' }}>Mode III</h6>
+              <h3>Agent ↔ Agent</h3>
+              <p>Needs protocols, provenance, roles, limits, escalation, logs, and human-readable summaries.</p>
             </div>
           </div>
-          <div className="def-summary" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-            <div><span className="key">Sphere</span>= <em>what.</em></div>
-            <div><span className="key">Layer</span>= <em>where.</em></div>
-            <div><span className="key">Mode</span>= <em>how.</em></div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    {/* ─── 3 · WHY DO MODES MATTER NOW? ────────────────────────────────────── */}
-    <section className="section">
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">03 · Context</span>
-          Why does collaboration need <em>a new grammar?</em>
-        </h1>
-        <div className="q-body">
-          <p>The old organisation was designed around human collaboration inside relatively stable structures.</p>
-        </div>
-
-        <div className="shift-block">
-          <div className="shift-card then">
-            <div className="label">THEN · The old model</div>
-            <p className="q">Roles fixed. Teams bounded. Managers coordinate. Information moves through meetings, reports, and hierarchy. Work happens mostly inside one organisation.</p>
-          </div>
-          <div className="shift-card now">
-            <div className="label now-label">NOW · The emerging model</div>
-            <p className="q">Remote work removed the hidden coordination layer of the office. Fractional work made contribution more fluid. <em>AI agents can now participate in work directly.</em> Collaboration has three modes.</p>
-          </div>
-        </div>
-
-        <div className="q-body" style={{ marginTop: 40 }}>
-          <p>AI agents can participate in work, but only if work is legible. They can extend memory, but only if memory is governed. They can coordinate tasks, but only if authority is clear. They can communicate, but only if provenance and uncertainty are visible. They can collaborate with other agents, but only if humans can inspect and interrupt the chain.</p>
-          <p>This means collaboration itself needs a new grammar.</p>
-          <p>Not just better tools. Not just smarter assistants.</p>
-          <p className="lead">An operating system for how humans and agents work together across <em>purpose, work, trust, value, learning, and communication.</em></p>
-        </div>
-
-        <PullQuote>AI agents do not remove organisational ambiguity. <em>They expose it, amplify it, and demand that we finally design it properly.</em></PullQuote>
       </div>
     </section>
 
@@ -756,7 +694,7 @@ const PageModes = ({ onNav }) => (
     <CtaBand
       title="Help define the protocols<br />for <em>human–agent collaboration.</em>"
       body="If you work with agents, build agent infrastructure, or design organisations for the agentic age — the protocols are still being written."
-      onPrimary={() => window.open(JOIN_URL, '_blank')}
+      onPrimary={() => onNav('build')}
     />
   </>
 );

@@ -1,13 +1,14 @@
 /* Audax OS site · app router
-   Six pages, hash-based navigation. Scrolls to top on every nav. */
+   Seven pages, hash-based navigation. Scrolls to top on every nav. */
 
 const PAGE_META = {
   why:     { title: 'Why? — Audax OS',                    description: 'Why the world of work needs a new operating system for the agentic age.' },
   spheres: { title: 'Spheres — Audax OS',                 description: 'The five horizontal spheres of Audax OS: Value, Work, Relationship & Purpose, Learning, and Communication.' },
   layers:  { title: 'Layers — Audax OS',                  description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.' },
   modes:   { title: 'Modes — Audax OS',                   description: 'Three modes of collaboration: Human to Human, Human to Agent, and Agent to Agent.' },
-  whofor:  { title: 'Who Is This For? — Audax OS',        description: 'An invitation to co-creators: organisation designers, AI builders, operators, and ecosystem actors.' },
-  join:    { title: 'Join — Audax OS',                    description: 'Join the dialogue on the organisational OS for the agentic age.' },
+  whofor:  { title: 'Who For? — Audax OS',                description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.' },
+  build:   { title: "Let's Build the OS — Audax OS",      description: 'Join to co-create and help co-create the organisational OS for the agentic age.' },
+  join:    { title: 'Join — Audax OS',                    description: 'Join to co-create on the organisational OS for the agentic age.' },
 };
 
 const setMeta = (name, content) => {
@@ -18,7 +19,7 @@ const setMeta = (name, content) => {
 const App = () => {
   const initial = () => {
     const h = window.location.hash.replace('#', '');
-    return ['why', 'spheres', 'layers', 'modes', 'whofor', 'join'].includes(h) ? h : 'why';
+    return ['why', 'spheres', 'layers', 'modes', 'whofor', 'build', 'join'].includes(h) ? h : 'why';
   };
   const [page, setPage] = React.useState(initial);
 
@@ -58,6 +59,7 @@ const App = () => {
   else if (page === 'layers') body = <PageLayers onNav={nav} />;
   else if (page === 'modes') body = <PageModes onNav={nav} />;
   else if (page === 'whofor') body = <PageWhoFor onNav={nav} />;
+  else if (page === 'build') body = <PageBuild onNav={nav} />;
   else if (page === 'join') body = <PageJoin onNav={nav} />;
   else body = <PageWhy onNav={nav} />;
 

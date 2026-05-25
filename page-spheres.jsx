@@ -109,7 +109,7 @@ const PageSpheres = ({ onNav }) => (
           </div>
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>Explore the five spheres</Button>
-            <Button size="lg" variant="secondary" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
+            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>Join to co-create</Button>
           </div>
         </div>
       </div>
@@ -177,8 +177,6 @@ const PageSpheres = ({ onNav }) => (
           <p className="lead">The problem is not that these areas exist. <em>The problem is that they are treated as separate worlds.</em></p>
           <p>In real organisational life, they are deeply entangled. Nothing sits politely in one box for long.</p>
         </div>
-
-        <CausalLoop />
 
         <div className="q-body" style={{ marginTop: 32 }}>
           <p>When the spheres are separated, the organisation begins to fragment. Values become posters. Goals become spreadsheets. Culture becomes an offsite. Learning becomes a benefit. Communication becomes marketing at the edge. <strong>Contribution becomes invisible.</strong></p>
@@ -475,7 +473,7 @@ const PageSpheres = ({ onNav }) => (
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button onClick={() => onNav('layers')} icon="arrow-right">Explore the Layers</Button>
-          <Button variant="ghost" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
+          <Button variant="ghost" onClick={() => onNav('build')}>Join to co-create</Button>
         </div>
       </div>
     </section>

@@ -80,8 +80,7 @@ const PageWhy = ({ onNav }) => (
       <div className="hero-inner reveal" style={{ maxWidth: 880 }}>
         <Eyebrow>For the age of humans and agents</Eyebrow>
         <h1 className="display lg">
-          What organisational OS<br />
-          do we need for the <em>age of<br />humans and agents?</em>
+          How do we build <em>thriving<br />organisations</em> in the age of<br />humans and agents?
         </h1>
         <p className="lede" style={{ maxWidth: 700, marginBottom: 16 }}>
           The way we organise work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore.
@@ -90,7 +89,7 @@ const PageWhy = ({ onNav }) => (
           Audax OS is an open operating system for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
         </p>
         <div className="hero-ctas">
-          <Button variant="accent" size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
+          <Button variant="accent" size="lg" icon="arrow-right" onClick={() => onNav('build')}>Join to co-create</Button>
         </div>
       </div>
     </LivingHero>
@@ -375,9 +374,9 @@ const PageWhy = ({ onNav }) => (
         </div>
 
         <div className="fr-reveal">
-          <MatrixDiagram />
           <div className="fr-axes">
             <div className="fr-axis">
+              <SpheresColDiagram />
               <div className="ax-num">5</div>
               <h4>Spheres</h4>
               <div className="meta">What every organisation must care for</div>
@@ -390,6 +389,7 @@ const PageWhy = ({ onNav }) => (
               </ul>
             </div>
             <div className="fr-axis">
+              <LayersColDiagram />
               <div className="ax-num">5</div>
               <h4>Layers</h4>
               <div className="meta">Where the operating system works</div>
@@ -402,6 +402,7 @@ const PageWhy = ({ onNav }) => (
               </ul>
             </div>
             <div className="fr-axis">
+              <ModesColDiagram />
               <div className="ax-num">3</div>
               <h4>Modes</h4>
               <div className="meta">How collaboration happens</div>
@@ -453,7 +454,7 @@ const PageWhy = ({ onNav }) => (
           We are not looking for spectators. We are looking for people carrying pieces of the answer.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join the dialogue</Button>
+          <Button onClick={() => onNav('build')} icon="arrow-right">Join to co-create</Button>
           <Button variant="ghost" onClick={() => onNav('spheres')}>Explore the Spheres</Button>
         </div>
       </div>

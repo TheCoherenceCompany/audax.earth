@@ -109,6 +109,180 @@ const MatrixDiagram = () => {
   );
 };
 
+/* ---------- Modes diagram (standalone hero version — human/agent icon pairs) ---------- */
+const ModesDiagram = () => {
+  const MONO = 'JetBrains Mono, monospace';
+  const SERIF = 'Instrument Serif, serif';
+  const humanColor = '#1F4D2E', agentColor = '#3F8657';
+
+  const human = (cx, cy) => (
+    <g fill={humanColor}>
+      <circle cx={cx} cy={cy - 22} r={17} />
+      <path d={`M ${cx - 30} ${cy + 28} a 30 30 0 0 1 60 0 Z`} />
+    </g>
+  );
+  const agent = (cx, cy) => (
+    <g fill={agentColor}>
+      <line x1={cx} y1={cy - 26} x2={cx} y2={cy - 40} stroke={agentColor} strokeWidth={5} />
+      <circle cx={cx} cy={cy - 42} r={6} />
+      <rect x={cx - 10} y={cy - 12} width={7} height={20} rx={3.5} />
+      <rect x={cx + 3} y={cy - 12} width={7} height={20} rx={3.5} />
+      <rect x={cx - 28} y={cy - 28} width={56} height={50} rx={12} />
+      <circle cx={cx - 12} cy={cy - 5} r={6} fill="#fff" />
+      <circle cx={cx + 12} cy={cy - 5} r={6} fill="#fff" />
+      <rect x={cx - 14} y={cy + 11} width={28} height={6} rx={3} fill="#fff" />
+    </g>
+  );
+
+  const rows = [
+    { left: 'h', right: 'h', label: 'HUMAN ↔ HUMAN', lineColor: '#2A6B3C' },
+    { left: 'h', right: 'a', label: 'HUMAN ↔ AGENT', lineColor: '#5C5A50' },
+    { left: 'a', right: 'a', label: 'AGENT ↔ AGENT', lineColor: '#3A3830' },
+  ];
+  const lx = 130, rx = 470, rowH = 140, startY = 240;
+
+  return (
+    <div className="diagram-axes" style={{ maxWidth: 700, margin: '48px auto' }}>
+      <svg viewBox="0 0 600 660" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three modes of collaboration">
+        <text x={300} y={90} fontFamily={SERIF} fontSize="68" fill="#0E2419" textAnchor="middle">3</text>
+        <text x={300} y={128} fontFamily={MONO} fontSize="12" fill="#807D72" letterSpacing="0.24em" textAnchor="middle">MODES</text>
+        {rows.map((r, i) => {
+          const cy = startY + i * rowH;
+          return (
+            <g key={i}>
+              <line x1={lx + 42} y1={cy} x2={rx - 42} y2={cy} stroke={r.lineColor} strokeWidth="1.6" strokeDasharray="6 5" />
+              {r.left === 'h' ? human(lx, cy) : agent(lx, cy)}
+              {r.right === 'h' ? human(rx, cy) : agent(rx, cy)}
+              <text x={300} y={cy + 66} fontFamily={MONO} fontSize="12" fill="#5C5A50" letterSpacing="0.22em" textAnchor="middle">{r.label}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
+
+/* ---------- Three small column diagrams for Why page ---------- */
+const SpheresColDiagram = () => {
+  const MONO = 'JetBrains Mono, monospace';
+  const sphereNames = ['Value', 'Work', 'Relationship', 'Learning', 'Communication'];
+  const sphereTints = ['#1F4D2E', '#2D6B41', '#3F8657', '#6BA37C', '#9CBFA3'];
+  const cx = 140, cy = 120, R = 70, r = 22;
+  const pts = sphereTints.map((_, i) => {
+    const a = -Math.PI / 2 + i * 2 * Math.PI / 5;
+    return [cx + R * Math.cos(a), cy + R * Math.sin(a), a];
+  });
+  return (
+    <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      <polygon points={pts.map(p => `${p[0]},${p[1]}`).join(' ')} fill="none" stroke="#9CBFA3" strokeWidth="1" opacity="0.4" />
+      {pts.map((p, i) => <circle key={i} cx={p[0]} cy={p[1]} r={r} fill={sphereTints[i]} opacity="0.9" />)}
+      {pts.map((p, i) => {
+        const dx = Math.cos(p[2]), dy = Math.sin(p[2]);
+        const lx = cx + (R + r + 8) * dx, ly = cy + (R + r + 8) * dy + 3;
+        const anchor = dx > 0.3 ? 'start' : dx < -0.3 ? 'end' : 'middle';
+        return <text key={i} x={lx} y={ly} fontFamily={MONO} fontSize="9" fill="#3A3830" textAnchor={anchor} letterSpacing="0.02em">{sphereNames[i]}</text>;
+      })}
+    </svg>
+  );
+};
+
+const LayersColDiagram = () => {
+  const MONO = 'JetBrains Mono, monospace';
+  const cx = 140, cyBase = 195, hw = 90, hh = 22, step = 38;
+  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
+  return (
+    <svg viewBox="0 0 280 215" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {[4, 3, 2, 1, 0].map(i => {
+        const cy = cyBase - i * step;
+        const pts = `${cx},${cy - hh} ${cx + hw},${cy} ${cx},${cy + hh} ${cx - hw},${cy}`;
+        return (
+          <g key={i}>
+            <polygon points={pts} fill={layerTints[i]} stroke="#6BA37C" strokeWidth="1" />
+            <text x={cx} y={cy + 4} fontFamily={MONO} fontSize="10" fontWeight="500" textAnchor="middle" fill="#0E2419"
+                  stroke="#FBFAF3" strokeWidth="3" strokeLinejoin="round" paintOrder="stroke">{layerNames[i]}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+const ModesColDiagram = () => {
+  const MONO = 'JetBrains Mono, monospace';
+  const s = 1.25;
+  const humanColor = '#1F4D2E', agentColor = '#3F8657';
+  const human = (cx, cy) => (
+    <g fill={humanColor}>
+      <circle cx={cx} cy={cy - 8 * s} r={6 * s} />
+      <path d={`M ${cx - 12 * s} ${cy + 12 * s} a ${12 * s} ${12 * s} 0 0 1 ${24 * s} 0 Z`} />
+    </g>
+  );
+  const agent = (cx, cy) => (
+    <g fill={agentColor}>
+      <line x1={cx} y1={cy - 10 * s} x2={cx} y2={cy - 17 * s} stroke={agentColor} strokeWidth={1.8 * s} />
+      <circle cx={cx} cy={cy - 18 * s} r={2.5 * s} />
+      <rect x={cx - 14 * s} y={cy - 4 * s} width={3 * s} height={8 * s} rx={1.5 * s} />
+      <rect x={cx + 11 * s} y={cy - 4 * s} width={3 * s} height={8 * s} rx={1.5 * s} />
+      <rect x={cx - 11 * s} y={cy - 10 * s} width={22 * s} height={20 * s} rx={5 * s} />
+      <circle cx={cx - 5 * s} cy={cy - 2 * s} r={2.5 * s} fill="#fff" />
+      <circle cx={cx + 5 * s} cy={cy - 2 * s} r={2.5 * s} fill="#fff" />
+      <rect x={cx - 5.5 * s} y={cy + 4 * s} width={11 * s} height={2.2 * s} rx={1.1 * s} fill="#fff" />
+    </g>
+  );
+  const rows = [
+    { left: 'h', right: 'h', label: 'HUMAN ↔ HUMAN', lc: '#2A6B3C' },
+    { left: 'h', right: 'a', label: 'HUMAN ↔ AGENT', lc: '#5C5A50' },
+    { left: 'a', right: 'a', label: 'AGENT ↔ AGENT', lc: '#3A3830' },
+  ];
+  const lx = 44, rx = 236, rowH = 66, startY = 40;
+  return (
+    <svg viewBox="0 0 280 255" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+      {rows.map((r, i) => {
+        const cy = startY + i * rowH;
+        return (
+          <g key={i}>
+            <line x1={lx + 20} y1={cy} x2={rx - 20} y2={cy} stroke={r.lc} strokeWidth="1.2" strokeDasharray="4 3" />
+            {r.left === 'h' ? human(lx, cy) : agent(lx, cy)}
+            {r.right === 'h' ? human(rx, cy) : agent(rx, cy)}
+            <text x={140} y={cy + 32} fontFamily={MONO} fontSize="9" fill="#807D72" letterSpacing="0.18em" textAnchor="middle">{r.label}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+/* ---------- Layers stack (standalone hero version of the layers column) ---------- */
+const LayersDiagram = () => {
+  const MONO = 'JetBrains Mono, monospace';
+  const SERIF = 'Instrument Serif, serif';
+  const cx = 360, cyBase = 540, hw = 200, hh = 44, step = 78;
+  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNumerals = ['I', 'II', 'III', 'IV', 'V'];
+  const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
+  return (
+    <div className="diagram-axes" style={{ maxWidth: 700, margin: '48px auto' }}>
+      <svg viewBox="0 0 720 660" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five layers of organisational scale">
+        <text x={cx} y={90} fontFamily={SERIF} fontSize="68" fill="#0E2419" textAnchor="middle">5</text>
+        <text x={cx} y={128} fontFamily={MONO} fontSize="12" fill="#807D72" letterSpacing="0.24em" textAnchor="middle">LAYERS</text>
+        {[4, 3, 2, 1, 0].map(i => {
+          const cy = cyBase - i * step;
+          const pts = `${cx},${cy - hh} ${cx + hw},${cy} ${cx},${cy + hh} ${cx - hw},${cy}`;
+          return (
+            <g key={i}>
+              <polygon points={pts} fill={layerTints[i]} stroke="#6BA37C" strokeWidth="1.4" />
+              <text x={cx - hw - 24} y={cy + 5} fontFamily={MONO} fontSize="11" fill="#6BA37C" letterSpacing="0.18em" textAnchor="end">{layerNumerals[i]}</text>
+              <text x={cx} y={cy + 6} fontFamily={MONO} fontSize="14" fontWeight="500" letterSpacing="0.06em" textAnchor="middle" fill="#0E2419"
+                    stroke="#FBFAF3" strokeWidth="4" strokeLinejoin="round" paintOrder="stroke">{layerNames[i]}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
+
 /* ---------- Nested circles (5 layers, individual at core) ---------- */
 const NestedCircles = ({ activeLayer = null }) => {
   const LAYERS = [
@@ -341,14 +515,10 @@ const SpheresOrbit = () => {
             return <path key={`${i}-${j}`} d={`M ${x1} ${y1} Q 0 0 ${x2} ${y2}`} />;
           }))}
         </g>
-        {/* central Audax sigil (simplified) */}
+        {/* central Audax logo */}
         <g>
           <circle cx="0" cy="0" r="68" fill="#FFFFFF" stroke="#1F4D2E" strokeWidth="1.5" />
-          <ellipse cx="0" cy="2" rx="40" ry="22" fill="none" stroke="#14130E" strokeWidth="2.5" />
-          <circle cx="0" cy="2" r="10" fill="#14130E" />
-          <circle cx="0" cy="-46" r="3" fill="#14130E" />
-          <path d="M 0 -38 Q 4 -20 0 -8" stroke="#14130E" strokeWidth="2" fill="none" />
-          <path d="M 0 16 Q -4 30 0 48" stroke="#14130E" strokeWidth="2" fill="none" />
+          <image href="assets/audax-os-logo-512.png" x="-48" y="-48" width="96" height="96" preserveAspectRatio="xMidYMid meet" />
           <text x="0" y="110" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" letterSpacing="0.22em" fill="#1F4D2E" fontWeight="500">AUDAX OS</text>
         </g>
         {/* sphere nodes */}
