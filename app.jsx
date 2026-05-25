@@ -1,6 +1,20 @@
 /* Audax OS site · app router
    Six pages, hash-based navigation. Scrolls to top on every nav. */
 
+const PAGE_META = {
+  why:     { title: 'Why? — Audax OS',                    description: 'Why the world of work needs a new operating system for the agentic age.' },
+  spheres: { title: 'Spheres — Audax OS',                 description: 'The five horizontal spheres of Audax OS: Value, Work, Relationship & Purpose, Learning, and Communication.' },
+  layers:  { title: 'Layers — Audax OS',                  description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.' },
+  modes:   { title: 'Modes — Audax OS',                   description: 'Three modes of collaboration: Human to Human, Human to Agent, and Agent to Agent.' },
+  whofor:  { title: 'Who Is This For? — Audax OS',        description: 'An invitation to co-creators: organisation designers, AI builders, operators, and ecosystem actors.' },
+  join:    { title: 'Join — Audax OS',                    description: 'Join the dialogue on the organisational OS for the agentic age.' },
+};
+
+const setMeta = (name, content) => {
+  const el = document.querySelector(`meta[property="${name}"], meta[name="${name}"]`);
+  if (el) el.setAttribute('content', content);
+};
+
 const App = () => {
   const initial = () => {
     const h = window.location.hash.replace('#', '');
@@ -20,6 +34,18 @@ const App = () => {
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);
   }, []);
+
+  // Update document title and OG meta tags on page change
+  React.useEffect(() => {
+    const m = PAGE_META[page];
+    if (!m) return;
+    document.title = m.title;
+    setMeta('og:title', m.title);
+    setMeta('og:description', m.description);
+    setMeta('twitter:title', m.title);
+    setMeta('twitter:description', m.description);
+    setMeta('og:url', `https://audax.earth/#${page}`);
+  }, [page]);
 
   // Re-render Lucide icons after every render
   React.useEffect(() => {

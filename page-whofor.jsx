@@ -59,7 +59,7 @@ const PRIMARY_AUDIENCES = [
 const PATHWAYS = [
   { n: '01', title: 'Join the Dialogue', body: 'Participate in conversations about the organisational OS needed for the agentic age. Bring questions, challenges, and half-formed ideas.' },
   { n: '02', title: 'Bring a Use Case', body: 'Share a real organisational challenge involving distributed work, fractional contribution, human-agent collaboration, or ecosystem coordination.' },
-  { n: '03', title: 'Contribute to the Framework', body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics, and language.' },
+  { n: '03', title: 'Contribute to the OS', body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics, and language.' },
   { n: '04', title: 'Build an Implementation', body: 'Create tools, agents, interfaces, templates, workshops, or integrations based on Audax OS concepts.' },
   { n: '05', title: 'Host a Conversation', body: 'Bring together organisation designers, AI builders, operators, or ecosystem actors to explore the problem space.' },
   { n: '06', title: 'Become a Living Lab', body: 'Use Audax OS as a lens for your own organisation, team, or community, and share what is learned.' }
@@ -72,7 +72,7 @@ const PageWhoFor = ({ onNav }) => (
     <section className="hero" style={{ '--hero-image': `url(${HERO_WHO})`, minHeight: '92vh', alignItems: 'center' }}>
       <div className="hero-wash"></div>
       <div className="hero-fade"></div>
-      <div className="hero-vertical"><span>An invitation to co-creators of the framework</span></div>
+      <div className="hero-vertical"><span>An invitation to co-creators of the OS</span></div>
       <div className="container">
         <div className="hero-inner" style={{ maxWidth: 960 }}>
           <Eyebrow>Who for?</Eyebrow>
@@ -138,7 +138,7 @@ const PageWhoFor = ({ onNav }) => (
           Who is needed <em>at the beginning?</em>
         </h1>
         <p className="lede" style={{ marginBottom: 56, maxWidth: 760 }}>
-          At this stage, Audax OS is primarily for people who can help develop the framework itself. The first circle is not a mass market. It is builders, designers, practitioners, and thinkers who understand that the organisation itself is now the design frontier.
+          At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners, and thinkers who understand that the organisation itself is now the design frontier.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           {PRIMARY_AUDIENCES.slice(0, 4).map(a => (
@@ -292,7 +292,7 @@ const PageWhoFor = ({ onNav }) => (
           Who can <em>build with Audax OS?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>Audax OS is intended to be a framework, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach, and build upon. Strategic partners are not future customers. They are potential co-creators.</p>
+          <p>Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach, and build upon. Strategic partners are not future customers. They are potential co-creators.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
@@ -353,7 +353,7 @@ const PageWhoFor = ({ onNav }) => (
           Who will Audax OS <em>eventually serve?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>The first invitation is to co-creators. But the framework is being developed because many kinds of people and organisations will need it.</p>
+          <p>The first invitation is to co-creators. But the OS is being developed because many kinds of people and organisations will need it.</p>
         </div>
         <div className="join-grid">
           {[
@@ -375,7 +375,7 @@ const PageWhoFor = ({ onNav }) => (
         </div>
         <p className="q-body" style={{ marginTop: 32 }}>
           <p style={{ fontStyle: 'italic', color: 'var(--ink-500)', maxWidth: 640, fontSize: 15 }}>
-            The current page emphasises: first, we need the people who can help shape the framework.
+            The current page emphasises: first, we need the people who can help shape the OS.
           </p>
         </p>
       </div>
@@ -463,7 +463,7 @@ const PageWhoFor = ({ onNav }) => (
             </div>
           ))}
         </div>
-        <PullQuote>The framework will become real through <em>the quality of the people and practices that gather around it.</em></PullQuote>
+        <PullQuote>The OS will become real through <em>the quality of the people and practices that gather around it.</em></PullQuote>
       </div>
     </section>
 
@@ -496,7 +496,7 @@ const PageWhoFor = ({ onNav }) => (
               The Coherence Company is the first organisation joining to develop, test, and evolve Audax OS in real organisational life.
             </p>
             <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 16px' }}>
-              It is not the owner of the framework. It is the first living lab — using Audax OS to explore how a distributed, fractional, AI-native organisation can organise work, contribution, learning, communication, human relationship, and agentic collaboration.
+              It is not the owner of the OS. It is the first living lab — using Audax OS to explore how a distributed, fractional, AI-native organisation can organise work, contribution, learning, communication, human relationship, and agentic collaboration.
             </p>
             <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: 0 }}>
               The future organisational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects, and real learning loops.
@@ -514,11 +514,11 @@ const PageWhoFor = ({ onNav }) => (
               borderRadius: 16, padding: '28px 28px', marginBottom: 16
             }}>
               <p style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 400, letterSpacing: '-0.01em', lineHeight: 1.3, color: 'var(--forest-900)', fontStyle: 'italic', margin: 0 }}>
-                "The first living lab is not the owner of the field. It is the first place where the framework learns from reality."
+                "The first living lab is not the owner of the field. It is the first place where the OS learns from reality."
               </p>
             </div>
             <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: 0 }}>
-              The Coherence Company will help generate the first practical patterns, but the framework should grow through a wider field of contributors, partners, and living labs. One node in a growing constellation — not the whole sky.
+              The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners, and living labs. One node in a growing constellation — not the whole sky.
             </p>
           </div>
         </div>

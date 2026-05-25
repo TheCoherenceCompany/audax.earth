@@ -127,11 +127,11 @@ const PageSpheres = ({ onNav }) => (
 
           <ul style={{ listStyle: 'none', padding: 0, margin: '32px 0', maxWidth: 760 }}>
             {[
-              ['Value', 'is not "finance."'],
-              ['Work', 'is not "project management."'],
-              ['Relationship', 'is not "HR."'],
-              ['Learning', 'is not "training."'],
-              ['Communication', 'is not "marketing."']
+              ['Value', 'over "finance."'],
+              ['Work', 'over "project management."'],
+              ['Relationship', 'over "HR."'],
+              ['Learning', 'over "training."'],
+              ['Communication', 'over "marketing."']
             ].map(([k, v]) => (
               <li key={k} style={{
                 padding: '14px 0', borderBottom: '1px solid var(--border-2)',

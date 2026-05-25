@@ -14,7 +14,6 @@ body {
   font-weight: var(--w-light);
   font-size: var(--t-body);
   line-height: var(--lh-relaxed);
-  min-width: 1180px;
 }
 
 /* ---------- nav ---------- */
@@ -442,7 +441,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .footer-inner {
   max-width: 1180px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 56px;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px;
 }
 .footer-brand img { width: 36px; height: 36px; }
 .footer-brand-text {
@@ -457,6 +456,18 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   max-width: 280px;
   line-height: 1.25;
 }
+.footer-join-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 20px;
+  background: var(--forest-700);
+  color: #fff;
+  font-size: 13px; font-weight: 400; letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.footer-join-btn:hover { background: var(--forest-800); }
 .footer-col h6 {
   font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--ink-500); margin: 0 0 16px;
@@ -1172,3 +1183,205 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   width: 100%; max-width: 600px; margin: 0 auto;
 }
 .health-wheel svg { width: 100%; height: 100%; display: block; }
+
+/* ============================================================
+   RESPONSIVE — tablet (<=1024px) and phone (<=640px)
+   The desktop design above is the source of truth; these
+   queries only collapse multi-column layouts, soften the
+   spacing rhythm, and enlarge touch targets for small screens.
+   ============================================================ */
+
+/* ---------- tablet ---------- */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .container-narrow { padding: 0 32px; }
+  .section { padding: 88px 0; }
+  .section-tight { padding: 64px 0; }
+  .section-bleed { padding: 88px 32px; }
+  .hero { padding: 96px 32px 80px; }
+  .hero-small { padding: 80px 32px 64px; }
+  .cta-band { padding: 96px 32px; }
+  .footer { padding: 64px 32px 40px; }
+
+  .insight-grid { grid-template-columns: repeat(2, 1fr); }
+  .fr-axes { grid-template-columns: repeat(2, 1fr); }
+  .join-grid { grid-template-columns: repeat(2, 1fr); }
+  .protocol-grid { grid-template-columns: repeat(3, 1fr); }
+  .sphere-overview { grid-template-columns: repeat(3, 1fr); }
+  .diagnostic-cards { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner { grid-template-columns: 1.4fr 1fr; gap: 40px; }
+  .footer-brand { grid-column: auto; }
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 640px) {
+  .container,
+  .container-narrow { padding: 0 20px; }
+
+  .section { padding: 64px 0; }
+  .section-tight { padding: 48px 0; }
+  .section-bleed { padding: 64px 20px; }
+  .hero { padding: 88px 20px 56px; min-height: auto; }
+  .hero-small { padding: 56px 20px 40px; }
+  .cta-band { padding: 72px 20px; }
+  .footer { padding: 56px 20px 32px; }
+
+  /* every multi-column grid collapses to a single column */
+  .insight-grid,
+  .fr-axes,
+  .fw-cards,
+  .sphere-overview,
+  .diagnostic-cards,
+  .join-grid,
+  .protocol-grid,
+  .machine-living,
+  .def-split,
+  .def-summary,
+  .two-loops,
+  .sphere-deep,
+  .credit,
+  .form-grid,
+  .field-radios,
+  .contrast-grid,
+  .footer-inner { grid-template-columns: 1fr; gap: 16px; }
+
+  /* audience rows: drop the fixed 280px label track */
+  .aud-row { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  .aud-row .who-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  /* manifesto pairs: stack term / connector / counter-term */
+  .manifesto-pair { grid-template-columns: 1fr; gap: 8px; }
+  .manifesto-pair .over { justify-self: start; }
+
+  /* progression + machine→living: stack and drop the connectors */
+  .progression { grid-template-columns: 1fr; gap: 12px; }
+  .progression-arrow { display: none; }
+  .machine-living { padding: 32px 24px; }
+  .ml-arrow { transform: rotate(90deg); align-self: center; }
+
+  /* contrast columns: remove the inner vertical divider when stacked */
+  .contrast-col { padding: 32px 24px; }
+  .contrast-col + .contrast-col { border-left: 0; border-top: 1px solid var(--border-1); }
+
+  /* tighten oversized card padding */
+  .fr-reveal { padding: 36px 24px; }
+  .credit { padding: 32px 24px; gap: 28px; }
+  .shift-card { padding: 28px 24px; }
+  .def-block { padding: 28px 24px; }
+
+  /* wide tables become horizontally scrollable instead of breaking the page */
+  .matrix,
+  .mini-matrix { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .matrix thead, .matrix tbody,
+  .mini-matrix thead, .mini-matrix tbody { display: table; width: 100%; min-width: 560px; }
+  .matrix tbody th,
+  .mini-matrix tbody th { width: auto; }
+
+  /* comfortable touch targets */
+  .btn { min-height: 44px; }
+  .footer-col a { padding: 4px 0; }
+
+  /* footer bottom: stack the two lines */
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; text-align: left; }
+
+  /* nav becomes a slim brand-only bar; the bottom sheet takes over navigation */
+  .nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+
+  /* many grids are defined with inline grid-template-columns in the page files;
+     inline styles beat class rules, so collapse them all here with !important */
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+
+  /* leave room for the collapsed sheet peek bar */
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+}
+
+/* ============================================================
+   MOBILE BOTTOM-SHEET NAV (shown only at <=640px, see above)
+   ============================================================ */
+.msheet, .msheet-scrim { display: none; }
+
+.msheet-scrim {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(8,16,11,0); pointer-events: none;
+  transition: background var(--dur-3) var(--ease-out);
+}
+.msheet-scrim.show { background: rgba(8,16,11,0.45); pointer-events: auto; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+
+.msheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 61;
+  background: rgba(251,250,243,0.92);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-1);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 30px rgba(20,19,14,0.12);
+  height: calc(72px + env(safe-area-inset-bottom));
+  overflow: hidden;
+  transition: height var(--dur-3) var(--ease-out);
+  touch-action: none;
+}
+.msheet.open { height: min(76vh, 560px); }
+.msheet-head { cursor: pointer; padding-top: 8px; }
+.msheet-grab { width: 42px; height: 5px; border-radius: 3px; background: var(--ink-200); margin: 0 auto 8px; }
+.msheet-cur { display: flex; align-items: baseline; gap: 10px; padding: 0 24px; }
+.msheet-lab {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-500);
+}
+.msheet-nm { font-family: var(--font-display); font-size: 24px; color: var(--ink-900); margin-right: auto; }
+.msheet-cur svg {
+  width: 18px; height: 18px; stroke-width: 1.5; color: var(--ink-500);
+  align-self: center; transition: transform var(--dur-3) var(--ease-out);
+}
+.msheet.open .msheet-cur svg { transform: rotate(180deg); }
+.msheet-list { margin-top: 14px; border-top: 1px solid var(--border-2); padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+.msheet-it {
+  display: flex; width: 100%; align-items: center; text-align: left;
+  padding: 15px 24px; border: 0; border-bottom: 1px solid var(--border-2);
+  background: transparent; cursor: pointer;
+  font-family: var(--font-display); font-size: 22px; color: var(--ink-700);
+}
+.msheet-it.active { color: var(--forest-700); }
+.msheet-it.active::after { content: '●'; margin-left: auto; font-size: 9px; color: var(--lichen-500); }
+.msheet-join {
+  display: block; width: calc(100% - 48px); margin: 16px 24px 0; padding: 14px;
+  background: var(--forest-700); color: #fff; border: 0; border-radius: 12px;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 400; cursor: pointer;
+}
+.msheet-join:hover { background: var(--forest-800); }
+
+/* shown only on phones — placed after the base display:none above so it wins */
+@media (max-width: 640px) {
+  .msheet, .msheet-scrim { display: block; }
+}
+
+/* ============================================================
+   LIVING-ART LANDING HERO (Why page only)
+   ============================================================ */
+.living-hero {
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+  isolation: isolate;            /* contain the difference blend to the hero */
+  padding: 120px 0 96px;
+  /* static fallback shown when WebGL is unavailable or motion is reduced */
+  background: linear-gradient(180deg, #0E2419 0%, #1F4D2E 40%, #C8DBC9 88%, var(--surface-parchment) 100%);
+}
+.living-hero .lh-wash,
+.living-hero .lh-net {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+}
+.living-hero .lh-wash { z-index: 0; }
+.living-hero .lh-net { z-index: 1; mix-blend-mode: difference; pointer-events: none; }
+.living-hero .hero-fade { z-index: 2; }     /* reuse existing fade-to-parchment */
+.living-hero .container { position: relative; z-index: 3; }
+
+/* on-dark text treatment (the wash is dark behind the copy) */
+.living-hero .eyebrow { color: var(--lichen-400); }
+.living-hero h1.display { color: #fff; }
+.living-hero h1.display em { color: var(--lichen-400); }
+.living-hero .lede { color: rgba(255,255,255,0.86); }
+
+@media (max-width: 640px) {
+  .living-hero { padding: 96px 20px 64px; }
+}

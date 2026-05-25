@@ -2,7 +2,6 @@
    13 question-led sections, manifesto + field guide.
    Source copy: client brief (Audax OS — Why Page Revised Draft). */
 
-const HERO_WHY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
 const NODE_FIELD_BG = 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png';
 
 const Section = ({ n, q, children, bg, narrow }) => (
@@ -15,55 +14,6 @@ const Section = ({ n, q, children, bg, narrow }) => (
       <div className="q-body">{children}</div>
     </div>
   </section>
-);
-
-// Simple "transition" hero illustration (rigid grid → living network)
-const TransitionVisual = () => (
-  <svg viewBox="0 0 760 220" style={{ width: '100%', maxWidth: 760, height: 'auto', display: 'block' }} aria-hidden="true">
-    {/* Old: rigid grid */}
-    <g transform="translate(40 30)" opacity="0.85">
-      {[0,1,2,3].map(r => [0,1,2,3].map(c => (
-        <rect key={`${r}-${c}`} x={c * 38} y={r * 38} width="28" height="28" rx="2" fill="#E3E0D6" stroke="#C9C6BD" strokeWidth="1" />
-      )))}
-      <text x="76" y="190" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#807D72" letterSpacing="0.22em">RIGID</text>
-    </g>
-
-    {/* Audax OS bridge: a vertical line of sigils */}
-    <g transform="translate(280 0)">
-      <line x1="100" y1="20" x2="100" y2="190" stroke="#1F4D2E" strokeWidth="0.8" strokeDasharray="2 4" />
-      <g transform="translate(60 80) scale(0.5)">
-        <circle cx="40" cy="40" r="38" fill="none" stroke="#1F4D2E" strokeWidth="3" />
-        <ellipse cx="40" cy="42" rx="26" ry="14" fill="none" stroke="#1F4D2E" strokeWidth="3" />
-        <circle cx="40" cy="42" r="6" fill="#1F4D2E" />
-      </g>
-      <text x="100" y="190" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#1F4D2E" fontWeight="500" letterSpacing="0.22em">AUDAX OS</text>
-    </g>
-
-    {/* New: living network */}
-    <g transform="translate(500 30)">
-      {(() => {
-        const nodes = [
-          [40, 30], [110, 50], [180, 30],
-          [70, 90], [150, 100], [40, 140], [120, 140], [180, 120], [200, 80]
-        ];
-        return (
-          <>
-            <g stroke="#6BA37C" strokeWidth="1" opacity="0.6" fill="none">
-              {nodes.map(([x1, y1], i) => nodes.slice(i + 1).map(([x2, y2], j) => {
-                const d = Math.hypot(x2 - x1, y2 - y1);
-                if (d > 70) return null;
-                return <line key={`${i}-${j}`} x1={x1} y1={y1} x2={x2} y2={y2} />;
-              }))}
-            </g>
-            {nodes.map(([x, y], i) => (
-              <circle key={i} cx={x} cy={y} r={i === 4 ? 6 : 4} fill={i === 4 ? '#B8C766' : '#1F4D2E'} />
-            ))}
-          </>
-        );
-      })()}
-      <text x="120" y="190" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#807D72" letterSpacing="0.22em">LIVING</text>
-    </g>
-  </svg>
 );
 
 // Living lab: one illuminated node in a wider field
@@ -125,33 +75,25 @@ const NodeFieldVisual = () => (
 
 const PageWhy = ({ onNav }) => (
   <>
-    {/* 1. HERO */}
-    <section className="hero" style={{ '--hero-image': `url(${HERO_WHY})`, minHeight: '92vh', alignItems: 'center' }}>
-      <div className="hero-wash"></div>
-      <div className="hero-fade"></div>
-      <div className="hero-vertical"><span>An open framework</span></div>
-      <div className="container">
-        <div className="hero-inner reveal" style={{ maxWidth: 880 }}>
-          <Eyebrow>For the age of humans and agents</Eyebrow>
-          <h1 className="display lg">
-            What organisational OS<br />
-            do we need for the <em>age of<br />humans and agents?</em>
-          </h1>
-          <p className="lede" style={{ maxWidth: 700, marginBottom: 16 }}>
-            The way we organise work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore.
-          </p>
-          <p className="lede" style={{ maxWidth: 700, fontStyle: 'italic', color: 'var(--ink-800)', marginBottom: 40 }}>
-            Audax OS is an open framework for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
-          </p>
-          <div className="hero-ctas">
-            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
-          </div>
-          <div style={{ marginTop: 64, maxWidth: 760 }}>
-            <TransitionVisual />
-          </div>
+    {/* 1. HERO — living network over a drifting sumi-e wash */}
+    <LivingHero minHeight="92vh">
+      <div className="hero-inner reveal" style={{ maxWidth: 880 }}>
+        <Eyebrow>For the age of humans and agents</Eyebrow>
+        <h1 className="display lg">
+          What organisational OS<br />
+          do we need for the <em>age of<br />humans and agents?</em>
+        </h1>
+        <p className="lede" style={{ maxWidth: 700, marginBottom: 16 }}>
+          The way we organise work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore.
+        </p>
+        <p className="lede" style={{ maxWidth: 700, fontStyle: 'italic', marginBottom: 40 }}>
+          Audax OS is an open operating system for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
+        </p>
+        <div className="hero-ctas">
+          <Button variant="accent" size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join the dialogue</Button>
         </div>
       </div>
-    </section>
+    </LivingHero>
 
     {/* 2. THE CORE SHIFT */}
     <section className="section manifesto">
@@ -390,11 +332,11 @@ const PageWhy = ({ onNav }) => (
       <PullQuote>Bureaucracy is structure <em>without life.</em> Audax OS is structure <em>in service of life.</em></PullQuote>
     </Section>
 
-    {/* 10. FRAMEWORK, NOT PRODUCT */}
-    <Section n="10 · Framework, not product" q="Why should this be a <em>framework</em>, not a platform?" bg="var(--surface-paper)" narrow>
+    {/* 10. OPEN OS, NOT PRODUCT */}
+    <Section n="10 · Open OS, not product" q="Why should this be an <em>open OS</em>, not a platform?" bg="var(--surface-paper)" narrow>
       <p>No single platform should own the organisational OS of the agentic age.</p>
       <p>Audax OS is not being designed as one closed product that every organisation must adopt. The ambition is different.</p>
-      <p className="lead">Audax OS should become a <em>shared framework</em>: a language, architecture, and set of principles that many people can build with.</p>
+      <p className="lead">Audax OS should become a <em>shared operating system</em>: a language, architecture, and set of principles that many people can build with.</p>
 
       <ul style={{ listStyle: 'none', padding: 0, margin: '24px 0 32px' }}>
         {[
@@ -481,14 +423,14 @@ const PageWhy = ({ onNav }) => (
     {/* 12. THE FIRST LIVING LAB */}
     <Section n="12 · The first living lab" q="Where does this <em>begin?</em>" bg="var(--surface-paper)">
       <p className="lead">Audax OS is being developed through <em>practice</em>, not theory alone.</p>
-      <p>The Coherence Company is the first organisation joining to develop, test, and evolve Audax OS in real organisational life. It will use the framework to structure its own work, contribution, learning, AI collaboration, and ecosystem development.</p>
+      <p>The Coherence Company is the first organisation joining to develop, test, and evolve Audax OS in real organisational life. It will use the OS to structure its own work, contribution, learning, AI collaboration, and ecosystem development.</p>
       <p>This matters because the future organisational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real missions, real people, real agents, and real learning loops.</p>
 
       <div style={{ margin: '40px 0' }}>
         <NodeFieldVisual />
       </div>
 
-      <p>The Coherence Company is not the owner of Audax OS. It is the first serious participant. <strong>The first testbed. The first steward. The first place where the framework learns from reality.</strong></p>
+      <p>The Coherence Company is not the owner of Audax OS. It is the first serious participant. <strong>The first testbed. The first steward. The first place where the OS learns from reality.</strong></p>
 
       <PullQuote>The organisation is not backstage. <em>It is part of the experiment.</em></PullQuote>
     </Section>

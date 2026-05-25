@@ -161,7 +161,7 @@ const PageLayers = ({ onNav }) => (
             ))}
           </ul>
           <p>They are nested. Each layer shapes the others. Individuals form teams. Teams form organisations. Organisations form organisation families. Organisation families participate in ecosystems. Ecosystems shape what individuals can imagine, choose, and become.</p>
-          <p>This is why Audax OS cannot be only a personal productivity tool, only a team operating model, only an organisational framework, or only an ecosystem map. <strong>It must connect all of them.</strong></p>
+          <p>This is why Audax OS cannot be only a personal productivity tool, only a team operating model, only an organisational design model, or only an ecosystem map. <strong>It must connect all of them.</strong></p>
         </div>
 
         <NestedCircles />
@@ -526,7 +526,7 @@ const PageLayers = ({ onNav }) => (
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
           <p>Audax OS is holistic in architecture. It must be modular in adoption.</p>
-          <p>No organisation should be asked to adopt the whole framework at once. That would be less like onboarding and more like being swallowed by a very intelligent whale.</p>
+          <p>No organisation should be asked to adopt the whole OS at once. That would be less like onboarding and more like being swallowed by a very intelligent whale.</p>
           <p className="lead">Start where <em>the pain is real.</em> Build the doorway first. Let the deeper system unfold through use.</p>
         </div>
         <div className="join-grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>

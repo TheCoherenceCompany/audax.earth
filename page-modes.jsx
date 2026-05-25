@@ -198,7 +198,7 @@ const PageModes = ({ onNav }) => (
           <p>AI agents can participate in work, but only if work is legible. They can extend memory, but only if memory is governed. They can coordinate tasks, but only if authority is clear. They can communicate, but only if provenance and uncertainty are visible. They can collaborate with other agents, but only if humans can inspect and interrupt the chain.</p>
           <p>This means collaboration itself needs a new grammar.</p>
           <p>Not just better tools. Not just smarter assistants.</p>
-          <p className="lead">A framework for how humans and agents work together across <em>purpose, work, trust, value, learning, and communication.</em></p>
+          <p className="lead">An operating system for how humans and agents work together across <em>purpose, work, trust, value, learning, and communication.</em></p>
         </div>
 
         <PullQuote>AI agents do not remove organisational ambiguity. <em>They expose it, amplify it, and demand that we finally design it properly.</em></PullQuote>
@@ -448,7 +448,7 @@ const PageModes = ({ onNav }) => (
             { n: '06', head: 'Human judgment for irreversible consequences', body: 'Important decisions require accountable human stewardship.' },
             { n: '07', head: 'Consent by architecture', body: 'Privacy, memory, data access, and sharing should be designed explicitly, not handled by vibes and a checkbox.' },
             { n: '08', head: 'Learning at every mode', body: 'Humans learn. Agents learn. Teams learn. Systems learn. Every mode should generate feedback.' },
-            { n: '09', head: 'Interoperability over platform capture', body: 'The framework should allow many tools, vendors, communities, and organisations to build with it.' },
+            { n: '09', head: 'Interoperability over platform capture', body: 'Audax OS should allow many tools, vendors, communities, and organisations to build with it.' },
             { n: '10', head: 'Care with teeth', body: 'Humane does not mean vague. The system should protect dignity and still help people deliver.' }
           ].map(p => (
             <div key={p.n} style={{
@@ -632,7 +632,7 @@ const PageModes = ({ onNav }) => (
           What must Audax OS <em>protect against?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>A framework for agentic collaboration carries real risks. These are not hypothetical future risks. Several of them are already present in early deployments.</p>
+          <p>An operating system for agentic collaboration carries real risks. These are not hypothetical future risks. Several of them are already present in early deployments.</p>
           <p className="lead">Audax OS should help organisations move forward <em>without becoming what they are trying to avoid.</em></p>
         </div>
 
@@ -656,7 +656,7 @@ const PageModes = ({ onNav }) => (
             },
             {
               risk: 'Platform capture',
-              desc: 'The framework becomes dependent on one vendor, one API, one set of terms. The open grammar becomes proprietary infrastructure. The commons becomes a product.'
+              desc: 'Audax OS becomes dependent on one vendor, one API, one set of terms. The open grammar becomes proprietary infrastructure. The commons becomes a product.'
             },
             {
               risk: 'Accountability diffusion',
@@ -726,7 +726,7 @@ const PageModes = ({ onNav }) => (
               fontWeight: 400, letterSpacing: '-0.025em', lineHeight: 1.05,
               color: 'var(--ink-900)', margin: '0 0 16px'
             }}>
-              Who is this<br /><em style={{ color: 'var(--forest-700)' }}>framework for?</em>
+              Who is this<br /><em style={{ color: 'var(--forest-700)' }}>OS for?</em>
             </h2>
             <p style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.5, color: 'var(--ink-600)', margin: '0 0 32px', maxWidth: 480 }}>
               Audax OS is designed for the people building, leading, and inhabiting the next generation of organisations. Founders, practitioners, investors, agents.

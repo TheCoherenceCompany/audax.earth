@@ -58,7 +58,7 @@ const PageJoin = () => {
             <li>How should contribution and value be recognised?</li>
             <li>How should agents participate without becoming supervisors?</li>
             <li>How should organisations learn continuously?</li>
-            <li>How should multiple vendors build around a shared framework?</li>
+            <li>How should multiple vendors build around a shared OS?</li>
             <li>What protocols are needed for human–human, human–agent, and agent–agent collaboration?</li>
             <li>How do we make humane organisations that still deliver?</li>
           </ol>
@@ -76,10 +76,10 @@ const PageJoin = () => {
           <div className="join-grid">
             {[
               ['01', 'Join a dialogue', 'For people exploring the core question. Closed-room conversations with practitioners across the field.'],
-              ['02', 'Contribute to the framework', 'For organisation designers, researchers, and practitioners shaping spheres, layers, and modes.'],
-              ['03', 'Build an implementation', 'For AI builders, toolmakers, vendors, and open-source teams. Use the framework. Ship something real.'],
+              ['02', 'Contribute to the OS', 'For organisation designers, researchers, and practitioners shaping spheres, layers, and modes.'],
+              ['03', 'Build an implementation', 'For AI builders, toolmakers, vendors, and open-source teams. Build with the OS. Ship something real.'],
               ['04', 'Bring a use case', 'For organisations experimenting with agentic, distributed, or fractional work. Be a case study.'],
-              ['05', 'Strategic partner', 'For aligned organisations, labs, networks, and funders willing to steward part of the framework.']
+              ['05', 'Strategic partner', 'For aligned organisations, labs, networks, and funders willing to steward the OS.']
             ].map(([n, h, p]) => (
               <article key={n} className="join-card">
                 <div className="num">{n}</div>
@@ -165,7 +165,7 @@ const PageJoin = () => {
               </div>
               <div className="field full">
                 <label>How would you like to contribute?</label>
-                <textarea rows={3} value={form.contribute} onChange={set('contribute')} placeholder="Dialogue, framework work, implementation, use case, partnership." />
+                <textarea rows={3} value={form.contribute} onChange={set('contribute')} placeholder="Dialogue, OS development, implementation, use case, partnership." />
               </div>
               <div className="field full">
                 <label>What relevant work should we look at?</label>
@@ -193,7 +193,7 @@ const PageJoin = () => {
             The old organisational OS is <em>creaking.</em>
           </h2>
           <p style={{ fontSize: 19, fontWeight: 300, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 620, margin: '0 auto 40px' }}>
-            The agentic age will not wait for perfect theory. We need to build the next framework through practice, dialogue, and serious experimentation.
+            The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation.
           </p>
         </div>
       </section>

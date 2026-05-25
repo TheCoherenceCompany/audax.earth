@@ -20,6 +20,69 @@ const Logo = ({ size = 30, variant }) => {
   return <img src={src} width={size} height={size} alt="Audax OS" style={{ display: 'block' }} />;
 };
 
+// Mobile-only draggable bottom sheet: current section + section list + Join CTA.
+// Hidden on desktop via CSS; the top nav remains the desktop navigation.
+const BottomSheet = ({ page, onNav }) => {
+  const [open, setOpen] = React.useState(false);
+  const sheetRef = React.useRef(null);
+  const drag = React.useRef(null);
+  const sections = PAGES.slice(0, 5);
+  const current = sections.find(p => p.key === page) || sections[0];
+
+  const onDown = (e) => {
+    drag.current = { y: e.clientY, moved: 0 };
+    e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const onMove = (e) => {
+    if (!drag.current) return;
+    const dy = e.clientY - drag.current.y;
+    drag.current.moved = dy;
+    const el = sheetRef.current;
+    if (el && open && dy > 0) el.style.transform = `translateY(${dy}px)`; // drag down to peek-close
+  };
+  const onUp = () => {
+    if (!drag.current) return;
+    const el = sheetRef.current;
+    if (el) el.style.transform = '';
+    const dy = drag.current.moved;
+    drag.current = null;
+    if (open && dy > 60) setOpen(false);              // clear swipe down closes
+    else if (!open && dy < -40) setOpen(true);        // clear swipe up opens
+    else setOpen(o => !o);                            // tap / small drag toggles
+  };
+
+  return (
+    <React.Fragment>
+      <div className={`msheet-scrim${open ? ' show' : ''}`} onClick={() => setOpen(false)}></div>
+      <div ref={sheetRef} className={`msheet${open ? ' open' : ''}`}>
+        <div className="msheet-head" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp}>
+          <div className="msheet-grab"></div>
+          <div className="msheet-cur">
+            <span className="msheet-lab">Section</span>
+            <span className="msheet-nm">{current.label}</span>
+            <i data-lucide="chevron-up" className="msheet-chev"></i>
+          </div>
+        </div>
+        <div className="msheet-list">
+          {sections.map(p => (
+            <button
+              key={p.key}
+              className={`msheet-it${page === p.key ? ' active' : ''}`}
+              onClick={() => { onNav(p.key); setOpen(false); }}
+              type="button"
+            >
+              {p.label}
+            </button>
+          ))}
+          <button className="msheet-join" type="button" onClick={() => window.open(JOIN_URL, '_blank')}>
+            Join the dialogue
+          </button>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
+
 const Nav = ({ page, onNav }) => {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -28,27 +91,30 @@ const Nav = ({ page, onNav }) => {
     return () => window.removeEventListener('scroll', on);
   }, []);
   return (
-    <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
-      <button className="nav-brand" type="button" onClick={() => onNav('why')} style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}>
-        <Logo size={30} />
-        <span className="nav-brand-text">Audax OS</span>
-      </button>
-      <div className="nav-links">
-        {PAGES.slice(0, 5).map(p => (
-          <button
-            key={p.key}
-            className={`nav-link${page === p.key ? ' active' : ''}`}
-            onClick={() => onNav(p.key)}
-            type="button"
-          >
-            {p.label}
-          </button>
-        ))}
-        <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
-          Join the dialogue
+    <React.Fragment>
+      <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+        <button className="nav-brand" type="button" onClick={() => onNav('why')} style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}>
+          <Logo size={30} />
+          <span className="nav-brand-text">Audax OS</span>
         </button>
-      </div>
-    </nav>
+        <div className="nav-links">
+          {PAGES.slice(0, 5).map(p => (
+            <button
+              key={p.key}
+              className={`nav-link${page === p.key ? ' active' : ''}`}
+              onClick={() => onNav(p.key)}
+              type="button"
+            >
+              {p.label}
+            </button>
+          ))}
+          <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
+            Join the dialogue
+          </button>
+        </div>
+      </nav>
+      <BottomSheet page={page} onNav={onNav} />
+    </React.Fragment>
   );
 };
 
@@ -58,31 +124,20 @@ const Footer = ({ onNav }) => (
       <div className="footer-brand">
         <Logo size={36} />
         <div className="footer-brand-text">Audax OS</div>
-        <div className="footer-tagline">An open framework for the agentic age.</div>
+        <div className="footer-tagline">An organisation OS for the agentic age.</div>
+        <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className="footer-join-btn">Join the dialogue</a>
       </div>
       <div className="footer-col">
-        <h6>Framework</h6>
+        <h6>Explore</h6>
         <a onClick={(e)=>{e.preventDefault(); onNav('why');}} href="#">Why?</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('spheres');}} href="#">Spheres</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('layers');}} href="#">Layers</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('modes');}} href="#">Modes</a>
-      </div>
-      <div className="footer-col">
-        <h6>Field</h6>
         <a onClick={(e)=>{e.preventDefault(); onNav('whofor');}} href="#">Who For?</a>
-        <a href={JOIN_URL} target="_blank" rel="noopener noreferrer">Join the dialogue</a>
-        <a href="#" onClick={(e)=>e.preventDefault()} style={{ opacity: 0.4, cursor: 'default' }}>Framework notes</a>
-        <a href="#" onClick={(e)=>e.preventDefault()} style={{ opacity: 0.4, cursor: 'default' }}>Principles</a>
-      </div>
-      <div className="footer-col">
-        <h6>Steward</h6>
-        <a href="#" onClick={(e)=>e.preventDefault()} style={{ opacity: 0.4, cursor: 'default' }}>The Coherence Company</a>
-        <a href="#" onClick={(e)=>e.preventDefault()} style={{ opacity: 0.4, cursor: 'default' }}>Living lab</a>
-        <a href="#" onClick={(e)=>e.preventDefault()} style={{ opacity: 0.4, cursor: 'default' }}>Contact</a>
       </div>
     </div>
     <div className="footer-bottom">
-      <span>© 2026 · Audax OS is an open framework, stewarded by The Coherence Company.</span>
+      <span>© 2026 · Audax OS is an open organisation OS, stewarded by The Coherence Company.</span>
       <span>For humans and agents, in equal measure.</span>
     </div>
   </footer>
