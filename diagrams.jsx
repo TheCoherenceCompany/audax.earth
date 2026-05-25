@@ -6,104 +6,104 @@
 
    All drawn in SVG using the brand palette. No external icons. */
 
-/* ---------- Matrix (5×5×3) ---------- */
+/* ---------- Matrix : Spheres × Layers × Modes (equation) ---------- */
 const MatrixDiagram = () => {
-  // We draw a "5×5×3" stack: a 5-row × 5-col grid (spheres × layers),
-  // with two extra translucent planes behind it to suggest the modes (3 modes).
-  // Skewed isometric for depth.
-  const sx = (x, y) => x + y * 0.42;        // simple oblique projection
-  const sy = (x, y) => -y * 0.36;
+  const SX = [168, 500, 832], CROSS = [334, 666];
+  const vizY = 222;
+  const MONO = 'JetBrains Mono, monospace', SERIF = 'Instrument Serif, serif';
+
+  // Spheres — five named circles in a pentagon
+  const sphereNames = ['Value', 'Work', 'Relationship', 'Learning', 'Communication'];
+  const sphereTint = ['#1F4D2E', '#2D6B41', '#3F8657', '#6BA37C', '#9CBFA3'];
+  const scx = SX[0], scy = vizY + 10, sR = 50, sr = 24;
+  const spts = sphereTint.map((_, i) => {
+    const a = -Math.PI / 2 + i * 2 * Math.PI / 5;
+    return [scx + sR * Math.cos(a), scy + sR * Math.sin(a), a];
+  });
+
+  // Layers — five equal isometric planes, vertically aligned
+  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerTint = ['#C8DBC9', '#E2EBDD', '#E2EBDD', '#F0F4EC', '#F0F4EC'];
+  const lcx = 500, lcyBase = 314, lhw = 80, lvh = 27, ldy = 40;
+
+  // Modes — three named interaction icons (human / agent)
+  const modeRows = [vizY - 66, vizY + 2, vizY + 70];
+  const modeKinds = [['h', 'h'], ['h', 'a'], ['a', 'a']];
+  const modeLabels = ['HUMAN ↔ HUMAN', 'HUMAN ↔ AGENT', 'AGENT ↔ AGENT'];
+  const mcx = SX[2], mdx = 40, ms = 1.05;
+
+  const human = (cx, cy) => (
+    <g>
+      <circle cx={cx} cy={cy - 7 * ms} r={6 * ms} fill="#1F4D2E" />
+      <path d={`M ${cx - 11 * ms} ${cy + 11 * ms} a ${11 * ms} ${11 * ms} 0 0 1 ${22 * ms} 0 Z`} fill="#1F4D2E" />
+    </g>
+  );
+  const agent = (cx, cy) => {
+    const col = '#3F8657';
+    return (
+      <g>
+        <line x1={cx} y1={cy - 9 * ms} x2={cx} y2={cy - 15 * ms} stroke={col} strokeWidth={1.6 * ms} />
+        <circle cx={cx} cy={cy - 16 * ms} r={2.1 * ms} fill={col} />
+        <rect x={cx - 13 * ms} y={cy - 3 * ms} width={3 * ms} height={7 * ms} rx={1.4 * ms} fill={col} />
+        <rect x={cx + 10 * ms} y={cy - 3 * ms} width={3 * ms} height={7 * ms} rx={1.4 * ms} fill={col} />
+        <rect x={cx - 10 * ms} y={cy - 9 * ms} width={20 * ms} height={18 * ms} rx={4.5 * ms} fill={col} />
+        <circle cx={cx - 4.5 * ms} cy={cy - 1.5 * ms} r={2.2 * ms} fill="#fff" />
+        <circle cx={cx + 4.5 * ms} cy={cy - 1.5 * ms} r={2.2 * ms} fill="#fff" />
+        <rect x={cx - 5 * ms} y={cy + 4 * ms} width={10 * ms} height={2 * ms} rx={1 * ms} fill="#fff" />
+      </g>
+    );
+  };
+  const glyph = (k, cx, cy) => (k === 'h' ? human(cx, cy) : agent(cx, cy));
+
   return (
     <div className="diagram-axes">
-      <svg viewBox="0 0 760 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five spheres by five layers by three modes">
-        <defs>
-          <linearGradient id="planeFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"  stopColor="#E2EBDD" stopOpacity="0.65" />
-            <stop offset="100%" stopColor="#C8DBC9" stopOpacity="0.85" />
-          </linearGradient>
-          <linearGradient id="planeFillSoft" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"  stopColor="#F0F4EC" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#E2EBDD" stopOpacity="0.7" />
-          </linearGradient>
-        </defs>
+      <svg viewBox="0 0 1000 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five spheres times five layers times three modes">
+        {/* equation header: 5 × 5 × 3 */}
+        {SX.map((x, i) => (
+          <text key={'eq' + i} x={x} y={64} fontFamily={SERIF} fontSize="46" fill="#0E2419" textAnchor="middle">{[5, 5, 3][i]}</text>
+        ))}
+        {CROSS.map((x, i) => (
+          <text key={'cr' + i} x={x} y={60} fontFamily={MONO} fontSize="30" fill="#C9C6BD" textAnchor="middle">×</text>
+        ))}
+        {['SPHERES', 'LAYERS', 'MODES'].map((t, i) => (
+          <text key={'cap' + i} x={SX[i]} y={92} fontFamily={MONO} fontSize="11" fill="#807D72" letterSpacing="0.18em" textAnchor="middle">{t}</text>
+        ))}
 
-        {/* Three modes as receding planes */}
-        <g transform="translate(120 380)">
-          {[0, 1, 2].map(z => {
-            const dx = z * 38, dy = -z * 32;
-            const size = 360;
-            return (
-              <g key={z} transform={`translate(${dx} ${dy})`} opacity={1 - z * 0.18}>
-                {/* plane outline */}
-                <path
-                  d={`M 0 0
-                      L ${size} 0
-                      L ${size + size * 0.42} ${-size * 0.36}
-                      L ${size * 0.42} ${-size * 0.36}
-                      Z`}
-                  fill={z === 0 ? 'url(#planeFill)' : 'url(#planeFillSoft)'}
-                  stroke="#9CBFA3"
-                  strokeWidth="1"
-                />
+        {/* Section 1 — spheres */}
+        <polygon points={spts.map(p => p[0] + ',' + p[1]).join(' ')} fill="none" stroke="#9CBFA3" strokeWidth="1" opacity="0.5" />
+        {spts.map((p, i) => (
+          <circle key={'sc' + i} cx={p[0]} cy={p[1]} r={sr} fill={sphereTint[i]} opacity="0.95" />
+        ))}
+        {spts.map((p, i) => {
+          const dx = Math.cos(p[2]), dy = Math.sin(p[2]);
+          const lx = scx + (sR + sr + 7) * dx, ly = scy + (sR + sr + 7) * dy + 3;
+          const anchor = dx > 0.3 ? 'start' : dx < -0.3 ? 'end' : 'middle';
+          return (
+            <text key={'sl' + i} x={lx} y={ly} fontFamily={MONO} fontSize="9.5" fill="#3A3830" letterSpacing="0.02em" textAnchor={anchor}>{sphereNames[i]}</text>
+          );
+        })}
 
-                {/* 5×5 grid lines on top of plane */}
-                {z === 0 && (
-                  <g stroke="#6BA37C" strokeWidth="0.8" opacity="0.5">
-                    {[1, 2, 3, 4].map(i => {
-                      const t = i / 5;
-                      const startX = size * t, startY = 0;
-                      const endX = size * t + size * 0.42 * 1, endY = -size * 0.36;
-                      return <line key={'v' + i} x1={startX} y1={startY} x2={endX} y2={endY} />;
-                    })}
-                    {[1, 2, 3, 4].map(i => {
-                      const t = i / 5;
-                      const startX = size * 0.42 * t, startY = -size * 0.36 * t;
-                      const endX = size + size * 0.42 * t, endY = -size * 0.36 * t;
-                      return <line key={'h' + i} x1={startX} y1={startY} x2={endX} y2={endY} />;
-                    })}
-                  </g>
-                )}
+        {/* Section 2 — layers (drawn back to front) */}
+        {[4, 3, 2, 1, 0].map(i => {
+          const cy = lcyBase - i * ldy;
+          const pts = [[lcx, cy - lvh], [lcx + lhw, cy], [lcx, cy + lvh], [lcx - lhw, cy]];
+          return (
+            <g key={'ly' + i}>
+              <polygon points={pts.map(p => p.join(',')).join(' ')} fill={layerTint[i]} opacity="0.92" stroke="#6BA37C" strokeWidth="1" />
+              <text x={lcx} y={cy + 9} fontFamily={MONO} fontSize="10.5" fontWeight="500" letterSpacing="0.03em" textAnchor="middle" fill="#0E2419" stroke="#FBFAF3" strokeWidth="3.4" strokeLinejoin="round" paintOrder="stroke">{layerNames[i]}</text>
+            </g>
+          );
+        })}
 
-                {/* tiny mode label on each plane */}
-                <text
-                  x={size + size * 0.42 + 10}
-                  y={-size * 0.36 + 14}
-                  fontFamily="JetBrains Mono, monospace"
-                  fontSize="10"
-                  letterSpacing="0.2em"
-                  fill="#5C5A50"
-                  textAnchor="start"
-                >
-                  {['HUMAN ↔ HUMAN', 'HUMAN ↔ AGENT', 'AGENT ↔ AGENT'][z]}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* Cell highlights on front plane — a few warm nodes */}
-          {[[1,2], [2,1], [3,3], [0,4], [4,0]].map(([cx, cy], i) => {
-            const size = 360;
-            const cell = size / 5;
-            const x = cx * cell + cell / 2 + (cy * cell + cell / 2) * 0.42;
-            const y = -(cy * cell + cell / 2) * 0.36;
-            return (
-              <circle key={i} cx={x} cy={y} r="6" fill={i === 2 ? '#B8C766' : '#1F4D2E'} opacity={i === 2 ? 1 : 0.75} />
-            );
-          })}
-        </g>
-
-        <g fontFamily="JetBrains Mono, monospace" fontSize="11" fill="#807D72" letterSpacing="0.2em">
-          <text x="76" y="430" textAnchor="end">SPHERES</text>
-          <text x="380" y="510" textAnchor="middle">LAYERS</text>
-          <text x="660" y="60" textAnchor="middle" transform="rotate(-22 660 60)">MODES</text>
-        </g>
-
-        {/* Tiny ticks counting 5/5/3 */}
-        <g fontFamily="JetBrains Mono, monospace" fontSize="11" fill="#1F4D2E" letterSpacing="0.04em">
-          <text x="76" y="450" textAnchor="end" fontWeight="500">5</text>
-          <text x="380" y="528" textAnchor="middle" fontWeight="500">5</text>
-          <text x="660" y="80" textAnchor="middle" fontWeight="500" transform="rotate(-22 660 80)">3</text>
-        </g>
+        {/* Section 3 — modes */}
+        {modeRows.map((cy, i) => (
+          <g key={'md' + i}>
+            <line x1={mcx - mdx + 15} y1={cy} x2={mcx + mdx - 15} y2={cy} stroke="#C9C6BD" strokeWidth="1.4" />
+            {glyph(modeKinds[i][0], mcx - mdx, cy)}
+            {glyph(modeKinds[i][1], mcx + mdx, cy)}
+            <text x={mcx} y={cy + 34} fontFamily={MONO} fontSize="9.5" fill="#807D72" letterSpacing="0.12em" textAnchor="middle">{modeLabels[i]}</text>
+          </g>
+        ))}
       </svg>
     </div>
   );
