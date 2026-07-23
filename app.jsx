@@ -27,17 +27,20 @@ const parseHash = () => {
 };
 
 const App = () => {
-  const [{ page, section }, setRoute] = React.useState(parseHash);
+  // navId increments on every nav() call so the scroll effect below always
+  // re-fires — even when re-clicking the same section — instead of bailing
+  // out because [page, section] look unchanged to useEffect's dep check.
+  const [{ page, section, navId }, setRoute] = React.useState(() => ({ ...parseHash(), navId: 0 }));
 
   const nav = (key, section) => {
-    setRoute({ page: key, section: section || null });
+    setRoute((r) => ({ page: key, section: section || null, navId: r.navId + 1 }));
     window.location.hash = section ? `${key}/${section}` : key;
     if (!section) window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Listen for back/forward
   React.useEffect(() => {
-    const on = () => setRoute(parseHash());
+    const on = () => setRoute((r) => ({ ...parseHash(), navId: r.navId + 1 }));
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);
   }, []);
@@ -48,7 +51,7 @@ const App = () => {
     if (!section) return;
     const el = document.getElementById(section);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [page, section]);
+  }, [navId]);
 
   // Update document title and OG meta tags on page change
   React.useEffect(() => {
