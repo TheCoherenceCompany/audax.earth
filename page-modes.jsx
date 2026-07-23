@@ -12,21 +12,21 @@ const BAND_MODE_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_a
 
 const MODES_META = [
   {
-    n: 'I', glyph: 'H ↔ H', name: 'Human to Human',
+    n: 'I', key: 'h2h', glyph: 'H ↔ H', name: 'Human to Human',
     coreQ: 'How do people collaborate with trust, clarity, commitment, and care?',
     needs: ['purpose', 'agreements', 'trust', 'communication', 'conflict pathways', 'visible commitments', 'value recognition', 'learning loops', 'human presence'],
     principle: 'Use agents to make human collaboration more humane, not more managed.',
     art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png'
   },
   {
-    n: 'II', glyph: 'H ↔ A', name: 'Human to Agent',
+    n: 'II', key: 'h2a', glyph: 'H ↔ A', name: 'Human to Agent',
     coreQ: 'How do humans delegate to, collaborate with, guide, and learn from AI agents?',
     needs: ['context', 'role clarity', 'permissions', 'boundaries', 'decision rights', 'memory visibility', 'feedback loops', 'escalation rules', 'human accountability'],
     principle: 'Agents need role clarity before autonomy.',
     art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png'
   },
   {
-    n: 'III', glyph: 'A ↔ A', name: 'Agent to Agent',
+    n: 'III', key: 'a2a', glyph: 'A ↔ A', name: 'Agent to Agent',
     coreQ: 'How do agents coordinate with other agents without creating invisible bureaucracy?',
     needs: ['agent identity', 'capability registry', 'shared work ontology', 'delegation contracts', 'provenance', 'audit trails', 'conflict detection', 'interruption points', 'human-readable summaries'],
     principle: 'Protocols before autonomy.',
@@ -35,7 +35,7 @@ const MODES_META = [
 ];
 
 const ModeSection = ({ mode, deep }) => (
-  <section className="section" style={deep.bg ? { background: deep.bg } : null}>
+  <section id={mode.key} className="section" style={deep.bg ? { background: deep.bg } : null}>
     <div className="container">
       <div className="sphere-header">
         <span className="roman">MODE {mode.n}</span>
@@ -101,10 +101,10 @@ const PageModes = ({ onNav }) => (
           <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
             That mode still matters. In fact, it matters more than ever. But the collaboration field has changed. Audax OS is designed for all three modes.
           </p>
-          <ModesDiagram />
+          <ModesDiagram onSelect={(key) => onNav('modes', key)} />
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down"
-              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+              onClick={() => document.getElementById('modes-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               Explore the three modes
             </Button>
             <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
@@ -116,7 +116,7 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 2 · WHAT IS A MODE? ──────────────────────────────────────────────── */}
-    <section className="section manifesto">
+    <section id="modes-intro" className="section manifesto">
       <div className="container">
         <h1 className="q-h1">
           <span className="num">02 · Definition</span>
@@ -160,7 +160,16 @@ const PageModes = ({ onNav }) => (
         </p>
         <div className="sphere-overview" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {MODES_META.map(m => (
-            <article key={m.n} className="sphere-overview-card" style={{ minHeight: 280 }}>
+            <article
+              key={m.n}
+              className="sphere-overview-card clickable"
+              style={{ minHeight: 280 }}
+              role="button"
+              tabIndex={0}
+              onClick={() => onNav('modes', m.key)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNav('modes', m.key); } }}
+              aria-label={`Read more about ${m.name}`}
+            >
               <div className="roman">MODE {m.n}</div>
               <div style={{
                 fontFamily: 'var(--font-mono)', fontSize: 20, fontWeight: 500,

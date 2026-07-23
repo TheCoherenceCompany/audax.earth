@@ -45,7 +45,7 @@ const SPHERES = [
 ];
 
 const SphereSection = ({ sphere, deep }) => (
-  <section className="section" style={deep.bg ? { background: deep.bg } : null}>
+  <section id={sphere.key} className="section" style={deep.bg ? { background: deep.bg } : null}>
     <div className="container">
       <div className="sphere-header">
         <span className="roman">SPHERE {sphere.n}</span>
@@ -111,10 +111,10 @@ const PageSpheres = ({ onNav }) => (
             Every organisation already has these functions. The question is whether they are visible, coherent, and cared for &mdash; or scattered across tools, habits, meetings, spreadsheets, and heroic memory.
           </p>
           <div style={{ marginTop: 48, marginBottom: 40 }}>
-            <SpheresOrbit />
+            <SpheresOrbit onSelect={(key) => onNav('spheres', key)} />
           </div>
           <div className="hero-ctas">
-            <Button size="lg" icon="arrow-down" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>Explore the five spheres</Button>
+            <Button size="lg" icon="arrow-down" onClick={() => document.getElementById('spheres-intro')?.scrollIntoView({ behavior: 'smooth' })}>Explore the five spheres</Button>
             <Button size="lg" variant="secondary" onClick={() => onNav('build')}>Join to co-create</Button>
           </div>
         </div>
@@ -122,7 +122,7 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 2. WHAT IS A SPHERE? */}
-    <section className="section manifesto">
+    <section id="spheres-intro" className="section manifesto">
       <div className="container">
         <h1 className="q-h1">
           <span className="num">02 · Definition</span>
@@ -205,7 +205,15 @@ const PageSpheres = ({ onNav }) => (
         </p>
         <div className="sphere-overview">
           {SPHERES.map(s => (
-            <article key={s.n} className="sphere-overview-card">
+            <article
+              key={s.n}
+              className="sphere-overview-card clickable"
+              role="button"
+              tabIndex={0}
+              onClick={() => onNav('spheres', s.key)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNav('spheres', s.key); } }}
+              aria-label={`Read more about ${s.name}`}
+            >
               <div className="roman">SPHERE {s.n}</div>
               <h4>{s.name}</h4>
               <p className="q">{s.q}</p>

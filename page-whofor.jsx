@@ -640,7 +640,7 @@ const PageWhoFor = ({ onNav }) => (
           </p>
           <EcosystemDiagram />
           <div className="hero-ctas" style={{ marginTop: 40 }}>
-            <Button size="lg" icon="arrow-down" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+            <Button size="lg" icon="arrow-down" onClick={() => document.getElementById('whofor-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               See who it serves
             </Button>
             <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
@@ -652,7 +652,7 @@ const PageWhoFor = ({ onNav }) => (
     </section>
 
     {/* ─── 2 · META-CATEGORY ───────────────────────────────────────────── */}
-    <section className="section manifesto">
+    <section id="whofor-intro" className="section manifesto">
       <div className="container">
         <NumQ n="02" kicker="Meta-category">What counts as an <em>organisation?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>

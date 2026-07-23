@@ -45,7 +45,7 @@ const LAYERS_META = [
 ];
 
 const LayerSection = ({ layer, deep }) => (
-  <section className="section" style={deep.bg ? { background: deep.bg } : null}>
+  <section id={layer.key} className="section" style={deep.bg ? { background: deep.bg } : null}>
     <div className="container">
       <div className="sphere-header">
         <span className="roman">LAYER {layer.n}</span>
@@ -111,10 +111,10 @@ const PageLayers = ({ onNav }) => (
           <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
             Coherence must be felt and practiced across scale — inside the individual, inside the team, across the organisation, across a family of organisations, and across the wider ecosystem.
           </p>
-          <LayersDiagram />
+          <LayersDiagram onSelect={(key) => onNav('layers', key)} />
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down"
-              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+              onClick={() => document.getElementById('layers-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               Explore the five layers
             </Button>
             <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
@@ -126,7 +126,7 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 2 · WHAT IS A LAYER? ─────────────────────────────────────────────── */}
-    <section className="section manifesto">
+    <section id="layers-intro" className="section manifesto">
       <div className="container">
         <h1 className="q-h1">
           <span className="num">02 · Definition</span>
@@ -221,7 +221,15 @@ const PageLayers = ({ onNav }) => (
         </p>
         <div className="sphere-overview">
           {LAYERS_META.map(l => (
-            <article key={l.n} className="sphere-overview-card">
+            <article
+              key={l.n}
+              className="sphere-overview-card clickable"
+              role="button"
+              tabIndex={0}
+              onClick={() => onNav('layers', l.key)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNav('layers', l.key); } }}
+              aria-label={`Read more about ${l.name}`}
+            >
               <div className="roman">LAYER {l.n}</div>
               <h4>{l.name}</h4>
               <p className="q">{l.coreQ}</p>

@@ -110,7 +110,7 @@ const MatrixDiagram = () => {
 };
 
 /* ---------- Modes diagram (standalone hero version — human/agent icon pairs) ---------- */
-const ModesDiagram = () => {
+const ModesDiagram = ({ onSelect }) => {
   const MONO = 'JetBrains Mono, monospace';
   const SERIF = 'Instrument Serif, serif';
   const humanColor = '#1F4D2E', agentColor = '#3F8657';
@@ -135,9 +135,9 @@ const ModesDiagram = () => {
   );
 
   const rows = [
-    { left: 'h', right: 'h', label: 'HUMAN ↔ HUMAN', lineColor: '#2A6B3C' },
-    { left: 'h', right: 'a', label: 'HUMAN ↔ AGENT', lineColor: '#5C5A50' },
-    { left: 'a', right: 'a', label: 'AGENT ↔ AGENT', lineColor: '#3A3830' },
+    { key: 'h2h', left: 'h', right: 'h', label: 'HUMAN ↔ HUMAN', lineColor: '#2A6B3C' },
+    { key: 'h2a', left: 'h', right: 'a', label: 'HUMAN ↔ AGENT', lineColor: '#5C5A50' },
+    { key: 'a2a', left: 'a', right: 'a', label: 'AGENT ↔ AGENT', lineColor: '#3A3830' },
   ];
   const lx = 130, rx = 470, rowH = 140, startY = 240;
 
@@ -149,7 +149,15 @@ const ModesDiagram = () => {
         {rows.map((r, i) => {
           const cy = startY + i * rowH;
           return (
-            <g key={i}>
+            <g
+              key={i}
+              className={onSelect ? 'diagram-node' : undefined}
+              onClick={onSelect ? () => onSelect(r.key) : undefined}
+              tabIndex={onSelect ? 0 : undefined}
+              role={onSelect ? 'button' : undefined}
+              aria-label={onSelect ? `Jump to ${r.label}` : undefined}
+              onKeyDown={onSelect ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(r.key); } } : undefined}
+            >
               <line x1={lx + 42} y1={cy} x2={rx - 42} y2={cy} stroke={r.lineColor} strokeWidth="1.6" strokeDasharray="6 5" />
               {r.left === 'h' ? human(lx, cy) : agent(lx, cy)}
               {r.right === 'h' ? human(rx, cy) : agent(rx, cy)}
@@ -254,11 +262,12 @@ const ModesColDiagram = () => {
 };
 
 /* ---------- Layers stack (standalone hero version of the layers column) ---------- */
-const LayersDiagram = () => {
+const LayersDiagram = ({ onSelect }) => {
   const MONO = 'JetBrains Mono, monospace';
   const SERIF = 'Instrument Serif, serif';
   const cx = 360, cyBase = 540, hw = 200, hh = 44, step = 78;
   const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerKeys = ['individual', 'team', 'org', 'family', 'ecosystem'];
   const layerNumerals = ['I', 'II', 'III', 'IV', 'V'];
   const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
   return (
@@ -270,7 +279,15 @@ const LayersDiagram = () => {
           const cy = cyBase - i * step;
           const pts = `${cx},${cy - hh} ${cx + hw},${cy} ${cx},${cy + hh} ${cx - hw},${cy}`;
           return (
-            <g key={i}>
+            <g
+              key={i}
+              className={onSelect ? 'diagram-node' : undefined}
+              onClick={onSelect ? () => onSelect(layerKeys[i]) : undefined}
+              tabIndex={onSelect ? 0 : undefined}
+              role={onSelect ? 'button' : undefined}
+              aria-label={onSelect ? `Jump to the ${layerNames[i]} layer` : undefined}
+              onKeyDown={onSelect ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(layerKeys[i]); } } : undefined}
+            >
               <polygon points={pts} fill={layerTints[i]} stroke="#6BA37C" strokeWidth="1.4" />
               <text x={cx - hw - 24} y={cy + 5} fontFamily={MONO} fontSize="11" fill="#6BA37C" letterSpacing="0.18em" textAnchor="end">{layerNumerals[i]}</text>
               <text x={cx} y={cy + 6} fontFamily={MONO} fontSize="14" fontWeight="500" letterSpacing="0.06em" textAnchor="middle" fill="#0E2419"
@@ -482,7 +499,7 @@ const ModesTriad = () => (
 
 
 /* ---------- Spheres orbit (5 spheres around the brand mark) ---------- */
-const SpheresOrbit = () => {
+const SpheresOrbit = ({ onSelect }) => {
   const SPHERES = [
     { key: 'value', label: 'Value' },
     { key: 'work',  label: 'Work' },
@@ -527,7 +544,16 @@ const SpheresOrbit = () => {
           const x = Math.cos(a) * radius;
           const y = Math.sin(a) * radius;
           return (
-            <g key={s.key} transform={`translate(${x} ${y})`}>
+            <g
+              key={s.key}
+              transform={`translate(${x} ${y})`}
+              className={onSelect ? 'diagram-node' : undefined}
+              onClick={onSelect ? () => onSelect(s.key) : undefined}
+              tabIndex={onSelect ? 0 : undefined}
+              role={onSelect ? 'button' : undefined}
+              aria-label={onSelect ? `Jump to the ${s.label} sphere` : undefined}
+              onKeyDown={onSelect ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(s.key); } } : undefined}
+            >
               <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#1F4D2E" strokeWidth="1.5" />
               <circle cx="0" cy="0" r="40" fill="none" stroke="#9CBFA3" strokeWidth="0.7" />
               <text x="0" y="3" textAnchor="middle" fontFamily="Instrument Serif, serif" fontSize="16" fontWeight="400" fill="#14130E" letterSpacing="-0.015em">

@@ -16,25 +16,39 @@ const setMeta = (name, content) => {
   if (el) el.setAttribute('content', content);
 };
 
-const App = () => {
-  const initial = () => {
-    const h = window.location.hash.replace('#', '');
-    return ['why', 'spheres', 'layers', 'modes', 'whofor', 'build', 'join'].includes(h) ? h : 'why';
-  };
-  const [page, setPage] = React.useState(initial);
+// Hash format: "#page" or "#page/section" — the section (when present) is a
+// DOM id the target page renders, so a link can point straight at it
+// (e.g. "#spheres/value" opens the Spheres page scrolled to the Value sphere).
+const parseHash = () => {
+  const raw = window.location.hash.replace('#', '');
+  const [p, section] = raw.split('/');
+  const page = ['why', 'spheres', 'layers', 'modes', 'whofor', 'build', 'join'].includes(p) ? p : 'why';
+  return { page, section: section || null };
+};
 
-  const nav = (key) => {
-    setPage(key);
-    window.location.hash = key;
-    window.scrollTo({ top: 0, behavior: 'instant' });
+const App = () => {
+  const [{ page, section }, setRoute] = React.useState(parseHash);
+
+  const nav = (key, section) => {
+    setRoute({ page: key, section: section || null });
+    window.location.hash = section ? `${key}/${section}` : key;
+    if (!section) window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Listen for back/forward
   React.useEffect(() => {
-    const on = () => setPage(initial());
+    const on = () => setRoute(parseHash());
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);
   }, []);
+
+  // Scroll to the requested section once the page has rendered it — covers
+  // both direct nav() calls and a deep link opened straight from the URL.
+  React.useEffect(() => {
+    if (!section) return;
+    const el = document.getElementById(section);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [page, section]);
 
   // Update document title and OG meta tags on page change
   React.useEffect(() => {

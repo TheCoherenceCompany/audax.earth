@@ -1110,6 +1110,27 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   color: var(--ink-500); padding-top: 14px;
   border-top: 1px solid var(--border-2);
 }
+.sphere-overview-card.clickable {
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.sphere-overview-card.clickable:hover,
+.sphere-overview-card.clickable:focus-visible {
+  border-color: var(--forest-700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(31, 77, 46, 0.1);
+  outline: none;
+}
+
+/* Clickable nodes inside SVG diagrams (orbit, layer stack, mode rows) */
+.diagram-node { cursor: pointer; }
+.diagram-node:hover, .diagram-node:focus-visible { outline: none; }
+.diagram-node:hover circle:first-child,
+.diagram-node:focus-visible circle:first-child { stroke: var(--forest-700); stroke-width: 2.5; }
+.diagram-node:hover polygon,
+.diagram-node:focus-visible polygon { stroke-width: 2.4; }
+.diagram-node:hover line,
+.diagram-node:focus-visible line { stroke-width: 2.4; opacity: 1; }
 
 /* Deep sphere block */
 .sphere-deep {
