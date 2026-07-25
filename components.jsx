@@ -8,6 +8,7 @@ const PAGES = [
   { key: 'layers',  label: 'Layers' },
   { key: 'modes',   label: 'Modes' },
   { key: 'whofor',  label: 'Who For?' },
+  { key: 'camp',    label: 'Camp' },
   { key: 'build',   label: "Let's Build" }
 ];
 
@@ -26,7 +27,7 @@ const BottomSheet = ({ page, onNav }) => {
   const [open, setOpen] = React.useState(false);
   const sheetRef = React.useRef(null);
   const drag = React.useRef(null);
-  const sections = PAGES.slice(0, 5);
+  const sections = PAGES.slice(0, 6);
   const current = sections.find(p => p.key === page) || sections[0];
 
   const onDown = (e) => {
@@ -98,7 +99,7 @@ const Nav = ({ page, onNav }) => {
           <span className="nav-brand-text">Audax OS</span>
         </button>
         <div className="nav-links">
-          {PAGES.slice(0, 5).map(p => (
+          {PAGES.slice(0, 6).map(p => (
             <button
               key={p.key}
               className={`nav-link${page === p.key ? ' active' : ''}`}
@@ -134,6 +135,7 @@ const Footer = ({ onNav }) => (
         <a onClick={(e)=>{e.preventDefault(); onNav('layers');}} href="#">Layers</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('modes');}} href="#">Modes</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('whofor');}} href="#">Who For?</a>
+        <a onClick={(e)=>{e.preventDefault(); onNav('camp');}} href="#">Camp Audax</a>
         <a onClick={(e)=>{e.preventDefault(); onNav('build');}} href="#">Let's Build the OS</a>
       </div>
     </div>

@@ -10,6 +10,6 @@ The `.jsx` and CSS files are served with a `?v=N` query in `index.html`. Browser
 
 - `site.css`
 - `components.jsx`, `diagrams.jsx`, `app.jsx`, `hero-canvas.jsx`
-- `page-why.jsx`, `page-spheres.jsx`, `page-layers.jsx`, `page-modes.jsx`, `page-whofor.jsx`, `page-join.jsx`
+- `page-why.jsx`, `page-spheres.jsx`, `page-layers.jsx`, `page-modes.jsx`, `page-whofor.jsx`, `page-camp.jsx`, `page-build.jsx`, `page-join.jsx`
 
 Note: `colors_and_type.css` is `@import`ed inside `site.css`, so it has no version of its own — if you edit it, bump `site.css`'s `?v=` to force the import to refetch.

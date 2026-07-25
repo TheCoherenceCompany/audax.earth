@@ -7,6 +7,7 @@ const PAGE_META = {
   layers:  { title: 'Layers — Audax OS',                  description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.' },
   modes:   { title: 'Modes — Audax OS',                   description: 'Three modes of collaboration: Human to Human, Human to Agent, and Agent to Agent.' },
   whofor:  { title: 'Who For? — Audax OS',                description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.' },
+  camp:    { title: 'Camp Audax — Audax OS',              description: 'AI as the coordination layer of a regenerative society. Camp Audax at The Gathering US, Camp Navarro, California, 12–18 October 2026.' },
   build:   { title: "Let's Build the OS — Audax OS",      description: 'Join to co-create and help co-create the organisational OS for the agentic age.' },
   join:    { title: 'Join — Audax OS',                    description: 'Join to co-create on the organisational OS for the agentic age.' },
 };
@@ -22,7 +23,7 @@ const setMeta = (name, content) => {
 const parseHash = () => {
   const raw = window.location.hash.replace('#', '');
   const [p, section] = raw.split('/');
-  const page = ['why', 'spheres', 'layers', 'modes', 'whofor', 'build', 'join'].includes(p) ? p : 'why';
+  const page = ['why', 'spheres', 'layers', 'modes', 'whofor', 'camp', 'build', 'join'].includes(p) ? p : 'why';
   return { page, section: section || null };
 };
 
@@ -76,6 +77,7 @@ const App = () => {
   else if (page === 'layers') body = <PageLayers onNav={nav} />;
   else if (page === 'modes') body = <PageModes onNav={nav} />;
   else if (page === 'whofor') body = <PageWhoFor onNav={nav} />;
+  else if (page === 'camp') body = <PageCamp onNav={nav} />;
   else if (page === 'build') body = <PageBuild onNav={nav} />;
   else if (page === 'join') body = <PageJoin onNav={nav} />;
   else body = <PageWhy onNav={nav} />;
