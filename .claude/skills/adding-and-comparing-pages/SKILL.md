@@ -32,10 +32,13 @@ camp: {
   description: 'AI as the coordination…',    // required — meta description
   nav: 'Camp',                               // optional — label in top nav + mobile sheet
   footer: 'Camp Audax',                      // optional — footer label, defaults to `nav`
+  chrome: false,                             // optional — stand-alone page, see below
 },
 ```
 
 **Omit both `nav` and `footer` and the page is unlisted**: reachable at `#<key>`, absent from every menu. That one-line switch is what keeps a variant under review private — no separate file to edit, nothing to remember to undo.
+
+**Set `chrome: false` for a stand-alone page** that ships its own nav and footer (a campaign or landing page that should not read as part of the Audax OS site). `App` then renders the page alone, with no site `Nav` and no site `Footer` — so the page file must render both itself, and is responsible for its own way back to the rest of the site. `page-camp.jsx` is the worked example: it reuses the site's `.nav` / `.nav-brand` / `.nav-cta` classes for its own scroll-spy top bar, and layers a self-contained signpost stack (a way-post rope on desktop, a drawer on narrow viewports) for jumping between its six sections — see the `CampNav` / `CampSignposts` components in that file.
 
 Do **not** edit `components.jsx` to add a page. `Nav`, `BottomSheet` and `Footer` read `navPages()` / `footerPages()`, which derive from `ROUTES` at render time.
 

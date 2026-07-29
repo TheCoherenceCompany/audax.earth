@@ -3,44 +3,44 @@
    The horizontal architecture of Audax OS:
    Value · Work · Relationship & Purpose · Learning · Communication */
 
-const HERO_SPH = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
+const HERO_SPH = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
 // Chapter-band backgrounds (one per sphere — distinct from the page hero).
-const BAND_SPH_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
-const BAND_SPH_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.png';
-const BAND_SPH_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
-const BAND_SPH_4 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_f86772ab-5233-4a7c-a2ff-b9f7dcf7d9f8_0.png';
-const BAND_SPH_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
+const BAND_SPH_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp';
+const BAND_SPH_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
+const BAND_SPH_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
+const BAND_SPH_4 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_f86772ab-5233-4a7c-a2ff-b9f7dcf7d9f8_0.webp';
+const BAND_SPH_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
 const SPHERES = [
   {
     n: 'I', key: 'value', name: 'Value Accounting',
     q: 'How is contribution recognised and translated into value?',
     visible: ['contribution', 'risk', 'ownership', 'compensation', 'recognition', 'attribution', 'fairness', 'trust'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_144cfefb-78ad-48eb-a73c-6baaff85c98f_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_144cfefb-78ad-48eb-a73c-6baaff85c98f_0.webp'
   },
   {
     n: 'II', key: 'work', name: 'Organisation of Work',
     q: 'How does purpose become action?',
     visible: ['purpose', 'principles', 'quests', 'missions', 'roles', 'commitments', 'tasks', 'evidence', 'delivery'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.webp'
   },
   {
     n: 'III', key: 'rel', name: 'Human Relationship & Purpose',
     q: 'What holds trust, belonging, meaning, and repair?',
     visible: ['purpose alignment', 'relationship health', 'trust', 'conflict', 'feedback', 'belonging', 'values', 'human dignity'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.webp'
   },
   {
     n: 'IV', key: 'learn', name: 'Development & Learning',
     q: 'How does the organisation become more intelligent over time?',
     visible: ['individual learning', 'team learning', 'agent learning', 'organisational learning', 'reflection', 'adaptation', 'maturity', 'practice'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.webp'
   },
   {
     n: 'V', key: 'comm', name: 'Communication',
     q: 'How does context move through the system?',
     visible: ['sensemaking', 'updates', 'decisions', 'public narrative', 'internal comms', 'external comms', 'signal', 'shared understanding'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_1.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_1.webp'
   }
 ];
 
@@ -194,6 +194,8 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 4. THE FIVE SPHERES OVERVIEW */}
+    <WashRule image={ART.tide} from="parchment" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">
@@ -408,6 +410,8 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 12. FROM SPHERES TO DIAGNOSTICS */}
+    <WashRule image={ART.thicket} from="parchment" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">
@@ -444,6 +448,8 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 13. WHAT BECOMES POSSIBLE */}
+    <WashRule image={ART.wave} flip from="paper" to="parchment" />
+
     <section className="section">
       <div className="container-narrow">
         <h1 className="q-h1">

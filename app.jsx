@@ -14,6 +14,8 @@
      description  meta description (required)
      nav          short label for the top nav + mobile sheet; omit to leave out
      footer       label in the footer's Explore column; defaults to `nav`
+     chrome       set false for a stand-alone page that renders its own nav and
+                  footer; the site Nav/Footer are then skipped entirely
 
    Omit both `nav` and `footer` and the page is unlisted: reachable at #<key>,
    absent from every menu. That is how a page variant under review stays private. */
@@ -52,9 +54,10 @@ const ROUTES = {
   camp: {
     view: (p) => <PageCamp {...p} />,
     nav: 'Camp',
+    chrome: false,
     footer: 'Camp Audax',
-    title: 'Camp Audax — Audax OS',
-    description: 'AI as the coordination layer of a regenerative society. Camp Audax at The Gathering US, Camp Navarro, California, 12–18 October 2026.',
+    title: 'Camp Audax — 12–18 October 2026, Camp Navarro, California',
+    description: 'AI as the coordination layer of a wiser, regenerative society. Six days in the redwoods for the people building, funding, applying and philosophically shaping AI for societal good.',
   },
   build: {
     view: (p) => <PageBuild {...p} />,
@@ -141,12 +144,13 @@ const App = () => {
   });
 
   const route = ROUTES[page] || ROUTES[HOME];
+  const chrome = route.chrome !== false;
 
   return (
     <div data-screen-label={page} key={page}>
-      <Nav page={page} onNav={nav} />
+      {chrome && <Nav page={page} onNav={nav} />}
       {route.view({ onNav: nav })}
-      <Footer onNav={nav} />
+      {chrome && <Footer onNav={nav} />}
     </div>
   );
 };

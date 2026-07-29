@@ -1,6 +1,50 @@
 /* Audax OS site · primitives & chrome
-   Exports: Logo, Nav, Footer, CtaBand, SectionHead, Button, Eyebrow
+   Exports: Logo, Nav, Footer, CtaBand, SectionHead, Button, Eyebrow,
+            ART, WashRule, ArtAside, PullQuote, ChapterBand
    Loaded once and used across every page. */
+
+/* ---------- ART ----------
+   The sumi-e library, named by what each image looks like so a page
+   can pick by intent instead of pasting a 120-character Midjourney
+   filename. The washes are horizontal (1456px wide) and belong in
+   full-bleed devices; the orbs are square (800px) and belong beside a
+   column of prose.
+
+   These are WebP re-encodes of the Midjourney PNGs, which are 1.6-2.2MB
+   each and still sit beside them in the same folders as the source art.
+   Never point the site at the .png files — a page pulls up to a dozen
+   of these, which at PNG weight is ~20MB.
+
+   Every one of these is ink on a near-white ground, which is why the
+   CSS composites them with mix-blend-mode: multiply rather than
+   cropping them into a frame. See the INK RELIEF block in site.css.
+
+   Older pages still hold their own HERO_ and BAND_ consts pointing
+   at the same files; those are left alone deliberately. Use ART for
+   anything new. */
+const ART = {
+  // horizontal washes — WashRule, ChapterBand, hero and CTA grounds
+  burst:   'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp',
+  thicket: 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp',
+  tide:    'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_f86772ab-5233-4a7c-a2ff-b9f7dcf7d9f8_0.webp',
+  ribbons: 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp',
+  drift:   'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp',
+  wave:    'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp',
+  spray:   'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp',
+  crest:   'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp',
+
+  // square orbs — ArtAside figures
+  orbScript: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_144cfefb-78ad-48eb-a73c-6baaff85c98f_0.webp',
+  orbCanopy: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.webp',
+  orbDense:  'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_665f5682-387b-4bfc-8d42-1ec3a675a53c_2.webp',
+  orbHalf:   'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.webp',
+  orbSlope:  'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_1.webp',
+  orbMesh:   'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_2.webp',
+  ensoOpen:  'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.webp',
+  ensoBold:  'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_da3bc6e8-30ff-4a17-a128-88483a0499f1_3.webp',
+  groveDark: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.webp',
+  groveMist: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_2.webp',
+};
 
 // Nav, BottomSheet and Footer all read their entries from ROUTES (app.jsx) via
 // navPages() / footerPages(), so adding a page never means editing this file.
@@ -166,7 +210,7 @@ const SectionHead = ({ eyebrow, title, sub, center }) => (
 );
 
 // Generic CTA band (deep forest with subtle wash + lichen primary CTA)
-const CTA_WASH = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+const CTA_WASH = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 const JOIN_URL = 'https://t.me/+msbQmsbxpAg4Yjk8';
 
 const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null, onPrimary, onSecondary }) => (
@@ -183,10 +227,52 @@ const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null,
   </section>
 );
 
+// Deliberately has no art option. A wash behind the quote was tried and
+// removed: at any opacity that made the artwork visible it sat under the type
+// and cost readability. Imagery goes BESIDE text (ArtAside) or BETWEEN
+// sections (WashRule), never under it.
 const PullQuote = ({ children, html }) => (
   html
     ? <blockquote className="pull-quote" dangerouslySetInnerHTML={{ __html: html }}></blockquote>
     : <blockquote className="pull-quote">{children}</blockquote>
+);
+
+// A slim, wordless full-bleed wash. Use between sections where a prose run
+// needs air but not the announcement of a ChapterBand. Purely decorative.
+// `from`/`to` are the ground tones of the sections above and below — pass them
+// whenever those differ, or a tone step shows at the rule's edge. GROUND below
+// holds the three tones the site uses.
+const GROUND = {
+  parchment: 'var(--surface-parchment)',
+  paper: 'var(--surface-paper)',
+  white: 'var(--surface-white)',
+};
+
+const WashRule = ({ image, flip, tall, height, from, to }) => (
+  <div
+    className={`wash-rule${flip ? ' flip' : ''}${tall ? ' tall' : ''}`}
+    style={{
+      ...(height ? { '--wr-h': `${height}px` } : null),
+      ...(from ? { '--wr-from': GROUND[from] || from } : null),
+      ...(to ? { '--wr-to': GROUND[to] || to } : null),
+    }}
+    aria-hidden="true"
+  >
+    <div className="wash-rule-art" style={{ '--wr-image': `url(${image})` }}></div>
+  </div>
+);
+
+// Prose beside an orb. The main relief inside a section: it turns a stack of
+// paragraphs into a spread. `flip` puts the figure on the left, `wide` gives
+// the figure the larger column (for the landscape grove vignettes).
+const ArtAside = ({ image, children, flip, wide, caption }) => (
+  <div className={`art-aside${flip ? ' flip' : ''}${wide ? ' wide' : ''}`}>
+    <div className="art-aside-body">{children}</div>
+    <figure className="art-aside-fig">
+      <span className="art-aside-orb" style={{ '--aa-image': `url(${image})` }} aria-hidden="true"></span>
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  </div>
 );
 
 // Cinematic horizontal slice used between major chapters.
@@ -204,4 +290,7 @@ const ChapterBand = ({ image, numeral, label, kicker, tint = 'forest' }) => (
   </aside>
 );
 
-Object.assign(window, { Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote, ChapterBand });
+Object.assign(window, {
+  Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote, ChapterBand,
+  ART, WashRule, ArtAside,
+});

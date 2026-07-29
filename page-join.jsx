@@ -1,6 +1,6 @@
 /* Audax OS site · Join page */
 
-const HERO_JOIN = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const HERO_JOIN = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
 
 const ROLES = [
   'Organisation designer',
@@ -66,6 +66,8 @@ const PageJoin = () => {
       </section>
 
       {/* WAYS TO JOIN */}
+      <WashRule image={ART.wave} from="parchment" to="paper" />
+
       <section className="section" style={{ background: 'var(--surface-paper)' }}>
         <div className="container">
           <SectionHead
@@ -121,6 +123,8 @@ const PageJoin = () => {
       </section>
 
       {/* APPLICATION FORM */}
+      <WashRule image={ART.crest} flip from="parchment" to="paper" />
+
       <section className="section" style={{ background: 'var(--surface-paper)' }}>
         <div className="container-narrow">
           <Eyebrow>The form</Eyebrow>

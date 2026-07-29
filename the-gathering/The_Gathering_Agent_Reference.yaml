@@ -1,0 +1,378 @@
+the_gathering:
+  canonical_one_sentence_definition: >-
+    The Gathering is a co-created, camp-centred gathering in nature that helps
+    people and organisations across fragmented fields build belonging, trust,
+    shared context, and pathways toward continued collaboration.
+
+  canonical_short_description: >-
+    A local event format, design philosophy, and emerging global network built
+    around semi-autonomous camps, nature-based immersion, distributed
+    stewardship, shared culture, and an explicit effort to turn temporary
+    encounter into longer-term ecosystem capacity.
+
+  canonical_long_description: >-
+    The Gathering creates a bounded temporary village in nature, organised
+    around camps rather than a dominant central programme. Camps act as social
+    homes, hosts, organisational nodes, laboratories, and representative units.
+    A local organising team holds shared infrastructure, safety, finances, and
+    coherence; the Camp Leaders Nest prepares and connects camp builders; the
+    Council senses across camps; and thresholds, ceremonies, food, art,
+    embodiment, and celebration create a shared culture. The purpose is not
+    merely to deliver content or facilitate networking, but to help existing
+    communities and organisations perceive a wider ecosystem, form trust across
+    silos, and support selected relationships, experiments, and commitments
+    beyond the event. The global ambition is a federated support system for
+    locally rooted Gatherings, with technology augmenting memory and coordination
+    without replacing human agency, consent, hospitality, or trust.
+
+  identity:
+    established:
+      - co-created nature-based gathering format
+      - camp-centred temporary village architecture
+      - participatory culture and belonging at human scale
+      - use of Nest, Council, ceremonies, thresholds, and spatial zoning
+    emerging:
+      - ecosystem-building methodology spanning before, during, and after
+      - organisational transformation layer for camp-hosting organisations
+      - distributed global network of local Gatherings
+      - themes as local centres of gravity
+    proposed:
+      - federated support infrastructure and common pattern library
+      - systematic ecosystem mapping and post-event group support
+      - agentic-AI support for discovery, memory, synthesis, and coordination
+    aspirational:
+      - global regenerative ecosystem of communities and initiatives
+      - wider cultural normalisation of co-creation and joyful interdependence
+      - a long-lived global festival tradition
+    unresolved:
+      - formal governance and local-global decision rights
+      - economic distribution and labour recognition
+      - safeguarding, inclusion, and ecological minimum standards
+      - evidence of durable ecosystem and systemic impact
+
+  purpose:
+    immediate:
+      - create a meaningful, participatory, nature-based gathering
+      - provide belonging through camps and shared culture
+      - enable cross-silo discovery and whole-person relationship
+    ecosystemic:
+      - help a local field perceive its actors, needs, resources, and bridges
+      - form trust and islands of coherence
+      - support selected collaborations beyond the event
+    societal:
+      - practise agency, distributed stewardship, interdependence, and participation
+      - challenge spectator-centred assumptions about events and authority
+    long_term:
+      - connect locally stewarded Gatherings into a mutually supporting global network
+      - strengthen regenerative cultural and organisational capacity
+
+  problems_addressed:
+    - passive audience roles
+    - information-heavy event design
+    - transactional networking
+    - fragmentation across movements and sectors
+    - short-lived inspiration without follow-through
+    - weak trust, shared context, commitment, and coordination
+    - extractive commercial production and sacrificial volunteerism
+    - events whose form contradicts their participatory or regenerative content
+
+  core_principles:
+    - term: co-creation
+      definition: real distribution of influence and responsibility
+      practical_expression: camps shape spaces and programmes; participants can initiate and contribute
+      common_misunderstanding: crowdsourcing or unpaid labour
+    - term: action
+      definition: shared doing that makes trust behavioural
+      practical_expression: building, hosting, experimenting, and taking realistic next steps
+      common_misunderstanding: compulsory productivity
+    - term: nature
+      definition: living place as part of attention, rhythm, and identity
+      practical_expression: outdoor village, land relationship, natural zoning
+      common_misunderstanding: scenic branding
+    - term: weaving
+      definition: intentional connection across people, camps, needs, and networks
+      practical_expression: invitations, introductions, maps, thematic bridges
+      common_misunderstanding: networking or algorithmic matching
+    - term: celebration
+      definition: shared joy and cultural renewal integrated with serious inquiry
+      practical_expression: music, dance, art, food, fire, play, ritual
+      common_misunderstanding: entertainment delivered to consumers
+    - term: belonging
+      definition: a meaningful relational place in the whole without requiring sameness
+      practical_expression: home camps, welcome, care, repeated contact, contribution
+      common_misunderstanding: instant intimacy or conformity
+
+  essential_components:
+    - component: camps
+      function: belonging, hosting, distributed agency, organisation, representation
+      required_or_optional: essential
+      local_variations: size, form, theme, programme, sleeping model, visual identity
+      dependencies: capable hosts, shared boundaries, resources, Council connection
+    - component: camp_leaders_nest
+      function: activation, preparation, peer learning, cross-camp support
+      required_or_optional: strongly_recommended
+      local_variations: cadence, platform, facilitation style
+      dependencies: clear camp journey and facilitator capacity
+    - component: council
+      function: whole-system sensing, culture holding, conflict support
+      required_or_optional: essential_function
+      local_variations: representation and decision method
+      dependencies: explicit mandate and accountability
+    - component: welcome_gate_and_ceremonies
+      function: threshold, orientation, meaning, integration, transition
+      required_or_optional: essential_function
+      local_variations: culturally appropriate form
+      dependencies: consent, accessibility, skilled hosting
+    - component: nature_based_spatial_design
+      function: embodiment, intimacy, neighbourhood structure, energy rhythm
+      required_or_optional: core
+      local_variations: landscape, infrastructure, zoning
+      dependencies: ecological care, accessibility, safety
+    - component: continuity_layer
+      function: carry relationships, learning, groups, and commitments
+      required_or_optional: essential_to_full_ecosystem_claim
+      local_variations: human and digital support model
+      dependencies: consent, selective focus, resources, ownership
+
+  ecosystem_model:
+    before:
+      - sense the local field
+      - choose locally alive themes or questions
+      - invite communities and organisations through camps
+      - activate camp leaders and prepare participants
+      - surface intentions, needs, offers, and possible bridges
+    during:
+      - orient participants into shared culture and home camps
+      - make the wider field discoverable
+      - support repeated embodied interaction and cross-camp weaving
+      - enable islands of coherence, realistic commitments, and experiments
+      - sense and adapt through Council and reflection
+    after:
+      - preserve consented memory
+      - support selected groups and collaborations
+      - connect projects with resources and future pathways
+      - circulate learning across local and global networks
+      - evaluate continuation, dissolution, and unintended effects
+    continuity_mechanisms:
+      - camp relationships
+      - human follow-up and facilitation
+      - working groups with named holders and next steps
+      - future Gatherings and stewardship pathways
+      - consent-based digital memory and coordination
+
+  participant_roles:
+    - participant
+    - camp_member
+    - contributor
+    - host_or_facilitator
+    - camp_builder
+    - camp_leader
+    - council_delegate
+    - local_organiser
+    - ecosystem_weaver
+    - global_peer_mentor_or_steward
+
+  nested_structure:
+    participant: nurtures and is nurtured by a camp
+    camp: co-creates and sustains a local Gathering
+    local_gathering: strengthens a local field and contributes learning to the network
+    global_network: supports local Gatherings with shared principles, tools, learning, and relationships
+
+  theory_of_change:
+    context:
+      - abundant information and fragmented action
+      - weak trust and coordination across movements
+      - demand for participatory and meaningful gathering
+    assumptions:
+      - embodied time can accelerate trust and shared context
+      - camps can create belonging and distribute responsibility
+      - cross-silo relationships can produce useful collaboration
+      - continuity structures are required for durable outcomes
+    activities:
+      - ecosystem sensing and invitation
+      - camp cultivation and Nest support
+      - nature-based immersive gathering
+      - participatory sessions, weaving, ritual, celebration, and shared work
+      - group formation, documentation, and follow-up
+    outputs:
+      - temporary co-created village
+      - relationships and bridging ties
+      - surfaced needs, resources, and questions
+      - groups, experiments, learning, and organiser capability
+    outcomes:
+      - trust, belonging, agency, organisational clarity
+      - continued relationships, projects, partnerships, and stronger networks
+    long_term_impact:
+      - increased regenerative ecosystem capacity and cultural adoption of participatory organising
+    evidence_gaps:
+      - representative and longitudinal outcome data
+      - attribution and counterfactual evidence
+      - inclusion, power, ecological, and economic impacts
+      - consistent post-event continuity
+
+  differentiators:
+    structural:
+      - camps combine home, programme, organisational node, and representation
+      - village architecture rather than sessions around a dominant stage
+    experiential:
+      - whole-person encounter through nature, embodiment, ritual, food, and celebration
+    organisational:
+      - organisations participate as hosts and cultural contributors, not only sponsors
+      - distributed stewardship with accountable central logistics
+    temporal:
+      - preparation before and intended continuity after the physical gathering
+    ecosystemic:
+      - explicit aim to improve trust, bridges, memory, and coordination across networks
+
+  comparisons:
+    conference: relationship and camp architecture are primary rather than adjacent to content
+    festival: camps are organisational and governance cells, not only themed social areas
+    unconference: participant-led sessions sit inside a larger village, ritual, camp, and continuity system
+    burning_man: significant inheritance; stronger explicit focus on organisations, ecosystem weaving, and local-global support
+    retreat: seeks retreat-like depth across a more diverse network-of-networks
+    community_network: connects multiple existing communities rather than primarily serving one membership body
+
+  tensions:
+    - openness versus coherent closed container
+    - invitation versus inclusion
+    - curation versus emergence
+    - camp autonomy versus whole-system accountability
+    - co-creation versus unequal capability and unpaid labour
+    - participation versus rest and exhaustion
+    - decentralisation versus coordination
+    - intimacy versus scale
+    - local expression versus global integrity
+    - celebration versus consequential action
+    - poetic identity versus operational clarity
+    - financial sustainability versus commercial capture
+    - ecosystem intelligence versus privacy
+    - aspiration versus evidence
+
+  failure_modes:
+    - camps become branded stages
+    - participants are called co-creators without meaningful agency
+    - Council becomes symbolic
+    - organisers abdicate leadership under the language of emergence
+    - invitation reproduces social exclusivity
+    - themes become programme silos
+    - celebration masks conflict or labour inequity
+    - networking is renamed ecosystem-building
+    - AI becomes surveillance or matching theatre
+    - global templates scale aesthetics without relational depth
+    - post-event energy has no pathways for continuation
+
+  technology_and_ai:
+    appropriate_uses:
+      - organiser documentation and institutional memory
+      - consent-based ecosystem mapping and participant discovery
+      - synthesis across camps and sessions
+      - support for group decisions, next steps, and continuity
+      - cross-Gathering learning and pattern recognition
+    inappropriate_uses:
+      - invisible ranking or manipulation
+      - default recording of private interaction
+      - automated governance or conflict judgment
+      - sponsor capture of community intelligence
+      - replacing hosts, facilitators, care, or trust
+    safeguards:
+      - granular revocable consent
+      - data minimisation and purpose limitation
+      - access, correction, export, and deletion rights
+      - transparent recommendations and human accountability
+      - protected unrecorded and non-digital participation
+      - plural governance of shared data and tools
+
+  scaling:
+    invariants:
+      - meaningful camps and participant agency
+      - nature-based immersion and shared cultural thresholds
+      - accountable local leadership and distributed stewardship
+      - intentional cross-network weaving
+      - learning, reflection, and continuity pathways
+    adaptable_elements:
+      - themes, language, rituals, duration, programme, economics, and aesthetics
+      - governance method within shared accountability principles
+      - venue, scale, and local partnerships
+    unresolved_questions:
+      - legal and governance form of the global network
+      - quality assurance without central cultural control
+      - fair local-global value distribution
+      - pace of growth and support capacity
+
+  language:
+    preferred_terms:
+      - camp-centred gathering in nature
+      - temporary village
+      - social technology for ecosystem weaving
+      - from audiences to ecosystems
+      - centres of gravity
+      - islands of coherence
+      - locally stewarded, globally supported
+    terms_requiring_definition:
+      - regenerative
+      - ecosystem
+      - weaving
+      - coherence
+      - co-creation
+      - stewardship
+      - social technology
+      - regenerative scaling
+    misleading_shortcuts:
+      - festival for changemakers
+      - unconference
+      - networking event
+      - community
+      - franchise
+    prohibited_overclaims:
+      - leaderless
+      - hierarchies dissolve
+      - proven systemic transformation
+      - AI creates trust
+      - unprecedented or entirely unique
+      - universally inclusive
+
+  key_questions:
+    - What must remain invariant across cultures and places?
+    - What formal authority does the Council hold?
+    - How are labour, risk, revenue, and recognition distributed?
+    - How are inclusion, safeguarding, accessibility, and local benefit guaranteed?
+    - What continuity infrastructure is both useful and non-extractive?
+    - What evidence would confirm or challenge the theory of change?
+    - How can local nodes genuinely govern the global support layer?
+
+  glossary:
+    camp: human-scale home and organising cell
+    nest: peer activation and learning process for camp leaders or organisers
+    council: representative whole-system sensing and governance circle
+    coherence: enough trust, context, purpose, and timing to coordinate without uniformity
+    weaving: intentional relationship-building across people, groups, needs, and resources
+    regenerative_scaling: growth that increases local and shared capacity rather than extracting it
+
+  claims_by_confidence:
+    established:
+      - camp-centred nature-based participatory architecture
+      - tested use of Nest, Council, ceremonies, thresholds, and zoning
+      - selected positive relational and organisational outcomes
+    likely:
+      - camps increase human-scale belonging and distributed ownership when well supported
+      - immersive shared experience can accelerate trust and organisational clarity
+    proposed:
+      - systematic ecosystem intelligence and agentic-AI support
+      - federated global infrastructure and shared impact system
+    aspirational:
+      - durable global regenerative ecosystem and long-term cultural influence
+    uncertain:
+      - consistent causal pathway from gathering to systemic change
+      - scalable fair economics and governance
+      - long-term survival of collaborations across the wider participant population
+
+  source_map:
+    foundational_identity: [S1, S2]
+    design_architecture: [S3, S8, S9, S11]
+    theory_of_change: [S4, S5, S6, S7]
+    scaling_and_strategy: [S10, S11, S12]
+    lived_evidence: [S15]
+    personas_and_pathways: [S14]
+    symbolism: [S16]
+    comparative_history: [S7, S17]
+    technology_experiment: [S6, S10, S18]

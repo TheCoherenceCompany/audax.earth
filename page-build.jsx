@@ -2,7 +2,7 @@
    The invitation to co-create: organisation designers, AI builders,
    operators, and ecosystem actors helping shape the OS itself. */
 
-const HERO_BUILD = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const HERO_BUILD = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
 
 const BUILD_AUDIENCES = [
   {
@@ -204,6 +204,8 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* ─── 4–8 · AUDIENCE DEEP DIVES ────────────────────────────────────────── */}
+    <WashRule image={ART.wave} from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -248,6 +250,8 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* Pull quotes */}
+    <WashRule image={ART.spray} from="parchment" to="white" />
+
     <section className="section manifesto" style={{ paddingTop: 80, paddingBottom: 80 }}>
       <div className="container">
         <PullQuote>The agentic age needs organisation designers, <em>not just AI engineers with admin access.</em></PullQuote>
@@ -297,6 +301,8 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* ─── 9 · STRATEGIC PARTNERS ───────────────────────────────────────────── */}
+    <WashRule image={ART.ribbons} flip from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -381,6 +387,8 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* ─── 11 · THE COHERENCE COMPANY ───────────────────────────────────────── */}
+    <WashRule image={ART.crest} tall from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -490,6 +498,8 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* ─── 13 · WHAT COULD THIS BECOME ──────────────────────────────────────── */}
+    <WashRule image={ART.thicket} from="white" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">

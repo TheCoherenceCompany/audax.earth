@@ -2,7 +2,7 @@
    13 question-led sections, manifesto + field guide.
    Source copy: client brief (Audax OS — Why Page Revised Draft). */
 
-const NODE_FIELD_BG = 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png';
+const NODE_FIELD_BG = 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.webp';
 
 const Section = ({ n, q, children, bg, narrow }) => (
   <section className="section" style={bg ? { background: bg } : null}>
@@ -123,10 +123,14 @@ const PageWhy = ({ onNav }) => (
       </div>
     </section>
 
+    <WashRule image={ART.wave} from="white" to="parchment" />
+
     {/* 3. THE OLD MODEL */}
     <Section n="03 · The old model" q="Why can’t the old organisation hold <em>the new work?</em>">
-      <p>Most organisations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organisation at a time.</p>
-      <p>This model made sense when communication was slow, labour was physically concentrated, expertise was harder to access, and the organisation could be managed as a relatively stable machine.</p>
+      <ArtAside image={ART.orbHalf}>
+        <p>Most organisations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organisation at a time.</p>
+        <p>This model made sense when communication was slow, labour was physically concentrated, expertise was harder to access, and the organisation could be managed as a relatively stable machine.</p>
+      </ArtAside>
       <p>But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyse, and act.</p>
       <p className="lead">The old model is not simply inefficient. <em>It is misaligned</em> with the world now emerging.</p>
 
@@ -173,11 +177,15 @@ const PageWhy = ({ onNav }) => (
       <p>Remote work was the first crack in the old operating system.</p>
     </Section>
 
+    <WashRule image={ART.spray} flip from="paper" to="parchment" />
+
     {/* 5. FRACTIONAL WORK */}
     <Section n="05 · Fractional work" q="What happens when contribution <em>no longer fits</em> a job description?">
-      <p>The old bargain was simple enough: a person has a job. The job has a role. The role has a salary. The salary implies contribution. Imperfect, but stable.</p>
-      <p className="lead"><em>Fractional work</em> breaks that container.</p>
-      <p>Someone may contribute ten hours one week and none the next. Another person may make one introduction that changes the future of the organisation. Someone else may offer early product thinking, design, facilitation, writing, capital, reputation, emotional labour, or strategic advice before cash exists.</p>
+      <ArtAside image={ART.orbScript} flip>
+        <p>The old bargain was simple enough: a person has a job. The job has a role. The role has a salary. The salary implies contribution. Imperfect, but stable.</p>
+        <p className="lead"><em>Fractional work</em> breaks that container.</p>
+        <p>Someone may contribute ten hours one week and none the next. Another person may make one introduction that changes the future of the organisation. Someone else may offer early product thinking, design, facilitation, writing, capital, reputation, emotional labour, or strategic advice before cash exists.</p>
+      </ArtAside>
       <p>The old system struggles to see this. If contribution is invisible, trust becomes fragile. If risk is not acknowledged, resentment waits patiently in the basement. If value is only recognised through salary or equity, entire forms of contribution disappear.</p>
 
       <div className="insight-grid" style={{ margin: '40px 0', gridTemplateColumns: 'repeat(5, 1fr)' }}>
@@ -223,6 +231,8 @@ const PageWhy = ({ onNav }) => (
 
       <p>Designing for agents may force us to design better for humans.</p>
     </Section>
+
+    <WashRule image={ART.ribbons} tall from="paper" to="parchment" />
 
     {/* 7. THE COLLABORATION GAP */}
     <Section n="07 · The collaboration gap" q="Why do better tools still fail to create <em>better collaboration?</em>">
@@ -293,6 +303,8 @@ const PageWhy = ({ onNav }) => (
       <PullQuote>A humane organisation is not a loose one. It is a <em>coherent</em> one.</PullQuote>
     </Section>
 
+    <WashRule image={ART.crest} from="paper" to="parchment" />
+
     {/* 9. LIVING SYSTEMS */}
     <Section n="09 · Living systems" q="What if the organisation is <em>not a machine?</em>">
       <p>The machine metaphor shaped modern management. Break work into parts. Optimise each part. Control the process. Measure output. Reduce variance. Scale the machine.</p>
@@ -361,6 +373,8 @@ const PageWhy = ({ onNav }) => (
         Audax OS should be: open enough to invite many contributors · structured enough to be useful · practical enough to implement · flexible enough to adapt · principled enough to protect human agency · technical enough for agentic systems · humane enough for real people.
       </p>
     </Section>
+
+    <WashRule image={ART.burst} from="paper" to="parchment" />
 
     {/* 11. THE AUDAX OS PROPOSAL */}
     <section className="section">

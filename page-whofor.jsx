@@ -3,7 +3,7 @@
    Each major audience gets a bespoke diagram. Hero is an animated
    ecosystem of organisational species. */
 
-const HERO_WHO = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.png';
+const HERO_WHO = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
 
 /* ─── helpers ─────────────────────────────────────────────────────────── */
 const MONO = 'JetBrains Mono, monospace';
@@ -709,6 +709,8 @@ const PageWhoFor = ({ onNav }) => (
       </div>
     </section>
 
+    <WashRule image={ART.tide} from="paper" to="parchment" />
+
     {/* ─── 5 · REMOTE-FIRST ────────────────────────────────────────────── */}
     <section className="section">
       <div className="container">
@@ -737,6 +739,8 @@ const PageWhoFor = ({ onNav }) => (
         <PullQuote>Remote work does not remove the need for organisation. <em>It removes the illusion that organisation happens automatically.</em></PullQuote>
       </div>
     </section>
+
+    <WashRule image={ART.wave} from="parchment" to="paper" />
 
     {/* ─── 6 · FRACTIONAL ──────────────────────────────────────────────── */}
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
@@ -782,6 +786,8 @@ const PageWhoFor = ({ onNav }) => (
         <PullQuote>Starting an organisation should not require heroic improvisation <em>and three years of avoidable confusion.</em></PullQuote>
       </div>
     </section>
+
+    <WashRule image={ART.thicket} flip from="paper" to="parchment" />
 
     {/* ─── 9 · STARTUPS ────────────────────────────────────────────────── */}
     <section className="section">
@@ -837,6 +843,8 @@ const PageWhoFor = ({ onNav }) => (
       </div>
     </section>
 
+    <WashRule image={ART.ribbons} flip from="paper" to="parchment" />
+
     {/* ─── 11 · COMMUNITIES & STUDENTS ─────────────────────────────────── */}
     <section className="section">
       <div className="container">
@@ -866,6 +874,8 @@ const PageWhoFor = ({ onNav }) => (
         <PullQuote>The future of contribution accounting is not only tokens or cap tables. <em>It is trust made discussable.</em></PullQuote>
       </div>
     </section>
+
+    <WashRule image={ART.crest} tall from="paper" to="white" />
 
     {/* ─── 13 · LINEAGE ────────────────────────────────────────────────── */}
     <section className="section manifesto">
@@ -910,6 +920,8 @@ const PageWhoFor = ({ onNav }) => (
         <PullQuote>Audax OS should become infrastructure others can build with, <em>not a castle others must move into.</em></PullQuote>
       </div>
     </section>
+
+    <WashRule image={ART.burst} from="paper" to="parchment" />
 
     {/* ─── 16 · CONSULTANTS ────────────────────────────────────────────── */}
     <section className="section">

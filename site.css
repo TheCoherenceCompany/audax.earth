@@ -1464,3 +1464,897 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 @media (max-width: 640px) {
   .living-hero { padding: 96px 20px 64px; }
 }
+
+/* ============================================================
+   CAMP PHOTOGRAPHY  (.cph-*)  — page-camp-v.jsx ONLY
+   ------------------------------------------------------------
+   Every selector here is prefixed .cph- and used by exactly one
+   page. Nothing in this block overrides an existing rule, so no
+   other page on the site is affected by it.
+   Patterns: living hero · chapter bands · sticky diptych · ribbon
+   ============================================================ */
+
+/* ---------- shared ---------- */
+.cph-veil { position: absolute; inset: 0; pointer-events: none; }
+
+/* ---------- 01 · living hero ---------- */
+.cph-hero {
+  position: relative;
+  min-height: 96vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: var(--forest-900);   /* never a white flash before the photo lands */
+  padding: 132px 0 96px;
+}
+.cph-stage { position: absolute; inset: 0; }
+.cph-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1800ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.cph-slide.on { opacity: 1; }
+.cph-slide.on.kb { animation: cph-kenburns 11s linear forwards; }
+@keyframes cph-kenburns {
+  from { transform: scale(1.02) translate3d(0,0,0); }
+  to   { transform: scale(1.13) translate3d(-1.2%,-1.6%,0); }
+}
+/* side scrim carries the left-aligned headline; vertical wash keeps the nav
+   legible at the top and melts the photo into parchment at the foot */
+/* OPTION A — the photograph is graded down like a film still, and the
+   scrim now reaches across the full width of the headline rather than
+   running out at 64%. Measured worst case on the brightest frame:
+   10.3:1 white, 7.2:1 accent. Was 2.2:1 / 1.5:1. */
+.cph-slide { filter: saturate(0.80) brightness(0.84) contrast(0.94); }
+.cph-hero-wash {
+  background:
+    linear-gradient(90deg,
+      rgba(8,18,12,0.88) 0%,
+      rgba(8,18,12,0.66) 45%,
+      rgba(8,18,12,0.24) 78%,
+      rgba(8,18,12,0.08) 100%),
+    linear-gradient(180deg,
+      rgba(8,18,12,0.62) 0%,
+      rgba(8,18,12,0.34) 40%,
+      rgba(8,18,12,0.42) 72%,
+      rgba(14,36,25,0.74) 92%,
+      rgba(14,36,25,0.88) 100%);
+}
+.cph-grain { opacity: 0.3; mix-blend-mode: overlay; }
+.cph-hero-copy { position: relative; z-index: 3; width: 100%; }
+.cph-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(6,14,9,0.75), 0 1px 3px rgba(6,14,9,0.5); }
+.cph-hero h1 em { color: var(--lichen-300); }
+.cph-hero .lede { color: rgba(255,255,255,0.92); text-shadow: 0 1px 14px rgba(6,14,9,0.8); }
+.cph-hero .eyebrow { color: var(--lichen-300); }
+/* the one line every visitor is actually hunting for — 12px was too quiet */
+/* Two lines, with the date carrying the emphasis: it is the single fact
+   every visitor is hunting for. */
+.cph-hero-meta {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 400;
+  letter-spacing: 0.02em; color: rgba(255,255,255,0.80);
+  margin: 26px 0 0; text-shadow: 0 1px 12px rgba(6,14,9,0.85);
+  min-height: 1.5em;
+}
+.cph-hero-meta .cph-date {
+  font-size: 20px; font-weight: 500; letter-spacing: 0.05em;
+  color: #fff;
+}
+.cph-hero-meta-2 {
+  margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.68);
+}
+/* ---------- 02 · chapter bands ---------- */
+.cph-band {
+  position: relative; height: 62vh; min-height: 400px;
+  overflow: hidden; background: var(--forest-900);
+}
+.cph-band-art {
+  position: absolute; left: 0; right: 0; top: -18%; height: 136%;
+  background-size: cover; background-position: center; will-change: transform;
+}
+/* photographs of people go in at full colour — blend modes muddy skin tones */
+.cph-band-veil {
+  background: linear-gradient(180deg,
+    rgba(14,36,25,0.62) 0%,
+    rgba(14,36,25,0.24) 42%,
+    rgba(14,36,25,0.72) 100%);
+}
+.cph-band-inner {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 10px; text-shadow: 0 1px 18px rgba(8,16,11,0.5);
+}
+.cph-band-kicker {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.74);
+}
+.cph-band-numeral {
+  font-family: var(--font-display); font-size: clamp(56px, 8vw, 110px);
+  line-height: 1; color: var(--lichen-400); letter-spacing: -0.02em;
+}
+.cph-band-label {
+  font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 34px);
+  color: #fff; letter-spacing: -0.015em;
+}
+
+/* ---------- 04 · sticky diptych ---------- */
+/* No ancestor of .cph-dip-media may set overflow:hidden — it would establish a
+   scroll container and silently break position:sticky. */
+.cph-dip-grid {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start;
+}
+.cph-dip-media {
+  position: sticky; top: 96px;
+  height: 76vh; min-height: 460px;
+  border-radius: 4px; overflow: hidden; background: var(--forest-900);
+}
+.cph-shot {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transform: scale(1.04);
+  transition: opacity 900ms var(--ease-out), transform 1400ms var(--ease-out);
+}
+.cph-shot.on { opacity: 1; transform: scale(1); }
+.cph-badge {
+  position: absolute; left: 20px; bottom: 20px; z-index: 3;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #fff;
+  background: rgba(14,36,25,0.62); border: 1px solid rgba(255,255,255,0.24);
+  padding: 8px 14px; border-radius: 999px;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.cph-steps { padding: 20px 0 0; }
+.cph-step {
+  min-height: 56vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 28px 0; opacity: 0.3; transition: opacity 600ms var(--ease-out);
+}
+.cph-step.on { opacity: 1; }
+.cph-step .n {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--forest-700); margin-bottom: 14px;
+}
+.cph-step h4 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(26px, 3vw, 40px); line-height: 1.06; letter-spacing: -0.025em;
+  margin: 0 0 14px; color: var(--ink-900);
+}
+.cph-step p {
+  font-size: 16px; font-weight: 300; line-height: 1.62;
+  color: var(--ink-700); margin: 0; max-width: 46ch;
+}
+
+/* ---------- 05 · drifting ribbon ---------- */
+.cph-ribbon { position: relative; overflow: hidden; background: var(--forest-900); padding: 0; }
+.cph-ribbon-vp {
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.cph-track {
+  display: flex; gap: 14px; width: max-content;
+  animation: cph-drift 82s linear infinite;
+}
+.cph-ribbon-vp:hover .cph-track { animation-play-state: paused; }
+@keyframes cph-drift {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+.cph-cell {
+  position: relative; height: 300px; flex: 0 0 auto;
+  overflow: hidden; border-radius: 3px;
+  filter: grayscale(0.72) contrast(1.04); opacity: 0.82;
+  transition: filter 500ms var(--ease-out), opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+.cph-cell img { display: block; height: 100%; width: auto; }
+.cph-ribbon-vp:hover .cph-cell { opacity: 0.5; }
+.cph-cell:hover { filter: grayscale(0) contrast(1); opacity: 1; transform: translateY(-6px); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .cph-dip-grid { gap: 40px; }
+  .cph-dip-media { height: 62vh; min-height: 380px; top: 80px; }
+}
+@media (max-width: 640px) {
+  .cph-hero { min-height: auto; padding: 104px 0 72px; }
+  /* stack, and stop pinning: a sticky image plus a sticky-ish bottom sheet
+     fights for the same small screen */
+  .cph-dip-grid { grid-template-columns: 1fr !important; gap: 0; }
+  .cph-dip-media { position: relative; top: 0; height: 48vh; min-height: 280px; margin-bottom: 24px; }
+  .cph-step { min-height: auto; opacity: 1; padding: 22px 0; }
+  .cph-band { height: 46vh; min-height: 300px; }
+  .cph-cell { height: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-slide.on.kb { animation: none; }
+  .cph-track { animation: none; }
+  .cph-slide, .cph-shot { transition-duration: 1ms; }
+}
+
+/* ---------- camp-v chrome over the photographic hero ----------
+   Scoped to .cph-nav, which only CampVNav renders. The site's own .nav
+   is untouched. */
+/* fixed, not sticky, so the hero photograph runs to the top of the viewport
+   and the nav rides over it. A soft top-down scrim keeps the links legible
+   without drawing a bar across the image. */
+.cph-nav { position: fixed; left: 0; right: 0; top: 0; }
+.cph-nav:not(.scrolled) {
+  background: linear-gradient(180deg,
+    rgba(14,36,25,0.66) 0%,
+    rgba(14,36,25,0.34) 58%,
+    rgba(14,36,25,0.00) 100%);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.cph-nav:not(.scrolled) .nav-brand-text { color: #fff; }
+.cph-nav:not(.scrolled) .nav-brand img { filter: brightness(0) invert(1); }
+.cph-nav:not(.scrolled) .nav-link { color: rgba(255,255,255,0.80); }
+.cph-nav:not(.scrolled) .nav-link:hover { color: #fff; }
+.cph-nav:not(.scrolled) .nav-link.active { color: #fff; border-bottom-color: var(--lichen-400); }
+
+/* keep the headline inside the side scrim rather than letting it run out
+   over the bright half of the frame */
+.cph-hero h1 { max-width: 15ch; }
+
+/* the site's ghost button is built for light grounds — it disappears on a
+   photograph, so it gets a glass treatment here */
+.cph-hero .btn-ghost {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #fff;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.cph-hero .btn-ghost:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+}
+
+/* ---------- signpost stack — section wayfinding ----------
+   Six way-post badges threaded on a dashed rope down the right edge.
+   Closed, it's icons only; the active or hovered post swings out a tag
+   with its mile marker and name. Below 640px — the same breakpoint
+   where the site's own .nav-links collapses — the rope doesn't fit
+   anywhere gracefully — six hoverless touch targets on a hover-driven
+   flyout — so it's replaced outright by a hamburger + a right-side
+   drawer (.cph-sp-burger / .cph-sp-drawer below). */
+.cph-signposts { position: fixed; top: 0; right: 0; width: 64px; height: 100vh; z-index: 55; pointer-events: none; display: flex; align-items: center; }
+.cph-sp-posts { position: relative; width: 100%; height: 82%; margin: 0 auto; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; pointer-events: auto; }
+.cph-sp-rope {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%);
+  background-image: repeating-linear-gradient(to bottom, var(--border-1) 0 5px, transparent 5px 10px);
+  z-index: 1;
+}
+.cph-sp-post { position: relative; z-index: 2; background: none; border: none; padding: 0; cursor: pointer; }
+.cph-sp-badge {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: var(--surface-white); border: 1px solid var(--border-1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--forest-700);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.cph-sp-post:hover .cph-sp-badge,
+.cph-sp-post.active .cph-sp-badge {
+  transform: translateX(-4px);
+  border-color: var(--lichen-500);
+  background: var(--forest-050);
+  box-shadow: 0 6px 14px rgba(14,36,25,0.14);
+}
+.cph-sp-tag {
+  position: absolute; right: 48px; top: 50%; transform: translateY(-50%) translateX(10px);
+  display: flex; flex-direction: column; text-align: left; min-width: 118px;
+  background: linear-gradient(155deg, var(--forest-600), var(--forest-900));
+  color: var(--forest-050); border-radius: 6px; padding: 8px 12px 9px;
+  box-shadow: 0 10px 22px rgba(14,36,25,0.22);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cph-sp-tag::after {
+  content: ""; position: absolute; right: -5px; top: 50%; width: 8px; height: 8px;
+  background: inherit; transform: translateY(-50%) rotate(45deg); border-radius: 1px;
+}
+.cph-sp-post:hover .cph-sp-tag,
+.cph-sp-post.active .cph-sp-tag { opacity: 1; pointer-events: auto; transform: translateY(-50%) translateX(0); }
+.cph-sp-tag .mile { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lichen-300); }
+.cph-sp-tag .lab { font-family: var(--font-display); font-size: 14.5px; margin-top: 2px; }
+
+@media (max-width: 640px) {
+  .cph-signposts { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-sp-badge, .cph-sp-tag { transition-duration: 1ms; }
+}
+
+/* ---------- signpost drawer — mobile wayfinding (≤640px) ----------
+   A hamburger fixed at the right edge opens a full-height panel that
+   slides in from the right: same six stops, same icons and mile
+   markers as the desktop rope, laid out as a plain tappable list
+   instead of a hover-driven flyout. Hidden entirely above 640px. */
+.cph-sp-burger {
+  display: none; position: fixed; top: 16px; right: 20px; z-index: 62;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--surface-white); border: 1px solid var(--border-1);
+  align-items: center; justify-content: center; gap: 4px; flex-direction: column;
+  cursor: pointer; box-shadow: 0 4px 14px rgba(14,36,25,0.12);
+}
+.cph-sp-burger span { display: block; width: 16px; height: 2px; background: var(--forest-700); border-radius: 1px; transition: transform 0.22s, opacity 0.22s; }
+.cph-sp-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.cph-sp-burger.open span:nth-child(2) { opacity: 0; }
+.cph-sp-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.cph-sp-scrim {
+  display: none; position: fixed; inset: 0; z-index: 63;
+  background: rgba(14,36,25,0.45); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none; transition: opacity 0.22s;
+}
+.cph-sp-scrim.show { opacity: 1; pointer-events: auto; }
+
+.cph-sp-drawer {
+  display: none; position: fixed; top: 0; right: 0; bottom: 0; z-index: 64;
+  width: min(320px, 82vw); background: var(--surface-parchment);
+  box-shadow: -10px 0 32px rgba(14,36,25,0.22);
+  transform: translateX(100%); transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
+  flex-direction: column;
+}
+.cph-sp-drawer.open { transform: translateX(0); }
+.cph-sp-drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 20px 16px; border-bottom: 1px solid var(--border-2); }
+.cph-sp-drawer-head .kicker { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-500); }
+.cph-sp-drawer-close { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-1); background: var(--surface-white); color: var(--ink-700); cursor: pointer; font-size: 14px; }
+.cph-sp-drawer-list { flex: 1; overflow-y: auto; padding: 10px 12px; }
+.cph-sp-drawer-it {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  border: none; background: none; cursor: pointer; border-radius: 12px; padding: 14px 12px; color: var(--ink-900);
+}
+.cph-sp-drawer-it.active { background: var(--forest-050); }
+.cph-sp-drawer-it .icon {
+  width: 34px; height: 34px; border-radius: 9px; background: var(--surface-white); border: 1px solid var(--border-1);
+  display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--forest-700); flex-shrink: 0;
+}
+.cph-sp-drawer-it.active .icon { border-color: var(--lichen-500); background: var(--forest-100); }
+.cph-sp-drawer-it .meta { display: flex; flex-direction: column; }
+.cph-sp-drawer-it .lab { font-size: 15px; font-weight: 600; }
+.cph-sp-drawer-it .mile { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest-500); margin-top: 2px; }
+.cph-sp-drawer-foot { padding: 16px 20px calc(20px + env(safe-area-inset-bottom)); border-top: 1px solid var(--border-2); }
+.cph-sp-drawer-cta {
+  display: block; width: 100%; text-align: center; padding: 13px; border-radius: 10px; border: none;
+  background: var(--forest-700); color: #fff; font-weight: 500; cursor: pointer;
+}
+.cph-sp-drawer-cta:hover { background: var(--forest-800); }
+
+@media (max-width: 640px) {
+  .cph-sp-burger, .cph-sp-scrim, .cph-sp-drawer { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-sp-drawer, .cph-sp-scrim, .cph-sp-burger span { transition-duration: 1ms; }
+}
+
+/* ============================================================
+   CAMP MOTION  (.cph-*)  — page-camp-v.jsx ONLY
+   ------------------------------------------------------------
+   No animation library. Everything here is CSS transitions driven
+   by a ~60-line helper in page-camp-v.jsx. See the note there for
+   when it would be worth reaching for GSAP instead.
+   ============================================================ */
+
+/* Per-word clipping mask, so lines rise from behind an edge like a
+   film title. Masks are per word rather than per line so the <em>
+   keeps its colour and re-wrapping cannot break the markup; words are
+   grouped by rendered offsetTop so a whole visual line moves together.
+   The padding/negative-margin pair stops overflow:hidden clipping
+   ascenders and descenders without shifting layout. */
+/* Character-by-character reveal. Words stay inline-block so they wrap as
+   units; the glyphs inside get a short fade rather than a hard cut,
+   because at 76px a hard cut on a hairline serif strobes. */
+.cph-w { display: inline-block; white-space: nowrap; }
+.cph-c {
+  display: inline-block; opacity: 0;
+  transition: opacity 190ms linear;
+}
+.cph-in .cph-c { opacity: 1; }
+
+/* simple rise for everything that is not headline type */
+.cph-rise {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 800ms var(--ease-out), transform 1000ms var(--ease-out);
+}
+.cph-rise.cph-in { opacity: 1; transform: none; }
+
+/* the photograph settles rather than snapping in */
+.cph-hero .cph-stage { opacity: 0; transition: opacity 1200ms var(--ease-out); }
+.cph-hero.cph-lit .cph-stage { opacity: 1; }
+
+/* typewriter caret for the mono practical line — the one face on the
+   page that actually is a typewriter */
+.cph-typing::after {
+  content: ""; display: inline-block;
+  width: 0.5em; height: 1em; background: var(--lichen-400);
+  margin-left: 3px; vertical-align: -0.14em;
+  animation: cph-caret 900ms steps(1) infinite;
+}
+@keyframes cph-caret { 0%,50% { opacity: 1; } 50.01%,100% { opacity: 0; } }
+
+/* generic scroll reveal, for the sections below the fold */
+.cph-obs { opacity: 0; transform: translateY(22px);
+  transition: opacity 900ms var(--ease-out), transform 1100ms var(--ease-out); }
+.cph-obs.cph-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* .cph-c, not .cph-wi — the per-word masks this once guarded were
+     replaced by the per-character reveal and the old class went with
+     them, leaving this rule matching nothing. */
+  .cph-c, .cph-rise, .cph-obs, .cph-hero .cph-stage {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+  .cph-typing::after { display: none; }
+}
+
+
+/* ---------- closing invitation, camp-v ----------
+   The global `h2 em` rule paints the accent --forest-700, which is a dark
+   green sitting on a mid-green ground here — effectively invisible. On a
+   dark section the accent has to come from the light end of the ramp. */
+.cph-cta h2 em { color: var(--lichen-300); }
+.cph-cta .cph-cta-art { opacity: 0.13; }
+.cph-cta .cph-cta-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 40%,
+    rgba(8,18,12,0.45) 0%, rgba(8,18,12,0.72) 65%, rgba(8,18,12,0.85) 100%);
+}
+.cph-cta .cph-cta-lede { color: rgba(255,255,255,0.94); }
+/* same ghost-button problem as the hero: the site's ghost variant is
+   built for light grounds and disappears on this dark section */
+.cph-cta .btn-ghost {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #fff;
+}
+.cph-cta .btn-ghost:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+}
+
+
+/* ============================================================
+   INK RELIEF  (.wash-rule · .art-aside)
+   ------------------------------------------------------------
+   Two devices that break a long prose run with the sumi-e
+   library in assets/backgrounds/ (horizontal washes) and
+   assets/accent-images/ (square orbs). Picked from the ART map
+   in components.jsx.
+
+   Imagery goes BETWEEN sections (.wash-rule) or BESIDE a column
+   of prose (.art-aside). Never behind type — a third device that
+   washed the artwork under a pull quote was built and removed,
+   because at any opacity where the art read at all it cost the
+   quote its readability.
+
+   Every source image is ink laid on a near-white ground, so they
+   composite with mix-blend-mode: multiply — the paper drops out
+   and only the brushwork lands on parchment. Nothing here crops
+   or radially masks the art: the brushwork runs right up to the
+   image edge and any such mask amputates it.
+
+   Added after every existing rule, so nothing above is
+   overridden.
+   ============================================================ */
+
+/* ---------- wash rule — a breath between chapters ---------- */
+/* Full-bleed and wordless. Use where a run needs air but not
+   the announcement of a ChapterBand. */
+.wash-rule {
+  position: relative;
+  /* Tall enough to show a real portion of the artwork. A 1456x816 wash in a
+     180px band gets scaled to ~995px tall by `cover`, so only ~18% of it
+     shows — hugely magnified and stripped of all texture. At 300px it is
+     ~37%, and at typical viewport widths there is no upscaling at all. */
+  height: var(--wr-h, clamp(240px, 30vh, 320px));
+  /* The band eats into the neighbouring sections' 128px padding, so a much
+     bigger wash still costs LESS vertical space than the old thin one. */
+  margin-top: var(--wr-pull, -72px);
+  margin-bottom: var(--wr-pull, -72px);
+  overflow: hidden;
+  isolation: isolate;                 /* keep multiply off the page behind */
+  /* The rule sits between two sections that may not share a ground tone
+     (parchment / paper / white), so it ramps from one to the other —
+     otherwise a hard tone step shows at its top or bottom edge. Callers
+     pass `from`/`to` to match their neighbours. */
+  background: linear-gradient(180deg,
+    var(--wr-from, var(--surface-parchment)) 0%,
+    var(--wr-to, var(--wr-from, var(--surface-parchment))) 100%);
+  pointer-events: none;
+}
+.wash-rule-art {
+  position: absolute; inset: 0;
+  background-image: var(--wr-image, none);
+  background-size: cover; background-position: center;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+  /* Wide opaque window with long, slow ramps out — the wash should drift
+     through the page, not sit in it as a banner. Nearly full width
+     horizontally; the vertical ramps do the dissolving. */
+  -webkit-mask-image:
+    linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+          mask-composite: intersect;
+}
+.wash-rule.flip .wash-rule-art { transform: scaleX(-1); }
+.wash-rule.tall { --wr-h: clamp(320px, 40vh, 440px); }
+
+/* ---------- art aside — prose beside an orb ---------- */
+/* The workhorse. Turns a stack of paragraphs into a spread. */
+.art-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  margin: 56px 0;
+}
+.art-aside.flip .art-aside-body { order: 2; }
+.art-aside.flip .art-aside-fig  { order: 1; }
+/* flip has to mirror the COLUMN WIDTHS as well as the order. `order` alone
+   moves the figure into the 1.25fr column and squeezes the prose into the
+   0.75fr one, so a flipped spread came out as a different object rather
+   than the same object mirrored — barely noticeable with an orb, glaring
+   with a photograph. */
+.art-aside.flip { grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); }
+.art-aside-body > :first-child { margin-top: 0; }
+.art-aside-body > :last-child  { margin-bottom: 0; }
+.art-aside-fig { margin: 0; }
+.art-aside-orb {
+  display: block;
+  aspect-ratio: 1;
+  background-image: var(--aa-image, none);
+  /* contain, never cover — these orbs are composed shapes and a
+     cover crop lops the brushwork off at the edges */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  /* The orbs sit on a #ECEEED ground, not white, so multiply alone would
+     leave a visible grey square on parchment. Lifting the ground to 255
+     makes multiply drop it out completely: 255/236 = 1.081. The ink is
+     far from the clipping point, so it survives the lift untouched.
+     Do NOT mask this — the brushwork runs close to the image edge and any
+     radial mask amputates the handwriting and the horizontal strokes. */
+  filter: brightness(1.081);
+}
+.art-aside-fig figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-500);
+  margin-top: 4px; text-align: center;
+}
+/* wider orb for the landscape grove vignettes */
+.art-aside.wide { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+.art-aside.flip.wide { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  /* stack, and put the figure under the prose it belongs to. The .flip
+     column rules above are two and three classes deep, so the single-column
+     stack has to name them or it loses to them inside this query. */
+  .art-aside,
+  .art-aside.flip,
+  .art-aside.flip.wide { grid-template-columns: 1fr; }
+  .art-aside { gap: 28px; margin: 40px 0; }
+  .art-aside.flip .art-aside-body,
+  .art-aside.flip .art-aside-fig { order: 0; }
+  .art-aside-orb { max-width: 380px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .wash-rule { --wr-h: clamp(96px, 14vh, 130px); }
+  .wash-rule.tall { --wr-h: clamp(130px, 20vh, 180px); }
+}
+
+/* Forced-colours users get no benefit from a decorative wash and
+   the multiply blend can invert into a solid block. */
+@media (forced-colors: active) {
+  .wash-rule, .art-aside-orb { display: none; }
+}
+
+
+/* ---------- brush edge (.cph-tear) — camp page ----------
+   Every photographic slab on the camp page (the hero and the four bands)
+   met parchment on a razor-straight horizontal line. This dissolves that
+   cut through a real brushstroke instead.
+
+   How it works: an overlay filled with the page ground, masked by one of
+   the sumi-e washes read as LUMINANCE — so the wash's white paper becomes
+   opaque ground and its dark ink becomes transparent, letting the photo
+   show through the strokes. Union that with a vertical ramp and the slab
+   ends in a brush edge that is solid ground at the outer lip and breaks
+   up into bristle marks as it reaches into the photograph.
+
+   mask-mode is required: a raster mask-image defaults to reading the
+   ALPHA channel, and these WebPs are fully opaque, so without it the
+   mask does nothing at all. */
+.cph-tear {
+  position: absolute;
+  left: 0; right: 0;
+  height: var(--tear-h, clamp(90px, 12vh, 150px));
+  z-index: 4;                       /* over the photo + its veil, under the copy */
+  background: var(--tear-ground, var(--surface-parchment));
+  pointer-events: none;
+  -webkit-mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, #000 80%);
+          mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, #000 80%);
+  /* The wash layer is confined to the outer 62% of the tear rather than
+     spanning it: at `cover` its white paper punches ground in across the
+     whole height, which reads as milky fog swallowing the photograph.
+     Held to the lip, the same wash reads as bristle marks. */
+  -webkit-mask-size: 100% 62%, 100% 100%;
+          mask-size: 100% 62%, 100% 100%;
+  -webkit-mask-position: center bottom, center;
+          mask-position: center bottom, center;
+  -webkit-mask-repeat: no-repeat, no-repeat;
+          mask-repeat: no-repeat, no-repeat;
+  /* read the wash as luminance, the ramp as its own alpha */
+  -webkit-mask-source-type: luminance, alpha;
+          mask-mode: luminance, alpha;
+  -webkit-mask-composite: source-over;   /* union */
+          mask-composite: add;
+}
+.cph-tear.bottom { bottom: -1px; }
+.cph-tear.deep { --tear-h: clamp(140px, 19vh, 230px); }
+/* the top lip is the same edge mirrored, so the ramp has to run the other way */
+.cph-tear.top {
+  top: -1px;
+  transform: scaleY(-1);
+}
+.cph-tear.flip { --tear-flip: -1; }
+.cph-tear.flip.bottom { transform: scaleX(-1); }
+.cph-tear.flip.top    { transform: scaleX(-1) scaleY(-1); }
+
+@media (max-width: 640px) {
+  .cph-tear { --tear-h: clamp(70px, 11vh, 120px); }
+}
+/* a brush edge is pure decoration; in forced colours it would read as a slab */
+@media (forced-colors: active) {
+  .cph-tear { display: none; }
+}
+
+
+/* ---------- photographic aside (.cph-aside-*) — camp page ----------
+   The OS pages break a prose run by putting an orb beside the column
+   (.art-aside, above). The camp page needs exactly that relief — its
+   photographs were all full-bleed or full-width, so every text run ran
+   the full measure and the page had no spreads in it — but its material
+   is photographic, so it reuses the .art-aside grid and swaps the orb
+   for a square photograph. Same rhythm as the OS pages, own material.
+
+   Nothing here blends or masks: an orb is ink on paper and has to have
+   its ground multiplied out, a photograph is a photograph and gets the
+   same 16px frame as every other photo on this page. */
+.cph-aside-shot {
+  display: block;
+  width: 100%;
+  /* square by default — it matches the orbs' footprint on the OS pages,
+     and it is the kindest crop for this library, which is all landscape
+     with the subject centred. Pass `ratio` for a shallower figure when
+     the prose beside it is only a paragraph or two. */
+  aspect-ratio: var(--ca-ratio, 1);
+  object-fit: cover;
+  border-radius: 16px;
+}
+/* .art-aside-fig figcaption is a centred mono label, right for a one-word
+   orb caption and wrong for a sentence; two classes to outrank it. */
+.art-aside-fig .cph-aside-cap {
+  font-family: var(--font-sans);
+  font-size: 12px; font-weight: 400; letter-spacing: 0;
+  text-transform: none; line-height: 1.45;
+  color: var(--ink-500);
+  margin: 10px 2px 0; text-align: left;
+}
+@media (max-width: 900px) {
+  /* .art-aside stacks here and centres the orb; do the same for the photo */
+  .cph-aside-shot { max-width: 420px; margin: 0 auto; }
+  .art-aside-fig .cph-aside-cap { text-align: center; }
+}
+
+
+/* ============================================================
+   CAMP BODY MOTION
+   (.cph-ink · .cph-spoken · .cph-cascade · .cph-kick ·
+    .cph-loops · .cph-focus · .cph-read)
+   ------------------------------------------------------------
+   The hero had a full entry sequence and everything below it
+   arrived fully painted: CampReveal was written, styled, and
+   never called once. This is the body's own motion vocabulary.
+
+   Deliberately NOT the hero's per-character typewriter. Using
+   that a second time on the same page turns a moment into a
+   mannerism, so the body gets its own devices and the hero
+   keeps the one thing only it does.
+
+   Two mechanisms, and the difference between them is the point:
+
+     · ink / spoken / cascade / kick   fire ONCE on entry, from
+       one shared IntersectionObserver in page-camp.jsx.
+     · loops / focus / read           are SCRUBBED: their state
+       is a function of scroll POSITION, so they run backwards
+       when the reader scrolls back up. One shared rAF loop,
+       the same shape as CampBand's parallax.
+
+   Offsets use the `translate` property, not `transform`, on
+   purpose: several of these elements are cards that already own
+   a :hover transform, and a settled `transform: none` here
+   would out-specify it and kill the lift. `translate` composes.
+
+   The three scrubbed classes are added by JS only when motion
+   is allowed, so under prefers-reduced-motion these rules never
+   match and the page keeps exactly the appearance it has
+   without them. Only the four triggered devices need unwinding
+   in the media query at the end.
+   ============================================================ */
+
+/* ---------- ink bleed — section titles ---------- */
+/* The plain clause rises; the italic accent arrives out of focus and
+   sharpens, its tracking settling as it lands. Ink soaking into paper,
+   which is the material the whole page is drawn in.
+
+   Both halves are split per WORD rather than animated as one block:
+   a single inline-block around a whole clause cannot wrap, which
+   breaks every heading long enough to need two lines. */
+.cph-ink .cph-ink-plain,
+.cph-ink .cph-ink-em { display: inline-block; white-space: nowrap; }
+
+.cph-ink .cph-ink-num,
+.cph-ink .cph-ink-plain {
+  opacity: 0; translate: 0 16px;
+  transition: opacity 760ms var(--ease-out), translate 940ms var(--ease-out);
+}
+.cph-ink .cph-ink-em {
+  opacity: 0;
+  filter: blur(8px);
+  letter-spacing: 0.08em;
+  transition: opacity 900ms 300ms var(--ease-out),
+              filter 1150ms 300ms var(--ease-out),
+              letter-spacing 1250ms 300ms var(--ease-out);
+}
+.cph-ink.cph-in .cph-ink-num,
+.cph-ink.cph-in .cph-ink-plain { opacity: 1; translate: none; }
+.cph-ink.cph-in .cph-ink-em {
+  opacity: 1; filter: blur(0);
+  /* back to whatever the heading sets, so the settled line is untouched */
+  letter-spacing: inherit;
+}
+
+/* ---------- spoken — pull quotes ---------- */
+/* Word by word, not character by character. Per-character reads as a
+   machine typing; per-word reads as a person saying the line, which is
+   what a pull quote is for. The accent bar draws first, then the words
+   arrive behind it. */
+.cph-spoken .cph-word {
+  display: inline-block; white-space: nowrap;
+  opacity: 0; translate: 0 10px;
+  transition: opacity 440ms var(--ease-out), translate 560ms var(--ease-out);
+}
+.cph-spoken.cph-in .cph-word { opacity: 1; translate: none; }
+.cph-spoken .pull-quote::before {
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 760ms var(--ease-out);
+}
+.cph-spoken.cph-in .pull-quote::before { transform: none; }
+
+/* ---------- cascade — lists and card grids ---------- */
+/* The list arrives as something being written rather than a wall that
+   was always there. By far the highest-coverage device here: the same
+   class works on the numbered lists and on every card grid. */
+.cph-cascade > * {
+  opacity: 0; translate: 0 18px;
+  transition: opacity 560ms var(--ease-out), translate 680ms var(--ease-out);
+}
+/* Anything the eye reads down a left edge slides out of an indent
+   instead of rising — it follows the direction of the reading. */
+.cph-cascade.cph-indent > * { translate: -16px 0; }
+.cph-cascade.cph-in > * { opacity: 1; translate: none; }
+
+/* ---------- kicker — the page's structural skeleton ---------- */
+/* Roughly twenty mono section labels, previously the most inert thing
+   on the page. A left-to-right clip uncovers the label while a hairline
+   draws beneath it at the same rate: a pen underlining as it writes.
+
+   Clip rather than the obvious letter-spacing settle, because tracking
+   from 0.5em down to 0.22em changes how many lines a long label
+   occupies, and the reflow shoves every following section up the page.
+   The vertical bleed keeps ascenders and descenders out of the clip;
+   the -2% on the right stops the final glyph being shaved.
+
+   The rule is new to the design, not only newly animated — it gives the
+   labels a baseline to sit on. Drop the ::after to remove it. */
+.cph-kick .cph-kick-t {
+  position: relative; display: inline-block;
+  clip-path: inset(-24% 100% -24% 0);
+  transition: clip-path 900ms var(--ease-out);
+}
+.cph-kick .cph-kick-t::after {
+  content: ""; position: absolute;
+  left: 0; right: 0; bottom: -7px; height: 1px;
+  background: var(--forest-200);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 900ms var(--ease-out);
+}
+.cph-kick.cph-in .cph-kick-t { clip-path: inset(-24% -2% -24% 0); }
+.cph-kick.cph-in .cph-kick-t::after { transform: scaleX(1); }
+
+/* ---------- the loops, actually looping (scrubbed) ---------- */
+/* The section argues that one loop dissipates and the other compounds,
+   then draws both as identical static lists. Now the argument is in the
+   motion: as the reader passes, the fading loop's connective hairlines
+   dissolve item by item and its counters go out, so the list visually
+   comes apart — while the coherence loop's rules firm up, its numerals
+   light from whisper-sage to full accent, and its return arrow turns.
+
+   Nothing here touches the text's own colour. Dimming body copy on
+   scroll would drive it under contrast, and a list losing its structure
+   carries "this dissipates" better than a list going grey.
+
+   --gone and --lit (0..1) are written per item by the driver. Each pair
+   of declarations keeps a flat fallback first, so a browser without
+   color-mix() gets the static design rather than an invalid colour.
+   No transitions: the scroll is the timing. */
+.cph-loops .loop-ink .loop-list li {
+  border-bottom-color: var(--border-2);
+  border-bottom-color: color-mix(in srgb, var(--border-2), transparent calc(var(--gone, 0) * 100%));
+}
+.cph-loops .loop-ink .loop-list li .i { opacity: calc(1 - var(--gone, 0) * 0.88); }
+.cph-loops .loop-ink .loop-list li.close { opacity: calc(1 - var(--gone, 0) * 0.55); }
+
+.cph-loops .loop-forest .loop-list li {
+  border-bottom-color: var(--forest-200);
+  border-bottom-color: color-mix(in srgb, var(--forest-200) calc(var(--lit, 1) * 100%), var(--border-2));
+}
+.cph-loops .loop-forest .loop-list li .i {
+  color: var(--forest-700);
+  color: color-mix(in srgb, var(--forest-700) calc(var(--lit, 1) * 100%), var(--forest-200));
+}
+/* the return arrow only turns if it is its own box */
+.cph-loops .loop-forest .loop-list li.close .i { display: inline-block; }
+
+/* ---------- weight follows the read (scrubbed) ---------- */
+/* The sticky diptych already swaps its photograph per movement, but the
+   type only stepped between two opacities over 600ms. Now each step's
+   title scales and its body lifts in proportion to how close that step's
+   centre is to the read line, so the type answers the scroll
+   continuously instead of snapping.
+
+   --near (0..1) is written per step by the driver. The existing
+   .cph-step / .cph-step.on rules stay put as the reduced-motion and
+   no-JS fallback, which is why .cph-focus is only ever added when the
+   driver is actually running. */
+.cph-focus .cph-step { opacity: calc(0.3 + var(--near, 1) * 0.7); }
+.cph-focus .cph-step h4 {
+  font-size: calc(clamp(26px, 3vw, 40px) * (0.84 + var(--near, 1) * 0.16));
+}
+.cph-focus .cph-step p { opacity: calc(0.55 + var(--near, 1) * 0.45); }
+
+/* ---------- read-ink (scrubbed) ---------- */
+/* Words ink up as the reading line passes them. Reserved for exactly one
+   line — the closing redwoods sentence — and that restraint is the whole
+   design. Over a page this long it would be a tic by the third
+   paragraph and it fights anyone skimming; on the last line a reader
+   sees before deciding, slowing them down is the point. */
+.cph-read .cph-word { display: inline-block; white-space: nowrap; }
+
+/* ---------- reduced motion ---------- */
+/* Only the four triggered devices need neutralising — the scrubbed
+   classes are never added in the first place. */
+@media (prefers-reduced-motion: reduce) {
+  .cph-ink .cph-ink-num,
+  .cph-ink .cph-ink-plain,
+  .cph-ink .cph-ink-em,
+  .cph-spoken .cph-word,
+  .cph-cascade > * {
+    opacity: 1 !important; translate: none !important;
+    filter: none !important; letter-spacing: inherit !important;
+    transition: none !important;
+  }
+  .cph-spoken .pull-quote::before { transform: none !important; transition: none !important; }
+  .cph-kick .cph-kick-t { clip-path: none !important; transition: none !important; }
+  .cph-kick .cph-kick-t::after { transform: scaleX(1) !important; transition: none !important; }
+}

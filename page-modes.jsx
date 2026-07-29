@@ -3,12 +3,12 @@
    Three modes of collaboration:
    Human to Human · Human to Agent · Agent to Agent */
 
-const HERO_MOD = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
+const HERO_MOD = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 // Chapter-band backgrounds (kept distinct from the page hero so each break
 // brings a new atmosphere rather than echoing the opener).
-const BAND_MODE_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.png';
-const BAND_MODE_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
-const BAND_MODE_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
+const BAND_MODE_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp';
+const BAND_MODE_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
+const BAND_MODE_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
 const MODES_META = [
   {
@@ -16,21 +16,21 @@ const MODES_META = [
     coreQ: 'How do people collaborate with trust, clarity, commitment, and care?',
     needs: ['purpose', 'agreements', 'trust', 'communication', 'conflict pathways', 'visible commitments', 'value recognition', 'learning loops', 'human presence'],
     principle: 'Use agents to make human collaboration more humane, not more managed.',
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.webp'
   },
   {
     n: 'II', key: 'h2a', glyph: 'H ↔ A', name: 'Human to Agent',
     coreQ: 'How do humans delegate to, collaborate with, guide, and learn from AI agents?',
     needs: ['context', 'role clarity', 'permissions', 'boundaries', 'decision rights', 'memory visibility', 'feedback loops', 'escalation rules', 'human accountability'],
     principle: 'Agents need role clarity before autonomy.',
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.webp'
   },
   {
     n: 'III', key: 'a2a', glyph: 'A ↔ A', name: 'Agent to Agent',
     coreQ: 'How do agents coordinate with other agents without creating invisible bureaucracy?',
     needs: ['agent identity', 'capability registry', 'shared work ontology', 'delegation contracts', 'provenance', 'audit trails', 'conflict detection', 'interruption points', 'human-readable summaries'],
     principle: 'Protocols before autonomy.',
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.webp'
   }
 ];
 
@@ -345,6 +345,8 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 9 · MODES × LAYERS MATRIX ───────────────────────────────────────── */}
+    <WashRule image={ART.tide} from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -453,6 +455,8 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 11 · THE PROTOCOL STACK ──────────────────────────────────────────── */}
+    <WashRule image={ART.burst} from="white" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">
@@ -598,6 +602,8 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 13 · WHAT MUST AUDAX OS PROTECT AGAINST? ────────────────────────── */}
+    <WashRule image={ART.spray} flip from="parchment" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">

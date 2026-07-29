@@ -3,44 +3,44 @@
    The vertical architecture of Audax OS:
    Individual · Team · Organisation · Organisation Family · Ecosystem */
 
-const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.png';
+const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp';
 // Chapter-band backgrounds (one per layer — distinct from the page hero).
-const BAND_LAY_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.png';
-const BAND_LAY_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.png';
-const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.png';
-const BAND_LAY_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.png';
-const BAND_LAY_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.png';
+const BAND_LAY_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
+const BAND_LAY_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
+const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp';
+const BAND_LAY_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
+const BAND_LAY_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
 const LAYERS_META = [
   {
     n: 'I', key: 'individual', name: 'Individual',
     coreQ: 'How does one person stay coherent across commitments, contribution, learning, capacity, boundaries, and livelihood?',
     visible: ['commitments', 'capacity', 'contribution history', 'learning goals', 'income visibility', 'reputation', 'agency', 'boundaries', 'personal agents'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_665f5682-387b-4bfc-8d42-1ec3a675a53c_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_665f5682-387b-4bfc-8d42-1ec3a675a53c_2.webp'
   },
   {
     n: 'II', key: 'team', name: 'Team',
     coreQ: 'How does a group coordinate work, trust, rhythm, decisions, delivery, and learning?',
     visible: ['agreements', 'missions', 'roles', 'commitments', 'decision norms', 'relationship health', 'learning loops', 'delivery rhythm', 'supporting agents'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.webp'
   },
   {
     n: 'III', key: 'org', name: 'Organisation',
     coreQ: 'How does the whole organisation coordinate purpose, governance, value, culture, work, communication, and agents?',
     visible: ['purpose', 'strategy', 'governance', 'value flows', 'organisational health', 'cross-team dependencies', 'agent governance', 'communication rhythms', 'learning systems'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_da3bc6e8-30ff-4a17-a128-88483a0499f1_3.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_da3bc6e8-30ff-4a17-a128-88483a0499f1_3.webp'
   },
   {
     n: 'IV', key: 'family', name: 'Organisation Family',
     coreQ: 'How do related organisations share infrastructure, talent, learning, capital, and purpose without becoming one?',
     visible: ['shared infrastructure', 'talent flow', 'capital flow', 'shared services', 'cross-org missions', 'common agreements', 'portfolio learning', 'synergies', 'agent interoperability'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_2.webp'
   },
   {
     n: 'V', key: 'ecosystem', name: 'Ecosystem',
     coreQ: 'How do independent actors discover alignment, build trust, coordinate missions, and learn together without central control?',
     visible: ['ecosystem actors', 'open missions', 'shared questions', 'trust signals', 'partnership pathways', 'contribution flows', 'learning commons', 'collective intelligence', 'ecosystem agents'],
-    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_2.png'
+    art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_2.webp'
   }
 ];
 
@@ -175,6 +175,8 @@ const PageLayers = ({ onNav }) => (
       </div>
     </section>
 
+    <WashRule image={ART.ribbons} from="white" to="parchment" />
+
     {/* ─── 3 · WHY DOES SCALE NEED REDESIGNING? ────────────────────────────── */}
     <section className="section">
       <div className="container">
@@ -210,6 +212,8 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 4 · FIVE LAYERS OVERVIEW ─────────────────────────────────────────── */}
+    <WashRule image={ART.tide} from="parchment" to="paper" />
+
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
         <h1 className="q-h1">
@@ -438,6 +442,8 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 11 · AI AGENTS ACROSS THE LAYERS ────────────────────────────────── */}
+    <WashRule image={ART.spray} from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -519,6 +525,8 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 13 · PROGRESSIVE ADOPTION ───────────────────────────────────────── */}
+    <WashRule image={ART.thicket} from="paper" to="parchment" />
+
     <section className="section">
       <div className="container">
         <h1 className="q-h1">
@@ -598,6 +606,8 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 15 · TRANSITION TO MODES ─────────────────────────────────────────── */}
+    <WashRule image={ART.burst} flip from="parchment" to="parchment" />
+
     <section className="section-tight">
       <div className="container">
         <div style={{
