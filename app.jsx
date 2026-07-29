@@ -1,16 +1,86 @@
 /* Audax OS site · app router
-   Seven pages, hash-based navigation. Scrolls to top on every nav. */
 
-const PAGE_META = {
-  why:     { title: 'Why? — Audax OS',                    description: 'Why the world of work needs a new operating system for the agentic age.' },
-  spheres: { title: 'Spheres — Audax OS',                 description: 'The five horizontal spheres of Audax OS: Value, Work, Relationship & Purpose, Learning, and Communication.' },
-  layers:  { title: 'Layers — Audax OS',                  description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.' },
-  modes:   { title: 'Modes — Audax OS',                   description: 'Three modes of collaboration: Human to Human, Human to Agent, and Agent to Agent.' },
-  whofor:  { title: 'Who For? — Audax OS',                description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.' },
-  camp:    { title: 'Camp Audax — Audax OS',              description: 'AI as the coordination layer of a regenerative society. Camp Audax at The Gathering US, Camp Navarro, California, 12–18 October 2026.' },
-  build:   { title: "Let's Build the OS — Audax OS",      description: 'Join to co-create and help co-create the organisational OS for the agentic age.' },
-  join:    { title: 'Join — Audax OS',                    description: 'Join to co-create on the organisational OS for the agentic age.' },
+   ROUTES below is the single registry for every page. Adding a page means:
+     1. create page-<key>.jsx, ending in `window.PageX = PageX;`
+     2. add a <script> tag for it in index.html (before app.jsx)
+     3. add one entry here
+   Nothing else — the nav, the mobile sheet, the footer and the <title>/OG tags
+   are all derived from this object.
+   See .claude/skills/adding-and-comparing-pages/SKILL.md
+
+   Entry fields:
+     view         renders the page (required)
+     title        document title + og:title / twitter:title (required)
+     description  meta description (required)
+     nav          short label for the top nav + mobile sheet; omit to leave out
+     footer       label in the footer's Explore column; defaults to `nav`
+
+   Omit both `nav` and `footer` and the page is unlisted: reachable at #<key>,
+   absent from every menu. That is how a page variant under review stays private. */
+
+const ROUTES = {
+  why: {
+    view: (p) => <PageWhy {...p} />,
+    nav: 'Why?',
+    title: 'Why? — Audax OS',
+    description: 'Why the world of work needs a new operating system for the agentic age.',
+  },
+  spheres: {
+    view: (p) => <PageSpheres {...p} />,
+    nav: 'Spheres',
+    title: 'Spheres — Audax OS',
+    description: 'The five horizontal spheres of Audax OS: Value, Work, Relationship & Purpose, Learning, and Communication.',
+  },
+  layers: {
+    view: (p) => <PageLayers {...p} />,
+    nav: 'Layers',
+    title: 'Layers — Audax OS',
+    description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.',
+  },
+  modes: {
+    view: (p) => <PageModes {...p} />,
+    nav: 'Modes',
+    title: 'Modes — Audax OS',
+    description: 'Three modes of collaboration: Human to Human, Human to Agent, and Agent to Agent.',
+  },
+  whofor: {
+    view: (p) => <PageWhoFor {...p} />,
+    nav: 'Who For?',
+    title: 'Who For? — Audax OS',
+    description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.',
+  },
+  camp: {
+    view: (p) => <PageCamp {...p} />,
+    nav: 'Camp',
+    footer: 'Camp Audax',
+    title: 'Camp Audax — Audax OS',
+    description: 'AI as the coordination layer of a regenerative society. Camp Audax at The Gathering US, Camp Navarro, California, 12–18 October 2026.',
+  },
+  build: {
+    view: (p) => <PageBuild {...p} />,
+    footer: "Let's Build the OS",
+    title: "Let's Build the OS — Audax OS",
+    description: 'Join to co-create and help co-create the organisational OS for the agentic age.',
+  },
+  join: {
+    view: (p) => <PageJoin {...p} />,
+    title: 'Join — Audax OS',
+    description: 'Join to co-create on the organisational OS for the agentic age.',
+  },
 };
+
+// Fallback for an unknown or empty hash.
+const HOME = 'why';
+
+// Menu contents, derived from ROUTES. `build` sits in the footer but not the
+// top nav, where it is the standalone CTA button instead.
+const navPages = () => Object.entries(ROUTES)
+  .filter(([, r]) => r.nav)
+  .map(([key, r]) => ({ key, label: r.nav }));
+
+const footerPages = () => Object.entries(ROUTES)
+  .filter(([, r]) => r.footer || r.nav)
+  .map(([key, r]) => ({ key, label: r.footer || r.nav }));
 
 const setMeta = (name, content) => {
   const el = document.querySelector(`meta[property="${name}"], meta[name="${name}"]`);
@@ -23,8 +93,7 @@ const setMeta = (name, content) => {
 const parseHash = () => {
   const raw = window.location.hash.replace('#', '');
   const [p, section] = raw.split('/');
-  const page = ['why', 'spheres', 'layers', 'modes', 'whofor', 'camp', 'build', 'join'].includes(p) ? p : 'why';
-  return { page, section: section || null };
+  return { page: ROUTES[p] ? p : HOME, section: section || null };
 };
 
 const App = () => {
@@ -56,7 +125,7 @@ const App = () => {
 
   // Update document title and OG meta tags on page change
   React.useEffect(() => {
-    const m = PAGE_META[page];
+    const m = ROUTES[page];
     if (!m) return;
     document.title = m.title;
     setMeta('og:title', m.title);
@@ -71,24 +140,17 @@ const App = () => {
     if (window.lucide) window.lucide.createIcons();
   });
 
-  let body;
-  if (page === 'why') body = <PageWhy onNav={nav} />;
-  else if (page === 'spheres') body = <PageSpheres onNav={nav} />;
-  else if (page === 'layers') body = <PageLayers onNav={nav} />;
-  else if (page === 'modes') body = <PageModes onNav={nav} />;
-  else if (page === 'whofor') body = <PageWhoFor onNav={nav} />;
-  else if (page === 'camp') body = <PageCamp onNav={nav} />;
-  else if (page === 'build') body = <PageBuild onNav={nav} />;
-  else if (page === 'join') body = <PageJoin onNav={nav} />;
-  else body = <PageWhy onNav={nav} />;
+  const route = ROUTES[page] || ROUTES[HOME];
 
   return (
     <div data-screen-label={page} key={page}>
       <Nav page={page} onNav={nav} />
-      {body}
+      {route.view({ onNav: nav })}
       <Footer onNav={nav} />
     </div>
   );
 };
+
+Object.assign(window, { ROUTES, navPages, footerPages });
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

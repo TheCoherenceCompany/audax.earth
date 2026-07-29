@@ -2,15 +2,10 @@
    Exports: Logo, Nav, Footer, CtaBand, SectionHead, Button, Eyebrow
    Loaded once and used across every page. */
 
-const PAGES = [
-  { key: 'why',     label: 'Why?' },
-  { key: 'spheres', label: 'Spheres' },
-  { key: 'layers',  label: 'Layers' },
-  { key: 'modes',   label: 'Modes' },
-  { key: 'whofor',  label: 'Who For?' },
-  { key: 'camp',    label: 'Camp' },
-  { key: 'build',   label: "Let's Build" }
-];
+// Nav, BottomSheet and Footer all read their entries from ROUTES (app.jsx) via
+// navPages() / footerPages(), so adding a page never means editing this file.
+// Those helpers load after this file but are only called during render, by
+// which point app.jsx has run.
 
 const Logo = ({ size = 30, variant }) => {
   const src = variant === 'white'
@@ -27,7 +22,7 @@ const BottomSheet = ({ page, onNav }) => {
   const [open, setOpen] = React.useState(false);
   const sheetRef = React.useRef(null);
   const drag = React.useRef(null);
-  const sections = PAGES.slice(0, 6);
+  const sections = navPages();
   const current = sections.find(p => p.key === page) || sections[0];
 
   const onDown = (e) => {
@@ -99,7 +94,7 @@ const Nav = ({ page, onNav }) => {
           <span className="nav-brand-text">Audax OS</span>
         </button>
         <div className="nav-links">
-          {PAGES.slice(0, 6).map(p => (
+          {navPages().map(p => (
             <button
               key={p.key}
               className={`nav-link${page === p.key ? ' active' : ''}`}
@@ -130,13 +125,9 @@ const Footer = ({ onNav }) => (
       </div>
       <div className="footer-col">
         <h6>Explore</h6>
-        <a onClick={(e)=>{e.preventDefault(); onNav('why');}} href="#">Why?</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('spheres');}} href="#">Spheres</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('layers');}} href="#">Layers</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('modes');}} href="#">Modes</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('whofor');}} href="#">Who For?</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('camp');}} href="#">Camp Audax</a>
-        <a onClick={(e)=>{e.preventDefault(); onNav('build');}} href="#">Let's Build the OS</a>
+        {footerPages().map(p => (
+          <a key={p.key} onClick={(e)=>{e.preventDefault(); onNav(p.key);}} href={`#${p.key}`}>{p.label}</a>
+        ))}
       </div>
     </div>
     <div className="footer-bottom">
@@ -213,4 +204,4 @@ const ChapterBand = ({ image, numeral, label, kicker, tint = 'forest' }) => (
   </aside>
 );
 
-Object.assign(window, { PAGES, Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote, ChapterBand });
+Object.assign(window, { Logo, Nav, Footer, Button, Eyebrow, SectionHead, CtaBand, PullQuote, ChapterBand });
