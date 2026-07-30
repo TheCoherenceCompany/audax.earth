@@ -96,16 +96,9 @@ Each carries a state:
   useful implementation is. **When Audax is the wrong answer.** How purpose is prevented from
   becoming unpaid-labour camouflage.
 
-Regions carry a **date asked**. Two of them date to 2016, from the Teal for Startups working group,
-and are still open: *what does leadership mean in a next-stage organisation* and *how do you
-structure distributed volunteer collaboration so people can actually onboard and co-create*. A
-question with a decade on it is the strongest available evidence that this is an inquiry and not a
-launch, and dating the regions is what makes that visible.
-
-**The map is the second attempt at a named artifact.** Teal for Startups set out in 2016 to produce
-a *"Development Map" for organising the knowledge a next-generation startup needs*, and did not
-finish it. That is this map's direct ancestor, and the site should say so — on `Influences`, and in
-one line on the map itself. It converts the map from a device into a continuation.
+Regions carry an optional **date asked**. Some of these questions are years old, and showing that is
+better evidence of an inquiry than any amount of framing — a question with time on it is not a
+launch.
 
 The blanks are the invitation. A framework with visible holes cannot be mistaken for a product, and
 every hole is somewhere a person can stand.
@@ -328,13 +321,9 @@ Neither blocks starting. Each surface renders absent until its content arrives.
 
 1. **Partners** — the slug for holon 1727, and whether it returns a list or a single org (§7).
 2. **Audax OS Conversations** — format, cadence, participants, anything recorded so far.
-3. **Teal for Startups** — no longer blocked. Drafted on `Influences` from the CC0 One Page Brief and
-   Victor's retrospective *"Thank you Teal for Startups, Hello Village 3.0"* (Enlivening Edge).
-   Outstanding: confirm the date range and headcount — Victor says 2016–2017 and ~150 people, the
-   brief says ~200 and the article dates it 2015/2016 — and confirm whether **Malek Jaber** is named
-   as co-initiator. He is named in Victor's own published article; being written into a new
-   project's origin story a decade later is still something to be asked about rather than surprised
-   by.
+3. **Teal for Startups** — no longer blocked. It sits on `Influences` as one entry among the others,
+   not as a lineage section. **No individuals are named** in connection with it, by decision — the
+   entry describes the project and what it did and did not produce, and nothing about who was in it.
 4. **Influences review** — `audax-influences-draft.md`. The **[candidate]** entries are inference and
    need a yes or no each; publishing an influence that is not actually claimed is worse than
    omitting one, and it writes other people's work into a story they are not part of.
