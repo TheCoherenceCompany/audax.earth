@@ -32,7 +32,7 @@ plainly rather than implying them.
 | Claim | Limb | Pages |
 |---|---|---|
 | **We know this area is important** | The argument | `Why?` · `Who for?` |
-| **We have starting questions, not answers** | The map | `The Map` → Spheres · Layers · Modes |
+| **We have starting questions, not answers** | The map | `The Map` → Spheres · Layers · Modes · `Influences` |
 | **We need the best people and organisations in the world to develop it** | The practice | `Events` · `Labs` |
 
 Operating principle, from `audax-labs.md`, used verbatim on the site:
@@ -46,8 +46,12 @@ Register throughout: *invitation*, not offer. We are convening an inquiry, not s
 ## 3 · Structure
 
 ```
-Audax OS      Why? · Who for? · The Map · Events · Labs      [Join the inquiry]
+Audax OS   Why? · Who for? · The Map · Influences · Events · Labs   [Join the inquiry]
 ```
+
+Two pages per limb: *the argument* (Why? · Who for?), *the map* (The Map · Influences — what we are
+charting, and whose charts we are reading), *the practice* (Events · Labs). Six items, the same
+count as today.
 
 `HOME` stays `why`. Spheres, Layers, Modes and Camp leave the top nav and keep their `footer`
 entries — they remain fully reachable at their existing hashes, and every existing link keeps
@@ -203,13 +207,47 @@ Page sections:
 
 Each lab tagged with the map regions it tests.
 
-### 5.6 `Spheres` / `Layers` / `Modes` — light touch, high leverage
+### 5.6 `Influences & References` — new, `page-influences.jsx`
+
+The reframe argues that **integration may be Audax's most defensible role**: *"The world does not
+lack organisational methodologies. It lacks a coherent way to navigate and integrate them without
+requiring founders to become part-time anthropologists of governance."* If that is the claim, this
+page is its proof — the mosaic made into an artifact. It is also the most credible available way to
+say *not a product*: products do not publish their debts.
+
+Every entry carries two lines, and the second is the point:
+
+> **Name** — what it is, in a sentence
+> **What we take:** …
+> **Where it stops:** …
+> *Touches:* → map regions
+
+A page that only praises its ancestors is a shrine, and a shrine cannot be contributed to. The
+reframe is willing to say Teal "proved naïve, culturally narrow, difficult to adopt, or weak on
+power and accountability"; that register holds throughout.
+
+Sections: **why this page exists** (integration over invention) · **lineage** — Teal for Startups,
+where the retrospective properly lands · **bodies of practice** grouped by what they serve
+(organisational form · human development · value & ownership · commons & governance · distributed
+practice · agentic protocols · purpose & economics · systems & patterns) · **people and
+organisations working this territory** · and last, **what we haven't read yet** — an open call.
+
+That final section is the same move as the blanks on the map: a page that admits its gaps receives
+contributions a complete one never does. It names what is missing — organising traditions outside
+Europe and North America, union and mutual-aid knowledge of commitment and obligation, indigenous
+governance of a commons across generations — and asks for references *with their limits stated*.
+
+**Draft content:** `audax-influences-draft.md` at repo root, ~25 entries, each tagged **[yours]**
+(named or clearly implied in the source documents) or **[candidate]** (inference, cut freely).
+Awaiting review. The tags are a review scaffold and do not ship.
+
+### 5.7 `Spheres` / `Layers` / `Modes` — light touch, high leverage
 
 Each gains a top strip (*charted region · current draft* + link back to the map) and a foot (*what
 is still unresolved here*, drawn from `TERRITORY`). One shared component, ~15 lines per page. This
 is what stops a reader arriving from a shared link at `#spheres` from meeting a specification.
 
-### 5.7 `Camp` — untouched
+### 5.8 `Camp` — untouched
 
 No edits to `page-camp.jsx`. It loses only its `nav` entry in `app.jsx`.
 
@@ -239,15 +277,34 @@ cross-links resolve in both directions without a second source of truth.
 
 ## 7 · Technical
 
-- `app.jsx` — `ROUTES` reordered to Why · Who for · Map · Events · Labs; `spheres`, `layers`,
-  `modes`, `camp`, `build` drop `nav` and keep `footer`; three new entries; `HOME` stays `why`.
-- `index.html` — three new `<script type="text/babel">` tags before `app.jsx`; `?v=96` → `?v=97` on
+- `app.jsx` — `ROUTES` reordered to Why · Who for · Map · Influences · Events · Labs; `spheres`,
+  `layers`, `modes`, `camp` drop `nav` and keep `footer`; four new entries; `HOME` stays `why`.
+- `index.html` — four new `<script type="text/babel">` tags before `app.jsx`; `?v=96` → `?v=97` on
   every versioned file, per `CLAUDE.md`.
 - `components.jsx` — `TERRITORY`, plus `RegionStrip` and `RegionUnresolved`; the three CTA strings
   at `:117`, `:151`, `:168` change to *"Join the inquiry"*.
-- New top-level consts prefixed `MAP_`, `EV_`, `LAB_` — all `.jsx` files share one global scope.
-- **METIS partners** — follow the existing live-roster pattern at `page-camp.jsx:1808`: fetch once
-  on mount, no polling, graceful failure. On error the partner strip renders **absent**, not "TBC".
+- New top-level consts prefixed `MAP_`, `INF_`, `EV_`, `LAB_` — all `.jsx` files share one global
+  scope.
+- **Partners API.** Verified 2026-07-31. `app.the-gathering.earth/holon/1727/` is the authenticated
+  view and 302s to `/accounts/login/` — a static page cannot read it. The public read API is
+  `https://view.the-gathering.earth/public/orgs/<slug>/`, same origin and response shape the camp
+  page already uses:
+
+  ```json
+  { "org":  { "id": 1080, "name": "The Coherence Company",
+              "slug": "coherence", "class_slug": "the-coherence-company" },
+    "links": [{ "key": "website", "url": "…", "icon": "globe", "label": "Website" }],
+    "info_field_groups": [], "team_memberships": [{ "id", "name", "photo_url", "socials" }],
+    "gatherings": [], "camps": [] }
+  ```
+
+  Confirmed resolving: `coherence`, `regenworld`. The route is **slug-only** — numeric ids 404 — and
+  it returns **one org, not a list**. Blocked on the slug for holon 1727 (§8). If no list route
+  exists, the Labs page holds an array of partner slugs and fetches each; adding a partner then
+  means a code edit rather than a METIS edit, which is a tradeoff worth naming before it is chosen.
+
+  Follow the existing live-roster pattern at `page-camp.jsx:1808`: fetch once on mount, no polling,
+  graceful failure. On error the partner strip renders **absent**, not "TBC".
 - **Imagery** — per `CLAUDE.md`, no run of text-only sections beyond ~3000px. Events and Labs are
   short enough to need one `WashRule` each; the Map is imagery. WebP only. `ART` keys, not pasted
   filenames.
@@ -258,10 +315,14 @@ cross-links resolve in both directions without a second source of truth.
 
 Neither blocks starting. Each surface renders absent until its content arrives.
 
-1. **METIS partners endpoint** and a sample response.
+1. **Partners** — the slug for holon 1727, and whether it returns a list or a single org (§7).
 2. **Audax OS Conversations** — format, cadence, participants, anything recorded so far.
-3. **Teal for Startups retrospective** — remains a *contested region on the map* until written. This
-   is deliberate: the map absorbs what is not ready, which is the point of having one.
+3. **Teal for Startups retrospective** — now lands on `Influences` as the lineage entry, and stays a
+   *contested region on the map* until written. Nothing else on that page can substitute for it: it
+   is the one entry only Victor holds.
+4. **Influences review** — `audax-influences-draft.md`. The **[candidate]** entries are inference and
+   need a yes or no each; publishing an influence that is not actually claimed is worse than
+   omitting one, and it writes other people's work into a story they are not part of.
 
 ---
 
