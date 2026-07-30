@@ -1556,7 +1556,16 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-nav:not(.scrolled) .cph-nav-tg { border-left-color: rgba(255,255,255,0.28); }
 .cph-nav.scrolled .cph-nav-tg { border-left-color: rgba(25,47,43,0.22); }
-.cph-nav-tg img { display: block; height: 26.4px; width: auto; }
+.cph-nav-tg img { display: block; height: 31.7px; width: auto; }
+/* Both marks in the camp bar run 20% over the site default. Scoped to
+   .cph-nav because the global `.nav-brand img` hard-codes 30px and would
+   otherwise beat the Logo component's own size prop — and because the other
+   pages' navs should stay as they are.
+
+   Direct child, not a descendant: the host's lockup lives inside
+   .cph-nav-tg *within* .nav-brand, so a descendant selector here outranks
+   `.cph-nav-tg img` on specificity and drags their lockup to 36px too. */
+.cph-nav .nav-brand > img { width: 36px; height: 36px; }
 @media (max-width: 720px) { .cph-nav-tg { display: none; } }
 
 /* the host's reversed lockup, over the hero photograph */
@@ -1565,12 +1574,12 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   margin-bottom: 26px;
 }
 .cph-hero-tg img {
-  display: block; height: 40px; width: auto;
+  display: block; height: 80px; width: auto;
   filter: drop-shadow(0 2px 14px rgba(6,14,9,0.7));
 }
 @media (max-width: 640px) {
   .cph-hero-tg { margin-bottom: 20px; }
-  .cph-hero-tg img { height: 32px; }
+  .cph-hero-tg img { height: 64px; }
 }
 
 /* ---------- §02, on the host's ground (.cph-dark) ----------
@@ -1848,28 +1857,35 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    without drawing a bar across the image. */
 .cph-nav { position: fixed; left: 0; right: 0; top: 0; }
 
-/* Stowed over the hero. The hero carries both marks and the primary CTA, so
-   a bar there only duplicated The Gathering's lockup right above the big
-   one; it slides down once that mark scrolls away. visibility (not just
-   opacity) so the stowed bar is out of the tab order too, delayed on the way
-   out so it can finish sliding before it goes. */
-.cph-nav {
-  transition: transform 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
-              opacity 260ms ease,
+/* Over the hero the bar runs solo: Camp Audax's mark only. The host's lockup
+   is already there full size in the hero, and repeating it in the bar a
+   hand's width above put the same mark on screen twice. It fades in beside
+   ours once the hero mark scrolls off — collapsing the width too, so ours
+   doesn't shunt sideways when it arrives. visibility (not just opacity) keeps
+   the hidden lockup's link out of the tab order. */
+.cph-nav-tg {
+  transition: opacity 300ms ease, max-width 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              margin 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              padding 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
               visibility 0s;
+  max-width: 220px;
+  overflow: hidden;
 }
-.cph-nav-stowed {
-  transform: translateY(-100%);
+.cph-nav-solo .cph-nav-tg {
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transition: transform 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
-              opacity 260ms ease,
+  max-width: 0;
+  margin-left: 0;
+  padding-left: 0;
+  border-left-width: 0;
+  transition: opacity 200ms ease, max-width 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              margin 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              padding 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
               visibility 0s linear 380ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cph-nav, .cph-nav-stowed { transition: opacity 160ms ease, visibility 0s; transform: none; }
+  .cph-nav-tg, .cph-nav-solo .cph-nav-tg { transition: opacity 160ms ease, visibility 0s; }
 }
 .cph-nav:not(.scrolled) {
   background: linear-gradient(180deg,

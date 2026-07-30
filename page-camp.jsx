@@ -85,7 +85,18 @@ const GatheringCredit = () => (
    were held in Portugal, Guatemala and Czechia, which is three countries
    for four events — so the trail names PLACES and the sentence beside it
    carries the count, rather than implying one country per year. */
-const CAMP_GATHERING_LINEAGE = ['Portugal', 'Guatemala', 'Czechia', 'California · 2026'];
+/* Chronological, and now dated — which also makes the list agree with the
+   prose beside it. Unyeared it read as three prior editions under a heading
+   claiming four; Portugal hosted twice, which is the bit that was invisible.
+   Years match The Gathering's own edition routes (2022-portugal,
+   2024-portugal, 2025-czechia, 2025-guatemala, 2026-usa-california). */
+const CAMP_GATHERING_LINEAGE = [
+  'Portugal · 2022',
+  'Portugal · 2024',
+  'Czechia · 2025',
+  'Guatemala · 2025',
+  'California · 2026'
+];
 
 /* Hero rotation — warm, populated, and legible under the side scrim. */
 const CAMP_HERO_SHOTS = ['feast', 'ceremony', 'crowd-white', 'forest-circle', 'canopy-talk', 'circle-above'];
@@ -1273,13 +1284,15 @@ const CampRibbon = () => (
    sheet. */
 const CampNav = () => {
   const [scrolled, setScrolled] = React.useState(false);
-  /* The bar stays out of the way while the hero is on screen. The hero
-     already carries both marks and the primary CTA, so a bar there only
-     repeated The Gathering's lockup directly above the big one — two of the
-     same mark, a hand's width apart. It slides in once that mark leaves.
+  /* Only the host's lockup was duplicated at the top — their mark in the bar
+     sitting a hand's width above the big one in the hero. So the bar keeps
+     Camp Audax's own mark on the opening screen and drops just their lockup;
+     it fades in beside ours once the hero mark scrolls off. Stowing the whole
+     bar also fixed the duplication, but it took this camp's identity off its
+     own hero and left only the host's, which is backwards.
 
      Keyed to the hero lockup's own visibility rather than a scroll offset,
-     so arriving on a deep link part-way down the page gets the bar
+     so arriving on a deep link part-way down the page gets both marks
      immediately instead of only after the first scroll. */
   const [heroMarkVisible, setHeroMarkVisible] = React.useState(true);
 
@@ -1305,13 +1318,13 @@ const CampNav = () => {
   }, []);
 
   return (
-    <nav className={`nav cph-nav${scrolled ? ' scrolled' : ''}${heroMarkVisible ? ' cph-nav-stowed' : ''}`}>
+    <nav className={`nav cph-nav${scrolled ? ' scrolled' : ''}${heroMarkVisible ? ' cph-nav-solo' : ''}`}>
       <button
         className="nav-brand" type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
       >
-        <Logo size={30} />
+        <Logo size={36} />
         <span className="nav-brand-text">Camp Audax</span>
         {/* The host's lockup rides alongside ours in the bar, behind a
             divider so the two brands stay separate marks rather than one
