@@ -382,12 +382,105 @@ const CAMP_CONVENING = [
 const CAMP_TEAM_API = 'https://view.the-gathering.earth/public/gatherings/2026-usa-california/camps/camp-audax-usa-2026/';
 const campPersonApi = (id) => `https://view.the-gathering.earth/public/people/${id}/`;
 
-/* lucide dropped brand/social icons a while back — these are the
-   closest generic shapes that still exist in the set actually loaded. */
+/* Brand icons — fetched at runtime from The Gathering's published sprite, so a
+   link on this card carries the same mark it carries upstream and tracks it
+   without this file holding its own copy. Lucide dropped brand/social logos,
+   and the generic stand-ins this used to reach for — 'link' for LinkedIn,
+   'camera' for Instagram, 'play' for YouTube — read as the wrong thing.
+
+   Fetched-and-injected rather than referenced: <use href> does not resolve
+   cross-origin, whatever the CORS headers say. The sprite is served
+   `immutable` with `access-control-allow-origin: *` from the same host as the
+   roster above, so this adds no failure mode the team section didn't already
+   have — if that host is down there are no cards to put icons on. */
+const TGG_SPRITE_URL = 'https://view.the-gathering.earth/static/common/img/icons.svg';
+const TGG_SPRITE_MOUNT_ID = 'tgg-brand-sprite';
+
+/* Remote markup entering the DOM as elements, so take only the <symbol>s and
+   drop anything that could execute. The sprite is first-party, but it is still
+   another origin's file and the roster is consumed as text, not as HTML. */
+const campScrubSvg = (node) => {
+  node.querySelectorAll('script, foreignObject, a').forEach(n => n.remove());
+  [node, ...node.querySelectorAll('*')].forEach(el => {
+    [...el.attributes].forEach(a => {
+      if (/^on/i.test(a.name) || (/^(href|xlink:href)$/i.test(a.name) && /^\s*javascript:/i.test(a.value))) {
+        el.removeAttribute(a.name);
+      }
+    });
+  });
+  return node;
+};
+
+/* null while in flight, a Set of available icon names once mounted, false if
+   the sprite could not be loaded. Mounted once per document, not per render. */
+const useTggSprite = () => {
+  const [icons, setIcons] = React.useState(null);
+
+  React.useEffect(() => {
+    const namesOf = (root) =>
+      new Set([...root.querySelectorAll('symbol')].map(s => s.id.replace(/^icon-/, '')));
+
+    const mounted = document.getElementById(TGG_SPRITE_MOUNT_ID);
+    if (mounted) { setIcons(namesOf(mounted)); return; }
+
+    let cancelled = false;
+    fetch(TGG_SPRITE_URL)
+      .then(r => { if (!r.ok) throw new Error('sprite ' + r.status); return r.text(); })
+      .then(text => {
+        if (cancelled) return;
+        const parsed = new DOMParser().parseFromString(text, 'image/svg+xml');
+        const symbols = [...parsed.querySelectorAll('symbol')];
+        if (!symbols.length) throw new Error('sprite had no symbols');
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        symbols.forEach(sym => svg.appendChild(campScrubSvg(sym)));
+        const mount = document.createElement('div');
+        mount.id = TGG_SPRITE_MOUNT_ID;
+        mount.setAttribute('aria-hidden', 'true');
+        mount.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
+        mount.appendChild(svg);
+        document.body.appendChild(mount);
+        setIcons(namesOf(mount));
+      })
+      .catch(() => { if (!cancelled) setIcons(false); });
+    return () => { cancelled = true; };
+  }, []);
+
+  return icons;
+};
+
+/* Fallback for a link the API hasn't annotated with an icon of its own. */
 const CAMP_TEAM_ICONS = {
   email: 'mail', phone: 'phone', website: 'globe', calendar: 'calendar',
-  linkedin: 'link', telegram: 'send', whatsapp: 'message-circle',
-  instagram: 'camera', youtube: 'play'
+  linkedin: 'linkedin', telegram: 'telegram', whatsapp: 'whatsapp',
+  instagram: 'instagram', twitter: 'twitter', facebook: 'facebook',
+  youtube: 'youtube', chat: 'chat'
+};
+
+const campIconName = (s) => s.icon || CAMP_TEAM_ICONS[s.key] || 'link';
+
+/* While the sprite is in flight the glyph is simply absent — the tinted disc
+   and its aria-label are already there, so nothing shifts when it lands. If
+   the sprite failed, or names a mark this one doesn't define, fall back to the
+   generic link shape rather than leaving an empty disc. */
+const CampBrandIcon = ({ name, icons, size = 15 }) => {
+  if (icons === null) return <svg width={size} height={size} aria-hidden="true" focusable="false" />;
+
+  const available = icons && icons.has(name) ? name : (icons && icons.has('link') ? 'link' : null);
+  if (available) {
+    return (
+      <svg width={size} height={size} aria-hidden="true" focusable="false" style={{ display: 'block' }}>
+        <use href={`#icon-${available}`} />
+      </svg>
+    );
+  }
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+         aria-hidden="true" focusable="false" style={{ display: 'block' }}>
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
 };
 
 const campSocialHref = (s) => {
@@ -398,12 +491,76 @@ const campSocialHref = (s) => {
   return s.value;
 };
 
+/* Flattens the API's rich-text bio to one plain string. It no longer cuts at
+   260 characters — the card clamps it visually and lets you open it instead,
+   so the whole bio has to survive this far. Staying plain text (rather than
+   passing the HTML through) is what makes the line-clamp reliable: -webkit-
+   line-clamp counts line boxes and misbehaves over nested block children. */
 const campStripHtml = (html) => {
   if (!html) return '';
   const div = document.createElement('div');
   div.innerHTML = html.replace(/<\/(p|div|h[1-6])>/gi, ' ').replace(/<br\s*\/?>/gi, ' ');
-  const text = (div.textContent || '').replace(/\s+/g, ' ').trim();
-  return text.length > 260 ? text.slice(0, 260).replace(/\s+\S*$/, '') + '…' : text;
+  return (div.textContent || '').replace(/\s+/g, ' ').trim();
+};
+
+/* Person-card bio: clamped to a few lines, with a toggle that appears only
+   when there is actually more to read. Measured rather than guessed from the
+   character count, because these cards sit in an auto-fill grid and the same
+   bio wraps to a different number of lines at different column widths.
+   Re-measured on resize for the same reason; the verdict is left alone while
+   open, since an expanded bio never overflows its own box. */
+const CampPersonBio = ({ text }) => {
+  const [expanded, setExpanded] = React.useState(false);
+  const [overflows, setOverflows] = React.useState(false);
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    if (expanded) return;
+    const el = ref.current;
+    if (!el) return;
+    const check = () => setOverflows(el.scrollHeight > el.clientHeight + 1);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [text, expanded]);
+
+  const clamp = expanded ? {} : {
+    display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 4, overflow: 'hidden'
+  };
+
+  return (
+    <React.Fragment>
+      <p ref={ref} style={{
+        fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)',
+        margin: '0 0 10px', ...clamp
+      }}>{text}</p>
+      {(overflows || expanded) && (
+        <button
+          type="button"
+          onClick={() => setExpanded(v => !v)}
+          aria-expanded={expanded}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 4,
+            margin: '0 0 14px', padding: 0, border: 0, background: 'none', cursor: 'pointer',
+            font: 'inherit', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase',
+            color: 'var(--forest-700)'
+          }}
+        >
+          {expanded ? 'Less' : 'Read more'}
+          <span style={{
+            display: 'block', transition: 'transform 200ms ease',
+            transform: expanded ? 'rotate(180deg)' : 'none'
+          }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                 aria-hidden="true" style={{ display: 'block' }}>
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </span>
+        </button>
+      )}
+    </React.Fragment>
+  );
 };
 
 const CAMP_FAQ = [
@@ -1502,6 +1659,7 @@ const PageCamp = ({ onNav }) => {
   // that happens on the server mid-visit, only on their next load.
   const [campTeam, setCampTeam] = React.useState(null);
   const [campTeamError, setCampTeamError] = React.useState(false);
+  const tggIcons = useTggSprite();
 
   React.useEffect(() => {
     let cancelled = false;
@@ -1534,13 +1692,9 @@ const PageCamp = ({ onNav }) => {
     return () => { cancelled = true; };
   }, []);
 
-  // The app-level lucide.createIcons() pass runs after App's own renders,
-  // not after this component's async state updates — so the social icons
-  // need their own pass once the team data (and its <i data-lucide> tags)
-  // actually lands in the DOM.
-  React.useEffect(() => {
-    if (window.lucide) window.lucide.createIcons();
-  }, [campTeam]);
+  // No lucide pass needed when the team data lands: the social links are
+  // inline <svg><use> against the fetched brand sprite now, so they render with
+  // React rather than waiting on lucide.createIcons() to hydrate <i> tags.
 
   // Scroll-spy: whichever section owns the band just below the fixed nav wins.
   React.useEffect(() => {
@@ -2303,9 +2457,7 @@ const PageCamp = ({ onNav }) => {
                 />
               )}
               <p style={{ fontFamily: 'var(--font-display)', fontSize: 19, fontWeight: 400, color: 'var(--ink-900)', margin: '0 0 10px' }}>{person.name}</p>
-              {person.bio && (
-                <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: '0 0 16px' }}>{person.bio}</p>
-              )}
+              {person.bio && <CampPersonBio text={person.bio} />}
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginTop: 'auto' }}>
                 {(person.links || []).map(s => (
                   <a key={s.key} href={campSocialHref(s)} target="_blank" rel="noreferrer" aria-label={s.label} style={{
@@ -2313,7 +2465,7 @@ const PageCamp = ({ onNav }) => {
                     width: 30, height: 30, borderRadius: '50%',
                     color: 'var(--forest-700)', background: 'var(--forest-050)'
                   }}>
-                    <i data-lucide={CAMP_TEAM_ICONS[s.key] || 'link'} style={{ width: 15, height: 15 }}></i>
+                    <CampBrandIcon name={campIconName(s)} icons={tggIcons} />
                   </a>
                 ))}
               </div>
