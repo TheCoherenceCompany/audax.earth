@@ -1556,7 +1556,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-nav:not(.scrolled) .cph-nav-tg { border-left-color: rgba(255,255,255,0.28); }
 .cph-nav.scrolled .cph-nav-tg { border-left-color: rgba(25,47,43,0.22); }
-.cph-nav-tg img { display: block; height: 22px; width: auto; }
+.cph-nav-tg img { display: block; height: 26.4px; width: auto; }
 @media (max-width: 720px) { .cph-nav-tg { display: none; } }
 
 /* the host's reversed lockup, over the hero photograph */
@@ -2501,6 +2501,69 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    instead of rising — it follows the direction of the reading. */
 .cph-cascade.cph-indent > * { translate: -16px 0; }
 .cph-cascade.cph-in > * { opacity: 1; translate: none; }
+
+/* ---------- the four rooms (.cph-rooms) — camp page §01 ----------
+   Two up, not three or four: each card carries two paragraphs and a rule
+   between them, and at three columns the measure drops to about five
+   words a line. The dashed rule and the mono label are borrowed from
+   §02's DNA cards on purpose — same move, "here is the thing, and here
+   is what it looks like from outside" — so the two read as one family.
+   Unlike those, this grid collapses properly on a phone. */
+.cph-rooms {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+.cph-room {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 26px 22px;
+  background: var(--surface-white);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
+}
+.cph-room-n {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--forest-700);
+  margin-bottom: 10px;
+}
+.cph-room h5 {
+  font-family: var(--font-display);
+  font-size: 21px; font-weight: 400;
+  letter-spacing: -0.015em; line-height: 1.15;
+  color: var(--ink-900);
+  margin: 0 0 12px;
+}
+.cph-room-holds {
+  font-size: 14px; font-weight: 300; line-height: 1.6;
+  color: var(--ink-700);
+  margin: 0 0 20px;
+}
+.cph-room-blind {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--forest-200);
+}
+.cph-room-lbl {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 6px;
+}
+.cph-room-blind p {
+  font-size: 13.5px; font-weight: 300; line-height: 1.55;
+  color: var(--forest-800);
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .cph-rooms { grid-template-columns: 1fr; gap: 12px; }
+  .cph-room { padding: 20px 20px 18px; }
+  .cph-room h5 { font-size: 19px; }
+}
 
 /* ---------- kicker — the page's structural skeleton ---------- */
 /* Roughly twenty mono section labels, previously the most inert thing
