@@ -1484,7 +1484,10 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   display: flex; align-items: center;
   overflow: hidden;
   background: var(--forest-900);   /* never a white flash before the photo lands */
-  padding: 132px 0 96px;
+  /* The foot has to clear the brush edge (.cph-tear.deep, up to 230px):
+     copy that ends inside it gets parchment painted over its lower half,
+     which is what chopped the CTAs in half. */
+  padding: 132px 0 clamp(170px, 22vh, 260px);
 }
 .cph-stage { position: absolute; inset: 0; }
 .cph-slide {
@@ -1521,7 +1524,9 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
       rgba(14,36,25,0.88) 100%);
 }
 .cph-grain { opacity: 0.3; mix-blend-mode: overlay; }
-.cph-hero-copy { position: relative; z-index: 3; width: 100%; }
+/* above the brush edge (z-index 4), which the tear's own comment always
+   intended but the stacking order did not deliver */
+.cph-hero-copy { position: relative; z-index: 5; width: 100%; }
 .cph-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(6,14,9,0.75), 0 1px 3px rgba(6,14,9,0.5); }
 .cph-hero h1 em { color: var(--lichen-300); }
 .cph-hero .lede { color: rgba(255,255,255,0.92); text-shadow: 0 1px 14px rgba(6,14,9,0.8); }
@@ -1542,6 +1547,170 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .cph-hero-meta-2 {
   margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.68);
 }
+/* the host's lockup in the bar, behind a divider from our own brand */
+.cph-nav-tg {
+  display: inline-flex; align-items: center;
+  margin-left: 16px; padding-left: 16px;
+  border-left: 1px solid currentColor;
+  opacity: 0.9;
+}
+.cph-nav:not(.scrolled) .cph-nav-tg { border-left-color: rgba(255,255,255,0.28); }
+.cph-nav.scrolled .cph-nav-tg { border-left-color: rgba(25,47,43,0.22); }
+.cph-nav-tg img { display: block; height: 22px; width: auto; }
+@media (max-width: 720px) { .cph-nav-tg { display: none; } }
+
+/* the host's reversed lockup, over the hero photograph */
+.cph-hero-tg {
+  display: flex; align-items: center;
+  margin-bottom: 26px;
+}
+.cph-hero-tg img {
+  display: block; height: 40px; width: auto;
+  filter: drop-shadow(0 2px 14px rgba(6,14,9,0.7));
+}
+@media (max-width: 640px) {
+  .cph-hero-tg { margin-bottom: 20px; }
+  .cph-hero-tg img { height: 32px; }
+}
+
+/* ---------- §02, on the host's ground (.cph-dark) ----------
+   Camp Audax is a camp inside somebody else's village, and for the length
+   of §02 the page moves onto their ground: The Gathering's dark green
+   (#192F2B), their olive (#989B4B), their reversed lockup. The section
+   keeps every component the rest of the page uses — DNA cards, the
+   nesting boxes, the mini-matrix, the note, the pull quote, the buttons —
+   and inverts them by REDECLARING the tokens they are built from, rather
+   than forking a dark copy of each. Anything added to this section later
+   inverts for free; nothing outside it is touched.
+
+   The olive is lifted to #B9BC66 wherever it has to be read rather than
+   just seen: their own olive on their own green is 4.6:1, fine under a
+   logo and a squeeze at 11px mono. */
+.cph-dark {
+  position: relative;
+  overflow: hidden;
+  /* A barely-there vertical drift, so five thousand pixels of one flat
+     green doesn't go dead in the middle. It has to START on their exact
+     #192F2B: the band above ends in a brush edge painted in that value,
+     and a gradient opening a shade lighter puts a hard horizontal line
+     across the page at the join — the one thing the brush edge exists
+     to prevent. */
+  background: linear-gradient(180deg, #192F2B 0%, #1C332E 34%, #152724 100%);
+  /* the foot has to clear the brush edge (.cph-tear.deep, up to 230px) —
+     copy ending inside it gets §03's paper painted over its lower half */
+  padding-bottom: clamp(180px, 23vh, 280px);
+
+  --tg-olive: #989B4B;
+  --tg-olive-lift: #B9BC66;
+
+  /* type, brightest first */
+  --ink-900: #F5F4EA;
+  --ink-800: rgba(245,244,234,0.90);
+  --ink-700: rgba(245,244,234,0.80);
+  --ink-600: rgba(245,244,234,0.70);
+  --ink-500: rgba(245,244,234,0.58);
+  --ink-400: rgba(245,244,234,0.44);
+  --ink-300: rgba(245,244,234,0.32);
+  /* rules and surfaces — cards are a lift off the ground, not a fill */
+  --ink-200: rgba(245,244,234,0.16);
+  --ink-100: rgba(245,244,234,0.10);
+  --ink-050: rgba(245,244,234,0.05);
+  --border-1: rgba(245,244,234,0.16);
+  --border-2: rgba(245,244,234,0.10);
+  --border-strong: rgba(245,244,234,0.30);
+  --surface-white: rgba(245,244,234,0.05);
+  --surface-card: rgba(245,244,234,0.05);
+  --surface-paper: rgba(245,244,234,0.03);
+  --surface-parchment: transparent;
+  /* their olive stands in for our forest wherever the page reaches for an
+     accent: links, the kickers' drawn rule, the tinted cards, the em in
+     the headline */
+  --forest-050: rgba(185,188,102,0.09);
+  --forest-100: rgba(185,188,102,0.14);
+  --forest-200: rgba(185,188,102,0.30);
+  --forest-700: var(--tg-olive-lift);
+  --forest-800: var(--tg-olive-lift);
+  --forest-900: rgba(245,244,234,0.86);
+
+  color: var(--ink-800);
+}
+/* title block: our headline left, their mark and lineage right */
+.cph-tg-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  gap: clamp(32px, 5vw, 76px);
+  align-items: start;
+  margin-bottom: 44px;
+}
+.cph-tg-masthead .q-h1 { margin-bottom: 28px; }
+.cph-tg-masthead .q-body p:last-child { margin-bottom: 0; }
+
+/* their mark, straight onto their ground — no card, per their brand sheet.
+   Capped at the lockup's own width so the rule under it ends where the
+   mark ends, rather than running out into the column. */
+.cph-tg-mark {
+  display: block; text-decoration: none; border-bottom: 0;
+  max-width: 320px;
+}
+.cph-tg-mark img {
+  display: block; width: 100%; height: auto;
+  transition: opacity 240ms var(--ease-out);
+}
+.cph-tg-mark span {
+  display: block; margin-top: 20px; padding-top: 14px;
+  border-top: 1px solid rgba(185,188,102,0.34);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--tg-olive-lift);
+  transition: color 240ms var(--ease-out);
+}
+.cph-tg-mark:hover img { opacity: 0.82; }
+.cph-tg-mark:hover span { color: #F5F4EA; }
+
+/* the lineage — the one thing about the host a reader could not work out
+   from the prose, in the half-width that used to be empty beside the mark */
+.cph-tg-lineage { margin-top: 34px; }
+.cph-tg-lineage h6 {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--tg-olive-lift); margin: 0 0 10px;
+}
+.cph-tg-lineage p {
+  font-size: 14px; font-weight: 300; line-height: 1.6;
+  color: rgba(245,244,234,0.72); margin: 0 0 18px; max-width: 380px;
+}
+/* a trail with a hairline running down it — the same signpost logic as the
+   rail on the left of the page, at paragraph scale */
+.cph-tg-lineage ol {
+  list-style: none; margin: 0; padding: 0 0 0 20px; position: relative;
+}
+.cph-tg-lineage ol::before {
+  content: ''; position: absolute; left: 3px; top: 12px; bottom: 12px;
+  width: 1px; background: rgba(185,188,102,0.3);
+}
+.cph-tg-lineage li {
+  position: relative; padding: 5px 0;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(245,244,234,0.55);
+}
+.cph-tg-lineage li::before {
+  content: ''; position: absolute; left: -20px; top: 10px;
+  width: 7px; height: 7px; border-radius: 50%;
+  border: 1px solid rgba(185,188,102,0.55);
+  background: #192F2B;
+}
+.cph-tg-lineage li.now { color: #F5F4EA; }
+.cph-tg-lineage li.now::before {
+  background: var(--tg-olive-lift); border-color: var(--tg-olive-lift);
+  box-shadow: 0 0 0 4px rgba(185,188,102,0.16);
+}
+
+@media (max-width: 900px) {
+  .cph-tg-masthead { grid-template-columns: 1fr; gap: 36px; }
+  .cph-tg-lineage p { max-width: none; }
+}
+
 /* ---------- 02 · chapter bands ---------- */
 .cph-band {
   position: relative; height: 62vh; min-height: 400px;
@@ -2073,31 +2242,52 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 
    mask-mode is required: a raster mask-image defaults to reading the
    ALPHA channel, and these WebPs are fully opaque, so without it the
-   mask does nothing at all. */
+   mask does nothing at all.
+
+   Two overlays, not one. Unioning the wash and the ramp inside a single
+   mask put the wash layer's own top edge across the page as a straight
+   line: these washes are bright paper right up to their border, so as a
+   luminance mask they switch on at full strength the instant the layer
+   box begins. Splitting them lets the ink layer be INTERSECTED with its
+   own fade — strokes that grow out of nothing — while the ramp keeps the
+   lip solid. */
 .cph-tear {
   position: absolute;
   left: 0; right: 0;
   height: var(--tear-h, clamp(90px, 12vh, 150px));
   z-index: 4;                       /* over the photo + its veil, under the copy */
-  background: var(--tear-ground, var(--surface-parchment));
   pointer-events: none;
-  -webkit-mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, #000 80%);
-          mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, #000 80%);
-  /* The wash layer is confined to the outer 62% of the tear rather than
-     spanning it: at `cover` its white paper punches ground in across the
-     whole height, which reads as milky fog swallowing the photograph.
-     Held to the lip, the same wash reads as bristle marks. */
-  -webkit-mask-size: 100% 62%, 100% 100%;
-          mask-size: 100% 62%, 100% 100%;
+}
+.cph-tear > span {
+  position: absolute; left: 0; right: 0; bottom: 0; display: block;
+  background: var(--tear-ground, var(--surface-parchment));
+}
+/* the solid lip: ground at the outer edge, gone by the time it reaches
+   into the photograph */
+.cph-tear-ramp {
+  top: 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 84%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 84%);
+}
+/* the bristles: the wash, read as luminance, multiplied by a fade so it
+   has no edge of its own. Reaches half a tear-height further up than the
+   ramp, which is what makes the join read as a brushstroke rather than a
+   dissolve. */
+.cph-tear-ink {
+  top: -18%;
+  -webkit-mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.18) 52%, rgba(0,0,0,0.62) 78%, #000 100%);
+          mask-image: var(--tear-image), linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.18) 52%, rgba(0,0,0,0.62) 78%, #000 100%);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+          mask-size: 100% 100%, 100% 100%;
   -webkit-mask-position: center bottom, center;
           mask-position: center bottom, center;
   -webkit-mask-repeat: no-repeat, no-repeat;
           mask-repeat: no-repeat, no-repeat;
-  /* read the wash as luminance, the ramp as its own alpha */
+  /* read the wash as luminance, the fade as its own alpha */
   -webkit-mask-source-type: luminance, alpha;
           mask-mode: luminance, alpha;
-  -webkit-mask-composite: source-over;   /* union */
-          mask-composite: add;
+  -webkit-mask-composite: source-in;     /* multiply, not union */
+          mask-composite: intersect;
 }
 .cph-tear.bottom { bottom: -1px; }
 .cph-tear.deep { --tear-h: clamp(140px, 19vh, 230px); }
@@ -2127,19 +2317,75 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    is photographic, so it reuses the .art-aside grid and swaps the orb
    for a square photograph. Same rhythm as the OS pages, own material.
 
-   Nothing here blends or masks: an orb is ink on paper and has to have
-   its ground multiplied out, a photograph is a photograph and gets the
-   same 16px frame as every other photo on this page. */
-.cph-aside-shot {
-  display: block;
-  width: 100%;
+   The first version was a rounded square sitting inside its column: a
+   print pasted onto the page, and at 377px it read as an afterthought
+   beside the prose rather than as the other half of a spread. Four
+   things carry it now, and they are all the page's existing vocabulary
+   rather than new invention:
+
+     · it BREAKS THE COLUMN, running out past the container into the
+       gutter, so the spread is asymmetric and the photograph is the
+       thing that overflows
+     · its outer edge DISSOLVES into the ground instead of ending on a
+       rounded corner, the same move the brush edges make where a
+       photographic slab meets parchment
+     · the image DRIFTS inside its frame on scroll, so the frame reads
+       as a window rather than a sticker
+     · it arrives on a WIPE from the inner edge, uncovering the picture
+       the way the kickers uncover a label
+
+   The bleed is clamped to the gutter actually available — never to a
+   raw 100vw, which overflows by the width of the scrollbar — and it
+   collapses to nothing once the spread stacks. */
+.cph-plate {
+  --ca-out: min(clamp(24px, 7vw, 132px),
+                calc((100vw - min(100vw, 1180px)) / 2 + 40px));
+  margin: 0;
+  position: relative;
+}
+.cph-plate-win {
+  position: relative;
+  overflow: hidden;
   /* square by default — it matches the orbs' footprint on the OS pages,
      and it is the kindest crop for this library, which is all landscape
      with the subject centred. Pass `ratio` for a shallower figure when
      the prose beside it is only a paragraph or two. */
   aspect-ratio: var(--ca-ratio, 1);
-  object-fit: cover;
-  border-radius: 16px;
+  border-radius: 3px;
+  margin-right: calc(-1 * var(--ca-out));
+  /* solid at the inner edge, gone by the outer one */
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 58%, rgba(0,0,0,0.55) 84%, transparent 100%);
+          mask-image: linear-gradient(90deg, #000 0%, #000 58%, rgba(0,0,0,0.55) 84%, transparent 100%);
+}
+.art-aside.flip .cph-plate-win {
+  margin-right: 0; margin-left: calc(-1 * var(--ca-out));
+  -webkit-mask-image: linear-gradient(270deg, #000 0%, #000 58%, rgba(0,0,0,0.55) 84%, transparent 100%);
+          mask-image: linear-gradient(270deg, #000 0%, #000 58%, rgba(0,0,0,0.55) 84%, transparent 100%);
+}
+/* oversized so the drift never exposes an edge */
+.cph-plate-img {
+  position: absolute; inset: -8% 0;
+  background-size: cover; background-position: center;
+  will-change: translate;
+}
+/* the wipe: the picture is uncovered from the inner edge outwards, and
+   settles out of a slight push in the same direction */
+.cph-plate-win {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1100ms var(--ease-out), opacity 700ms var(--ease-out);
+}
+.cph-plate-live .cph-plate-win:not(.cph-in) { clip-path: inset(0 100% 0 0); opacity: 0; }
+.art-aside.flip .cph-plate-live .cph-plate-win:not(.cph-in),
+.cph-plate-live.flip .cph-plate-win:not(.cph-in) { clip-path: inset(0 0 0 100%); }
+/* the index: a mono plate number at the head of the caption, the same
+   register as the section numerals */
+.cph-plate-idx {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--forest-700);
+  margin-right: 12px; padding-right: 12px;
+  border-right: 1px solid var(--rule-soft, rgba(25,47,43,0.18));
+  white-space: nowrap;
 }
 /* .art-aside-fig figcaption is a centred mono label, right for a one-word
    orb caption and wrong for a sentence; two classes to outrank it. */
@@ -2151,9 +2397,11 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   margin: 10px 2px 0; text-align: left;
 }
 @media (max-width: 900px) {
-  /* .art-aside stacks here and centres the orb; do the same for the photo */
-  .cph-aside-shot { max-width: 420px; margin: 0 auto; }
-  .art-aside-fig .cph-aside-cap { text-align: center; }
+  /* .art-aside stacks here: the bleed becomes a half-bleed to the screen
+     edge on the figure's own side, which is the only asymmetry left once
+     there is no column to break */
+  .cph-plate { --ca-out: 24px; }
+  .cph-plate-win { aspect-ratio: var(--ca-ratio, 4 / 3); }
 }
 
 

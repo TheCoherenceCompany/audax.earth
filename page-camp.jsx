@@ -42,9 +42,15 @@ const GATHERING = (
    Their colours, not ours — used only where we are directly attributing
    them (the credit plaque, the pull-quote citing their own words), never
    bled into Camp Audax's forest palette elsewhere on the page. Values
-   from their brand sheet: dark green #192F2B, olive #989B4B. */
+   from their brand sheet: dark green #192F2B, olive #989B4B.
+
+   §02 now runs on their dark green end to end, so the olive needed a
+   second value: #989B4B on #192F2B is 4.6:1, which is fine under a logo
+   and a squeeze at 11px. OLIVE_LIFT is the same hue carried up to ~6.5:1
+   and is what every olive that has to be *read* on that ground uses. */
 const GATHERING_DARK  = '#192F2B';
 const GATHERING_OLIVE = '#989B4B';
+const GATHERING_OLIVE_LIFT = '#B9BC66';
 
 /* Their swirl mark, traced from TheGatheringLogo.svg (assets/gathering/
    mark.svg) as inline JSX so its fill can carry their exact dark green
@@ -55,31 +61,31 @@ const GatheringMark = ({ size = 24, tone = GATHERING_DARK }) => (
   </svg>
 );
 
-/* The credit plaque uses their tagline lockup (assets/gathering/lockup.png)
-   exactly as their brand sheet shows it used: white mark and wordmark,
-   olive tagline, on their own dark green ground — not squeezed into a
-   white pill of our own invention, which fought their system rather than
-   citing it. The asset ships its background baked in, so the "card" is
-   just the image with rounded corners; no extra chrome added on top of
-   it. The URL sits underneath, in our own type, rather than grafted onto
-   their lockup. Used once, prominently, where The Gathering is first
-   properly introduced. */
+/* Their reversed lockup (assets/gathering/lockup-white.svg — their own
+   "logo white" file, with the tagline in their olive), used exactly as
+   their brand sheet shows it: white mark on their dark green, never
+   boxed and never on our cream. */
+const GATHERING_LOCKUP = 'assets/gathering/lockup-white.svg';
+/* Same file in their dark green, for the nav bar once it goes to parchment. */
+const GATHERING_LOCKUP_DARK = 'assets/gathering/lockup-dark.svg';
+
+/* The mark at the head of §02. It used to be a plaque — a dark green card
+   that supplied the ground their lockup needs, because the section around
+   it was cream. §02 IS that ground now, so the card would be their green
+   on their green: a rectangle you can only see the shadow of. Mark,
+   hairline, address. */
 const GatheringCredit = () => (
-  <a
-    href="https://the-gathering.earth/" target="_blank" rel="noreferrer"
-    style={{ display: 'inline-block', textDecoration: 'none' }}
-  >
-    <img
-      src="assets/gathering/lockup.png" alt="The Gathering — Connect for action"
-      style={{ display: 'block', height: 84, width: 'auto', borderRadius: 12 }}
-    />
-    <div style={{
-      fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500,
-      letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ink-500)',
-      marginTop: 10
-    }}>the-gathering.earth ↗</div>
+  <a href="https://the-gathering.earth/" target="_blank" rel="noreferrer" className="cph-tg-mark">
+    <img src={GATHERING_LOCKUP} alt="The Gathering — Connect for action" />
+    <span>the-gathering.earth ↗</span>
   </a>
 );
+
+/* Where the village has stood. Five Gatherings; the four before this one
+   were held in Portugal, Guatemala and Czechia, which is three countries
+   for four events — so the trail names PLACES and the sentence beside it
+   carries the count, rather than implying one country per year. */
+const CAMP_GATHERING_LINEAGE = ['Portugal', 'Guatemala', 'Czechia', 'California · 2026'];
 
 /* Hero rotation — warm, populated, and legible under the side scrim. */
 const CAMP_HERO_SHOTS = ['feast', 'ceremony', 'crowd-white', 'forest-circle', 'canopy-talk', 'circle-above'];
@@ -187,7 +193,7 @@ const CAMP_GATHERING_DNA = [
 
 /* Outermost first — the nesting renders as literal boxes inside boxes. */
 const CAMP_NESTING = [
-  ['A network of Gatherings', 'Locally stewarded, globally supported. Portugal, now California, more forming. Shared principles, tools, learning and relationships rather than a franchise, and the governance of that shared layer is openly unfinished.'],
+  ['A network of Gatherings', 'Locally stewarded, globally supported. Four so far, in Portugal, Guatemala and Czechia; California is the fifth, and more are forming. Shared principles, tools, learning and relationships rather than a franchise, and the governance of that shared layer is openly unfinished.'],
   ['The Gathering US', '500+ people across 20+ camps on one property, 12–18 October 2026, convened by RegenWorld. A local team holds the infrastructure, safety, finances and coherence of the whole village, so that a camp can get on with being a camp.'],
   ['Camp Audax', 'One camp. Its own crew, culture, programme and questions, with a seat in the Council and a share of the responsibility for the village.'],
   ['You', 'A home at human scale, a role you choose rather than receive, and a field of 500 people you can actually reach from inside it.']
@@ -819,7 +825,7 @@ const CampHero = ({ children, onDots }) => {
     // 1. arm every start state
     const h1 = q('h1');
     cphSplit(h1);
-    [q('.eyebrow'), q('.lede'), q('.hero-ctas')].forEach(cphArm);
+    [q('.cph-hero-tg'), q('.eyebrow'), q('.lede'), q('.hero-ctas')].forEach(cphArm);
     const meta1 = q('.cph-hero-meta');
     const meta2 = q('.cph-hero-meta-2');
     const restore = [meta1, meta2].filter(Boolean).map(el => [el, el.innerHTML]);
@@ -832,6 +838,7 @@ const CampHero = ({ children, onDots }) => {
     void root.offsetHeight;
 
     if (hero) hero.classList.add('cph-lit');
+    cphRise(q('.cph-hero-tg'), 200);
     cphRise(q('.eyebrow'), 260);
     const after = cphStaggerChars(h1, 420, 17);
     h1.classList.add('cph-in');
@@ -916,7 +923,10 @@ const CampTear = ({ image, edge, ground = 'var(--surface-parchment)', flip, deep
     className={`cph-tear ${edge}${flip ? ' flip' : ''}${deep ? ' deep' : ''}`}
     style={{ '--tear-image': `url(${image})`, '--tear-ground': ground }}
     aria-hidden="true"
-  ></div>
+  >
+    <span className="cph-tear-ink"></span>
+    <span className="cph-tear-ramp"></span>
+  </div>
 );
 
 const CampBand = ({ shot, kicker, numeral, label, rate = 0.16, tear, tearTop, tearGround, tearGroundTop }) => {
@@ -1072,6 +1082,13 @@ const CampNav = () => {
       >
         <Logo size={30} />
         <span className="nav-brand-text">Camp Audax</span>
+        {/* The host's lockup rides alongside ours in the bar, behind a
+            divider so the two brands stay separate marks rather than one
+            compound logo. Reversed over the hero, their dark green once
+            the bar goes to parchment. */}
+        <span className="cph-nav-tg">
+          <img src={scrolled ? GATHERING_LOCKUP_DARK : GATHERING_LOCKUP} alt="The Gathering" />
+        </span>
       </button>
       <div className="nav-links">
         <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
@@ -1236,18 +1253,50 @@ const CampPhoto = ({ shot, alt, caption, ratio = '16 / 9' }) => (
    is the difference between a page with pictures in it and a page that
    reads as designed. `flip` puts the figure left — alternate it down the
    page or the figures line up into a column and stop registering. */
-const CampAside = ({ shot, alt, caption, children, flip, ratio, style }) => (
-  <div className={`art-aside${flip ? ' flip' : ''}`} style={style}>
-    <div className="art-aside-body">{children}</div>
-    <figure className="art-aside-fig">
-      <img
-        className="cph-aside-shot" src={CPH(shot)} alt={alt} loading="lazy"
-        style={ratio ? { '--ca-ratio': ratio } : null}
-      />
-      {caption && <figcaption className="cph-aside-cap">{caption}</figcaption>}
-    </figure>
-  </div>
-);
+/* The plate drifts inside its own frame as the spread crosses the
+   viewport — a window onto the photograph rather than a print stuck to
+   the page. Same scrubbed rAF loop as everything else that responds to
+   scroll position here, so it also runs backwards. */
+const cphPlateTick = {
+  classes: ['cph-plate-live'],
+  run: (el) => {
+    const img = el.querySelector('.cph-plate-img');
+    if (!img) return;
+    // -1 below the fold → 1 above it, the same shape as CampBand
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight || 1;
+    if (r.bottom < -200 || r.top > vh + 200) return;
+    const p = ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2);
+    img.style.translate = `0 ${(p * 7).toFixed(2)}%`;
+  }
+};
+
+const CampAside = ({ shot, alt, caption, children, flip, ratio, index, style }) => {
+  const fig = useCampScrub(cphPlateTick);
+  const wipe = useCampReveal();
+  return (
+    <div className={`art-aside cph-spread${flip ? ' flip' : ''}`} style={style}>
+      <div className="art-aside-body">{children}</div>
+      <figure className="art-aside-fig cph-plate" ref={fig}>
+        <div
+          className="cph-plate-win" ref={wipe}
+          style={ratio ? { '--ca-ratio': ratio } : null}
+        >
+          <div
+            className="cph-plate-img" role="img" aria-label={alt}
+            style={{ backgroundImage: `url(${CPH(shot)})` }}
+          ></div>
+        </div>
+        {caption && (
+          <figcaption className="cph-aside-cap">
+            {index && <span className="cph-plate-idx">{index}</span>}
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    </div>
+  );
+};
 
 /* ─── Pattern 08 · persona slider ────────────────────────────────────────
    Who-comes is the decision-making section of this page — the moment a
@@ -1493,7 +1542,14 @@ const PageCamp = ({ onNav }) => {
          be shorter and warmer than the thesis statement it replaced. */}
     <CampHero>
       <div className="hero-inner" style={{ maxWidth: 880 }}>
-        <Eyebrow>The Gathering US · Camp Navarro, California</Eyebrow>
+        {/* Their reversed lockup, the one place at the top of the page where
+            the host's brand belongs — the photo behind it is already dark,
+            so the white mark sits on it without a card. It replaces the
+            eyebrow outright, mark alone — the location and dates are in the
+            meta lines under the lede anyway. */}
+        <div className="cph-hero-tg">
+          <img src={GATHERING_LOCKUP} alt="The Gathering" />
+        </div>
         <h1 className="display lg">
           Six days in the redwoods with the people <em>building what comes next.</em>
         </h1>
@@ -1558,7 +1614,7 @@ const PageCamp = ({ onNav }) => {
             one more interruption; beside the prose it does the same work of
             breaking the run and gives the section a composition */}
         <CampAside
-          shot="reading" alt="Someone reading by the water"
+          shot="reading" alt="Someone reading by the water" index="Plate I"
           caption="A large and quiet population is already asking these questions."
           style={{ marginTop: 12 }}
         >
@@ -1587,10 +1643,14 @@ const PageCamp = ({ onNav }) => {
       </div>
     </section>
 
-    {/* pattern 02 — also the establishing shot for the section below */}
+    {/* pattern 02 — also the establishing shot for the section below.
+        Its foot used to break into parchment; §02 is The Gathering's dark
+        green now, so it breaks into that instead and the photograph, the
+        brush edge and the section read as one continuous descent into
+        their world rather than a dark slab bounced off a cream one. */}
     <CampBand shot="tents" kicker="Camp Navarro" numeral="II" label="A working village in the forest"
       tearTop={ART.crest} tearGroundTop="var(--surface-parchment)"
-      tear={ART.spray} tearGround="var(--surface-parchment)" rate={0.16} />
+      tear={ART.spray} tearGround={GATHERING_DARK} rate={0.16} />
 
     {/* ─── 02 · THE GATHERING ───────────────────────────────────────────────
          The context every other section assumes. Camp Audax is a camp
@@ -1598,20 +1658,50 @@ const PageCamp = ({ onNav }) => {
          what The Gathering is will read this whole page as our festival.
          Sits here, before Who comes, because the container has to exist
          before the room inside it means anything. Sources and the reasons
-         for its restraint are at CAMP_GATHERING_PARTS above. */}
-    <section className="section" id="the-gathering" style={anchor}>
-      <div className="container">
-        <CampInk className="q-h1">
-          <span className="num">02 · The Gathering</span>
-          What are we <em>a camp inside?</em>
-        </CampInk>
+         for its restraint are at CAMP_GATHERING_PARTS above.
 
-        <div style={{ margin: '0 0 40px' }}>
-          <GatheringCredit />
+         The whole section runs on the host's ground — .cph-dark, at the
+         end of site.css, which swaps the page's tokens for The Gathering's
+         dark green and olive so every component inside inverts without
+         being forked. For the length of one section the reader is inside
+         somebody else's brand, which is the argument the section is
+         making. It ends in a brush edge back to §03's paper. */}
+    <section className="section cph-dark" id="the-gathering" style={anchor}>
+      <div className="container">
+        {/* Title block: our headline left, their mark and lineage right.
+            The mark used to sit alone under the headline with half the
+            width empty beside it; here the empty half carries the thing a
+            reader could not otherwise know — that this is the fifth of
+            these, and the first outside Europe and Latin America. */}
+        <div className="cph-tg-masthead">
+          <div>
+            <CampInk className="q-h1">
+              <span className="num">02 · Our host</span>
+              About <em>The Gathering</em>
+            </CampInk>
+            {/* the opening claim rides up into the title block: the mark and
+                the lineage stand about 380px tall, and a headline alone
+                beside them leaves that much empty column under it */}
+            <div className="q-body">
+              <p>Camp Audax is not an event we are putting on. It is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for seven days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
+            </div>
+          </div>
+
+          <div className="cph-tg-panel">
+            <GatheringCredit />
+            <div className="cph-tg-lineage">
+              <h6>The fifth Gathering</h6>
+              <p>The four before this one were held in Portugal, Guatemala and Czechia. California is the first in the United States.</p>
+              <ol>
+                {CAMP_GATHERING_LINEAGE.map((place, i) => (
+                  <li key={place} className={i === CAMP_GATHERING_LINEAGE.length - 1 ? 'now' : undefined}>{place}</li>
+                ))}
+              </ol>
+            </div>
+          </div>
         </div>
 
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Camp Audax is not an event we are putting on. It is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for seven days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
           <p>The Gathering is a co-created, camp-centred gathering in nature, built to help people and organisations across fragmented fields form belonging, trust, shared context, and pathways towards continued collaboration. Its visible form is a village: camps, shared meals, conversation, art, workshops, fire, ceremony, music, rest, celebration. Its deeper form is a social architecture — camps as the organising cells, a Nest where camp leaders prepare together for months beforehand, a Council that senses across all of them, a welcome gate and ceremonies to mark the threshold, and a continuity layer built to carry what happens past the closing fire. That architecture is why we chose to be a camp rather than hire a venue.</p>
           <p>The shift is from audience to ecosystem. Nobody here is only a consumer of a programme: participants are camp members, hosts, contributors and possible stewards, and organisations express their culture by building a camp rather than sponsoring a stage. This is emphatically not leaderless — it demands strong, visible, distributed leadership, and says so plainly in its own briefing — and co-creation means real agency, not unpaid labour.</p>
         </div>
@@ -1640,7 +1730,14 @@ const PageCamp = ({ onNav }) => {
           None of it counts until it changes roles, budgets, spaces, schedules and who gets to decide. Put the six words on a poster while the organisers keep all the agency, and it's brand varnish, not Gathering architecture. Hold us to that test too.
         </p>
 
-        <CampPhoto shot="mandala" alt="A green mandala laid on the ground" caption="Nothing on the property arrives finished. Somebody makes it, on the day, out of what is there." />
+        {/* Was shot="mandala", which is not a mandala: that file is the
+            same pale leaf-shadow frame §05 uses as `shadow`, so §02 ran a
+            duplicate under an alt text describing a photograph that isn't
+            there — and a cold blue-grey one, which is the last thing this
+            ground wants. `carpet` is what the caption was always
+            describing: a circle on a rug outside a bell tent with an altar
+            of cut flowers and tealights laid on the ground at its centre. */}
+        <CampPhoto shot="carpet" alt="A circle of people seated on a patterned rug outside a bell tent, around a small altar of flowers and candles" caption="Nothing on the property arrives finished. Somebody makes it, on the day, out of what is there." />
 
         {/* pattern 07 */}
         <CampKicker>Where Camp Audax sits</CampKicker>
@@ -1689,14 +1786,16 @@ const PageCamp = ({ onNav }) => {
             Saying that out loud is the good sign, not the warning. It is also why Camp Audax designs so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See <a href="#camp/the-week" onClick={(e) => { e.preventDefault(); jump('the-week'); }} style={{ color: 'var(--forest-700)' }}>the coherence loop</a>.
           </p>
           <blockquote style={{
-            margin: 0, paddingLeft: 18, borderLeft: `2px solid ${GATHERING_OLIVE}`,
+            margin: 0, paddingLeft: 18, borderLeft: `2px solid ${GATHERING_OLIVE_LIFT}`,
             fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
             fontStyle: 'italic', lineHeight: 1.45, color: 'var(--forest-800)'
           }}>
             “The poetry is the promise of joyful interdependence. The machinery is camps, boundaries, roles, rhythms, governance, and follow-through. It will need both.”
+            {/* their mark, on their own ground now — the dark-green fill it
+                carried on cream would be invisible here */}
             <footer style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 14 }}>
-              <GatheringMark size={14} tone={GATHERING_DARK} />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontStyle: 'normal', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: GATHERING_OLIVE }}>
+              <GatheringMark size={14} tone={GATHERING_OLIVE_LIFT} />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontStyle: 'normal', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: GATHERING_OLIVE_LIFT }}>
                 The Gathering, on itself
               </span>
             </footer>
@@ -1710,20 +1809,17 @@ const PageCamp = ({ onNav }) => {
 
         <CampQuote>We did not want to run our own festival. <em>We wanted a village to be a citizen of.</em></CampQuote>
       </div>
+
+      {/* Leaving their ground. This join used to be a bare tone step
+          relieved by a wash rule, but a wash rule composites its artwork
+          with multiply — dark ink on a dark green ground is a black
+          smudge — and it would now sit under a hard horizontal cut
+          anyway. The brush edge does both jobs at once, and it is the
+          same device every photographic slab on this page ends in.
+          Literal #F7F5EC, not var(--surface-paper): inside .cph-dark that
+          token has been redeclared as a translucent white. */}
+      <CampTear image={ART.wave} edge="bottom" ground="#F7F5EC" deep />
     </section>
-
-    {/* §02 and §03 met on a bare tone step — the only two section joins on
-        this page without a photographic band between them. A wash rule is
-        the quiet relief the OS pages use at exactly these joins, and the
-        library is already on this page: every band edge dissolves through
-        one of these washes. Two of them bracket §03.
-
-        wave and spray, not tide/thicket: those two are the only washes in the
-        library nobody uses, and looking at them shows why — tide is a scan
-        with the paper's own cut edge in frame, which lands as a hard vertical
-        line across the band, and both are a saturated teal that fights the
-        forest palette the photography sits in. */}
-    <WashRule image={ART.wave} from="parchment" to="paper" />
 
     {/* ─── 03 · WHO COMES ───────────────────────────────────────────────────
          Merges the old §04 Wisdom and §03 Who comes. The argument for why
@@ -1737,7 +1833,7 @@ const PageCamp = ({ onNav }) => {
         {/* the section where a reader decides whether the room is for them,
             so the argument opens beside a photograph of the room */}
         <CampAside
-          shot="table" alt="Conversation around a stone table" flip
+          shot="table" alt="Conversation around a stone table" flip index="Plate II"
           caption="The design table, with more than one discipline at it."
         >
           <div className="q-body">
@@ -2058,7 +2154,7 @@ const PageCamp = ({ onNav }) => {
             a place — it carried no photograph of that place at all. This
             paragraph describes the land, so the land runs beside it. */}
         <CampAside
-          shot="path" alt="Someone walking a hedged path"
+          shot="path" alt="Someone walking a hedged path" index="Plate III"
           caption="Camp Navarro, between sessions."
         >
           <div className="q-body">
@@ -2156,7 +2252,7 @@ const PageCamp = ({ onNav }) => {
             a square here would tower over four lines of type. Breaks the
             table-then-FAQ stretch, which is the last dry run on the page. */}
         <CampAside
-          shot="studio" alt="People working together at a materials table" flip
+          shot="studio" alt="People working together at a materials table" flip index="Plate IV"
           ratio="4 / 3" caption="Real commitments, real tensions, real materials."
         >
           <div className="q-body">
