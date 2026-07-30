@@ -32,20 +32,49 @@ Every entry carries **what we take** and **where it stops**. The second line is 
 
 ## 1 · Lineage — our own
 
-### Teal for Startups (2014– ) **[yours]**
-The direct ancestor. A twelve-year inquiry into how startups might be more purposeful,
-self-organising, developmental and fully human.
+### Teal for Startups (2016–2017) **[yours]**
+An online volunteer working group co-initiated by Victor Vorski and Malek Jaber, gathering around
+150 people to apply the ideas in Laloux's *Reinventing Organisations* to organisations that were
+still forming. Its stated output: *"A Conversation, A Whitepaper, A Community, A Movement."* Its
+first named deliverable: **a "Development Map" for organising the knowledge a next-generation
+startup needs.** Everything was to be released CC0, into the public domain.
 
-- **What we take:** the founding question, and twelve years of contact with reality — what people
-  actually adopted, what they abandoned in month four, and where the language got in the way.
-- **Where it stops:** it was designed before distributed work was normal, before fractional
-  participation was common, and entirely before agents. **The honest retrospective has not been
-  written yet** — what it attempted, who took part, what failed, and why. Until it exists, this
-  entry is a claim rather than evidence, and it sits on the map as a contested region.
+- **What we take:** the question, and the unfinished deliverable. The map on this site is the second
+  attempt at the artifact that working group set out to draw and did not finish. The commons
+  commitment carries straight through — Teal for Startups was CC0 in 2016, and Lab №1 is CC0 today.
+- **Where it stops:** it produced the conversation, the community and the movement. It did not
+  produce the map. In the initiator's own account: *"a lot of connection and discussion happened but
+  did not translate into producing a Teal Startup Development Map or a Whitepaper… the collaboration
+  framework was not appropriate."* There were core-team alignment problems, and the work of building
+  a distributed volunteer organisation was underestimated by everyone involved.
 - **Touches:** all
 
-> ⚠️ *This is the entry that most needs you. Everything else on the page I can research; this one
-> only you hold.*
+**What it learned — carried forward verbatim:**
+
+| 2016 | Where it lands now |
+|---|---|
+| *"Easy to get expressions of interest… much harder to turn this interest into contribution."* | `Why?` §7, the collaboration gap — currently making this argument without crediting where it came from |
+| *"Most people are comfortable communicating online, few are proficient at collaborating online."* | The premise of the whole site |
+| *"There is a lack of tool support for distributed volunteer organisations."* | The founding gap. Still true. |
+| *"Core team alignment requires a lot of deep in-person time."* · *"Online collaboration needs the cement of in-person human connection."* | **Camp Audax.** The camp is the answer to a failure mode diagnosed ten years earlier. |
+| *"Important parts are missing from the model in Reinventing Organisations. A complete picture requires a new definition of wealth, leadership and personal development."* | Visibly the seed of three of the Five Spheres — Value Accounting, Human Relationship & Purpose, Development & Learning. |
+| *"Good structure is liberating."* | Why this is an architecture and not a manifesto. |
+
+**Its two open questions, asked in 2016, still open:**
+
+1. What does leadership mean in a next-stage organisation, and in a volunteer group in particular?
+2. How do you build a structure for distributed volunteer collaboration that is easy to understand,
+   easy to onboard into, and actually enables co-creation?
+
+Both belong on the map as dated regions — *asked 2016, still open*. A question with a decade on it
+is the strongest possible evidence that this is an inquiry rather than a launch.
+
+> **Sources:** the CC0 One Page Brief (`tealstartup.wordpress.com`) and Victor's retrospective,
+> *"Thank you Teal for Startups, Hello Village 3.0"*, republished by Enlivening Edge.
+>
+> ⚠️ **Two facts to confirm before this publishes.** You said 2016–2017 and ~150 people. The brief
+> says *"around 200 people"*; the article dates the working group 2015/2016. Your numbers are drafted
+> above — tell me which to publish. It is the kind of detail a reader checks.
 
 ---
 
@@ -398,7 +427,10 @@ Stocks, flows, feedback, and where to intervene in a system.
 
 ## Open questions for you
 
-1. **Teal for Startups** — the retrospective. Nothing else on this page can substitute for it.
+1. **Teal for Startups** — mostly answered now by the brief and the Enlivening Edge article. Confirm
+   the date range and headcount (see the entry), and say whether Malek Jaber should be named as
+   co-initiator — he is named in your own published article, but being written into a new project's
+   origin story a decade later is a thing people should be asked about, not surprised by.
 2. **Enspiral** — real influence, or my inference? Strong entry if real, delete if not.
 3. **Beer's VSM** — did the five layers actually come from somewhere, or arrive independently? The
    answer changes whether this is an influence or a convergence, and both are worth saying.
