@@ -123,6 +123,19 @@ const CAMP_RIBBON = [
   ['canopy', 'Tree canopy against the sky']
 ];
 
+/* ─── The front door ─────────────────────────────────────────────────────
+   There is no application form yet. JOIN_URL is the camp's Telegram
+   channel, so every call to action on this page says what it actually
+   does rather than promising an application it cannot deliver — a button
+   labelled "Apply to join Camp Audax" that opens a group chat costs more
+   trust than the word buys, and applications will open in that channel
+   first in any case. The day the form exists, point JOIN_URL at it and
+   change these three strings plus the "How to join" row in
+   CAMP_PRACTICAL; nothing else on the page hard-codes the wording. */
+const CAMP_CTA = 'Join the camp channel';
+const CAMP_CTA_SHORT = 'Join us';
+const CAMP_CTA_NOTE = 'Applications open soon — the channel is where they open first.';
+
 /* The whole navigation. Seven anchors, in reading order: the argument,
    the village we are a camp in, the room, the week, the distinctive
    thing, the payoff, the logistics. Each carries a mile marker and an
@@ -267,33 +280,42 @@ const CAMP_QUESTIONS = [
   'What does a genuinely inspiring story about AI and society sound like, and who tells it?'
 ];
 
+/* `short` is second person and one line, because it is read in the
+   self-select strip directly under the hero — where the only job is to
+   let someone recognise themselves before they are asked to read
+   anything. The long fields are for the slider in §03. */
 const CAMP_PROFILES = [
   {
     n: 'I', name: 'The Builder',
+    short: 'You are shipping AI tools, and you want them to meet the world they are for.',
     working: 'AI and digital tools for collective intelligence, sensemaking, agents for teamwork, organisational intelligence, impact measurement, ecosystem infrastructure.',
     brings: ['Working systems', 'Architecture', 'What actually ships', 'The state of the possible'],
     benefit: 'Your work meets the wider transition it is part of — and people sharp enough to ask better questions of it.'
   },
   {
     n: 'II', name: 'The Entrepreneur',
+    short: 'You are turning this into something people actually use, and pay for.',
     working: 'Product, go-to-market, business models, partnerships, adoption, organisational development, venture creation.',
     brings: ['Distribution', 'Durability', 'Commercial reality', 'The path from prototype to used'],
     benefit: 'Collaborators, users and early customers — plus the clearest read you will get all year on where this field is heading.'
   },
   {
     n: 'III', name: 'The Investor',
+    short: 'You decide which futures get funded, which is to say which get attempted.',
     working: 'Directing capital towards beneficial AI, impact portfolios, philanthropic strategy, ecosystem funding.',
     brings: ['Capital', 'Field-level view', 'Pattern recognition across teams'],
     benefit: 'A live map of teams, tools, narratives and gaps — built over six days in person, not from a stack of decks.'
   },
   {
     n: 'IV', name: 'The Ecosystem Practitioner',
+    short: 'You work where these tools land, and you know what they get wrong.',
     working: 'Networks, movements, communities, cooperatives, public initiatives, regenerative projects applying these technologies in real contexts.',
     brings: ['The ground truth', 'Real constraints', 'The needs that should shape what gets built'],
     benefit: 'Tools, partners and technical collaborators who want to build for the conditions you actually operate in.'
   },
   {
     n: 'V', name: 'The Wisdom Keeper',
+    short: 'You hold the questions that should shape this while it is still soft.',
     working: 'Philosophy, psychology, anthropology, sociology, governance, spiritual and human development, systems change, culture and narrative.',
     brings: ['The questions worth asking', 'Long time horizons', 'Moral seriousness'],
     benefit: 'A seat inside the design process — early enough that your questions still shape what gets built.'
@@ -354,7 +376,7 @@ const CAMP_PRACTICAL = [
   ['Location', 'Camp Navarro, 901 Masonite Industrial Rd, Navarro, CA 95463'],
   ['Duration', '7 days, 6 nights'],
   ['Capacity', 'TBC'],
-  ['How to join', 'Apply to join us — details TBC'],
+  ['How to join', 'Join the camp channel and talk to us. Formal applications open there first — dates TBC'],
   ['Cost', "Camp ticket TBC · accommodation from $35/night (tent) to $50/night (cabin or glamping) · meal plans $150 (3-day) or $300 (6-day) · bedding package $50"],
   ['Food', "Breakfast and dinner daily from Camp Navarro's kitchen, plus café, pizza and BBQ through the day"],
   ['Language', 'English'],
@@ -382,34 +404,23 @@ const CAMP_CONVENING = [
 const CAMP_TEAM_API = 'https://view.the-gathering.earth/public/gatherings/2026-usa-california/camps/camp-audax-usa-2026/';
 const campPersonApi = (id) => `https://view.the-gathering.earth/public/people/${id}/`;
 
-/* Brand icons — fetched at runtime from The Gathering's published sprite, so a
-   link on this card carries the same mark it carries upstream and tracks it
-   without this file holding its own copy. Lucide dropped brand/social logos,
-   and the generic stand-ins this used to reach for — 'link' for LinkedIn,
-   'camera' for Instagram, 'play' for YouTube — read as the wrong thing.
+/* Brand icons. Vendored, like their lockup and mark beside it — this is brand
+   chrome, not roster data, so it lives in the repo where a change to it is a
+   reviewable diff rather than something that arrives silently. Lucide dropped
+   brand/social logos, and the generic stand-ins this used to reach for —
+   'link' for LinkedIn, 'camera' for Instagram, 'play' for YouTube — read as
+   the wrong thing entirely.
 
-   Fetched-and-injected rather than referenced: <use href> does not resolve
-   cross-origin, whatever the CORS headers say. The sprite is served
-   `immutable` with `access-control-allow-origin: *` from the same host as the
-   roster above, so this adds no failure mode the team section didn't already
-   have — if that host is down there are no cards to put icons on. */
-const TGG_SPRITE_URL = 'https://view.the-gathering.earth/static/common/img/icons.svg';
+   Copied byte-for-byte from The Gathering's published sprite:
+   view.the-gathering.earth/static/common/img/icons.svg (19 marks, all
+   currentColor at 24×24). Outlines are Lucide (ISC), solid logos are Simple
+   Icons (CC0). Re-download that file to update.
+
+   Fetched and injected rather than referenced directly, even same-origin:
+   <use href="file.svg#id"> against an external file is still unreliable in
+   Safari, and injecting the symbols works everywhere. */
+const TGG_SPRITE_URL = 'assets/gathering/icons.svg';
 const TGG_SPRITE_MOUNT_ID = 'tgg-brand-sprite';
-
-/* Remote markup entering the DOM as elements, so take only the <symbol>s and
-   drop anything that could execute. The sprite is first-party, but it is still
-   another origin's file and the roster is consumed as text, not as HTML. */
-const campScrubSvg = (node) => {
-  node.querySelectorAll('script, foreignObject, a').forEach(n => n.remove());
-  [node, ...node.querySelectorAll('*')].forEach(el => {
-    [...el.attributes].forEach(a => {
-      if (/^on/i.test(a.name) || (/^(href|xlink:href)$/i.test(a.name) && /^\s*javascript:/i.test(a.value))) {
-        el.removeAttribute(a.name);
-      }
-    });
-  });
-  return node;
-};
 
 /* null while in flight, a Set of available icon names once mounted, false if
    the sprite could not be loaded. Mounted once per document, not per render. */
@@ -432,7 +443,7 @@ const useTggSprite = () => {
         const symbols = [...parsed.querySelectorAll('symbol')];
         if (!symbols.length) throw new Error('sprite had no symbols');
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        symbols.forEach(sym => svg.appendChild(campScrubSvg(sym)));
+        symbols.forEach(sym => svg.appendChild(sym));
         const mount = document.createElement('div');
         mount.id = TGG_SPRITE_MOUNT_ID;
         mount.setAttribute('aria-hidden', 'true');
@@ -1018,7 +1029,7 @@ const CampHero = ({ children, onDots }) => {
     // 1. arm every start state
     const h1 = q('h1');
     cphSplit(h1);
-    [q('.cph-hero-tg'), q('.eyebrow'), q('.lede'), q('.hero-ctas')].forEach(cphArm);
+    [q('.cph-hero-tg'), q('.eyebrow'), q('.lede'), q('.hero-ctas'), q('.cph-hero-note')].forEach(cphArm);
     const meta1 = q('.cph-hero-meta');
     const meta2 = q('.cph-hero-meta-2');
     const restore = [meta1, meta2].filter(Boolean).map(el => [el, el.innerHTML]);
@@ -1040,6 +1051,7 @@ const CampHero = ({ children, onDots }) => {
     // are throttled in background tabs and the two lines would overlap
     cphType(meta1, after + 320, 900, () => cphType(meta2, 140, 620));
     cphRise(q('.hero-ctas'), after + 1400);
+    cphRise(q('.cph-hero-note'), after + 1560);
 
     // failsafe: nothing about an entry animation should ever be able to
     // leave the hero copy invisible
@@ -1261,13 +1273,39 @@ const CampRibbon = () => (
    sheet. */
 const CampNav = () => {
   const [scrolled, setScrolled] = React.useState(false);
+  /* The bar stays out of the way while the hero is on screen. The hero
+     already carries both marks and the primary CTA, so a bar there only
+     repeated The Gathering's lockup directly above the big one — two of the
+     same mark, a hand's width apart. It slides in once that mark leaves.
+
+     Keyed to the hero lockup's own visibility rather than a scroll offset,
+     so arriving on a deep link part-way down the page gets the bar
+     immediately instead of only after the first scroll. */
+  const [heroMarkVisible, setHeroMarkVisible] = React.useState(true);
+
   React.useEffect(() => {
+    // Initialise from the current position, don't wait for a scroll event:
+    // a deep link lands already scrolled, and the bar's reversed lockup is
+    // invisible against the parchment ground it gets once past the hero.
     const on = () => setScrolled(window.scrollY > 8);
+    on();
     window.addEventListener('scroll', on);
     return () => window.removeEventListener('scroll', on);
   }, []);
+
+  React.useEffect(() => {
+    const mark = document.querySelector('.cph-hero-tg');
+    if (!mark) { setHeroMarkVisible(false); return; }  // no hero to defer to
+    const io = new IntersectionObserver(
+      ([entry]) => setHeroMarkVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    io.observe(mark);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <nav className={`nav cph-nav${scrolled ? ' scrolled' : ''}`}>
+    <nav className={`nav cph-nav${scrolled ? ' scrolled' : ''}${heroMarkVisible ? ' cph-nav-stowed' : ''}`}>
       <button
         className="nav-brand" type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -1285,7 +1323,7 @@ const CampNav = () => {
       </button>
       <div className="nav-links">
         <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
-          Apply
+          {CAMP_CTA_SHORT}
         </button>
       </div>
     </nav>
@@ -1363,7 +1401,7 @@ const CampSignposts = ({ active, onJump }) => {
         </div>
         <div className="cph-sp-drawer-foot">
           <button className="cph-sp-drawer-cta" type="button" onClick={() => window.open(JOIN_URL, '_blank')}>
-            Apply to join Camp Audax
+            {CAMP_CTA}
           </button>
         </div>
       </aside>
@@ -1381,7 +1419,7 @@ const CampFooter = ({ onJump, onNav }) => (
         <a
           href={JOIN_URL} target="_blank" rel="noreferrer"
           className="footer-join-btn"
-        >Apply to join</a>
+        >{CAMP_CTA}</a>
       </div>
       <div className="footer-col">
         <h6>On this page</h6>
@@ -1490,6 +1528,97 @@ const CampAside = ({ shot, alt, caption, children, flip, ratio, index, style }) 
     </div>
   );
 };
+
+/* ─── Candour, consolidated ──────────────────────────────────────────────
+   Moved down from §02 (see the note at its old site). Word for word the
+   same block; the only changes are for the ground it now sits on. Their
+   olive was lifted to OLIVE_LIFT to survive their dark green — on
+   forest-050 that lift is a pale wash, so the citation goes to forest-800
+   and the mark to their own dark green, which is how their brand sheet
+   uses it on a light ground anyway. The olive stays on the rule, where a
+   2px line has nothing to be legible about. */
+const CampCandour = ({ onJump }) => (
+  <div style={{ ...campNote, marginTop: 8 }}>
+    <h6 style={campNoteH6}>What is tested, and what is still a hypothesis</h6>
+    <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
+      This has been run before, locally, more than once, and it delivers: friendships, organisational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards — all still developing, and we say so.
+    </p>
+    <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
+      Saying that out loud is the good sign, not the warning. It is also why we design so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See <a href="#camp/the-week" onClick={(e) => { e.preventDefault(); onJump('the-week'); }} style={{ color: 'var(--forest-700)' }}>the coherence loop</a>.
+    </p>
+    <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 20px' }}>
+      The same applies to us. Our own camp is early: some of the roles above are still open, the ticket price is not fixed, and Sorrel is a working name attached to a prototype. You would be joining something at the stage where joining still changes it.
+    </p>
+    <blockquote style={{
+      margin: 0, paddingLeft: 18, borderLeft: `2px solid ${GATHERING_OLIVE}`,
+      fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
+      fontStyle: 'italic', lineHeight: 1.45, color: 'var(--forest-800)'
+    }}>
+      “The poetry is the promise of joyful interdependence. The machinery is camps, boundaries, roles, rhythms, governance, and follow-through. It will need both.”
+      <footer style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 14 }}>
+        <GatheringMark size={14} tone={GATHERING_DARK} />
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontStyle: 'normal', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--forest-800)' }}>
+          The Gathering, on itself
+        </span>
+      </footer>
+    </blockquote>
+  </div>
+);
+
+/* ─── The apply block ────────────────────────────────────────────────────
+   §07 used to run price table → FAQ → a photograph, and end. Someone who
+   has just read the costs and the seven questions is the most decided
+   reader on the page, and there was no way to act from there — they had
+   to scroll past the ribbon to the closing section to find a button. This
+   is that button, at the point of highest intent, and it repeats the two
+   facts that decide it: the dates and what joining actually does. */
+const CampApply = () => (
+  <div className="cph-apply">
+    <h3>Still reading?</h3>
+    <p>
+      Then you are probably one of the five. Camp Navarro, 12–18 October 2026, seven days and six nights,
+      with builders, entrepreneurs, investors, practitioners and wisdom keepers in one forest.
+    </p>
+    <div className="cph-apply-ctas">
+      <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
+    </div>
+    <p className="cph-apply-note">
+      {CAMP_CTA_NOTE} Scholarship and volunteer places are held — say so in the channel and we will talk.
+    </p>
+  </div>
+);
+
+/* ─── Self-select strip ──────────────────────────────────────────────────
+   The five profiles are where a reader decides the room is for them, and
+   the full slider sits in §03 behind the whole argument — a dozen screens
+   down. This is the same five, one line each, directly under the hero:
+   whether you are invited should not cost you three thousand words to
+   find out. Deliberately a teaser and not a second copy of the slider —
+   every card lands on the real thing, which keeps §03 the place where the
+   profiles are actually read. */
+const CampProfileStrip = ({ profiles, onJump }) => (
+  <section className="section-tight cph-strip-sec">
+    <div className="container">
+      <CampKicker bottom={18}>Five profiles, one room · one of these is you</CampKicker>
+      <CampCascade step={45} className="cph-strip">
+        {profiles.map(p => (
+          <button
+            key={p.name} type="button" className="cph-strip-it"
+            onClick={() => onJump('who-comes')}
+          >
+            <span className="n">{p.n}</span>
+            <span className="nm">{p.name}</span>
+            <span className="sh">{p.short}</span>
+          </button>
+        ))}
+      </CampCascade>
+      <p className="cph-strip-foot">
+        Each brings something the others need, and the value is in all five being in one forest in one week.{' '}
+        <button type="button" onClick={() => onJump('who-comes')}>Read the five in full ↓</button>
+      </p>
+    </div>
+  </section>
+);
 
 /* ─── Pattern 08 · persona slider ────────────────────────────────────────
    Who-comes is the decision-making section of this page — the moment a
@@ -1750,14 +1879,19 @@ const PageCamp = ({ onNav }) => {
           Camp Navarro, Northern California&nbsp; ·&nbsp; <span className="cph-date">12–18 October 2026</span>
         </p>
         <p className="cph-hero-meta cph-hero-meta-2">
-          7 days, 6 nights · applications close TBC
+          7 days, 6 nights · applications open soon
         </p>
         <div className="hero-ctas" style={{ marginTop: 36 }}>
-          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Apply to join Camp Audax</Button>
+          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
           <Button variant="ghost" onClick={() => jump('the-agent')}>Meet Sorrel, the camp agent</Button>
         </div>
+        <p className="cph-hero-note">{CAMP_CTA_NOTE}</p>
       </div>
     </CampHero>
+
+    {/* Self-selection, before the argument rather than twelve screens into
+        it. See CampProfileStrip. */}
+    <CampProfileStrip profiles={CAMP_PROFILES} onJump={jump} />
 
     {/* ─── 01 · WHY ─────────────────────────────────────────────────────────
          The argument, and now the very first thing under the hero: nothing
@@ -1954,7 +2088,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker top={56}>What it runs on</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Six principles hold this together. Read each one next to the thing it gets mistaken for — in every case the mistake is the cheaper version, and from outside the two look identical.</p>
+          <p>The Gathering calls these six its DNA, and they are not house rules or values on a wall — they are what the format is made of. Read each one next to the thing it gets mistaken for: in every case the mistake is the cheaper version, and from outside the two look identical.</p>
         </div>
         <CampCascade style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
           {CAMP_GATHERING_DNA.map(([term, meaning, mistaken]) => (
@@ -1963,6 +2097,19 @@ const PageCamp = ({ onNav }) => {
               padding: '20px 22px', background: 'var(--surface-white)',
               border: '1px solid var(--border-1)', borderRadius: 12
             }}>
+              {/* Their own mark for each element, in its native colour via a
+                  plain <img> — what their brand page asks for: mask a box to
+                  tint, <img> to keep the colour.
+
+                  The dark-ground weight (#B9BB72), not the -600 (#989B4B):
+                  this section redefines --surface-white to a 5% cream wash,
+                  so despite the name these cards sit on the dark band, which
+                  is the tile their brand page shows this weight on. */}
+              <img
+                src={`assets/gathering/dna/${term.toLowerCase()}.svg`}
+                alt="" aria-hidden="true"
+                style={{ width: 34, height: 34, display: 'block', marginBottom: 12 }}
+              />
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, letterSpacing: '-0.015em', color: 'var(--ink-900)', marginBottom: 8 }}>{term}</div>
               <div style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', marginBottom: 16 }}>{meaning}</div>
               <div style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px dashed var(--forest-200)' }}>
@@ -2023,32 +2170,16 @@ const PageCamp = ({ onNav }) => {
           ))}
         </CampCascade>
 
-        <div style={{ ...campNote, marginTop: 40 }}>
-          <h6 style={campNoteH6}>What is tested, and what is still a hypothesis</h6>
-          <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
-            This has been run before, locally, more than once, and it delivers: friendships, organisational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards — all still developing, and we say so.
-          </p>
-          <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 20px' }}>
-            Saying that out loud is the good sign, not the warning. It is also why we design so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See <a href="#camp/the-week" onClick={(e) => { e.preventDefault(); jump('the-week'); }} style={{ color: 'var(--forest-700)' }}>the coherence loop</a>.
-          </p>
-          <blockquote style={{
-            margin: 0, paddingLeft: 18, borderLeft: `2px solid ${GATHERING_OLIVE_LIFT}`,
-            fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 400,
-            fontStyle: 'italic', lineHeight: 1.45, color: 'var(--forest-800)'
-          }}>
-            “The poetry is the promise of joyful interdependence. The machinery is camps, boundaries, roles, rhythms, governance, and follow-through. It will need both.”
-            {/* their mark, on their own ground now — the dark-green fill it
-                carried on cream would be invisible here */}
-            <footer style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 14 }}>
-              <GatheringMark size={14} tone={GATHERING_OLIVE_LIFT} />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontStyle: 'normal', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: GATHERING_OLIVE_LIFT }}>
-                The Gathering, on itself
-              </span>
-            </footer>
-          </blockquote>
-        </div>
+        {/* "What is tested, and what is still a hypothesis" used to sit
+            here. It is the most honest block on the page and it was doing
+            damage where it stood: a reader met the caveats about continuity
+            and governance eight screens in, before they had formed any
+            positive commitment, and doubt landing before desire simply
+            subtracts. It now sits with the FAQ in §07 — same words, read as
+            integrity by someone already deciding rather than as hedging by
+            someone still being persuaded. See CampCandour below. */}
 
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 32 }}>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 40 }}>
           <Button variant="secondary" icon="arrow-right" onClick={() => window.open('https://regenworld.net/', '_blank')}>The Gathering US — regenworld.net</Button>
           <Button variant="ghost" onClick={() => window.open('https://the-gathering.earth/', '_blank')}>The wider network</Button>
         </div>
@@ -2331,6 +2462,9 @@ const PageCamp = ({ onNav }) => {
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: 0 }}>Sorrel is available when useful and quiet when it is not. Sometimes the best interface is a recorder on a table or a single physical display, rather than an app pecking at everyone's pockets in a forest.</p>
         </div>
 
+        {/* not relabelled to CAMP_CTA: this one never claimed to be an
+            application, and "help raise Sorrel" is a truthful description
+            of what joining the channel gets you. */}
         <Button icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Help raise Sorrel</Button>
 
         <CampQuote>An agent can remind us of the promise. <em>The promise is still ours to make.</em></CampQuote>
@@ -2482,7 +2616,23 @@ const PageCamp = ({ onNav }) => {
           </tbody>
         </table>
 
-        <CampKicker>FAQ</CampKicker>
+        {/* one paragraph, so a shallower figure than the square asides above —
+            a square here would tower over four lines of type. Moved up from
+            the end of the section to sit between the table and the FAQ: it
+            still breaks the dry run, and it no longer stands between the
+            last question and the button. Its last line — that we are in the
+            experiment alongside you — is also the right thing to read
+            immediately before the candour block. */}
+        <CampAside
+          shot="studio" alt="People working together at a materials table" flip index="Plate IV"
+          ratio="4 / 3" caption="Real commitments, real tensions, real materials."
+        >
+          <div className="q-body">
+            <p>We test the OS here too. Six days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are not backstage. We are part of the experiment, alongside you.</p>
+          </div>
+        </CampAside>
+
+        <CampKicker top={56}>FAQ</CampKicker>
         <CampCascade indent style={{ marginBottom: 48 }}>
           {CAMP_FAQ.map(([q, a]) => (
             <div key={q} style={{ padding: '20px 0', borderBottom: '1px solid var(--border-2)' }}>
@@ -2492,17 +2642,12 @@ const PageCamp = ({ onNav }) => {
           ))}
         </CampCascade>
 
-        {/* one paragraph, so a shallower figure than the square asides above —
-            a square here would tower over four lines of type. Breaks the
-            table-then-FAQ stretch, which is the last dry run on the page. */}
-        <CampAside
-          shot="studio" alt="People working together at a materials table" flip index="Plate IV"
-          ratio="4 / 3" caption="Real commitments, real tensions, real materials."
-        >
-          <div className="q-body">
-            <p>We test the OS here too. Six days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are not backstage. We are part of the experiment, alongside you.</p>
-          </div>
-        </CampAside>
+        {/* objections, then the last of them, then the button. The candour
+            block is the final objection — it belongs here and not in §02. */}
+        <CampKicker>What we are not sure about yet</CampKicker>
+        <CampCandour onJump={jump} />
+
+        <CampApply />
       </div>
     </section>
 
@@ -2535,9 +2680,10 @@ const PageCamp = ({ onNav }) => {
           The redwoods are 400 years old. They have watched a few technologies arrive. Let's give them something worth watching.
         </CampReadLine>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Apply to join Camp Audax</Button>
+          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
           <Button variant="ghost" onClick={() => jump('the-agent')}>Meet Sorrel</Button>
         </div>
+        <p className="cph-cta-note">{CAMP_CTA_NOTE}</p>
       </div>
     </section>
 

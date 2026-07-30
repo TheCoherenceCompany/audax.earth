@@ -1847,6 +1847,30 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    and the nav rides over it. A soft top-down scrim keeps the links legible
    without drawing a bar across the image. */
 .cph-nav { position: fixed; left: 0; right: 0; top: 0; }
+
+/* Stowed over the hero. The hero carries both marks and the primary CTA, so
+   a bar there only duplicated The Gathering's lockup right above the big
+   one; it slides down once that mark scrolls away. visibility (not just
+   opacity) so the stowed bar is out of the tab order too, delayed on the way
+   out so it can finish sliding before it goes. */
+.cph-nav {
+  transition: transform 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              opacity 260ms ease,
+              visibility 0s;
+}
+.cph-nav-stowed {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 380ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+              opacity 260ms ease,
+              visibility 0s linear 380ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-nav, .cph-nav-stowed { transition: opacity 160ms ease, visibility 0s; transform: none; }
+}
 .cph-nav:not(.scrolled) {
   background: linear-gradient(180deg,
     rgba(14,36,25,0.66) 0%,
@@ -2668,4 +2692,117 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   .cph-spoken .pull-quote::before { transform: none !important; transition: none !important; }
   .cph-kick .cph-kick-t { clip-path: none !important; transition: none !important; }
   .cph-kick .cph-kick-t::after { transform: scaleX(1) !important; transition: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CAMP · CONVERSION FURNITURE
+   Four things the camp page grew when its flow was reviewed against how
+   people actually decide: an honest note under each call to action, a
+   self-select strip under the hero, and an apply block at the foot of
+   §07. Everything here is scoped to .cph- classes owned by page-camp.jsx.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ---------- the honest note under a CTA ---------- */
+/* There is no application form yet; the buttons open the camp's Telegram
+   channel and say so. This line carries the rest of the truth — that
+   applications open there first — so the button can stay short. */
+.cph-hero-note {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.04em; color: rgba(255,255,255,0.66);
+  margin: 16px 0 0; max-width: 460px;
+  text-shadow: 0 1px 12px rgba(6,14,9,0.85);
+}
+.cph-cta .cph-cta-note {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.62); margin: 22px auto 0; max-width: 520px;
+}
+
+/* ---------- self-select strip ---------- */
+/* Five cards, one per profile, directly under the hero. They are buttons
+   rather than cards-with-a-link because the whole surface is the target:
+   at this width nobody is aiming at a word. */
+.cph-strip-sec { padding-top: 72px; padding-bottom: 72px; }
+.cph-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  margin: 0; padding: 0;
+}
+.cph-strip-it {
+  display: flex; flex-direction: column; gap: 8px;
+  text-align: left; cursor: pointer;
+  padding: 22px 20px 24px;
+  background: var(--surface-white);
+  border: 1px solid var(--border-1); border-radius: 14px;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.cph-strip-it:hover {
+  border-color: var(--forest-200);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px -18px rgba(20,40,26,0.55);
+}
+.cph-strip-it .n {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.2em; color: var(--forest-700);
+}
+.cph-strip-it .nm {
+  font-family: var(--font-display); font-size: 19px; font-weight: 400;
+  letter-spacing: -0.015em; line-height: 1.15; color: var(--ink-900);
+}
+.cph-strip-it .sh {
+  font-size: 13px; font-weight: 300; line-height: 1.5; color: var(--ink-700);
+}
+.cph-strip-foot {
+  font-size: 14px; font-weight: 300; line-height: 1.6;
+  color: var(--ink-500); margin: 22px 0 0; max-width: 760px;
+}
+.cph-strip-foot button {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font: inherit; color: var(--forest-700); border-bottom: 1px solid currentColor;
+}
+
+/* ---------- the apply block ---------- */
+/* Sits after the FAQ, which is where the most decided reader on the page
+   finishes. Deliberately NOT another forest-050 note panel: it follows
+   the candour block, which is one, and two of those stacked read as a
+   third caveat rather than as the moment to act. Dark ground makes it a
+   stop — the same full-bleed dark the closing invitation uses, at panel
+   scale. */
+.cph-apply {
+  margin-top: 56px; padding: 44px 48px;
+  background: var(--bg-deep); color: #fff;
+  border-radius: 18px;
+}
+.cph-apply h3 {
+  font-family: var(--font-display); font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1.1;
+  color: #fff; margin: 0 0 14px;
+}
+.cph-apply > p {
+  font-size: 16px; font-weight: 300; line-height: 1.6;
+  color: rgba(255,255,255,0.90); margin: 0 0 28px; max-width: 620px;
+}
+.cph-apply-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+/* the primary button is forest-900 on cream everywhere else on the page,
+   which on this ground would be a button-shaped hole — lichen, the same
+   accent the closing section reverses to */
+.cph-apply .btn-primary {
+  background: var(--lichen-300); color: var(--forest-900); border-color: var(--lichen-300);
+}
+.cph-apply .btn-primary:hover { background: #E2E8AC; border-color: #E2E8AC; }
+.cph-apply .cph-apply-note {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.03em; line-height: 1.6;
+  color: rgba(255,255,255,0.62); margin: 22px 0 0; max-width: 620px;
+}
+
+/* ---------- narrow ---------- */
+@media (max-width: 1000px) {
+  .cph-strip { grid-template-columns: repeat(2, 1fr); }
+  .cph-strip-it:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .cph-strip { grid-template-columns: 1fr; }
+  .cph-strip-it:last-child { grid-column: auto; }
+  .cph-strip-sec { padding-top: 56px; padding-bottom: 56px; }
+  .cph-apply { padding: 32px 24px; }
+  .cph-apply-ctas > * { width: 100%; }
 }
