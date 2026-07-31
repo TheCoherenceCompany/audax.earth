@@ -51,6 +51,13 @@ const ROUTES = {
     title: 'Who For? — Audax OS',
     description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.',
   },
+  // PROTOTYPE, unlisted for review — no `nav`, no `footer`, so it is reachable
+  // at #map and absent from every menu. Remove this entry to drop it.
+  map: {
+    view: (p) => <PageMap {...p} />,
+    title: 'The Map — Audax OS',
+    description: 'The territory of needs Audax OS is laid over: what is charted, what is contested, and what is still blank.',
+  },
   camp: {
     view: (p) => <PageCamp {...p} />,
     nav: 'Camp',
