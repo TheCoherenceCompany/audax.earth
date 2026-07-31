@@ -56,7 +56,7 @@ const ROUTES = {
   map: {
     view: (p) => <PageMap {...p} />,
     title: 'The Map — Audax OS',
-    description: 'The territory of needs Audax OS is laid over: what is charted, what is contested, and what is still blank.',
+    description: 'A map to the OS — what is charted, what is contested, and what is still blank.',
   },
   camp: {
     view: (p) => <PageCamp {...p} />,

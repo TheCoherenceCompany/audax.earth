@@ -540,15 +540,16 @@ const PageMap = ({ onNav }) => {
         <div className="container">
           <Eyebrow>The map</Eyebrow>
           <h1 className="display lg" style={{ maxWidth: 900 }}>
-            The territory, and how much of it <em>we have actually charted</em>
+            A map to <em>the OS</em>
           </h1>
           <p className="lede" style={{ maxWidth: 720, marginTop: 18 }}>
-            This is not the framework. It is the space of needs the framework is laid over —
-            drawn the way a coast gets drawn: confidently where we have been, hatched where it is
-            disputed, and left blank where nobody has gone.
+            Every region here is a real need. Where we have a working account, the map takes you
+            into the operating system. Where we don’t, it takes you to the question —
+            and there are more questions than answers.
           </p>
           <p className="lede" style={{ maxWidth: 720, marginTop: 14, fontStyle: 'italic' }}>
-            The blanks are the invitation.
+            It is drawn the way a coast gets drawn: confidently where we have been, hatched where
+            it is disputed, and left blank where nobody has gone. The blanks are the invitation.
           </p>
         </div>
       </section>
