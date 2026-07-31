@@ -1,5 +1,6 @@
 /* Audax OS site · Why? page (homepage)
-   13 question-led sections, manifesto + field guide.
+   The argument only. Every "What ...?" section moved verbatim to
+   page-map.jsx; "Where does this begin?" is parked pending the Labs page.
    Source copy: client brief (Audax OS — Why Page Revised Draft). */
 
 const NODE_FIELD_BG = 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_89be8310-4193-4426-a643-b55ced9ca0f6_0.webp';
@@ -16,66 +17,9 @@ const Section = ({ n, q, children, bg, narrow }) => (
   </section>
 );
 
-// Living lab: one illuminated node in a wider field
-const NodeFieldVisual = () => (
-  <div className="node-field" style={{ background: `linear-gradient(180deg, var(--surface-paper) 0%, var(--surface-white) 100%)` }}>
-    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#B8C766" stopOpacity="0.55" />
-          <stop offset="60%" stopColor="#B8C766" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#B8C766" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* Glow under the illuminated node */}
-      <circle cx="400" cy="225" r="160" fill="url(#glow)" />
-
-      {/* Field of nodes */}
-      {(() => {
-        const cx = 400, cy = 225;
-        const nodes = [];
-        const rng = (a, b, k) => a + ((Math.sin(k * 12.9898 + 78.233) * 43758.5453) % 1 + 1) % 1 * (b - a);
-        for (let i = 0; i < 60; i++) {
-          const r = rng(80, 380, i);
-          const a = rng(0, Math.PI * 2, i + 100);
-          nodes.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r * 0.55, rng(1.5, 3.2, i + 200)]);
-        }
-        return (
-          <>
-            {/* threads */}
-            <g stroke="#9CBFA3" strokeWidth="0.5" opacity="0.45" fill="none">
-              {nodes.map(([x, y], i) => i % 3 === 0
-                ? <line key={i} x1={cx} y1={cy} x2={x} y2={y} />
-                : null
-              )}
-            </g>
-            {/* outer nodes */}
-            {nodes.map(([x, y, r], i) => (
-              <circle key={i} cx={x} cy={y} r={r} fill="#1F4D2E" opacity="0.55" />
-            ))}
-          </>
-        );
-      })()}
-
-      {/* Central illuminated node */}
-      <g transform="translate(370 195)">
-        <circle cx="30" cy="30" r="32" fill="#FFFFFF" stroke="#1F4D2E" strokeWidth="1.5" />
-        <circle cx="30" cy="30" r="22" fill="none" stroke="#1F4D2E" strokeWidth="1" opacity="0.5" />
-        <g transform="translate(8 8) scale(0.55)">
-          <circle cx="40" cy="40" r="38" fill="none" stroke="#1F4D2E" strokeWidth="3" />
-          <ellipse cx="40" cy="42" rx="26" ry="14" fill="none" stroke="#1F4D2E" strokeWidth="3" />
-          <circle cx="40" cy="42" r="6" fill="#1F4D2E" />
-        </g>
-        <text x="30" y="86" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" letterSpacing="0.22em" fill="#1F4D2E" fontWeight="500">FIRST LIVING LAB</text>
-      </g>
-    </svg>
-  </div>
-);
-
 const PageWhy = ({ onNav }) => (
   <>
-    {/* 1. HERO — living network over a drifting sumi-e wash */}
+    {/* 01. HERO — living network over a drifting sumi-e wash */}
     <LivingHero minHeight="92vh">
       <div className="hero-inner reveal" style={{ maxWidth: 880 }}>
         <Eyebrow>For the age of humans and agents</Eyebrow>
@@ -94,39 +38,8 @@ const PageWhy = ({ onNav }) => (
       </div>
     </LivingHero>
 
-    {/* 2. THE CORE SHIFT */}
-    <section className="section manifesto">
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">02 · The core shift</span>
-          What <em>changed?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>For most of the modern era, organisations were designed around one question. That question belonged to a world of factories, offices, departments, reporting lines, job descriptions, and managers who could see whether someone was at their desk.</p>
-          <p>The question no longer fits.</p>
-        </div>
-
-        <div className="shift-block">
-          <div className="shift-card then">
-            <div className="label">Then</div>
-            <p className="q">How do we manage <em>people?</em></p>
-          </div>
-          <div className="shift-card now">
-            <div className="label now-label">Now</div>
-            <p className="q">How do humans and AI agents <em>coordinate</em> around purpose, contribution, trust, learning, communication, and value?</p>
-          </div>
-        </div>
-
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>This is not a tools question. It is an operating system question. <strong>The organisation itself has become the design challenge.</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <WashRule image={ART.wave} from="white" to="parchment" />
-
-    {/* 3. THE OLD MODEL */}
-    <Section n="03 · The old model" q="Why can’t the old organisation hold <em>the new work?</em>">
+    {/* 02. THE OLD MODEL */}
+    <Section n="01 · The old model" q="Why can’t the old organisation hold <em>the new work?</em>">
       <ArtAside image={ART.orbHalf}>
         <p>Most organisations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organisation at a time.</p>
         <p>This model made sense when communication was slow, labour was physically concentrated, expertise was harder to access, and the organisation could be managed as a relatively stable machine.</p>
@@ -166,48 +79,10 @@ const PageWhy = ({ onNav }) => (
       </div>
     </Section>
 
-    {/* 4. REMOTE WORK */}
-    <Section n="04 · Remote work" q="What did <em>remote work</em> reveal?" bg="var(--surface-paper)" narrow>
-      <p className="lead">Remote work did not fail. <em>Underdesigned organisations</em> failed remote work.</p>
-      <p>When work moved online, many organisations treated the shift as technical. Move meetings to Zoom. Move chat to Slack. Move documents to the cloud. Give everyone a laptop. Call it transformation.</p>
-      <p>But the office had been doing invisible organisational work. It carried ambient context. It made availability visible. It created informal learning. It allowed casual trust-building. It helped people overhear priorities, notice tension, and ask small questions before they became large problems.</p>
-      <p>Distributed work removed that hidden coordination layer.</p>
-      <p>Without redesign, context fragments. Trust thins. New people struggle to orient. Work becomes invisible. Managers panic. The calendar mutates into a swamp creature.</p>
-      <PullQuote>Distributed work requires <em>organisational design</em>, not just better tools.</PullQuote>
-      <p>Remote work was the first crack in the old operating system.</p>
-    </Section>
+    <WashRule image={ART.spray} flip from="parchment" to="paper" />
 
-    <WashRule image={ART.spray} flip from="paper" to="parchment" />
-
-    {/* 5. FRACTIONAL WORK */}
-    <Section n="05 · Fractional work" q="What happens when contribution <em>no longer fits</em> a job description?">
-      <ArtAside image={ART.orbScript} flip>
-        <p>The old bargain was simple enough: a person has a job. The job has a role. The role has a salary. The salary implies contribution. Imperfect, but stable.</p>
-        <p className="lead"><em>Fractional work</em> breaks that container.</p>
-        <p>Someone may contribute ten hours one week and none the next. Another person may make one introduction that changes the future of the organisation. Someone else may offer early product thinking, design, facilitation, writing, capital, reputation, emotional labour, or strategic advice before cash exists.</p>
-      </ArtAside>
-      <p>The old system struggles to see this. If contribution is invisible, trust becomes fragile. If risk is not acknowledged, resentment waits patiently in the basement. If value is only recognised through salary or equity, entire forms of contribution disappear.</p>
-
-      <div className="insight-grid" style={{ margin: '40px 0', gridTemplateColumns: 'repeat(5, 1fr)' }}>
-        {[
-          ['Visibility', 'Contribution must become visible.'],
-          ['Value', 'Value must include more than hours.'],
-          ['Risk', 'Early contribution needs recognition.'],
-          ['Provenance', 'Agent-assisted work needs attribution.'],
-          ['Fairness', 'Fairness must be designed before money arrives.']
-        ].map(([h, p]) => (
-          <article key={h} className="insight-card" style={{ minHeight: 200, padding: '24px 22px' }}>
-            <div className="num" style={{ fontSize: 14, fontFamily: 'var(--font-mono)', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--forest-700)', marginBottom: 16 }}>{h}</div>
-            <h4 style={{ fontSize: 17, lineHeight: 1.25 }}>{p}</h4>
-          </article>
-        ))}
-      </div>
-
-      <p>Future organisations need better ways to recognise contribution without reducing people to metrics. Goodwill is beautiful. <strong>It is not an accounting system.</strong></p>
-    </Section>
-
-    {/* 6. AI AGENTS */}
-    <Section n="06 · AI agents" q="Why do AI agents force <em>a complete rethink?</em>" bg="var(--surface-paper)">
+    {/* 03. AI AGENTS */}
+    <Section n="02 · AI agents" q="Why do AI agents force <em>a complete rethink?</em>" bg="var(--surface-paper)">
       <p className="lead">AI is moving <em>from assistant to participant.</em></p>
       <p>Agents can research, draft, synthesise, schedule, translate, analyse, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organisational memory.</p>
       <p>But agents cannot work well inside fog. They need:</p>
@@ -234,8 +109,8 @@ const PageWhy = ({ onNav }) => (
 
     <WashRule image={ART.ribbons} tall from="paper" to="parchment" />
 
-    {/* 7. THE COLLABORATION GAP */}
-    <Section n="07 · The collaboration gap" q="Why do better tools still fail to create <em>better collaboration?</em>">
+    {/* 04. THE COLLABORATION GAP */}
+    <Section n="03 · The collaboration gap" q="Why do better tools still fail to create <em>better collaboration?</em>">
       <p>We can now communicate instantly across the planet. We can gather brilliant people into a call in days. We can generate documents, code, strategies, images, research, and plans at astonishing speed.</p>
       <p>And still, collaboration remains strangely difficult.</p>
       <p className="lead">Turning interest into trust is hard. Turning trust into commitment is harder. Turning commitment into <em>sustained action</em> is harder still.</p>
@@ -268,83 +143,10 @@ const PageWhy = ({ onNav }) => (
       <p>The missing layer is not another app. It is a shared grammar for collaboration. <strong>Audax OS exists to help build that grammar</strong> for the age of humans and agents.</p>
     </Section>
 
-    {/* 8. THE HUMAN LAYER */}
-    <Section n="08 · The human layer" q="What becomes <em>load-bearing</em> now?" bg="var(--surface-paper)" narrow>
-      <p>Many organisations treat the human layer as decoration. Culture is an offsite. Purpose is a slide. Learning is a benefit. Communication is a channel. Trust is assumed until it breaks.</p>
-      <p>That no longer works.</p>
-      <p className="lead">In distributed, fractional, AI-native organisations, the human layer must <em>become part of the operating system.</em></p>
-      <p>People need to understand why they are here, what they can commit to, how decisions are made, how conflict is handled, how contribution is recognised, and how they can grow through the work.</p>
-      <p>Agents need something parallel. If agents are going to act with increasing autonomy, they need more than tasks. They need values, tone, boundaries, permissions, purpose, and escalation rules.</p>
+    <WashRule image={ART.crest} from="parchment" to="paper" />
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, margin: '40px 0' }}>
-        {[
-          ['Purpose', 'must become operational.'],
-          ['Trust', 'must become visible.'],
-          ['Learning', 'must become continuous.'],
-          ['Communication', 'must become intentional.'],
-          ['Contribution', 'must become recognised.']
-        ].map(([k, v]) => (
-          <div key={k} style={{
-            padding: '20px 22px',
-            background: 'var(--surface-white)',
-            border: '1px solid var(--border-1)',
-            borderRadius: 12,
-            fontFamily: 'var(--font-display)',
-            fontSize: 22, fontWeight: 400, letterSpacing: '-0.015em',
-            color: 'var(--ink-900)', lineHeight: 1.2
-          }}>
-            <em style={{ color: 'var(--forest-700)', fontStyle: 'italic' }}>{k}</em> {v}
-          </div>
-        ))}
-      </div>
-
-      <p>This is not about making organisations softer. <strong>It is about making them more alive and more capable.</strong></p>
-
-      <PullQuote>A humane organisation is not a loose one. It is a <em>coherent</em> one.</PullQuote>
-    </Section>
-
-    <WashRule image={ART.crest} from="paper" to="parchment" />
-
-    {/* 9. LIVING SYSTEMS */}
-    <Section n="09 · Living systems" q="What if the organisation is <em>not a machine?</em>">
-      <p>The machine metaphor shaped modern management. Break work into parts. Optimise each part. Control the process. Measure output. Reduce variance. Scale the machine.</p>
-      <p>This logic created enormous productivity. It also created silos, bureaucracy, extraction, burnout, and organisations that struggle to adapt when the environment changes.</p>
-      <p className="lead">Living systems <em>work differently.</em></p>
-
-      <div className="machine-living">
-        <div className="ml-side ml-machine">
-          <h6>Machine</h6>
-          <h4>Boxes, lines, control.</h4>
-          <div className="boxes">
-            {Array.from({ length: 9 }).map((_, i) => <div key={i}></div>)}
-          </div>
-        </div>
-        <div className="ml-arrow">→</div>
-        <div className="ml-side ml-living">
-          <h6>Living</h6>
-          <h4>Sense, adapt, regenerate.</h4>
-          <svg viewBox="0 0 260 160" style={{ width: '100%', height: 160 }}>
-            <g stroke="#6BA37C" strokeWidth="1" opacity="0.6" fill="none">
-              {[[60, 80], [130, 50], [200, 80], [100, 120], [170, 120]].map(([x1, y1], i, arr) =>
-                arr.slice(i + 1).map(([x2, y2], j) => <line key={`${i}-${j}`} x1={x1} y1={y1} x2={x2} y2={y2} />)
-              )}
-            </g>
-            {[[60, 80], [130, 50], [200, 80], [100, 120], [170, 120]].map(([x, y], i) => (
-              <circle key={i} cx={x} cy={y} r={i === 1 ? 8 : 6} fill={i === 1 ? '#B8C766' : '#1F4D2E'} />
-            ))}
-          </svg>
-        </div>
-      </div>
-
-      <p>Living systems sense, adapt, learn, regenerate, organise through relationship, and maintain coherence without requiring total control.</p>
-      <p>Audax OS does not reject structure. Structure is essential. But the structure must <strong>serve life, learning, trust, contribution, and intelligent action.</strong></p>
-      <p>The future organisation cannot be a machine with a chatbot bolted on. It must become a living coordination system where humans and agents can sense, decide, act, learn, and evolve together.</p>
-
-      <PullQuote>Bureaucracy is structure <em>without life.</em> Audax OS is structure <em>in service of life.</em></PullQuote>
-    </Section>
-
-    {/* 10. OPEN OS, NOT PRODUCT */}
-    <Section n="10 · Open OS, not product" q="Why should this be an <em>open OS</em>, not a platform?" bg="var(--surface-paper)" narrow>
+    {/* 05. OPEN OS, NOT PRODUCT */}
+    <Section n="04 · Open OS, not product" q="Why should this be an <em>open OS</em>, not a platform?" bg="var(--surface-paper)" narrow>
       <p>No single platform should own the organisational OS of the agentic age.</p>
       <p>Audax OS is not being designed as one closed product that every organisation must adopt. The ambition is different.</p>
       <p className="lead">Audax OS should become a <em>shared operating system</em>: a language, architecture, and set of principles that many people can build with.</p>
@@ -374,87 +176,11 @@ const PageWhy = ({ onNav }) => (
       </p>
     </Section>
 
-    <WashRule image={ART.burst} from="paper" to="parchment" />
-
-    {/* 11. THE AUDAX OS PROPOSAL */}
-    <section className="section">
-      <div className="container">
-        <h1 className="q-h1">
-          <span className="num">11 · The proposal</span>
-          What does Audax OS <em>propose?</em>
-        </h1>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
-          <p>Audax OS proposes a shared architecture for coherent human-agent organisations. It brings together three dimensions of the next organisational operating system.</p>
-        </div>
-
-        <div className="fr-reveal">
-          <div className="fr-axes">
-            <div className="fr-axis">
-              <SpheresColDiagram />
-              <div className="ax-num">5</div>
-              <h4>Spheres</h4>
-              <div className="meta">What every organisation must care for</div>
-              <ul>
-                <li>Value Accounting</li>
-                <li>Organisation of Work</li>
-                <li>Human Relationship &amp; Purpose</li>
-                <li>Development &amp; Learning</li>
-                <li>Communication</li>
-              </ul>
-            </div>
-            <div className="fr-axis">
-              <LayersColDiagram />
-              <div className="ax-num">5</div>
-              <h4>Layers</h4>
-              <div className="meta">Where the operating system works</div>
-              <ul>
-                <li>Individual</li>
-                <li>Team</li>
-                <li>Organisation</li>
-                <li>Organisation Family</li>
-                <li>Ecosystem</li>
-              </ul>
-            </div>
-            <div className="fr-axis">
-              <ModesColDiagram />
-              <div className="ax-num">3</div>
-              <h4>Modes</h4>
-              <div className="meta">How collaboration happens</div>
-              <ul>
-                <li>Human &harr; Human</li>
-                <li>Human &harr; Agent</li>
-                <li>Agent &harr; Agent</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="q-body" style={{ maxWidth: 760, marginTop: 40 }}>
-          <p>Together, these create a <strong>living matrix</strong> for designing organisations that can coordinate contribution, work, trust, learning, communication, and value across human and agentic systems.</p>
-        </div>
-      </div>
-    </section>
-
-    {/* 12. THE FIRST LIVING LAB */}
-    <Section n="12 · The first living lab" q="Where does this <em>begin?</em>" bg="var(--surface-paper)">
-      <p className="lead">Audax OS is being developed through <em>practice</em>, not theory alone.</p>
-      <p>The Coherence Company is the first organisation joining to develop, test, and evolve Audax OS in real organisational life. It will use the OS to structure its own work, contribution, learning, AI collaboration, and ecosystem development.</p>
-      <p>This matters because the future organisational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real missions, real people, real agents, and real learning loops.</p>
-
-      <div style={{ margin: '40px 0' }}>
-        <NodeFieldVisual />
-      </div>
-
-      <p>The Coherence Company is not the owner of Audax OS. It is the first serious participant. <strong>The first testbed. The first steward. The first place where the OS learns from reality.</strong></p>
-
-      <PullQuote>The organisation is not backstage. <em>It is part of the experiment.</em></PullQuote>
-    </Section>
-
-    {/* 13. INVITATION */}
+    {/* 06. INVITATION */}
     <section className="cta-band" style={{ '--cta-image': `url(${NODE_FIELD_BG})` }}>
       <div className="wash"></div>
       <div className="cta-band-inner">
-        <Eyebrow color="var(--lichen-300)">13 · Invitation</Eyebrow>
+        <Eyebrow color="var(--lichen-300)">05 · Invitation</Eyebrow>
         <h2>
           Will you help shape the<br />next <em>organisational OS?</em>
         </h2>
