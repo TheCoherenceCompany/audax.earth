@@ -98,7 +98,7 @@ const PageBuild = ({ onNav }) => {
             We have identified a problem space that is becoming impossible to ignore. We are inviting the people who can help turn the first map into shared practice.
           </p>
           <div className="hero-ctas" style={{ marginTop: 48 }}>
-            <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
+            <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join &amp; Build the OS
             </Button>
           </div>
@@ -554,7 +554,7 @@ const PageBuild = ({ onNav }) => {
         <p style={{ fontSize: 19, fontWeight: 300, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 620, margin: '0 auto 40px' }}>
           The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation.
         </p>
-        <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
+        <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
           Let's build a holistic organisation OS for our times
         </Button>
       </div>

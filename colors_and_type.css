@@ -51,6 +51,28 @@
   --lichen-100: #EEF0D2;
   --lichen-050: #F6F7E6;
 
+  /* ────────── COLOR — EMBER (the call-to-action colour) ────────── */
+  /* Reserved. Ember appears on one thing only — the button that opens
+     the sign-up page — and on nothing else: no links, no headings, no
+     rules. That exclusivity is the whole point; a CTA in the forest
+     family reads as one more green element on a green page. Warm
+     against a palette with no other warm in it, which is also why it
+     survives on parchment, on white and on the photographs. */
+  --ember-500: #B4501F;   /* canonical — button fill. White on it is
+                             5.1:1, so the label can be white and still
+                             pass AA at button sizes; the lighter amber
+                             this started as (#E08A3C) only passed with a
+                             near-black label, which read as a warning
+                             sticker rather than an invitation. */
+  --ember-600: #9E4319;   /* hover — darkens, white goes to 6.4:1 */
+  --ember-700: #8F3C15;   /* pressed, and the colour for CTA text on a
+                             light ground: 7.1:1 on parchment.
+                             The ramp runs the way the rest of the palette
+                             does — a higher number is a darker step — so
+                             reaching for a lighter tint one day means
+                             adding --ember-400, not repurposing it. */
+  --fg-on-ember: #FFFFFF; /* label on ember */
+
   /* ────────── COLOR — INK & PARCHMENT ────────── */
   /* Ink is warm-black, slightly green-tinted to harmonise
      with the forest palette and the sumi-e brushwork.

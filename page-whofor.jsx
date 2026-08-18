@@ -643,7 +643,7 @@ const PageWhoFor = ({ onNav }) => (
             <Button size="lg" icon="arrow-down" onClick={() => document.getElementById('whofor-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               See who it serves
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
+            <Button size="lg" variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join the dialogue
             </Button>
           </div>
@@ -974,7 +974,7 @@ const PageWhoFor = ({ onNav }) => (
       title="Help build the OS<br />for the <em>organisations that come next.</em>"
       body="If you recognise yourself in any of these — come help write the protocols. The grammar is still being shaped."
       primary="Join &amp; Build the OS"
-      onPrimary={() => onNav('build')}
+      onPrimary={() => window.open(JOIN_URL, '_blank')}
     />
   </>
 );

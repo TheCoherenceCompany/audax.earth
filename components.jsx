@@ -114,7 +114,7 @@ const BottomSheet = ({ page, onNav }) => {
               {p.label}
             </button>
           ))}
-          <button className="msheet-join" type="button" onClick={() => { onNav('build'); setOpen(false); }}>
+          <button className="msheet-join" type="button" onClick={() => { window.open(JOIN_URL, '_blank'); setOpen(false); }}>
             Join &amp; Build the OS
           </button>
         </div>
@@ -148,7 +148,7 @@ const Nav = ({ page, onNav }) => {
               {p.label}
             </button>
           ))}
-          <button className="nav-cta" onClick={() => onNav('build')} type="button">
+          <button className="nav-cta" onClick={() => window.open(JOIN_URL, '_blank')} type="button">
             Join &amp; Build the OS
           </button>
         </div>
@@ -165,7 +165,7 @@ const Footer = ({ onNav }) => (
         <Logo size={36} />
         <div className="footer-brand-text">Audax OS</div>
         <div className="footer-tagline">An organisation OS for the agentic age.</div>
-        <a onClick={(e)=>{e.preventDefault(); onNav('build');}} href="#build" className="footer-join-btn">Join &amp; Build the OS</a>
+        <a href={JOIN_URL} target="_blank" rel="noreferrer" className="footer-join-btn">Join &amp; Build the OS</a>
       </div>
       <div className="footer-col">
         <h6>Explore</h6>
@@ -211,7 +211,7 @@ const SectionHead = ({ eyebrow, title, sub, center }) => (
 
 // Generic CTA band (deep forest with subtle wash + lichen primary CTA)
 const CTA_WASH = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
-const JOIN_URL = 'https://t.me/+msbQmsbxpAg4Yjk8';
+const JOIN_URL = 'https://invite.the-gathering.earth/camp-audax-usa-2026/';
 
 const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null, onPrimary, onSecondary }) => (
   <section className="cta-band" style={{ '--cta-image': `url(${CTA_WASH})` }}>
@@ -220,7 +220,8 @@ const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null,
       <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
       {body && <p>{body}</p>}
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-        <Button onClick={onPrimary} icon="arrow-right">{primary}</Button>
+        {/* every CtaBand primary now opens the sign-up page, so it wears the one CTA colour */}
+        <Button variant="join" onClick={onPrimary} icon="arrow-right">{primary}</Button>
         {secondary && <Button variant="ghost" onClick={onSecondary}>{secondary}</Button>}
       </div>
     </div>

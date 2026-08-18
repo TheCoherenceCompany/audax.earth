@@ -65,6 +65,17 @@ const ROUTES = {
     title: 'Camp Audax — 12–18 October 2026, Camp Navarro, California',
     description: 'AI as the coordination layer of a wiser, regenerative society. Six days in the redwoods for the people building, funding, applying and philosophically shaping AI for societal good.',
   },
+  sorrel: {
+    view: (p) => <PageSorrel {...p} />,
+    // stand-alone like the camp page it came out of, and reached from it:
+    // the hero CTA, the closing CTA, the FAQ and the camp footer all point
+    // here. Listed in the site footer, not the top nav — it is a page about
+    // one part of one camp, not a peer of Spheres and Layers.
+    chrome: false,
+    footer: 'Sorrel, the camp agent',
+    title: 'Sorrel, the camp agent — Camp Audax',
+    description: 'Sorrel is Camp Audax\u2019s agent: consent-based, built to orient, remember and connect, and still unfinished on purpose. Come and help raise it.',
+  },
   build: {
     view: (p) => <PageBuild {...p} />,
     footer: "Let's Build the OS",
@@ -117,19 +128,72 @@ const App = () => {
     if (!section) window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  // Listen for back/forward
+  // Listen for back/forward — and for plain <a href="#page"> links, which
+  // reach the router this way rather than through nav(). Without the
+  // scroll reset one of those opens the new page at the old page's scroll
+  // position: the camp FAQ sits ~9000px down, and its link to #sorrel
+  // would drop the reader two thirds of the way into that page.
   React.useEffect(() => {
-    const on = () => setRoute((r) => ({ ...parseHash(), navId: r.navId + 1 }));
+    const on = () => {
+      const next = parseHash();
+      if (!next.section) window.scrollTo({ top: 0, behavior: 'instant' });
+      setRoute((r) => ({ ...next, navId: r.navId + 1 }));
+    };
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);
   }, []);
 
   // Scroll to the requested section once the page has rendered it — covers
-  // both direct nav() calls and a deep link opened straight from the URL.
+  // in-page jumps, a link from one page into a section of another, and a
+  // deep link opened straight from the URL.
+  //
+  // Two behaviours, and the difference is whether the page under the
+  // target is settled. An in-page jump glides. A jump onto a page that
+  // mounted this tick — a cold deep link, or #camp/<id> from the Sorrel
+  // page — is landing on photographs that have not been sized yet, and a
+  // smooth scroll across that distance chases a target that keeps moving
+  // until Chrome's scroll anchoring cancels it, leaving the reader at the
+  // top of the page they linked into the middle of. So that case jumps
+  // instantly and re-lands as the images arrive.
+  //
+  // `lastPage` is what tells the two apart: navId alone cannot, because
+  // the camp page's own signpost jumps use history.replaceState, which
+  // fires no hashchange, so navId can sit at 0 for a whole session.
+  const lastPage = React.useRef(page);
   React.useEffect(() => {
-    if (!section) return;
+    const arrived = lastPage.current !== page || navId === 0;
+    lastPage.current = page;
+    if (!section) return undefined;
     const el = document.getElementById(section);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!el) return undefined;
+
+    if (!arrived) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return undefined;
+    }
+
+    // Re-landing must stop the moment the reader takes over, or a photo
+    // finishing ten seconds later yanks them back to where they started.
+    let live = true;
+    const land = () => {
+      if (!live) return;
+      const target = document.getElementById(section);
+      if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    };
+    const release = () => { live = false; };
+    const taps = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+
+    land();
+    const t = setTimeout(land, 500);
+    window.addEventListener('load', land);
+    taps.forEach(e => window.addEventListener(e, release, { once: true, passive: true }));
+
+    return () => {
+      live = false;
+      clearTimeout(t);
+      window.removeEventListener('load', land);
+      taps.forEach(e => window.removeEventListener(e, release));
+    };
   }, [navId]);
 
   // Update document title and OG meta tags on page change

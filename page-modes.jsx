@@ -107,7 +107,7 @@ const PageModes = ({ onNav }) => (
               onClick={() => document.getElementById('modes-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               Explore the three modes
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
+            <Button size="lg" variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join to co-create
             </Button>
           </div>
@@ -735,7 +735,7 @@ const PageModes = ({ onNav }) => (
     <CtaBand
       title="Help define the protocols<br />for <em>human–agent collaboration.</em>"
       body="If you work with agents, build agent infrastructure, or design organisations for the agentic age — the protocols are still being written."
-      onPrimary={() => onNav('build')}
+      onPrimary={() => window.open(JOIN_URL, '_blank')}
     />
   </>
 );

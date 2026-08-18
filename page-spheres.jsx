@@ -115,7 +115,7 @@ const PageSpheres = ({ onNav }) => (
           </div>
           <div className="hero-ctas">
             <Button size="lg" icon="arrow-down" onClick={() => document.getElementById('spheres-intro')?.scrollIntoView({ behavior: 'smooth' })}>Explore the five spheres</Button>
-            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>Join to co-create</Button>
+            <Button size="lg" variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>Join to co-create</Button>
           </div>
         </div>
       </div>
@@ -498,7 +498,7 @@ const PageSpheres = ({ onNav }) => (
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button onClick={() => onNav('layers')} icon="arrow-right">Explore the Layers</Button>
-          <Button variant="ghost" onClick={() => onNav('build')}>Join to co-create</Button>
+          <Button variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>Join to co-create</Button>
         </div>
       </div>
     </section>

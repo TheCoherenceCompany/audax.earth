@@ -10,9 +10,9 @@ The `.jsx` and CSS files are served with a `?v=N` query in `index.html`. Browser
 
 - `site.css`
 - `components.jsx`, `diagrams.jsx`, `app.jsx`, `hero-canvas.jsx`
-- `page-why.jsx`, `page-spheres.jsx`, `page-layers.jsx`, `page-modes.jsx`, `page-whofor.jsx`, `page-camp.jsx`, `page-build.jsx`, `page-join.jsx`
+- `page-why.jsx`, `page-spheres.jsx`, `page-layers.jsx`, `page-modes.jsx`, `page-whofor.jsx`, `page-camp.jsx`, `page-sorrel.jsx`, `page-build.jsx`, `page-join.jsx`
 
-Note: `colors_and_type.css` is `@import`ed inside `site.css`, so it has no version of its own — if you edit it, bump `site.css`'s `?v=` to force the import to refetch.
+Note: `colors_and_type.css` is `@import`ed inside `site.css` **with its own `?v=` in the import URL**. Bumping `site.css` alone does NOT refetch it — the import URL is what the browser caches against, so a new token stays undefined and every rule using it silently drops (a `background: var(--missing)` renders as no background at all). If you edit `colors_and_type.css`, bump the `?v=` inside the `@import` line as well, to the same number.
 
 ## Adding a page, or a second version of a page
 

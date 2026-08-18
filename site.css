@@ -3,7 +3,7 @@
    Imports the global tokens and adds the marketing-site rhythm:
    editorial hero scale, manifesto contrasts, framework cards,
    matrix diagram, nested circles, three-modes triad. */
-@import url('colors_and_type.css');
+@import url('colors_and_type.css?v=126');
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -47,11 +47,11 @@ body {
 .nav-cta {
   font-family: var(--font-sans); font-weight: 400; font-size: 13px;
   padding: 8px 16px; border-radius: 999px;
-  background: var(--forest-700); color: #fff;
+  background: var(--ember-500); color: var(--fg-on-ember); font-weight: 500;
   border: none; cursor: pointer;
   transition: background var(--dur-2);
 }
-.nav-cta:hover { background: var(--forest-800); }
+.nav-cta:hover { background: var(--ember-600); }
 
 /* ---------- layout helpers ---------- */
 .container { max-width: 1180px; margin: 0 auto; padding: 0 56px; }
@@ -212,6 +212,14 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--forest-700); color: #fff; }
 .btn-primary:hover { background: var(--forest-800); box-shadow: var(--shadow-forest); }
+/* The one call to action. Everything that opens the sign-up page wears
+   this; nothing else does. Slightly heavier than the other variants on
+   purpose — weight is the second signal after colour. */
+.btn-join {
+  background: var(--ember-500); color: var(--fg-on-ember); font-weight: 500;
+}
+.btn-join:hover { background: var(--ember-600); box-shadow: 0 10px 26px rgba(180,80,31,0.30); }
+.btn-join:focus-visible { outline: 3px solid var(--ember-700); outline-offset: 3px; }
 .btn-accent { background: var(--lichen-500); color: var(--forest-900); }
 .btn-accent:hover { background: var(--lichen-400); }
 .btn-secondary { background: transparent; color: var(--ink-900); border-color: var(--ink-300); }
@@ -518,14 +526,14 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   display: inline-block;
   margin-top: 24px;
   padding: 10px 20px;
-  background: var(--forest-700);
-  color: #fff;
-  font-size: 13px; font-weight: 400; letter-spacing: 0.02em;
+  background: var(--ember-500);
+  color: var(--fg-on-ember);
+  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
   text-decoration: none;
   border-radius: 6px;
   transition: background 0.15s;
 }
-.footer-join-btn:hover { background: var(--forest-800); }
+.footer-join-btn:hover { background: var(--ember-600); }
 .footer-col h6 {
   font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--ink-500); margin: 0 0 16px;
@@ -596,13 +604,16 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   padding: 8px 0; border-bottom: 1px solid var(--border-2);
 }
 .aud-row li:last-child { border-bottom: 0; }
+/* these two open the sign-up page as well, so they carry the CTA colour —
+   as an underlined link rather than a fill, since they sit inside a row of
+   body copy and a third filled button there would be a third primary */
 .aud-row .aud-cta {
-  font-size: 14px; font-weight: 400; color: var(--forest-700);
+  font-size: 14px; font-weight: 500; color: var(--ember-700);
   display: inline-flex; align-items: center; gap: 6px;
-  border-bottom: 1px solid var(--forest-300); padding-bottom: 2px;
+  border-bottom: 1px solid var(--ember-500); padding-bottom: 2px;
   text-decoration: none;
 }
-.aud-row .aud-cta:hover { border-bottom-color: var(--forest-700); }
+.aud-row .aud-cta:hover { border-bottom-color: var(--ember-700); color: var(--ember-500); }
 
 /* ---------- ways-to-join cards ---------- */
 .join-grid {
@@ -1424,10 +1435,10 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .msheet-it.active::after { content: '●'; margin-left: auto; font-size: 9px; color: var(--lichen-500); }
 .msheet-join {
   display: block; width: calc(100% - 48px); margin: 16px 24px 0; padding: 14px;
-  background: var(--forest-700); color: #fff; border: 0; border-radius: 12px;
-  font-family: var(--font-sans); font-size: 15px; font-weight: 400; cursor: pointer;
+  background: var(--ember-500); color: var(--fg-on-ember); border: 0; border-radius: 12px;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 500; cursor: pointer;
 }
-.msheet-join:hover { background: var(--forest-800); }
+.msheet-join:hover { background: var(--ember-600); }
 
 /* shown only on phones — placed after the base display:none above so it wins */
 @media (max-width: 640px) {
@@ -1901,8 +1912,37 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .cph-nav:not(.scrolled) .nav-link.active { color: #fff; border-bottom-color: var(--lichen-400); }
 
 /* keep the headline inside the side scrim rather than letting it run out
-   over the bright half of the frame */
-.cph-hero h1 { max-width: 15ch; }
+   over the bright half of the frame. 15ch when the headline was one fixed
+   sentence; the rotating clause needs the extra measure or its longest
+   phrase costs four lines. */
+.cph-hero h1 { max-width: 22ch; }
+
+/* ── the rotating clause ────────────────────────────────────────────────
+   Its own block, so it always starts on a fresh line and the fixed half
+   above it never re-wraps as the phrase changes. min-height reserves the
+   two lines the longest phrase takes at this measure, so nothing below
+   the headline moves while it types. */
+.cph-hero h1 .cph-rot {
+  display: block; font-style: italic; color: var(--lichen-300);
+  /* a step down from the fixed clause: at full size the longest phrase
+     ("imagining AI-native regenerative organizations") takes three lines
+     where every other one takes two, and the headline grew and shrank by
+     a whole line as it cycled. */
+  font-size: 0.86em; min-height: 2.08em;
+}
+/* Both values above are only what stands before the script runs:
+   cphRotate steps the size down until the longest phrase fits two lines
+   at the actual viewport, and sets the matching floor inline. */
+.cph-rot-caret {
+  display: inline-block; width: 3px; height: 0.78em;
+  background: var(--lichen-400); vertical-align: -0.04em; margin-left: 0.07em;
+  animation: cph-caret 1050ms steps(1) infinite;
+}
+/* the settled headline, for crawlers and screen readers only */
+.cph-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 
 /* the site's ghost button is built for light grounds — it disappears on a
    photograph, so it gets a glass treatment here */
@@ -2026,9 +2066,9 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .cph-sp-drawer-foot { padding: 16px 20px calc(20px + env(safe-area-inset-bottom)); border-top: 1px solid var(--border-2); }
 .cph-sp-drawer-cta {
   display: block; width: 100%; text-align: center; padding: 13px; border-radius: 10px; border: none;
-  background: var(--forest-700); color: #fff; font-weight: 500; cursor: pointer;
+  background: var(--ember-500); color: var(--fg-on-ember); font-weight: 500; cursor: pointer;
 }
-.cph-sp-drawer-cta:hover { background: var(--forest-800); }
+.cph-sp-drawer-cta:hover { background: var(--ember-600); }
 
 @media (max-width: 640px) {
   .cph-sp-burger, .cph-sp-scrim, .cph-sp-drawer { display: flex; }
@@ -2096,6 +2136,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
     opacity: 1 !important; transform: none !important; transition: none !important;
   }
   .cph-typing::after { display: none; }
+  .cph-rot-caret { display: none; }
 }
 
 
@@ -2722,22 +2763,27 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 /* There is no application form yet; the buttons open the camp's Telegram
    channel and say so. This line carries the rest of the truth — that
    applications open there first — so the button can stay short. */
-.cph-hero-note {
-  font-family: var(--font-mono); font-size: 12px; font-weight: 400;
-  letter-spacing: 0.04em; color: rgba(255,255,255,0.66);
-  margin: 16px 0 0; max-width: 460px;
-  text-shadow: 0 1px 12px rgba(6,14,9,0.85);
-}
-.cph-cta .cph-cta-note {
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.62); margin: 22px auto 0; max-width: 520px;
-}
 
 /* ---------- self-select strip ---------- */
 /* Five cards, one per profile, directly under the hero. They are buttons
    rather than cards-with-a-link because the whole surface is the target:
    at this width nobody is aiming at a word. */
-.cph-strip-sec { padding-top: 72px; padding-bottom: 72px; }
+.cph-strip-sec { padding-top: 112px; padding-bottom: 80px; }
+/* The five profiles come in from the left, one after another, rather
+   than rising together: this row is a sequence — five people arriving —
+   and the eye reads it left to right anyway. Overrides the cascade's
+   default rise; the stagger itself is CampCascade's, at 170ms a card,
+   so the five read as five arrivals rather than one ripple. */
+.cph-cascade.cph-strip > * {
+  translate: -44px 0; scale: 0.985;
+  transition: opacity 900ms var(--ease-out), translate 1250ms var(--ease-out),
+              scale 1250ms var(--ease-out);
+}
+.cph-cascade.cph-strip.cph-in > * { translate: none; scale: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .cph-cascade.cph-strip > * { translate: none !important; scale: 1 !important; }
+}
+
 .cph-strip {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
   margin: 0; padding: 0;
@@ -2768,7 +2814,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-strip-foot {
   font-size: 14px; font-weight: 300; line-height: 1.6;
-  color: var(--ink-500); margin: 22px 0 0; max-width: 760px;
+  color: var(--ink-500); margin: 28px 0 0; max-width: 760px;
 }
 .cph-strip-foot button {
   background: none; border: none; padding: 0; cursor: pointer;
@@ -2804,11 +2850,6 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   background: var(--lichen-300); color: var(--forest-900); border-color: var(--lichen-300);
 }
 .cph-apply .btn-primary:hover { background: #E2E8AC; border-color: #E2E8AC; }
-.cph-apply .cph-apply-note {
-  font-family: var(--font-mono); font-size: 12px; font-weight: 400;
-  letter-spacing: 0.03em; line-height: 1.6;
-  color: rgba(255,255,255,0.62); margin: 22px 0 0; max-width: 620px;
-}
 
 /* ---------- narrow ---------- */
 @media (max-width: 1000px) {
@@ -2818,7 +2859,197 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 @media (max-width: 640px) {
   .cph-strip { grid-template-columns: 1fr; }
   .cph-strip-it:last-child { grid-column: auto; }
-  .cph-strip-sec { padding-top: 56px; padding-bottom: 56px; }
+  .cph-strip-sec { padding-top: 80px; padding-bottom: 64px; }
   .cph-apply { padding: 32px 24px; }
   .cph-apply-ctas > * { width: 100%; }
 }
+
+
+/* ============================================================
+   SORREL — the camp agent's own page (page-sorrel.jsx)
+   Built from the camp page's parts, so it needs almost nothing of
+   its own: a hero (the mark rather than a photograph, since the page
+   is about one thing and that thing has a face) and the nameplate
+   spread under it.
+   ============================================================ */
+.sorrel-hero {
+  position: relative; overflow: hidden;
+  background: var(--forest-900);
+  padding: 168px 0 84px;
+}
+.sorrel-hero-shot {
+  position: absolute; inset: 0;
+  background-image: var(--sorrel-shot);
+  background-size: cover; background-position: center;
+  opacity: 0.26; filter: grayscale(0.3) contrast(1.05);
+}
+.sorrel-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(14,36,25,0.86) 0%, rgba(14,36,25,0.6) 45%, rgba(14,36,25,0.94) 100%);
+}
+.sorrel-hero-copy { position: relative; z-index: 2; }
+.sorrel-hero-copy h1 { color: #fff; margin: 26px 0 0; max-width: 18ch; }
+.sorrel-hero-copy h1 em { color: var(--lichen-300); }
+.sorrel-hero-copy .lede { color: rgba(255,255,255,0.82); max-width: 60ch; margin-top: 20px; }
+.sorrel-back {
+  display: inline-block; margin-bottom: 32px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--lichen-300); text-decoration: none;
+}
+.sorrel-back:hover { color: #fff; }
+
+/* the mark, the name and the four opening paragraphs as one spread */
+.sorrel-intro {
+  display: grid; grid-template-columns: 180px 1fr; gap: 40px;
+  align-items: start;
+}
+.sorrel-nameplate {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.sorrel-name {
+  font-family: var(--font-display); font-size: 30px;
+  letter-spacing: -0.02em; color: var(--forest-800);
+}
+.sorrel-name-note {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-500); text-align: center;
+}
+.sorrel-intro .q-body { max-width: 680px; }
+
+@media (max-width: 760px) {
+  .sorrel-hero { padding: 132px 0 64px; }
+  .sorrel-intro { grid-template-columns: 1fr; gap: 28px; }
+  .sorrel-nameplate { flex-direction: row; align-items: center; gap: 16px; }
+  .sorrel-name-note { text-align: left; }
+}
+
+
+/* ============================================================
+   WHY COME — the ribbon under the camp hero
+   One row, drifting left, full-bleed so it reads as passing
+   through the page rather than sitting in a box. The mask fades
+   both ends so chips arrive and leave rather than being cut.
+   ============================================================ */
+/* One scale for this pair of sections, because they read as one field
+   otherwise: label→its own content 20, content→its caption 28, and the
+   whole gap between the two sections 112 — roughly four times the
+   largest gap inside either of them, which is what makes them read as
+   two things rather than six. 96 at the top clears the hero's brush
+   edge, which fades ~60px into this section. */
+.cph-why-sec { padding-top: 96px; padding-bottom: 0; }
+
+.cph-why-ribbon {
+  overflow: hidden; padding: 6px 0; margin: 4px 0 28px;   /* the glosses are the ribbon's caption — they hug it */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.cph-why-track {
+  display: flex; gap: 16px; width: max-content;
+  animation: cph-why-drift 68s linear infinite;
+}
+/* -50% is half the track, but twelve chips carry eleven gaps, so half a
+   track is half a gap (8px) short of one whole cycle of six. Without the
+   correction the ribbon snaps 8px every lap. */
+@keyframes cph-why-drift { to { transform: translateX(calc(-50% - 8px)); } }
+/* stop it wherever the reader's attention lands */
+.cph-why-ribbon:hover .cph-why-track,
+.cph-why-ribbon.paused .cph-why-track { animation-play-state: paused; }
+
+/* the label and its pause control share a line */
+.cph-why-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.cph-why-pause {
+  flex: none; background: none; border: 0; padding: 0 0 2px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-500);
+  border-bottom: 1px solid var(--border-2);
+}
+.cph-why-pause:hover { color: var(--forest-700); border-bottom-color: var(--forest-700); }
+.cph-why-pause:focus-visible { outline: 2px solid var(--forest-600); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .cph-why-pause { display: none; } }
+
+.cph-why-chip {
+  display: flex; align-items: baseline; gap: 12px; white-space: nowrap;
+  background: var(--surface-white); border: 1px solid var(--border-1);
+  border-radius: 999px; padding: 14px 28px 15px;
+  transition: border-color 260ms ease, background 260ms ease;
+}
+.cph-why-chip:hover { border-color: var(--forest-200); background: var(--forest-050); }
+.cph-why-chip .n {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--forest-600); font-variant-numeric: tabular-nums;
+}
+.cph-why-chip .t {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: clamp(20px, 2vw, 28px); line-height: 1.1;
+  letter-spacing: -0.01em; color: var(--ink-900);
+}
+
+.cph-why-glosses {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.cph-why-glosses p {
+  margin: 0; font-size: 14px; font-weight: 300; line-height: 1.55;
+  color: var(--ink-600); border-left: 2px solid var(--lichen-500); padding-left: 14px;
+}
+@media (max-width: 760px) {
+  .cph-why-glosses { grid-template-columns: 1fr; gap: 16px; }
+  .cph-why-chip { padding: 12px 22px 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-why-ribbon {
+    -webkit-mask-image: none; mask-image: none;
+    padding-left: 26px; padding-right: 26px;
+  }
+  .cph-why-track { animation: none; flex-wrap: wrap; width: auto; }
+  /* the duplicate set exists only to make the loop seamless */
+  .cph-why-track > [aria-hidden="true"] { display: none !important; }
+}
+
+
+/* ============================================================
+   THE JOIN BAND — the invitation, three times (CampJoinBand)
+   Shorter than a chapter plate and graded across rather than
+   down, so the type keeps the dark half and the photograph
+   keeps the light one. Ember is the only colour on it.
+   ============================================================ */
+.cph-join {
+  position: relative; overflow: hidden;
+  background: var(--forest-900);
+  padding: clamp(72px, 9vw, 116px) 0;
+  isolation: isolate;
+}
+.cph-join-art {
+  position: absolute; inset: -12% 0; z-index: 0;
+  background-size: cover; background-position: center 42%;
+  filter: saturate(0.86) brightness(0.9);
+  will-change: transform;
+}
+.cph-join-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg,
+      rgba(14,36,25,0.95) 0%,
+      rgba(14,36,25,0.86) 34%,
+      rgba(14,36,25,0.52) 68%,
+      rgba(14,36,25,0.22) 100%),
+    linear-gradient(180deg, rgba(14,36,25,0.5), rgba(14,36,25,0.12) 40%, rgba(14,36,25,0.55));
+}
+.cph-join-inner { position: relative; z-index: 3; }
+.cph-join-line {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 46px); line-height: 1.08; letter-spacing: -0.02em;
+  color: #fff; margin: 0 0 28px; max-width: 22ch;
+  text-shadow: 0 2px 22px rgba(6,14,9,0.6);
+}
+/* the accent clause is the light end of the ember ramp: the fill
+   colour itself is too dark to read over a photograph */
+.cph-join-line em { font-style: italic; color: #F0A868; }
+.cph-join-note {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.66); margin: 18px 0 0; max-width: 46ch;
+}
+/* The tears sit above the art and below the copy, and are shorter here
+   than on a chapter plate: at the default 150px two of them eat most of
+   a band this height and the photograph never gets to show. */
+.cph-join .cph-tear { z-index: 2; --tear-h: clamp(56px, 7vh, 84px); }

@@ -33,7 +33,7 @@ const PageWhy = ({ onNav }) => (
           Audax OS is an open operating system for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
         </p>
         <div className="hero-ctas">
-          <Button variant="accent" size="lg" icon="arrow-right" onClick={() => onNav('build')}>Join to co-create</Button>
+          <Button variant="join" size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join to co-create</Button>
         </div>
       </div>
     </LivingHero>
@@ -194,7 +194,7 @@ const PageWhy = ({ onNav }) => (
           We are not looking for spectators. We are looking for people carrying pieces of the answer.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => onNav('build')} icon="arrow-right">Join to co-create</Button>
+          <Button variant="join" onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join to co-create</Button>
           <Button variant="ghost" onClick={() => onNav('spheres')}>Explore the Spheres</Button>
         </div>
       </div>

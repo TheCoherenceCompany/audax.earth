@@ -2,7 +2,7 @@
    ---------------------------------------------------------------
    Camp Audax at The Gathering US, Camp Navarro, Northern California,
    12–18 October 2026. A stand-alone landing page: its own nav and
-   footer (no Audax OS site chrome), seven anchored sections, and its
+   footer (no Audax OS site chrome), six anchored sections, and its
    own photography rather than the OS pages' abstract washes — Audax
    OS is an abstraction, Camp Audax is a place with mud in it.
 
@@ -135,30 +135,50 @@ const CAMP_RIBBON = [
 ];
 
 /* ─── The front door ─────────────────────────────────────────────────────
-   There is no application form yet. JOIN_URL is the camp's Telegram
-   channel, so every call to action on this page says what it actually
-   does rather than promising an application it cannot deliver — a button
-   labelled "Apply to join Camp Audax" that opens a group chat costs more
-   trust than the word buys, and applications will open in that channel
-   first in any case. The day the form exists, point JOIN_URL at it and
-   change these three strings plus the "How to join" row in
-   CAMP_PRACTICAL; nothing else on the page hard-codes the wording. */
-const CAMP_CTA = 'Join the camp channel';
-const CAMP_CTA_SHORT = 'Join us';
-const CAMP_CTA_NOTE = 'Applications open soon — the channel is where they open first.';
+   JOIN_URL (components.jsx) is the camp's sign-up page. It used to be a
+   Telegram invite, which is why the wording here was once "join the camp
+   channel" — every call to action on this page says what it actually
+   does. These three strings plus the "How to join" row in CAMP_PRACTICAL
+   are the only places the wording lives; nothing else hard-codes it. */
+const CAMP_CTA = 'Join Us';
+const CAMP_CTA_SHORT = 'Join Us';
+/* The line under the CTAs used to read "Applications open soon — sign-ups
+   are where they open first." It said the same thing three times on one
+   page and the sign-up page says it better, so it went. The scholarship
+   sentence it used to lead survives on its own below. */
 
-/* The whole navigation. Seven anchors, in reading order: the argument,
-   the village we are a camp in, the room, the week, the distinctive
-   thing, the payoff, the logistics. Each carries a mile marker and an
-   icon for the signpost rail. */
+/* ─── The headline's last clause ─────────────────────────────────────────
+   The hero used to end on one fixed phrase. It now cycles: the deck below
+   is the guest list said out loud, and every entry has to complete "…with
+   the people ___" as a sentence, which is why "startups for a wise future"
+   carries its verb. First entry is the anchor — it is what the headline
+   reads as before the cycle starts, what a crawler and a screen reader
+   get, and what stands under prefers-reduced-motion.
+   American spelling here, like the rest of this page. */
+const CAMP_ROTATION = [
+  "building what's next",
+  'building AI for good',
+  'building AI for regeneration',
+  'investing in AI for collective intelligence',
+  'building startups for a wise future',
+  'imagining AI-native regenerative organizations',
+  'creating a narrative for a positive AI future',
+  'asking the hard questions',
+  'building hope',
+];
+
+/* The whole navigation. Six anchors, in reading order: the argument, the
+   village we are a camp in, the room, the week, the payoff, the
+   logistics. The agent used to sit between the week and the payoff; it
+   is its own page now (#sorrel). Each anchor carries a mile marker and
+   an icon for the signpost rail. */
 const CAMP_SECTIONS = [
   { id: 'why',           label: 'Why',           mile: 'MI 0', icon: '◈' },
   { id: 'the-gathering', label: 'The Gathering', mile: 'MI 1', icon: '◎' },
   { id: 'who-comes',     label: 'Who comes',     mile: 'MI 2', icon: '◐' },
   { id: 'the-week',      label: 'The week',      mile: 'MI 3', icon: '▲' },
-  { id: 'the-agent',     label: 'The agent',     mile: 'MI 4', icon: '✦' },
-  { id: 'what-you-get',  label: 'What you get',  mile: 'MI 5', icon: '◇' },
-  { id: 'practical',     label: 'Practical',     mile: 'MI 6', icon: '▣' }
+  { id: 'what-you-get',  label: 'What you get',  mile: 'MI 4', icon: '◇' },
+  { id: 'practical',     label: 'Practical',     mile: 'MI 5', icon: '▣' }
 ];
 
 /* ─── The Gathering ──────────────────────────────────────────────────────
@@ -213,14 +233,6 @@ const CAMP_GATHERING_DNA = [
     'A meaningful relational place in the whole, which does not require becoming the same as everyone else in it. Home camps, welcome, care, repeated contact, contribution.',
     'Instant intimacy, conformity, or unconditional comfort.'
   ]
-];
-
-/* Outermost first — the nesting renders as literal boxes inside boxes. */
-const CAMP_NESTING = [
-  ['A network of Gatherings', 'Locally stewarded, globally supported. Four so far, in Portugal, Guatemala and Czechia; California is the fifth, and more are forming. Shared principles, tools, learning and relationships rather than a franchise, and the governance of that shared layer is openly unfinished.'],
-  ['The Gathering US', '500+ people across 20+ camps on one property, 12–18 October 2026, convened by RegenWorld. A local team holds the infrastructure, safety, finances and coherence of the whole village, so that a camp can get on with being a camp.'],
-  ['Camp Audax', 'Us. Our crew, our culture, our program and our questions, with a seat in the Council and a share of the responsibility for the village.'],
-  ['You', 'A home at human scale, a role you choose rather than receive, and a field of 500 people you can actually reach from inside it. This is the level we are inviting you into.']
 ];
 
 /* The briefing keeps a list of shortcuts it considers misleading. All four
@@ -371,15 +383,21 @@ const CAMP_EMERGE = [
   'Experiments in inter-organizational agent communication'
 ];
 
-/* Sorrel's open questions — the "raise it together" invitation, made
-   concrete. Victor: "it's an invitation to together raise the agent." */
-const CAMP_UNDECIDED = [
-  ['Its voice', 'Warm or dry. Brief or expansive. Whether it is funny.'],
-  ['Its refusals', 'What it declines to answer, and how it says so.'],
-  ['Its opinions', 'Whether it has any, and whether it volunteers them.'],
-  ['Its presence', 'Whether it speaks at the fire circle or stays out of it.'],
-  ['Its forgetting', 'What it lets go of, when, and who decides.'],
-  ['Its face', 'The mark below is a first sketch, not a decision.']
+/* ─── Why come ───────────────────────────────────────────────────────────
+   The reasons, before the profiles. A reader who has just met the
+   headline wants "what is this for me" answered in ten seconds, and the
+   five profiles answer a different question — who else is here. Every
+   line is drawn from something the page argues further down, so this is
+   a summary of the page rather than new claims: the incubator, the
+   partnerships, the narrative, the dialogue, the exchange and the
+   land. */
+const CAMP_WHY_COME = [
+  ['A six-day collaboration incubator', 'Not a conference. A working village, where the thing you start on Tuesday has four more days to become real.'],
+  ['Build connection, trust and lasting partnerships', 'Builders, entrepreneurs, investors, operators and practitioners in one room, for long enough to get past the pitch.'],
+  ['Shape the narrative of Wise AI', 'The story of this technology is being written now, largely by people who are not asking what it is for. Come and write a different one.'],
+  ['Deep dialogue about AI as the path to Planetary Adulthood', 'Six days is long enough to get past positions and into the question underneath: what this technology is for, and what growing up as a species would ask of us.'],
+  ['Learn, teach, share, connect', 'Everyone arrives with something to give and something they are stuck on. Both count, and both are programmed for.'],
+  ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms, and a good half of the week deliberately unscheduled.']
 ];
 
 const CAMP_PRACTICAL = [
@@ -387,7 +405,7 @@ const CAMP_PRACTICAL = [
   ['Location', 'Camp Navarro, 901 Masonite Industrial Rd, Navarro, CA 95463'],
   ['Duration', '7 days, 6 nights'],
   ['Capacity', 'TBC'],
-  ['How to join', 'Join the camp channel and tell us which path you\'re aiming for — Co-Creator or Participant, above. Formal applications open there first — dates TBC'],
+  ['How to join', 'Sign up and tell us which path you\'re aiming for — Co-Creator or Participant, above. Formal applications open there first — dates TBC'],
   ['Cost', "Camp ticket TBC · accommodation from $35/night (tent) to $50/night (cabin or glamping) · meal plans $150 (3-day) or $300 (6-day) · bedding package $50"],
   ['Food', "Breakfast and dinner daily from Camp Navarro's kitchen, plus café, pizza and BBQ through the day"],
   ['Language', 'English'],
@@ -589,7 +607,7 @@ const CAMP_FAQ = [
   ['What is a Camp?', <>A working village within {GATHERING}. Ours has our own crew, our own culture and our own program, held inside a wider field of 500 people.</>],
   ['What is The Gathering US?', 'The village we are a camp inside: 500+ people across 20+ camps at Camp Navarro, convened by RegenWorld. We are one camp among many — see The Gathering, section 02.'],
   ['Do I need a project already?', 'Bring us something real: a project, a question, a tool, capital, a practice, or experience.'],
-  ['Who is Sorrel?', 'Our camp agent. A working name for something we are building and naming together, and would like your help with — see The agent, above.'],
+  ['Who is Sorrel?', <>Our camp agent. A working name for something we are building and naming together, and would like your help with — <a href="#sorrel">the whole story is here</a>.</>],
   ['Can I attend without using the agent?', 'Yes. Fully.'],
   ['What happens to what I say?', 'We record nothing without everyone present agreeing to it. You can review, edit, export and delete your own material.'],
   ['What if the ticket is a stretch?', 'We hold scholarship and volunteer places. Get in touch.']
@@ -660,6 +678,9 @@ const cphSplit = (el) => {
         });
         node.replaceChild(frag, child);
       } else if (child.nodeType === 1) {
+        // the rotating clause writes itself and the hidden completion is
+        // never seen — neither wants its glyphs staggered on load
+        if (child.classList.contains('cph-nosplit')) return;
         walk(child);
       }
     });
@@ -735,6 +756,104 @@ const cphType = (el, delay = 0, duration = 1150, onDone) => {
   return delay + duration;
 };
 
+/* The headline's last clause, typing itself through CAMP_ROTATION. A
+   hairline caret rather than the mono block one the practical line gets:
+   this is 76px serif, where a block reads as a cursor bug rather than a
+   typewriter. Per-character timing is jittered either side of 30ms —
+   an exactly even cadence reads as machinery, an uneven one reads as a
+   hand — and backspacing runs at half the typing speed, the way a real
+   correction does.
+
+   One chained setTimeout rather than an interval, because the delay is
+   different at every step. `awake` lets the caller stop the cycle while
+   the hero is off screen; nothing should be typing to an empty room. */
+const cphRotate = (el, phrases, delay = 0, awake = () => true) => {
+  if (!el || !phrases.length) return undefined;
+  const text = document.createTextNode('');
+  el.appendChild(text);
+
+  /* Fit, then reserve. Phrases wrap to a different number of lines from
+     each other — one for "building hope", three for the long one — and
+     without a fixed floor the lede and the buttons get shoved down the
+     page mid-word. Neither half can be done in CSS: where a phrase
+     breaks depends on the viewport and on the phrase, so the clause is
+     stepped down until the longest of the nine fits ROT_LINES lines,
+     and that height is then held for all of them. Re-run on resize and
+     once the display face has loaded, since both move the wrap points. */
+  const ROT_LINES = 2;
+  const reserve = () => {
+    const held = text.textContent;
+    el.style.minHeight = '0px';
+    let size = 0.86;
+    let lh = 0;
+    for (;;) {
+      el.style.fontSize = size + 'em';
+      lh = parseFloat(window.getComputedStyle(el).lineHeight) || 0;
+      let tallest = 0;
+      phrases.forEach((phrase) => {
+        text.textContent = phrase;
+        tallest = Math.max(tallest, el.getBoundingClientRect().height);
+      });
+      // +2px of slack: sub-pixel line boxes otherwise shrink the clause
+      // one step further than it needs for no visible gain
+      if (!lh || tallest <= ROT_LINES * lh + 2 || size <= 0.5) break;
+      size -= 0.03;
+    }
+    text.textContent = held;
+    el.style.minHeight = Math.ceil(ROT_LINES * lh) + 'px';
+  };
+  reserve();
+
+  /* Reduced motion gets the anchor phrase, at the size the fit chose so
+     the headline is typographically identical, and no reserved floor —
+     nothing is going to move under it. */
+  if (cphReduced()) {
+    text.textContent = phrases[0];
+    el.style.minHeight = '';
+    return undefined;
+  }
+
+  const caret = document.createElement('i');
+  caret.className = 'cph-rot-caret';
+  el.appendChild(caret);
+
+  // the fallback face wraps differently from Instrument Serif
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+  let rz = null;
+  const onResize = () => { clearTimeout(rz); rz = setTimeout(reserve, 150); };
+  window.addEventListener('resize', onResize);
+
+  let stopped = false;
+  let timer = null;
+  const at = (ms, fn) => { timer = setTimeout(fn, ms); };
+  // off screen: hold this frame and look again, rather than typing on
+  const wait = (fn) => at(400, fn);
+
+  const type = (i, n) => {
+    if (stopped) return;
+    if (!awake()) { wait(() => type(i, n)); return; }
+    const p = phrases[i % phrases.length];
+    text.textContent = p.slice(0, n);
+    if (n < p.length) { at(28 + Math.random() * 26, () => type(i, n + 1)); return; }
+    at(2200, () => erase(i, p.length));
+  };
+  const erase = (i, n) => {
+    if (stopped) return;
+    if (!awake()) { wait(() => erase(i, n)); return; }
+    text.textContent = phrases[i % phrases.length].slice(0, n);
+    if (n > 0) { at(15, () => erase(i, n - 1)); return; }
+    at(280, () => type(i + 1, 1));
+  };
+
+  at(delay, () => type(0, 1));
+  return () => {
+    stopped = true;
+    clearTimeout(timer);
+    clearTimeout(rz);
+    window.removeEventListener('resize', onResize);
+  };
+};
+
 /* Generic scroll reveal for anything below the fold. */
 const CampReveal = ({ children, as: Tag = 'div', ...rest }) => {
   const ref = useCampReveal();
@@ -743,7 +862,7 @@ const CampReveal = ({ children, as: Tag = 'div', ...rest }) => {
 
 /* ─── Body motion ────────────────────────────────────────────────────────
    Everything above this point animates the hero. Everything below it
-   animates the other seven sections, which until now arrived fully
+   animates the other six sections, which until now arrived fully
    painted — the reveal component was written, styled at site.css
    .cph-obs, and never called.
 
@@ -847,7 +966,7 @@ const cphInkPick = (el, current) => {
 };
 
 /* A section title: the plain clause rises, the italic accent bleeds in
-   out of focus and sharpens. Used on all seven q-h1s and the closing h2,
+   out of focus and sharpens. Used on all six q-h1s and the closing h2,
    and deliberately never on the hero, which keeps the typewriter. */
 const CampInk = ({ as: Tag = 'h1', className = '', children, ...rest }) => {
   const ref = useCampReveal((el) => cphWrapWords(el, 'cph-ink-plain', cphInkPick));
@@ -997,6 +1116,9 @@ const CampHero = ({ children, onDots }) => {
   const [i, setI] = React.useState(0);
   const [live, setLive] = React.useState(false);
   const ref = React.useRef(null);
+  // the rotator is not a React effect and must not restart when `live`
+  // changes, so it reads visibility off a ref instead of the state
+  const liveRef = React.useRef(false);
   const reduced = React.useRef(
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -1005,9 +1127,9 @@ const CampHero = ({ children, onDots }) => {
   // only run the rotation while the hero is actually on screen
   React.useEffect(() => {
     const el = ref.current;
-    if (!el || !('IntersectionObserver' in window)) { setLive(true); return; }
+    if (!el || !('IntersectionObserver' in window)) { setLive(true); liveRef.current = true; return; }
     const io = new IntersectionObserver(
-      ([e]) => setLive(e.isIntersecting),
+      ([e]) => { setLive(e.isIntersecting); liveRef.current = e.isIntersecting; },
       { threshold: 0.15 }
     );
     io.observe(el);
@@ -1034,13 +1156,14 @@ const CampHero = ({ children, onDots }) => {
     if (cphReduced()) {
       if (hero) hero.classList.add('cph-lit');
       root.querySelectorAll('.cph-c, .cph-rise').forEach(e => e.classList.add('cph-in'));
+      cphRotate(q('.cph-rot'), CAMP_ROTATION);   // prints the anchor phrase, no cycle
       return;
     }
 
     // 1. arm every start state
     const h1 = q('h1');
     cphSplit(h1);
-    [q('.cph-hero-tg'), q('.eyebrow'), q('.lede'), q('.hero-ctas'), q('.cph-hero-note')].forEach(cphArm);
+    [q('.cph-hero-tg'), q('.eyebrow'), q('.lede'), q('.hero-ctas')].forEach(cphArm);
     const meta1 = q('.cph-hero-meta');
     const meta2 = q('.cph-hero-meta-2');
     const restore = [meta1, meta2].filter(Boolean).map(el => [el, el.innerHTML]);
@@ -1062,7 +1185,9 @@ const CampHero = ({ children, onDots }) => {
     // are throttled in background tabs and the two lines would overlap
     cphType(meta1, after + 320, 900, () => cphType(meta2, 140, 620));
     cphRise(q('.hero-ctas'), after + 1400);
-    cphRise(q('.cph-hero-note'), after + 1560);
+    // the clause starts writing a beat after the fixed half has landed,
+    // so the two are never typing over each other
+    const stopRot = cphRotate(q('.cph-rot'), CAMP_ROTATION, after + 300, () => liveRef.current);
 
     // failsafe: nothing about an entry animation should ever be able to
     // leave the hero copy invisible
@@ -1077,6 +1202,7 @@ const CampHero = ({ children, onDots }) => {
     }, 12000);
     return () => {
       clearTimeout(bail);
+      if (stopRot) stopRot();
       restore.forEach(([el]) => {
         clearTimeout(el._cphStart); clearInterval(el._cphTimer);
       });
@@ -1189,7 +1315,7 @@ const CampBand = ({ shot, kicker, numeral, label, rate = 0.16, tear, tearTop, te
 };
 
 /* ─── Pattern 04 · sticky diptych ────────────────────────────────────────
-   One image pinned while the seven movements scroll past it. */
+   One image pinned while the movements scroll past it. */
 const CampDiptych = ({ items }) => {
   const [active, setActive] = React.useState(0);
   const steps = React.useRef([]);
@@ -1343,6 +1469,66 @@ const CampNav = () => {
   );
 };
 
+/* ─── The invitation, three times ────────────────────────────────────────
+   This page runs eleven screens. A reader who decides at screen four
+   should not have to hunt for the door, so the same band appears three
+   times — after Why come?, after The week, and before Practical —
+   identical in form, one line of copy different each time, so it reads
+   as a recurring door rather than three separate pleas.
+
+   Photographic rather than typographic: it is the one device that
+   carries the place instead of describing it, and the scrim is graded
+   across rather than down so the type sits on the dark half while the
+   photograph stays legible on the other. Ember is the only colour on
+   it — see the token block in colors_and_type.css for why that colour
+   appears nowhere else on the site.
+
+   Parallax is CampBand's, at half its rate: this band is shorter, and
+   at the chapter rate the drift reads as a wobble. */
+const CampJoinBand = ({ shot, children, note, tearTop, tearGroundTop, tear, tearGround }) => {
+  const band = React.useRef(null);
+  const art = React.useRef(null);
+
+  React.useEffect(() => {
+    if (cphReduced()) return undefined;
+    let ticking = false;
+    const frame = () => {
+      ticking = false;
+      const el = band.current, a = art.current;
+      if (!el || !a) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const p = ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2);
+      a.style.transform = `translate3d(0,${(p * 0.08 * r.height).toFixed(1)}px,0)`;
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    frame();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  return (
+    <section className="cph-join" ref={band}>
+      <div className="cph-join-art" ref={art} style={{ backgroundImage: `url(${CPH(shot)})` }}></div>
+      <div className="cph-join-scrim"></div>
+      {tearTop && <CampTear image={tearTop} edge="top" ground={tearGroundTop} flip />}
+      {tear && <CampTear image={tear} edge="bottom" ground={tearGround} />}
+      <div className="container cph-join-inner">
+        <h2 className="cph-join-line">{children}</h2>
+        <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
+          {CAMP_CTA}
+        </Button>
+        {note && <p className="cph-join-note">{note}</p>}
+      </div>
+    </section>
+  );
+};
+
 /* ─── Pattern 06 · signpost stack ────────────────────────────────────────
    Six way-post badges threaded on a dashed rope down the right edge.
    Closed, it's just icons; hovering or arriving at one swings out a tag
@@ -1422,7 +1608,9 @@ const CampSignposts = ({ active, onJump }) => {
   );
 };
 
-const CampFooter = ({ onJump, onNav }) => (
+/* `sectionsLabel` because this footer is reused by the Sorrel page,
+   where "On this page" would label the camp's sections, not its own. */
+const CampFooter = ({ onJump, onNav, sectionsLabel = 'On this page' }) => (
   <footer className="footer">
     <div className="footer-inner">
       <div className="footer-brand">
@@ -1435,13 +1623,16 @@ const CampFooter = ({ onJump, onNav }) => (
         >{CAMP_CTA}</a>
       </div>
       <div className="footer-col">
-        <h6>On this page</h6>
+        <h6>{sectionsLabel}</h6>
         {CAMP_SECTIONS.map(s => (
           <a key={s.id} href={`#camp/${s.id}`} onClick={(e) => { e.preventDefault(); onJump(s.id); }}>{s.label}</a>
         ))}
       </div>
       <div className="footer-col">
         <h6>Elsewhere</h6>
+        <a href="#sorrel" onClick={(e) => { e.preventDefault(); onNav && onNav('sorrel'); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <SorrelMark size={12} tone="var(--forest-600)" /> Sorrel, the camp agent
+        </a>
         <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
           <GatheringMark size={12} tone={GATHERING_OLIVE} /> The Gathering US
         </a>
@@ -1479,10 +1670,15 @@ const CampKicker = ({ children, top = 0, bottom = 16 }) => {
 
 /* A single accent photograph dropped into a long text passage, so no
    section on this page runs more than a screen or two of pure copy. */
-const CampPhoto = ({ shot, alt, caption, ratio = '16 / 9' }) => (
+/* `pos` is object-position, and it is not optional thinking: half the
+   library is portrait (733×1100) and a portrait source in a 16/9 frame is
+   a thin horizontal slice taken from the middle of the picture — which on
+   a photograph of a person is their chest. Where the subject's face is
+   not in the middle of the frame, say where it is. */
+const CampPhoto = ({ shot, alt, caption, ratio = '16 / 9', pos = 'center' }) => (
   <figure style={{ margin: '48px 0' }}>
     <div style={{ borderRadius: 16, overflow: 'hidden', aspectRatio: ratio }}>
-      <img src={CPH(shot)} alt={alt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      <img src={CPH(shot)} alt={alt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: pos, display: 'block' }} />
     </div>
     {caption && (
       <figcaption style={{ fontSize: 12, fontWeight: 400, color: 'var(--ink-500)', margin: '10px 2px 0' }}>{caption}</figcaption>
@@ -1593,13 +1789,72 @@ const CampApply = () => (
       with builders, entrepreneurs, investors, practitioners and wisdom keepers in one forest.
     </p>
     <div className="cph-apply-ctas">
-      <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
+      <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
     </div>
-    <p className="cph-apply-note">
-      {CAMP_CTA_NOTE} Scholarship and volunteer places are held — say so in the channel and we will talk.
-    </p>
   </div>
 );
+
+/* ─── Why come ───────────────────────────────────────────────────────────
+   One ribbon of reasons, drifting left, with a pause control beside the
+   label. Under it, three of the six said in full and still — so the
+   moving half sells the mood and the still half carries the argument.
+
+   The control is not decoration: content that moves for more than five
+   seconds needs a way to stop it (WCAG 2.2.2), and hover cannot be that
+   way — it does not exist on a touchscreen and it is not reachable from
+   a keyboard. The chips themselves stay unfocusable, since half of them
+   are the duplicate set that makes the loop seamless.
+
+   Two earlier versions were tried and dropped. A reading-line list dimmed
+   seven of its eight answers at any moment, which reads as withholding on
+   the one section that has to be inviting; a grid of dealt cards was
+   warmer but sat too close to the card grids further down the page.
+   Horizontal drift is also the one direction the page does not already
+   move in — the hero types down a line, everything below rises — so this
+   answers the hero rather than repeating it.
+
+   The track holds the list twice and travels -50% minus half a gap:
+   twelve chips carry eleven gaps, so half the track is half a gap short
+   of one full cycle, and without the correction the ribbon jumps 8px
+   every lap. The second copy is aria-hidden so it is not read out twice.
+   Under prefers-reduced-motion the animation is dropped and the track
+   wraps into a plain stack. */
+const CampWhyCome = ({ items }) => {
+  const [paused, setPaused] = React.useState(false);
+  const chip = (dup) => items.map(([title], i) => (
+    <span className="cph-why-chip" key={(dup ? 'b' : 'a') + title}>
+      <span className="n">{String(i + 1).padStart(2, '0')}</span>
+      <span className="t">{title}</span>
+    </span>
+  ));
+  // the three that answer "what is this, where is it, what do I leave with"
+  const glosses = [0, 2, 5].map(i => items[i]).filter(Boolean);
+
+  return (
+    <section className="section-tight cph-why-sec">
+      <div className="container cph-why-head">
+        <CampKicker bottom={20}>Why come? &middot; {items.length} answers</CampKicker>
+        <button
+          type="button"
+          className="cph-why-pause"
+          onClick={() => setPaused(p => !p)}
+          aria-pressed={paused}
+        >{paused ? 'Play' : 'Pause'}</button>
+      </div>
+      <div className={`cph-why-ribbon${paused ? ' paused' : ''}`}>
+        <div className="cph-why-track">
+          {chip(false)}
+          <span aria-hidden="true" style={{ display: 'contents' }}>{chip(true)}</span>
+        </div>
+      </div>
+      <div className="container">
+        <div className="cph-why-glosses">
+          {glosses.map(([title, gloss]) => <p key={title}>{gloss}</p>)}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ─── Self-select strip ──────────────────────────────────────────────────
    The five profiles are where a reader decides the room is for them, and
@@ -1612,8 +1867,9 @@ const CampApply = () => (
 const CampProfileStrip = ({ profiles, onJump }) => (
   <section className="section-tight cph-strip-sec">
     <div className="container">
-      <CampKicker bottom={18}>Five profiles, one room · one of these is you</CampKicker>
-      <CampCascade step={45} className="cph-strip">
+      <CampKicker bottom={20}>Five profiles, one room · one of these is you</CampKicker>
+      {/* dealt left to right — see .cph-strip in site.css */}
+      <CampCascade step={170} className="cph-strip">
         {profiles.map(p => (
           <button
             key={p.name} type="button" className="cph-strip-it"
@@ -1754,45 +2010,6 @@ const CampPersonaSlider = ({ profiles }) => {
   );
 };
 
-/* ─── Pattern 07 · nesting ───────────────────────────────────────────────
-   The one thing on this page that is a containment relationship rather
-   than a sequence, so it gets drawn as containment: four boxes actually
-   inside each other, network on the outside, you in the middle. Built
-   with reduceRight so the markup nests the same way the diagram does.
-   The radius shrinks with each level, which is what stops it reading as
-   four stacked cards. Padding is clamped because it compounds: four
-   levels at a fixed 22px eats 176px of a phone's width before any text
-   gets a look in. */
-const CampNesting = () => (
-  CAMP_NESTING.reduceRight((inner, [label, body], i) => (
-    <div
-      key={label}
-      style={{
-        background: i % 2 ? 'var(--surface-white)' : 'var(--forest-050)',
-        border: '1px solid var(--forest-200)',
-        borderRadius: 20 - i * 3,
-        padding: 'clamp(14px, 1.6vw, 22px)'
-      }}
-    >
-      <div style={{
-        fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500,
-        letterSpacing: '0.2em', textTransform: 'uppercase',
-        color: 'var(--forest-700)', marginBottom: 6
-      }}>{`Level ${CAMP_NESTING.length - i}`}</div>
-      <div style={{
-        fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2vw, 26px)',
-        fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--ink-900)',
-        marginBottom: 8
-      }}>{label}</div>
-      <p style={{
-        fontSize: 14, fontWeight: 300, lineHeight: 1.6,
-        color: 'var(--ink-700)', margin: 0, maxWidth: 620
-      }}>{body}</p>
-      {inner && <div style={{ marginTop: 'clamp(14px, 1.4vw, 20px)' }}>{inner}</div>}
-    </div>
-  ), null)
-);
-
 const PageCamp = ({ onNav }) => {
   const [active, setActive] = React.useState(CAMP_SECTIONS[0].id);
 
@@ -1882,11 +2099,17 @@ const PageCamp = ({ onNav }) => {
         <div className="cph-hero-tg">
           <img src={GATHERING_LOCKUP} alt="The Gathering" />
         </div>
+        {/* The clause after "the people" cycles through CAMP_ROTATION on
+            its own line. The hidden twin is the headline as a crawler and
+            a screen reader get it — one settled sentence, since the live
+            one is mid-word most of the time. */}
         <h1 className="display lg">
-          Spend six days in the redwoods with us, and with the people <em>building what comes next.</em>
+          Six days in the redwoods with the people
+          <span className="cph-rot cph-nosplit" aria-hidden="true"></span>
+          <span className="cph-sr cph-nosplit">building what&rsquo;s next.</span>
         </h1>
         <p className="lede" style={{ maxWidth: 620 }}>
-          Builders, entrepreneurs, investors, ecosystem practitioners and wisdom keepers, in one forest, for one week. We are building AI for a wiser, regenerative society, and we would like you there while we do it.
+          Builders, investors, ecosystem practitioners and wisdom keepers &mdash; one forest, one week &mdash; making AI serve a wiser, regenerative society.
         </p>
         <p className="cph-hero-meta">
           Camp Navarro, Northern California&nbsp; ·&nbsp; <span className="cph-date">12–18 October 2026</span>
@@ -1894,17 +2117,28 @@ const PageCamp = ({ onNav }) => {
         <p className="cph-hero-meta cph-hero-meta-2">
           7 days, 6 nights · applications open soon
         </p>
+        {/* One button in the hero, deliberately. The Sorrel page is still
+            reached from the closing CTA, the FAQ and the footer; a second
+            button beside the one action costs more than that page gains. */}
         <div className="hero-ctas" style={{ marginTop: 36 }}>
-          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
-          <Button variant="ghost" onClick={() => jump('the-agent')}>Meet Sorrel, the camp agent</Button>
+          <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
         </div>
-        <p className="cph-hero-note">{CAMP_CTA_NOTE}</p>
       </div>
     </CampHero>
+
+    {/* Reasons first, then the room. See CampWhyCome. */}
+    <CampWhyCome items={CAMP_WHY_COME} />
 
     {/* Self-selection, before the argument rather than twelve screens into
         it. See CampProfileStrip. */}
     <CampProfileStrip profiles={CAMP_PROFILES} onJump={jump} />
+
+    {/* The door, first of three. See CampJoinBand. */}
+    <CampJoinBand shot="crowd-white"
+      tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
+      tear={ART.crest} tearGround="var(--surface-parchment)">
+      Six days. Five profiles. <em>One of them is you.</em>
+    </CampJoinBand>
 
     {/* ─── 01 · WHY ─────────────────────────────────────────────────────────
          The argument, and now the very first thing under the hero: nothing
@@ -2145,14 +2379,7 @@ const PageCamp = ({ onNav }) => {
             of cut flowers and tealights laid on the ground at its centre. */}
         <CampPhoto shot="carpet" alt="A circle of people seated on a patterned rug outside a bell tent, around a small altar of flowers and candles" caption="Nothing on the property arrives finished. Somebody makes it, on the day, out of what is there." />
 
-        {/* pattern 07 */}
-        <CampKicker>Where we sit, and where you would</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Four levels, each one nurturing and nurtured by the one inside it. It is worth knowing which one you are joining: you are not buying a ticket to a program, you are taking a place in a camp, which holds a place in a village, which holds a place in something still being built.</p>
-        </div>
-        <CampNesting />
-
-        <CampKicker top={56}>Four things it is not, and one thing it is</CampKicker>
+        <CampKicker>Four things it is not, and one thing it is</CampKicker>
         <table className="mini-matrix">
           <thead>
             <tr><th>The easy shorthand</th><th>Closer to the truth</th></tr>
@@ -2291,13 +2518,22 @@ const PageCamp = ({ onNav }) => {
       </div>
     </section>
 
-    {/* the second half of the pair — flipped, and a different wash, so the
-        two do not read as the same object stamped twice */}
-    <WashRule image={ART.spray} flip from="paper" to="parchment" />
-
     {/* ─── 04 · THE WEEK ────────────────────────────────────────────────────
          Merges the old §05 The week, §06 The journey and §07 The loop.
          What happens, when it starts, and what keeps it going. */}
+    {/* The door, second of three: the reader has just met the room.
+
+        A WashRule stood here until the band arrived, and the two together
+        were one brushstroke immediately followed by another — the rule's
+        wash, then the band's own top tear, both ART.spray. The band is
+        the relief now, and it bridges the same two grounds the rule did
+        (paper above, parchment below), so the rule went. */}
+    <CampJoinBand shot="furhat"
+      tearTop={ART.spray} tearGroundTop="var(--surface-paper)"
+      tear={ART.wave} tearGround="var(--surface-parchment)">
+      That is who is in the forest. <em>Come and be one of them.</em>
+    </CampJoinBand>
+
     <section className="section" id="the-week" style={anchor}>
       <div className="container">
         <CampInk className="q-h1">
@@ -2384,109 +2620,8 @@ const PageCamp = ({ onNav }) => {
     </section>
 
     {/* pattern 02 */}
-    <CampBand shot="wall" kicker="Fire circle" numeral="III" label="Where the real conversations happen"
-      tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
-      tear={ART.ribbons} tearGround="var(--surface-white)" rate={0.16} />
-
-    {/* ─── 05 · THE AGENT ───────────────────────────────────────────────────
-         Was three overlapping blocks (§02, the AI-layer sidebar and the
-         inset). Now one section, with a name and a face. */}
-    <section className="section manifesto" id="the-agent" style={anchor}>
-      <div className="container">
-        <CampInk className="q-h1">
-          <span className="num">05 · The agent</span>
-          Some communities keep a dog. <em>We are raising an agent.</em>
-        </CampInk>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40, alignItems: 'start', marginBottom: 48 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
-            <SorrelMark size={140} />
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 30, letterSpacing: '-0.02em', color: 'var(--forest-800)' }}>Sorrel</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink-500)', textAlign: 'center' }}>Working name</div>
-          </div>
-          <div className="q-body" style={{ maxWidth: 680 }}>
-            <p>Redwood sorrel carpets the forest floor at Navarro. In direct sun it folds its three leaflets shut; in shade it opens again. We wanted that instinct in an agent, so we borrowed the name.</p>
-            <p>We have woven Sorrel through the physical experience of our camp. It holds the memory of the week: who is here, what is happening, which conversations are live, which connections have been declared, and what emerged at 7am while you were asleep in a ShiftPod.</p>
-            <p>It works on consent. It knows only what you choose to tell it. It helps you orient, remember, connect and follow through, and it leaves every judgment that matters to you.</p>
-            <p>That makes us a live prototype of the thing we are discussing: a consent-based, agent-supported gathering, tested at human scale in a forest.</p>
-          </div>
-        </div>
-
-        <CampCascade style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 24 }}>
-          {[
-            ['What it does', 'Explains · orients · synthesizes · connects · remembers · reminds'],
-            ['What it knows', 'Only what you and the rest of us have explicitly allowed it to know.'],
-            ['What it leaves to you', 'What matters to you · who you should work with · what your commitments are worth · every judgment about another human being'],
-            ['How its role changes', 'Before: orientation companion · during: practical navigator and memory keeper · after: reflection partner and bridge to follow-through']
-          ].map(([h, b]) => (
-            <div key={h} style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 12, padding: '20px 22px' }}>
-              <h6 style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--forest-700)', margin: '0 0 10px' }}>{h}</h6>
-              <p style={{ fontSize: 14, fontWeight: 400, lineHeight: 1.55, color: 'var(--ink-800)', margin: 0 }}>{b}</p>
-            </div>
-          ))}
-        </CampCascade>
-
-        {/* Christine: "if we could weave the AI digital experience into the
-            physical in a way that's harmonious and helpful to the goal." */}
-        <CampKicker top={48}>Across the journey</CampKicker>
-        <CampCascade className="contrast-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-          <div className="contrast-col">
-            <h6>Before</h6>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)' }}>A conversational orientation rather than a form. Why are you coming? What are you building? What questions are alive for you? With your permission, Sorrel introduces relevant themes and surfaces others working on related questions. It shows relevance and explains why. You choose.</p>
-          </div>
-          <div className="contrast-col">
-            <h6>During</h6>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-800)' }}>Practical navigation: what is happening now, who is working on what, where a discussion is running, what you have committed to so far. Opt-in Coherence Conversations recording, with everyone present confirming consent and reviewing the synthesis.</p>
-          </div>
-          <div className="contrast-col">
-            <h6>After</h6>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-800)' }}>Review what you explored. Remember your commitments. Reconnect with relevant people. Decide what to continue, revise, or release. Collective memory maintained from participant-approved syntheses.</p>
-          </div>
-        </CampCascade>
-
-        <CampPhoto shot="shadow" alt="Leaf shadows falling across canvas" caption="The same instinct as its name: open in shade, closed in direct light." />
-
-        {/* Change 4 — the "raise it together" invitation, made concrete. */}
-        <CampKicker top={16}>What is not decided yet</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Sorrel is not finished, and finishing it is not our job alone — this is the part we are most directly inviting you into. You and everyone else who comes will set its language, personality, behaviors and boundaries during the week. These are genuinely open:</p>
-        </div>
-        <CampCascade style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 32 }}>
-          {CAMP_UNDECIDED.map(([h, b]) => (
-            <div key={h} style={{ padding: '18px 20px', background: 'var(--surface-white)', border: '1px dashed var(--forest-200)', borderRadius: 12 }}>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, letterSpacing: '-0.01em', color: 'var(--ink-900)', marginBottom: 6 }}>{h}</div>
-              <div style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.5, color: 'var(--ink-700)' }}>{b}</div>
-            </div>
-          ))}
-        </CampCascade>
-
-        {/* Christine: "this could be the start of the agent-to-agent,
-            inter-organisational communication piece." Victor: "definitely." */}
-        <div style={{ ...campNote, marginBottom: 24 }}>
-          <h6 style={campNoteH6}>And one experiment we are curious about</h6>
-          <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>
-            Several of us will arrive with agents of our own. Where their people consent, we would like to run the first small trials of agents from different organizations talking to each other on their behalf — introductions, matching needs to offers, carrying a commitment between two teams. This is early, unglamorous and may not work. We will say so either way.
-          </p>
-        </div>
-
-        <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 12, padding: '20px 22px', marginBottom: 24 }}>
-          <h6 style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ink-500)', margin: '0 0 10px' }}>Consent, privacy and attention</h6>
-          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: '0 0 10px' }}>We make recording explicitly opt-in and visible. You can join us fully without using Sorrel at all. You can review, edit, export and delete your own material. You choose what stays private, what we as hosts see, what the rest of the camp sees, and what becomes public.</p>
-          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: 0 }}>Sorrel is available when useful and quiet when it is not. Sometimes the best interface is a recorder on a table or a single physical display, rather than an app pecking at everyone's pockets in a forest.</p>
-        </div>
-
-        {/* not relabelled to CAMP_CTA: this one never claimed to be an
-            application, and "help raise Sorrel" is a truthful description
-            of what joining the channel gets you. */}
-        <Button icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Help raise Sorrel</Button>
-
-        <CampQuote>An agent can remind us of the promise. <em>The promise is still ours to make.</em></CampQuote>
-      </div>
-    </section>
-
-    {/* pattern 02 */}
-    <CampBand shot="canopy" kicker="200 acres" numeral="IV" label="Ancient redwood forest"
-      tearTop={ART.spray} tearGroundTop="var(--surface-white)"
+    <CampBand shot="canopy" kicker="200 acres" numeral="III" label="Ancient redwood forest"
+      tearTop={ART.spray} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-paper)" rate={0.2} />
 
     {/* ─── 06 · WHAT YOU GET ────────────────────────────────────────────────
@@ -2494,7 +2629,7 @@ const PageCamp = ({ onNav }) => {
     <section className="section" id="what-you-get" style={{ ...anchor, background: 'var(--surface-paper)' }}>
       <div className="container">
         <CampInk className="q-h1">
-          <span className="num">06 · What you get</span>
+          <span className="num">05 · What you get</span>
           Come with a question. <em>Leave with movement.</em>
         </CampInk>
 
@@ -2502,7 +2637,7 @@ const PageCamp = ({ onNav }) => {
           {CAMP_LEAVE_WITH.map(x => <li key={x} style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}>{x}</li>)}
         </CampCascade>
 
-        <CampPhoto shot="joy" alt="A woman dancing with her arms open" caption="Leave with movement — sometimes literally." />
+        <CampPhoto shot="joy" alt="A woman dancing with her arms open" ratio="3 / 2" pos="center 12%" caption="Leave with movement — sometimes literally." />
 
         <CampKicker top={16}>What may emerge</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
@@ -2529,17 +2664,22 @@ const PageCamp = ({ onNav }) => {
       </div>
     </section>
 
-    {/* pattern 02 */}
-    <CampBand shot="hands-up" kicker="500+ participants" numeral="V" label="One field, twenty camps"
+    {/* The door, third of three. It stands where the fourth chapter plate
+        used to: two photographic bands back to back read as an ad break,
+        and this is the more useful of the two at the point where the page
+        turns from the offer to the small print. */}
+    <CampJoinBand shot="hands-up"
       tearTop={ART.ribbons} tearGroundTop="var(--surface-paper)"
-      tear={ART.wave} tearGround="var(--surface-parchment)" rate={0.18} />
+      tear={ART.wave} tearGround="var(--surface-parchment)">
+      Everything above is the offer. <em>Below is the small print.</em>
+    </CampJoinBand>
 
     {/* ─── 07 · PRACTICAL ───────────────────────────────────────────────────
          Merges the old §11 The place, §12 Who is convening and §13 Practical. */}
     <section className="section" id="practical" style={anchor}>
       <div className="container">
         <CampInk className="q-h1">
-          <span className="num">07 · Practical</span>
+          <span className="num">06 · Practical</span>
           The place, the crew, <em>and the small print.</em>
         </CampInk>
 
@@ -2707,10 +2847,9 @@ const PageCamp = ({ onNav }) => {
           The redwoods are 400 years old. They have watched a few technologies arrive. Let's give them something worth watching.
         </CampReadLine>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
-          <Button variant="ghost" onClick={() => jump('the-agent')}>Meet Sorrel</Button>
+          <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>{CAMP_CTA}</Button>
+          <Button variant="ghost" onClick={() => onNav && onNav('sorrel')}>Meet Sorrel</Button>
         </div>
-        <p className="cph-cta-note">{CAMP_CTA_NOTE}</p>
       </div>
     </section>
 

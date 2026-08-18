@@ -260,7 +260,7 @@ const PageMap = ({ onNav }) => (
       body="We have starting questions rather than finished answers. We know this area matters, and we know it needs the best people and organisations in the world working on it."
       primary="Join the inquiry"
       secondary="Who is this for?"
-      onPrimary={() => onNav('build')}
+      onPrimary={() => window.open(JOIN_URL, '_blank')}
       onSecondary={() => onNav('whofor')}
     />
   </>

@@ -117,7 +117,7 @@ const PageLayers = ({ onNav }) => (
               onClick={() => document.getElementById('layers-intro')?.scrollIntoView({ behavior: 'smooth' })}>
               Explore the five layers
             </Button>
-            <Button size="lg" variant="secondary" onClick={() => onNav('build')}>
+            <Button size="lg" variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>
               Join to co-create
             </Button>
           </div>
@@ -628,7 +628,7 @@ const PageLayers = ({ onNav }) => (
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
             <Button size="lg" icon="arrow-right" onClick={() => onNav('modes')}>Explore Modes</Button>
-            <Button variant="secondary" onClick={() => onNav('build')}>Join to co-create</Button>
+            <Button variant="join" onClick={() => window.open(JOIN_URL, '_blank')}>Join to co-create</Button>
           </div>
         </div>
       </div>
@@ -641,7 +641,7 @@ const PageLayers = ({ onNav }) => (
         <h2>Help design coherence <em>across every scale.</em></h2>
         <p>The layers are where everything else has to land. Bring your scale, your context, your question.</p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button onClick={() => onNav('build')} icon="arrow-right">Join to co-create</Button>
+          <Button variant="join" onClick={() => window.open(JOIN_URL, '_blank')} icon="arrow-right">Join to co-create</Button>
           <Button variant="ghost" onClick={() => onNav('modes')}>Explore Modes</Button>
         </div>
       </div>
