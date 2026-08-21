@@ -2851,6 +2851,26 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-apply .btn-primary:hover { background: #E2E8AC; border-color: #E2E8AC; }
 
+/* ---------- Luma call cards ---------- */
+/* Luma's embed has no layout options of its own, but it is responsive to
+   its own width: under ~660px it stacks into a tall ~720px mobile
+   layout; at 700px+ everything compacts into a landscape shape needing
+   only ~440px of height (measured directly, not guessed — see the
+   comment on CampLumaCarousel). So the iframe always renders at its
+   native 700×460 to keep that compact layout, and this class scales the
+   *display* down with a CSS transform — shrinking the visible card
+   without ever narrowing the iframe past the breakpoint. */
+.cph-luma-card {
+  flex: 0 0 525px; width: 525px; height: 345px;
+  scroll-snap-align: start; overflow: hidden;
+  border-radius: 16px; border: 1px solid var(--border-1);
+  background: var(--surface-white);
+}
+.cph-luma-card iframe {
+  width: 700px; height: 460px; border: none; display: block;
+  transform: scale(0.75); transform-origin: top left;
+}
+
 /* ---------- narrow ---------- */
 @media (max-width: 1000px) {
   .cph-strip { grid-template-columns: repeat(2, 1fr); }
@@ -2862,6 +2882,13 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   .cph-strip-sec { padding-top: 80px; padding-bottom: 64px; }
   .cph-apply { padding: 32px 24px; }
   .cph-apply-ctas > * { width: 100%; }
+
+  /* Same 700×460 iframe, scaled further so a card comes close to filling
+     a phone's width instead of demanding a big horizontal swipe for a
+     sliver of the next one. 350×230 leaves room for the container's
+     side padding on a 375px-wide screen. */
+  .cph-luma-card { flex-basis: 350px; width: 350px; height: 230px; }
+  .cph-luma-card iframe { transform: scale(0.5); }
 }
 
 

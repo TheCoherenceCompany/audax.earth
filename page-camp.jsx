@@ -400,6 +400,39 @@ const CAMP_WHY_COME = [
   ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms, and a good half of the week deliberately unscheduled.']
 ];
 
+/* Luma event IDs for calls that are specifically about Camp Audax — not
+   the whole Coherence Company calendar, which also carries unrelated
+   events (Coherence Seed 2026, etc.) that have no business on this page.
+   Luma has no tag-filtered calendar embed, so each call is added here by
+   hand as it gets scheduled. Add the new weekly check-in's ID the day
+   it's created; nothing else about the carousel needs to change. */
+const CAMP_LUMA_EVENTS = ['0vgbhcpo', '0wxpdsrz'];
+
+/* Luma's own embed has no layout options ("you are not able to customize
+   how this event page looks" — their docs), but it is responsive to its
+   own width: under ~660px it stacks into a tall mobile layout (~720px);
+   at 700px+ it lays out compactly and everything fits in ~440px. Measured
+   directly, not guessed. The iframe always renders at that native
+   700×460 to stay past the breakpoint; .cph-luma-card (site.css) scales
+   the *display* down instead, including a smaller scale under 640px so
+   a card comes close to filling a phone's width. */
+const CampLumaCarousel = ({ ids }) => (
+  <div style={{
+    display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 8,
+    scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch'
+  }}>
+    {ids.map(id => (
+      <div key={id} className="cph-luma-card">
+        <iframe
+          src={`https://lu.ma/embed/event/${id}/simple`}
+          width="700" height="460"
+          allow="fullscreen; payment" title="Camp Audax call, hosted on Luma"
+        ></iframe>
+      </div>
+    ))}
+  </div>
+);
+
 const CAMP_PRACTICAL = [
   ['Dates', '12–18 October 2026 (arrival Monday 2pm, closing Sunday 10am)'],
   ['Location', 'Camp Navarro, 901 Masonite Industrial Rd, Navarro, CA 95463'],
@@ -2140,6 +2173,20 @@ const PageCamp = ({ onNav }) => {
       Six days. Five profiles. <em>One of them is you.</em>
     </CampJoinBand>
 
+    {/* The carousel itself, not just a link to one — up here where a
+        scanning visitor meets it before they've read anything. Also
+        lives in Practical for anyone who reaches the logistics without
+        noticing this. Same CAMP_LUMA_EVENTS data, both places. */}
+    <div className="container" style={{ margin: '8px 0 40px' }}>
+      <p style={{
+        textAlign: 'center', fontSize: 15, fontWeight: 300,
+        color: 'var(--ink-600)', margin: '0 0 20px'
+      }}>
+        We're hosting meet & greet sessions for those curious to co-create the Camp:
+      </p>
+      <CampLumaCarousel ids={CAMP_LUMA_EVENTS} />
+    </div>
+
     {/* ─── 01 · WHY ─────────────────────────────────────────────────────────
          The argument, and now the very first thing under the hero: nothing
          gets to pre-empt it. It used to sit below the three promise cards,
@@ -2774,7 +2821,15 @@ const PageCamp = ({ onNav }) => {
           </div>
         </CampCascade>
 
-        <CampKicker>Dates, cost and logistics</CampKicker>
+        <div id="camp-calls" style={anchor}>
+          <CampKicker>Meet us on a call</CampKicker>
+          <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', maxWidth: 620, margin: '0 0 24px' }}>
+            No pressure to join anything yet. These are short, informal calls where you can ask us what you actually want to know before you decide which path is yours.
+          </p>
+          <CampLumaCarousel ids={CAMP_LUMA_EVENTS} />
+        </div>
+
+        <CampKicker top={40}>Dates, cost and logistics</CampKicker>
         <table className="matrix" style={{ marginBottom: 56 }}>
           <tbody>
             {CAMP_PRACTICAL.map(([k, v]) => (
