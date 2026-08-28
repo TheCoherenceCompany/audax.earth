@@ -2871,6 +2871,46 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   transform: scale(0.75); transform-origin: top left;
 }
 
+/* ---------- Co-creator logo bar ---------- */
+/* Light ground, not the site's dark-green closing-section treatment —
+   two of the three logos are dark-ink marks built for a light ground
+   (Geoship's mark is also a specific muted, earthy palette that loses
+   contrast on dark green), and recoloring another org's brand mark to
+   fit our palette isn't something to do without their own alternate
+   file. So this reuses the header's light surface instead. */
+.cph-logobar {
+  background: var(--surface-paper);
+  border-top: 1px solid var(--border-2);
+  border-bottom: 1px solid var(--border-2);
+  padding: 36px 0;
+}
+.cph-logobar-label {
+  text-align: center;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-500); margin: 0 0 24px;
+}
+.cph-logobar-row {
+  display: flex; justify-content: center; align-items: center;
+  gap: 56px; flex-wrap: wrap;
+}
+.cph-logobar-item { display: flex; align-items: center; gap: 12px; }
+.cph-logobar-item img { display: block; width: auto; }
+.cph-logobar-mark { height: 40px; }
+.cph-logobar-word { height: 26px; }
+.cph-logobar-full { height: 64px; } /* Coherence: mark + wordmark, one file */
+.cph-logobar-text {
+  font-family: var(--font-display); font-size: 17px; font-weight: 400;
+  letter-spacing: -0.01em; color: var(--ink-800);
+}
+/* Modern Ancients: see the comment on CampLogoBar in page-camp.jsx for
+   where these two files came from. Dot mark reads lighter than solid
+   type at equal pixel height, so it runs bigger than Geoship's mark;
+   the tight item gap (default 12px) brings it in close to the M. */
+.cph-logobar-item-tight { gap: 6px; }
+.cph-logobar-mark-ma { height: 60px; }
+.cph-logobar-word-ma { height: 38px; }
+
 /* ---------- narrow ---------- */
 @media (max-width: 1000px) {
   .cph-strip { grid-template-columns: repeat(2, 1fr); }
@@ -2889,6 +2929,15 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
      side padding on a 375px-wide screen. */
   .cph-luma-card { flex-basis: 350px; width: 350px; height: 230px; }
   .cph-luma-card iframe { transform: scale(0.5); }
+
+  .cph-logobar { padding: 28px 0; }
+  .cph-logobar-row { gap: 32px; }
+  .cph-logobar-mark { height: 32px; }
+  .cph-logobar-word { height: 20px; }
+  .cph-logobar-full { height: 48px; }
+  .cph-logobar-text { font-size: 15px; }
+  .cph-logobar-mark-ma { height: 46px; }
+  .cph-logobar-word-ma { height: 29px; }
 }
 
 
@@ -2958,12 +3007,14 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    both ends so chips arrive and leave rather than being cut.
    ============================================================ */
 /* One scale for this pair of sections, because they read as one field
-   otherwise: label→its own content 20, content→its caption 28, and the
-   whole gap between the two sections 112 — roughly four times the
-   largest gap inside either of them, which is what makes them read as
-   two things rather than six. 96 at the top clears the hero's brush
-   edge, which fades ~60px into this section. */
-.cph-why-sec { padding-top: 96px; padding-bottom: 0; }
+   otherwise: label→its own content 20, content→its caption 28. 96 at
+   the top clears the hero's brush edge, which fades ~60px into this
+   section. padding-bottom was 0, relying on CampProfileStrip's own
+   112px top padding (§ old order) to supply the gap below — now that
+   CampJoinBand sits here instead, whose top "gap" is only its tear
+   overlay (position: absolute, doesn't push layout), 0 read as
+   cramped. Explicit padding-bottom restores the breathing room. */
+.cph-why-sec { padding-top: 96px; padding-bottom: 72px; }
 
 .cph-why-ribbon {
   overflow: hidden; padding: 6px 0; margin: 4px 0 28px;   /* the glosses are the ribbon's caption — they hug it */
@@ -3048,7 +3099,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-join-art {
   position: absolute; inset: -12% 0; z-index: 0;
-  background-size: cover; background-position: center 42%;
+  background-size: cover; background-position: center 22%;
   filter: saturate(0.86) brightness(0.9);
   will-change: transform;
 }

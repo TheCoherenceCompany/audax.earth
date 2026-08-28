@@ -216,7 +216,7 @@ const CAMP_GATHERING_DNA = [
   [
     'Nature',
     'The living place as an active participant in attention, rhythm and identity: an outdoor village, natural zoning, a relationship with the land it borrows.',
-    'Scenic branding — a hotel conference with potted plants and nature vocabulary.'
+    'Scenic branding - a hotel conference with potted plants and nature vocabulary.'
   ],
   [
     'Weaving',
@@ -238,10 +238,10 @@ const CAMP_GATHERING_DNA = [
 /* The briefing keeps a list of shortcuts it considers misleading. All four
    of these are on it, and all four are what people will assume. */
 const CAMP_SHORTHAND = [
-  ['A festival for changemakers', 'A temporary village whose cells are communities and organizations, not themed party areas. Camps carry representation and responsibility, not only atmosphere.'],
+  ['A festival for changemakers', 'A temporary village whose cells are communities and organizations. Camps carry representation and responsibility as well as atmosphere.'],
   ['An unconference', 'Participant-led sessions are in there. They sit inside a village, with camps, thresholds, ceremony and a continuity layer wrapped around them.'],
-  ['A networking event', 'The unit is the camp you belong to for six days, not the contact you collect in six minutes.'],
-  ['A conference in a forest', 'There is no dominant stage to be an audience for. The camps are the program.']
+  ['A networking event', 'The unit is the camp you belong to for six days.'],
+  ['A conference in a forest', 'Every camp is its own stage, and the camps are the program.']
 ];
 
 /* Beyond our own camp, your ticket opens all of this. Programme detail is
@@ -274,7 +274,7 @@ const CAMP_ROOMS = [
   [
     'I', 'The builders',
     'Model releases, agent frameworks, launch cycles, evals. This room knows what is genuinely possible this quarter, and can ship it before the other three have finished describing it.',
-    'The second-order consequences of a default chosen in a sprint — which surface years later, at civilizational scale, in somebody else’s field.'
+    'The second-order consequences of a default chosen in a sprint, surfacing years later, at civilizational scale, in somebody else’s field.'
   ],
   [
     'II', 'The capital',
@@ -284,7 +284,7 @@ const CAMP_ROOMS = [
   [
     'III', 'The practitioners',
     'Regenerative work, social justice, the future of work, ecosystem stewardship. Decades of hard-won knowledge about how change actually holds in real communities and real landscapes.',
-    'The tool while it is still being specified. They meet it once it is shipped, priced and shaped — as users of somebody else’s decision.'
+    'The tool while it is still being specified. They meet it once it is shipped, priced and shaped, as users of somebody else’s decision.'
   ],
   [
     'IV', 'The wisdom keepers',
@@ -313,21 +313,21 @@ const CAMP_PROFILES = [
     short: 'You are shipping AI tools, and you want them to meet the world they are for.',
     working: 'AI and digital tools for collective intelligence, sensemaking, agents for teamwork, organizational intelligence, impact measurement, ecosystem infrastructure.',
     brings: ['Working systems', 'Architecture', 'What actually ships', 'The state of the possible'],
-    benefit: 'Your work meets the wider transition it is part of — and people sharp enough to ask better questions of it.'
+    benefit: 'Your work meets the wider transition it is part of, and people sharp enough to ask better questions of it.'
   },
   {
     n: 'II', name: 'The Entrepreneur',
     short: 'You are turning this into something people actually use, and pay for.',
     working: 'Product, go-to-market, business models, partnerships, adoption, organizational development, venture creation.',
     brings: ['Distribution', 'Durability', 'Commercial reality', 'The path from prototype to used'],
-    benefit: 'Collaborators, users and early customers — plus the clearest read you will get all year on where this field is heading.'
+    benefit: 'Collaborators, users and early customers, plus the clearest read you will get all year on where this field is heading.'
   },
   {
     n: 'III', name: 'The Investor',
     short: 'You decide which futures get funded, which is to say which get attempted.',
     working: 'Directing capital towards beneficial AI, impact portfolios, philanthropic strategy, ecosystem funding.',
     brings: ['Capital', 'Field-level view', 'Pattern recognition across teams'],
-    benefit: 'A live map of teams, tools, narratives and gaps — built over six days in person, not from a stack of decks.'
+    benefit: 'A live map of teams, tools, narratives and gaps, built over six days in person.'
   },
   {
     n: 'IV', name: 'The Ecosystem Practitioner',
@@ -341,7 +341,7 @@ const CAMP_PROFILES = [
     short: 'You hold the questions that should shape this while it is still soft.',
     working: 'Philosophy, psychology, anthropology, sociology, governance, spiritual and human development, systems change, culture and narrative.',
     brings: ['The questions worth asking', 'Long time horizons', 'Moral seriousness'],
-    benefit: 'A seat inside the design process — early enough that your questions still shape what gets built.'
+    benefit: 'A seat inside the design process, early enough that your questions still shape what gets built.'
   }
 ];
 
@@ -366,7 +366,7 @@ const CAMP_LOOP_COHERENCE = [
 
 /* Item 1 is the change: the vanguard, stated plainly, first. */
 const CAMP_LEAVE_WITH = [
-  'A place in the vanguard of a field that does not yet have a name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, and certainly not in one forest for six days. You will be among the people who start it.',
+  'A place in the vanguard of a field still finding its name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, and rarely all together in one forest for six days. You will be among the people who start it.',
   'At least one named action and one follow-up. That is our commitment to you as hosts.',
   'Relationships formed through shared experience in nature, as whole humans rather than job titles.',
   'A field-level view of what is being built, funded, tested and struggled with across the space.',
@@ -392,9 +392,9 @@ const CAMP_EMERGE = [
    partnerships, the narrative, the dialogue, the exchange and the
    land. */
 const CAMP_WHY_COME = [
-  ['A six-day collaboration incubator', 'Not a conference. A working village, where the thing you start on Tuesday has four more days to become real.'],
+  ['A six-day collaboration incubator', 'A working village, where the thing you start on Tuesday has four more days to become real.'],
   ['Build connection, trust and lasting partnerships', 'Builders, entrepreneurs, investors, operators and practitioners in one room, for long enough to get past the pitch.'],
-  ['Shape the narrative of Wise AI', 'The story of this technology is being written now, largely by people who are not asking what it is for. Come and write a different one.'],
+  ['Shape the narrative of Wise AI', 'The story of this technology is being written now, mostly without asking what it is for. Come and write a different one.'],
   ['Deep dialogue about AI as the path to Planetary Adulthood', 'Six days is long enough to get past positions and into the question underneath: what this technology is for, and what growing up as a species would ask of us.'],
   ['Learn, teach, share, connect', 'Everyone arrives with something to give and something they are stuck on. Both count, and both are programmed for.'],
   ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms, and a good half of the week deliberately unscheduled.']
@@ -406,7 +406,7 @@ const CAMP_WHY_COME = [
    Luma has no tag-filtered calendar embed, so each call is added here by
    hand as it gets scheduled. Add the new weekly check-in's ID the day
    it's created; nothing else about the carousel needs to change. */
-const CAMP_LUMA_EVENTS = ['0vgbhcpo', '0wxpdsrz'];
+const CAMP_LUMA_EVENTS = ['0wxpdsrz', '5uskkn39'];
 
 /* Luma's own embed has no layout options ("you are not able to customize
    how this event page looks" — their docs), but it is responsive to its
@@ -438,11 +438,11 @@ const CAMP_PRACTICAL = [
   ['Location', 'Camp Navarro, 901 Masonite Industrial Rd, Navarro, CA 95463'],
   ['Duration', '7 days, 6 nights'],
   ['Capacity', 'TBC'],
-  ['How to join', 'Sign up and tell us which path you\'re aiming for — Co-Creator or Participant, above. Formal applications open there first — dates TBC'],
+  ['How to join', 'Sign up and tell us which path you\'re aiming for - Co-Creator or Participant, above. Formal applications open there first - dates TBC'],
   ['Cost', "Camp ticket TBC · accommodation from $35/night (tent) to $50/night (cabin or glamping) · meal plans $150 (3-day) or $300 (6-day) · bedding package $50"],
   ['Food', "Breakfast and dinner daily from Camp Navarro's kitchen, plus café, pizza and BBQ through the day"],
   ['Language', 'English'],
-  ['Scholarships', 'Some scholarship and volunteer places available — contact us'],
+  ['Scholarships', 'Some scholarship and volunteer places available - contact us'],
   ['Refunds', 'No refunds after 15 August; ticket transfers possible'],
   ['Preparation', 'Pre-Camp conversational onboarding and an optional Coherence Conversation'],
   ['Recording', 'Opt-in, consent-based, reviewable']
@@ -638,9 +638,9 @@ const CampPersonBio = ({ text }) => {
 
 const CAMP_FAQ = [
   ['What is a Camp?', <>A working village within {GATHERING}. Ours has our own crew, our own culture and our own program, held inside a wider field of 500 people.</>],
-  ['What is The Gathering US?', 'The village we are a camp inside: 500+ people across 20+ camps at Camp Navarro, convened by RegenWorld. We are one camp among many — see The Gathering, section 02.'],
+  ['What is The Gathering US?', 'The village we are a camp inside: 500+ people across 20+ camps at Camp Navarro, convened by RegenWorld. We are one camp among many - see The Gathering, section 02.'],
   ['Do I need a project already?', 'Bring us something real: a project, a question, a tool, capital, a practice, or experience.'],
-  ['Who is Sorrel?', <>Our camp agent. A working name for something we are building and naming together, and would like your help with — <a href="#sorrel">the whole story is here</a>.</>],
+  ['Who is Sorrel?', <>Our camp agent. A working name for something we are building and naming together, and would like your help with - <a href="#sorrel">the whole story is here</a>.</>],
   ['Can I attend without using the agent?', 'Yes. Fully.'],
   ['What happens to what I say?', 'We record nothing without everyone present agreeing to it. You can review, edit, export and delete your own material.'],
   ['What if the ticket is a stretch?', 'We hold scholarship and volunteer places. Get in touch.']
@@ -1397,7 +1397,7 @@ const CampDiptych = ({ items }) => {
             className={`cph-shot${n === active ? ' on' : ''}`}
             style={{ backgroundImage: `url(${CPH(m.shot)})` }}
             role="img"
-            aria-label={`Movement ${m.n} — ${m.title}`}
+            aria-label={`Movement ${m.n} - ${m.title}`}
           />
         ))}
         <div className="cph-badge">Movement {items[active].n}</div>
@@ -1783,10 +1783,10 @@ const CampCandour = ({ onJump }) => (
   <div style={{ ...campNote, marginTop: 8 }}>
     <h6 style={campNoteH6}>What is tested, and what is still a hypothesis</h6>
     <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
-      This has been run before, locally, more than once, and it delivers: friendships, organizational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards — all still developing, and we say so.
+      This has been run before, locally, more than once, and it delivers: friendships, organizational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards - all still developing, and we say so.
     </p>
     <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
-      Saying that out loud is the good sign, not the warning. It is also why we design so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See <a href="#camp/the-week" onClick={(e) => { e.preventDefault(); onJump('the-week'); }} style={{ color: 'var(--forest-700)' }}>the coherence loop</a>.
+      Saying that out loud is the good sign. It is also why we design so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See <a href="#camp/the-week" onClick={(e) => { e.preventDefault(); onJump('the-week'); }} style={{ color: 'var(--forest-700)' }}>the coherence loop</a>.
     </p>
     <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 20px' }}>
       The same applies to us. Our own camp is early: some of the roles above are still open, the ticket price is not fixed, and Sorrel is a working name attached to a prototype. You would be joining something at the stage where joining still changes it.
@@ -1888,6 +1888,42 @@ const CampWhyCome = ({ items }) => {
     </section>
   );
 };
+
+/* ─── Co-creator logo bar ────────────────────────────────────────────────
+   Sits right under the hero, before anything else — credibility before
+   the pitch. Light ground rather than the site's dark-green treatment:
+   see the comment on .cph-logobar in site.css for why. Coherence's file
+   already bundles mark + wordmark into one image. Geoship's and Modern
+   Ancients' both arrived as (or got split into) separate mark +
+   wordmark files, aligned here by hand. Modern Ancients' source file
+   was actually mark + "MODERNANCIENTS" + a "Journey Consulting" tag all
+   in one image, in their own font — cropped into just the two pieces we
+   want (dropping the tag, which read as off-center) and recolored from
+   their white original to var(--ink-800), same target as the mark. The
+   dot mark reads visually lighter than solid letterforms at the same
+   pixel height (lots of internal whitespace between dots), so it gets
+   its own larger size — same reasoning as Geoship's mark vs. wordmark,
+   just a bigger gap between the two here since dots need more of it. */
+const CampLogoBar = () => (
+  <div className="cph-logobar">
+    <div className="container">
+      <p className="cph-logobar-label">Co-Created By</p>
+      <div className="cph-logobar-row">
+        <div className="cph-logobar-item">
+          <img className="cph-logobar-full" src="assets/co-creators/coherence-company.png" alt="The Coherence Company" />
+        </div>
+        <div className="cph-logobar-item">
+          <img className="cph-logobar-mark" src="assets/co-creators/geoship-mark.svg" alt="" />
+          <img className="cph-logobar-word" src="assets/co-creators/geoship-wordmark.svg" alt="Geoship" />
+        </div>
+        <div className="cph-logobar-item cph-logobar-item-tight">
+          <img className="cph-logobar-mark-ma" src="assets/co-creators/modern-ancients-mark.png" alt="" />
+          <img className="cph-logobar-word-ma" src="assets/co-creators/modern-ancients-wordmark.png" alt="Modern Ancients" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 /* ─── Self-select strip ──────────────────────────────────────────────────
    The five profiles are where a reader decides the room is for them, and
@@ -2142,7 +2178,7 @@ const PageCamp = ({ onNav }) => {
           <span className="cph-sr cph-nosplit">building what&rsquo;s next.</span>
         </h1>
         <p className="lede" style={{ maxWidth: 620 }}>
-          Builders, investors, ecosystem practitioners and wisdom keepers &mdash; one forest, one week &mdash; making AI serve a wiser, regenerative society.
+          Builders, investors, ecosystem practitioners and wisdom keepers - one forest, one week - making AI serve a wiser, regenerative society.
         </p>
         <p className="cph-hero-meta">
           Camp Navarro, Northern California&nbsp; ·&nbsp; <span className="cph-date">12–18 October 2026</span>
@@ -2159,12 +2195,11 @@ const PageCamp = ({ onNav }) => {
       </div>
     </CampHero>
 
+    {/* Credibility before the pitch. See CampLogoBar. */}
+    <CampLogoBar />
+
     {/* Reasons first, then the room. See CampWhyCome. */}
     <CampWhyCome items={CAMP_WHY_COME} />
-
-    {/* Self-selection, before the argument rather than twelve screens into
-        it. See CampProfileStrip. */}
-    <CampProfileStrip profiles={CAMP_PROFILES} onJump={jump} />
 
     {/* The door, first of three. See CampJoinBand. */}
     <CampJoinBand shot="crowd-white"
@@ -2172,6 +2207,10 @@ const PageCamp = ({ onNav }) => {
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Six days. Five profiles. <em>One of them is you.</em>
     </CampJoinBand>
+
+    {/* Self-selection, before the argument rather than twelve screens into
+        it. See CampProfileStrip. */}
+    <CampProfileStrip profiles={CAMP_PROFILES} onJump={jump} />
 
     {/* The carousel itself, not just a link to one — up here where a
         scanning visitor meets it before they've read anything. Also
@@ -2208,33 +2247,33 @@ const PageCamp = ({ onNav }) => {
           The tools we build <em>become the society we live in.</em>
         </CampInk>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>That is not a forecast. It is the finding of the last twenty-five years, and all of us sat through the experiment. Attention economies. Polarization. The steady fracturing of a shared reality. Nobody voted for any of it. It arrived as a long sequence of reasonable product decisions, taken by capable people, one release at a time — and then it was simply the water, and disagreeing with it had become the same thing as disagreeing with the world.</p>
-          <p>So the lesson worth carrying forward is a blunt one. Technology is not neutral infrastructure that a society decides what to do with afterwards. It is society, arriving early, in a form that is very hard to argue with once it has shipped.</p>
+          <p>This is the finding of the last twenty-five years, and all of us sat through the experiment. Attention economies. Polarization. The steady fracturing of a shared reality. Nobody voted for any of it. It arrived as a long sequence of reasonable product decisions, taken by capable people, one release at a time - and then it was simply the water, and disagreeing with it had become the same thing as disagreeing with the world.</p>
+          <p>So the lesson worth carrying forward is a blunt one. Technology arrives as society itself, early, in a form that is very hard to argue with once it has shipped.</p>
         </div>
 
-        <CampQuote>We do not predict the society our technology produces. <em>We build it.</em></CampQuote>
+        <CampQuote>We build the society our technology <em>will produce.</em></CampQuote>
 
         <CampKicker top={56} bottom={8}>What follows from that</CampKicker>
         <CampAside
           shot="studio" alt="People working together at a materials table" index="Plate I"
-          caption="A design brief, not a review gate."
+          caption="A design brief for what comes next."
           style={{ marginTop: 12 }}
         >
           <div className="q-body">
-            <p>If the tools become the society, then building tools is world-making, and everyone with their hands on them is answerable for the world it makes — whether or not they ever accepted that job. We would rather say that out loud than inherit it by accident a second time.</p>
-            <p>AI carries the same power at a greater scale and at far greater speed. New agents, protocols, capabilities and risks arrive weekly, faster than any person, team or institution can track alone. The defaults being set this year — what these systems optimize for, whom they answer to, what they are allowed to count as value, how much of a decision they are permitted to hold — will be about as easy to unpick in 2040 as the attention economy is today.</p>
-            <p>Which is why we start from the other end. Name the society we actually want — regenerative rather than extractive, coordinated rather than fragmented, wiser and not merely faster — and then build backwards from it into the technology that would manifest it. Not ethics bolted on as a review gate at the end of a roadmap. The society we dream of as the design brief at the start of one.</p>
+            <p>If the tools become the society, then building tools is world-making, and everyone with their hands on them is answerable for the world it makes, whether or not they ever accepted that job. We would rather say that out loud than inherit it by accident a second time.</p>
+            <p>AI carries the same power at a greater scale and at far greater speed. New agents, protocols, capabilities and risks arrive weekly, faster than any person, team or institution can track alone. The defaults being set this year - what these systems optimize for, whom they answer to, what they are allowed to count as value, how much of a decision they are permitted to hold - will be about as easy to unpick in 2040 as the attention economy is today.</p>
+            <p>Which is why we start from the other end. Name the regenerative, coordinated, wiser society we actually want, and build backwards from it into the technology that would manifest it. The society we dream of becomes the design brief at the start of the roadmap.</p>
           </div>
         </CampAside>
 
         <CampKicker top={56} bottom={8}>Why it has to be gathered</CampKicker>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Nobody meets a brief like that alone, and at the moment nobody is meeting it together. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere — not because these are hostile camps, but because each of them is already busy holding an excellent conversation of its own, in its own room, in its own vocabulary, on its own clock.</p>
+          <p>Nobody meets a brief like that alone, and at the moment nobody is meeting it together. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, because each of them is already busy holding an excellent conversation of its own, in its own vocabulary, on its own clock.</p>
         </div>
         <CampCascade className="cph-rooms">
           {CAMP_ROOMS.map(([n, room, holds, blind]) => (
             <div key={room} className="cph-room">
-              <div className="cph-room-n">Room {n}</div>
+              <div className="cph-room-n">Conversation {n}</div>
               <h5>{room}</h5>
               <p className="cph-room-holds">{holds}</p>
               <div className="cph-room-blind">
@@ -2245,8 +2284,8 @@ const PageCamp = ({ onNav }) => {
           ))}
         </CampCascade>
         <div className="q-body" style={{ maxWidth: 760, marginTop: 28 }}>
-          <p>Every one of those rooms is right about something. The difficulty is that the questions which actually decide the outcome fall in the gaps between them. So the builder ships without the frame. The practitioner inherits a tool that was specified without them. Capital follows a thesis that nobody in the other three rooms helped write. And the wisdom arrives, eloquently, as commentary on an architecture that has already set.</p>
-          <p>Where the four do meet, it is usually for an hour, on a panel, in front of an audience — long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Six days, one forest, no main stage, and hands on the actual work is our attempt at the room that is missing.</p>
+          <p>Every one of those conversations is right about something. The difficulty is that the questions which actually decide the outcome fall in the gaps between them. So the builder ships without the frame. The practitioner inherits a tool that was specified without them. Capital follows a thesis that nobody in the other three conversations helped write. And the wisdom arrives, eloquently, as commentary on an architecture that has already set.</p>
+          <p>Where the four do meet, it is usually for an hour, on a panel, in front of an audience - long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Six days, one forest, no main stage, and hands on the actual work is our attempt at the room that is missing.</p>
         </div>
 
         <div className="q-body" style={{ maxWidth: 760, marginTop: 28 }}>
@@ -2284,7 +2323,7 @@ const PageCamp = ({ onNav }) => {
           {CAMP_QUESTIONS.map(q => <li key={q}>{q}</li>)}
         </CampCascade>
         <div className="q-body" style={{ maxWidth: 760, marginTop: 32 }}>
-          <p>Our program is co-created, which means it is not finished without you. Bring your questions, your needs, your projects and your proposals.</p>
+          <p>Our program is co-created, which means you help finish it. Bring your questions, your needs, your projects and your proposals.</p>
         </div>
 
         <CampQuote>A vision becomes credible the moment it is held <em>by people already building it.</em></CampQuote>
@@ -2300,7 +2339,7 @@ const PageCamp = ({ onNav }) => {
       <div className="container">
         <CampCascade className="insight-grid">
           {[
-            ['Be early', 'Help us define a field before it has a name — builders, capital, practitioners and wisdom keepers, in one room, for six days.'],
+            ['Be early', 'Help us define a field before it has a name - builders, capital, practitioners and wisdom keepers, in one room, for six days.'],
             ['Move from ideas to action', 'You will leave with at least one named next step, and our support in taking it.'],
             ['Continue beyond the Camp', 'Your journey with us starts before you arrive and carries on after you leave.']
           ].map(([h, p]) => (
@@ -2312,7 +2351,7 @@ const PageCamp = ({ onNav }) => {
         </CampCascade>
         <div className="q-body" style={{ maxWidth: 760, marginTop: 40 }}>
           <p>A Camp is a working village inside {GATHERING}. We are the one for people building, funding, applying and philosophically shaping AI for societal good: our crew, our program, our culture, held for six days inside a wider field of 500 people.</p>
-          <p>Audax OS is developed through practice. Camp Audax is where we bring that practice into one forest — and this page is our invitation to bring yours.</p>
+          <p>Audax OS is developed through practice. Camp Audax is where we bring that practice into one forest, and this page is our invitation to bring yours.</p>
         </div>
       </div>
     </section>
@@ -2357,7 +2396,7 @@ const PageCamp = ({ onNav }) => {
                 the lineage stand about 380px tall, and a headline alone
                 beside them leaves that much empty column under it */}
             <div className="q-body">
-              <p>Camp Audax is not an event we are putting on. It is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for seven days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
+              <p>Camp Audax is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for seven days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
             </div>
           </div>
 
@@ -2376,13 +2415,13 @@ const PageCamp = ({ onNav }) => {
         </div>
 
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>The Gathering is a co-created, camp-centered gathering in nature, built to help people and organizations across fragmented fields form belonging, trust, shared context, and pathways towards continued collaboration. Its visible form is a village: camps, shared meals, conversation, art, workshops, fire, ceremony, music, rest, celebration. Its deeper form is a social architecture — camps as the organizing cells, a Nest where camp leaders prepare together for months beforehand, a Council that senses across all of them, a welcome gate and ceremonies to mark the threshold, and a continuity layer built to carry what happens past the closing fire. That architecture is why we chose to be a camp rather than hire a venue.</p>
-          <p>The shift is from audience to ecosystem. Nobody here is only a consumer of a program: participants are camp members, hosts, contributors and possible stewards, and organizations express their culture by building a camp rather than sponsoring a stage. This is emphatically not leaderless — it demands strong, visible, distributed leadership, and says so plainly in its own briefing — and co-creation means real agency, not unpaid labor.</p>
+          <p>The Gathering is a co-created, camp-centered gathering in nature, built to help people and organizations across fragmented fields form belonging, trust, shared context, and pathways towards continued collaboration. Its visible form is a village: camps, shared meals, conversation, art, workshops, fire, ceremony, music, rest, celebration. Its deeper form is a social architecture - camps as the organizing cells, a Nest where camp leaders prepare together for months beforehand, a Council that senses across all of them, a welcome gate and ceremonies to mark the threshold, and a continuity layer built to carry what happens past the closing fire. That architecture is why we chose to be a camp rather than hire a venue.</p>
+          <p>The shift is from audience to ecosystem. Participants are camp members, hosts, contributors and possible stewards, and organizations express their culture by building a camp rather than sponsoring a stage. This demands strong, visible, distributed leadership, and says so plainly in its own briefing, and co-creation means real agency.</p>
         </div>
 
         <CampKicker top={56}>What it runs on</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>The Gathering calls these six its DNA, and they are not house rules or values on a wall — they are what the format is made of. Read each one next to the thing it gets mistaken for: in every case the mistake is the cheaper version, and from outside the two look identical.</p>
+          <p>The Gathering calls these six its DNA, and they are what the format is made of. Read each one next to the thing it gets mistaken for: in every case the mistake is the cheaper version, and from outside the two look identical.</p>
         </div>
         <CampCascade style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
           {CAMP_GATHERING_DNA.map(([term, meaning, mistaken]) => (
@@ -2414,7 +2453,7 @@ const PageCamp = ({ onNav }) => {
           ))}
         </CampCascade>
         <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-500)', margin: '20px 0 0', maxWidth: 760 }}>
-          None of it counts until it changes roles, budgets, spaces, schedules and who gets to decide. Put the six words on a poster while the organizers keep all the agency, and it's brand varnish, not Gathering architecture. Hold us to that test too.
+          None of it counts until it changes roles, budgets, spaces, schedules and who gets to decide. Put the six words on a poster while the organizers keep all the agency, and it's brand varnish. Hold us to that test too.
         </p>
 
         {/* Was shot="mandala", which is not a mandala: that file is the
@@ -2426,7 +2465,7 @@ const PageCamp = ({ onNav }) => {
             of cut flowers and tealights laid on the ground at its centre. */}
         <CampPhoto shot="carpet" alt="A circle of people seated on a patterned rug outside a bell tent, around a small altar of flowers and candles" caption="Nothing on the property arrives finished. Somebody makes it, on the day, out of what is there." />
 
-        <CampKicker>Four things it is not, and one thing it is</CampKicker>
+        <CampKicker>The shorthand, and the truth</CampKicker>
         <table className="mini-matrix">
           <thead>
             <tr><th>The easy shorthand</th><th>Closer to the truth</th></tr>
@@ -2441,7 +2480,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker top={56}>What else your ticket opens</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>We run our own program, and you are free to walk out of it. Every public session on the property is open to you, in every other camp — founders, facilitators, community resilience, identity work, circle practice, and whatever the other nineteen bring.</p>
+          <p>We run our own program, and you are free to walk out of it. Every public session on the property is open to you, in every other camp - founders, facilitators, community resilience, identity work, circle practice, and whatever the other nineteen bring.</p>
         </div>
         <CampCascade step={45} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
           {CAMP_PROPERTY.map((c, i) => (
@@ -2467,11 +2506,11 @@ const PageCamp = ({ onNav }) => {
             someone still being persuaded. See CampCandour below. */}
 
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 40 }}>
-          <Button variant="secondary" icon="arrow-right" onClick={() => window.open('https://regenworld.net/', '_blank')}>The Gathering US — regenworld.net</Button>
+          <Button variant="secondary" icon="arrow-right" onClick={() => window.open('https://regenworld.net/', '_blank')}>The Gathering US - regenworld.net</Button>
           <Button variant="ghost" onClick={() => window.open('https://the-gathering.earth/', '_blank')}>The wider network</Button>
         </div>
 
-        <CampQuote>We did not want to run our own festival. <em>We wanted a village to be citizens of.</em></CampQuote>
+        <CampQuote>We wanted a village. <em>Somewhere to be citizens of.</em></CampQuote>
       </div>
 
       {/* Leaving their ground. This join used to be a bare tone step
@@ -2508,19 +2547,19 @@ const PageCamp = ({ onNav }) => {
 
         <div className="shift-block">
           <div className="shift-card then">
-            <div className="label">Then — previous waves</div>
+            <div className="label">Then - previous waves</div>
             <p className="q">Technologists built. Everyone else responded afterwards, usually in the form of critique and containment.</p>
           </div>
           <div className="shift-card now">
-            <div className="label now-label">Now — this wave</div>
+            <div className="label now-label">Now - this wave</div>
             <p className="q">These systems run on <em>language.</em> Anyone fluent in meaning can shape them: philosophers, elders, anthropologists, therapists, ecologists, storytellers.</p>
           </div>
         </div>
 
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Take synthesis, the work of turning many voices into shared understanding. The engineering is real and we are building it. The decisive question — <em style={{ color: 'var(--forest-700)', fontStyle: 'italic' }}>which questions do we ask?</em> — belongs to philosophy, sociology, anthropology and lived wisdom.</p>
+          <p>Take synthesis, the work of turning many voices into shared understanding. The engineering is real and we are building it. The decisive question - <em style={{ color: 'var(--forest-700)', fontStyle: 'italic' }}>which questions do we ask?</em> - belongs to philosophy, sociology, anthropology and lived wisdom.</p>
           <p>That is the rude little gift of natural language. It hands the design table back to people who were never given a seat at it.</p>
-          <p>So we bring the wisdom keepers inside the build, into the design decisions, the product questions, the protocols and the roadmaps, while all of it is still soft enough to shape. Not as critique arriving afterwards. As participants.</p>
+          <p>So we bring the wisdom keepers inside the build, into the design decisions, the product questions, the protocols and the roadmaps, while all of it is still soft enough to shape. They participate.</p>
         </div>
 
         <CampKicker top={48}>The conversation we are adding</CampKicker>
@@ -2550,7 +2589,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker>Five profiles, one room</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>Each brings something the others need. The value comes from all five being in the same room, in the same week, in the same forest. If you are deciding whether we are for you, this is the part to read — one of these is your invitation.</p>
+          <p>Each brings something the others need. The value comes from all five being in the same room, in the same week, in the same forest. If you are deciding whether we are for you, this is the part to read - one of these is your invitation.</p>
         </div>
 
         <CampPersonaSlider profiles={CAMP_PROFILES} />
@@ -2558,7 +2597,7 @@ const PageCamp = ({ onNav }) => {
         <div className="q-body" style={{ maxWidth: 760, marginTop: 16 }}>
           <CampKicker bottom={12}>What we ask you to bring</CampKicker>
           <p>Something real: a project, a tool, a question, a practice, capital, a network, or a body of experience. We run on reciprocity, with all of us contributing to the program and to each other's work.</p>
-          <p>We are for you if you hold both hope and responsibility around AI — if you see the danger clearly, and also sense the possibility of humanity coordinating at a level we have never reached.</p>
+          <p>We are for you if you hold both hope and responsibility around AI - if you see the danger clearly, and also sense the possibility of humanity coordinating at a level we have never reached.</p>
         </div>
 
         <CampQuote>Critique arrives after the architecture is poured. <em>We would like to be there for the pour.</em></CampQuote>
@@ -2588,7 +2627,7 @@ const PageCamp = ({ onNav }) => {
           What actually <em>happens?</em>
         </CampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>Our indicative rhythm, in seven movements. We co-create the program, so the detail arrives with the people — including you.</p>
+          <p>Our indicative rhythm, in seven movements. We co-create the program, so the detail arrives with the people - including you.</p>
         </div>
 
         {/* pattern 04 — the seven movements are the hardest thing on this
@@ -2603,7 +2642,7 @@ const PageCamp = ({ onNav }) => {
         <div style={{ ...campNote, marginTop: 16 }}>
           <h6 style={campNoteH6}>A media strand runs through the week</h6>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
-            We are not only having a conversation about a better story for AI. We are making it. Our media team works across the six days with a small crew of partner organizations, producing recorded dialogue, published synthesis, and pieces co-authored with you rather than about you.
+            This is a conversation about a better story for AI, and we are making it real. Our media team works across the six days with a small crew of partner organizations, producing recorded dialogue, published synthesis, and pieces co-authored with you rather than about you.
           </p>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>
             If you flew across a continent, you should leave with something the world can read, watch or hear.
@@ -2615,7 +2654,7 @@ const PageCamp = ({ onNav }) => {
           <div className="contrast-col">
             <h6>Before</h6>
             <h3 style={{ fontSize: 26 }}>Prepare</h3>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)' }}>We start with a conversation, not a form: your intentions, offers, needs and questions. Pre-Camp Coherence Conversations, open to those coming and those still deciding. You arrive already knowing the room.</p>
+            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)' }}>We start with a conversation: your intentions, offers, needs and questions. Pre-Camp Coherence Conversations, open to those coming and those still deciding. You arrive already knowing the room.</p>
           </div>
           <div className="contrast-col">
             <h6>During</h6>
@@ -2631,7 +2670,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker top={64}>What keeps going after the fire goes out</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Every gathering runs one of two loops. We are designing hard for the second. We do not have an opinion about what your next step should be — only that there is one, and that you are supported in taking it.</p>
+          <p>Every gathering runs one of two loops. We are designing hard for the second. Whatever your next step turns out to be, you are supported in taking it.</p>
         </div>
 
         <CampLoops>
@@ -2658,7 +2697,7 @@ const PageCamp = ({ onNav }) => {
         <div style={{ ...campNote, marginTop: 24 }}>
           <h6 style={campNoteH6}>What we add</h6>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 19, fontWeight: 400, letterSpacing: '-0.01em', lineHeight: 1.35, color: 'var(--forest-900)', fontStyle: 'italic', margin: 0 }}>
-            A facilitated path from arrival to commitment. We ask you before you come, at the start, during, and at the close: what connection do you need, what are you offering, and what happens next? We do not match people. We make the field visible, and let you find each other in it.
+            A facilitated path from arrival to commitment. We ask you before you come, at the start, during, and at the close: what connection do you need, what are you offering, and what happens next? We make the field visible, and let you find each other in it.
           </p>
         </div>
 
@@ -2684,7 +2723,7 @@ const PageCamp = ({ onNav }) => {
           {CAMP_LEAVE_WITH.map(x => <li key={x} style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}>{x}</li>)}
         </CampCascade>
 
-        <CampPhoto shot="joy" alt="A woman dancing with her arms open" ratio="3 / 2" pos="center 12%" caption="Leave with movement — sometimes literally." />
+        <CampPhoto shot="joy" alt="A woman dancing with her arms open" ratio="3 / 2" pos="center 12%" caption="Leave with movement - sometimes literally." />
 
         <CampKicker top={16}>What may emerge</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
@@ -2741,16 +2780,16 @@ const PageCamp = ({ onNav }) => {
             <p>We will be on 200 acres of ancient redwood forest at Camp Navarro, Northern California, for seven days and six nights. Campfires in place of boardrooms, conversations in place of presentations, redwoods in place of hotel ballrooms.</p>
             <p>The land does something to people. It slows you down, opens you up, and creates the conditions for the kind of conversation that arrives when you step away from everything ordinary.</p>
             {/* The village itself is section 02 — no reason to describe it twice. */}
-            <p>The village around us — the other twenty camps, the Council, the ceremonies, and everything your ticket opens beyond our own program — is <a href="#camp/the-gathering" onClick={(e) => { e.preventDefault(); jump('the-gathering'); }} style={{ color: 'var(--forest-700)' }}>The Gathering</a>, above.</p>
+            <p>The village around us - the other twenty camps, the Council, the ceremonies, and everything your ticket opens beyond our own program - is <a href="#camp/the-gathering" onClick={(e) => { e.preventDefault(); jump('the-gathering'); }} style={{ color: 'var(--forest-700)' }}>The Gathering</a>, above.</p>
           </div>
         </CampAside>
         <div style={{ margin: '24px 0 56px' }}>
-          <Button variant="secondary" icon="arrow-right" onClick={() => window.open('https://regenworld.net/', '_blank')}>Venue, lodging and meals — regenworld.net</Button>
+          <Button variant="secondary" icon="arrow-right" onClick={() => window.open('https://regenworld.net/', '_blank')}>Venue, lodging and meals - regenworld.net</Button>
         </div>
 
         <CampKicker>Who is convening</CampKicker>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>We are hosted by <a href="https://coherence.tv/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>The Coherence Company</a>, the first living lab of Audax OS, alongside partner organizations building in this space. The Coherence Company is one participant among several. Our camp carries many goals, and every organization and person in it brings their own — yours included.</p>
+          <p>We are hosted by <a href="https://coherence.tv/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>The Coherence Company</a>, the first living lab of Audax OS, alongside partner organizations building in this space. The Coherence Company is one participant among several. Our camp carries many goals, and every organization and person in it brings their own - yours included.</p>
           <p>We are early, and we would rather say so than pretend otherwise. Some of what follows is fixed. Some of it is still being decided, in the open, with the people coming.</p>
         </div>
         <CampCascade as="ul" indent style={{ listStyle: 'none', padding: 0, margin: '24px 0 56px' }}>
@@ -2812,7 +2851,7 @@ const PageCamp = ({ onNav }) => {
           <div className="contrast-col">
             <h6>Co-Creator</h6>
             <h3 style={{ fontSize: 26 }}>Help build it</h3>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)' }}>You bring in more of the people who should be here, and help shape the program while it's still taking form. In return, you carry a share of the responsibility for it, with real input into the vision that's evolving. Co-Creators join by <strong>31 August</strong> — while there's still time for your hand to move it.</p>
+            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)' }}>You bring in more of the people who should be here, and help shape the program while it's still taking form. In return, you carry a share of the responsibility for it, with real input into the vision that's evolving. Co-Creators join by <strong>31 August</strong>, while there's still time for your hand to move it.</p>
           </div>
           <div className="contrast-col">
             <h6>Participant</h6>
@@ -2850,7 +2889,7 @@ const PageCamp = ({ onNav }) => {
           ratio="4 / 3" caption="Real commitments, real tensions, real materials."
         >
           <div className="q-body">
-            <p>We test the OS here too. Six days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are not backstage. We are part of the experiment, alongside you.</p>
+            <p>We test the OS here too. Six days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are part of the experiment, alongside you.</p>
           </div>
         </CampAside>
 
@@ -2866,7 +2905,7 @@ const PageCamp = ({ onNav }) => {
 
         {/* objections, then the last of them, then the button. The candour
             block is the final objection — it belongs here and not in §02. */}
-        <CampKicker>What we are not sure about yet</CampKicker>
+        <CampKicker>What's still being decided</CampKicker>
         <CampCandour onJump={jump} />
 
         <CampApply />
