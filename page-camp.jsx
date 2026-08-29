@@ -2532,7 +2532,7 @@ const PageCamp = ({ onNav }) => {
     {/* ─── 03 · WHO COMES ───────────────────────────────────────────────────
          Merges the old §04 Wisdom and §03 Who comes. The argument for why
          non-technologists belong is the natural set-up for the profiles. */}
-    <section className="section" id="who-comes" style={{ ...anchor, background: 'var(--surface-paper)' }}>
+    <section className="section" id="who-comes" style={{ ...anchor, background: 'var(--surface-paper)', paddingBottom: 0 }}>
       <div className="container">
         <CampInk className="q-h1">
           <span className="num">03 · Who comes</span>
@@ -2625,7 +2625,7 @@ const PageCamp = ({ onNav }) => {
       That is who is in the forest. <em>Come and be one of them.</em>
     </CampJoinBand>
 
-    <section className="section" id="the-week" style={anchor}>
+    <section className="section" id="the-week" style={{ ...anchor, paddingBottom: 0 }}>
       <div className="container">
         <CampInk className="q-h1">
           <span className="num">04 · The week</span>
@@ -2678,8 +2678,6 @@ const PageCamp = ({ onNav }) => {
           <p>Every gathering runs one of two loops. We are designing hard for the second. Whatever your next step turns out to be, you are supported in taking it.</p>
         </div>
 
-        <CampPhoto shot="dance" alt="People dancing in a forest clearing as the sun breaks through the trees" ratio="3 / 2" pos="center 42%" caption="The bonds that outlast the week are made here - not only in the sessions." />
-
         <CampLoops>
           <div className="loop loop-ink">
             <div className="loop-title">The fading loop</div>
@@ -2723,18 +2721,22 @@ const PageCamp = ({ onNav }) => {
         default 128px was stacking with the pull-quote's own ~88px of
         closing space and CampJoinBand's own top padding, for a very
         large gap before "Everything above is the offer." */}
-    <section className="section" id="what-you-get" style={{ ...anchor, background: 'var(--surface-paper)', paddingBottom: 0 }}>
+    <section className="section" id="what-you-get" style={{ ...anchor, background: 'var(--surface-paper)', paddingTop: 40, paddingBottom: 0 }}>
       <div className="container">
-        <CampInk className="q-h1">
-          <span className="num">05 · What you get</span>
-          Come with your questions. <em>Leave with momentum.</em>
-        </CampInk>
+        <CampAside
+          shot="dance" alt="People dancing in a forest clearing as the sun breaks through the trees"
+          flip ratio="4 / 5"
+          caption="Sometimes literally."
+        >
+          <CampInk className="q-h1">
+            <span className="num">05 · What you get</span>
+            Come with your questions. <em>Leave with momentum.</em>
+          </CampInk>
 
-        <CampCascade as="ol" indent className="q-list">
-          {CAMP_LEAVE_WITH.map(x => <li key={x} style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}>{x}</li>)}
-        </CampCascade>
-
-        <CampPhoto shot="joy" alt="A woman dancing with her arms open" ratio="3 / 2" pos="center 12%" caption="Leave with movement - sometimes literally." />
+          <CampCascade as="ol" indent className="q-list">
+            {CAMP_LEAVE_WITH.map(x => <li key={x} style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}>{x}</li>)}
+          </CampCascade>
+        </CampAside>
 
         <CampKicker top={16}>What may emerge</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
