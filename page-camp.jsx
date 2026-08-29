@@ -2320,7 +2320,7 @@ const PageCamp = ({ onNav }) => {
             the page that should not be sharing a row with anything */}
         <div className="q-body" style={{ maxWidth: 760 }}>
           <p className="lead">One question holds the week, large and slightly unreasonable:</p>
-          <p className="lead"><em>Can AI help humanity reach a wiser, regenerative global society within the next hundred years?</em></p>
+          <p className="lead"><em>Can AI help humanity reach a wiser, regenerative global society within the next 50 years?</em></p>
         </div>
 
         <CampKicker top={48} bottom={8}>The questions we bring</CampKicker>
@@ -2384,7 +2384,7 @@ const PageCamp = ({ onNav }) => {
          being forked. For the length of one section the reader is inside
          somebody else's brand, which is the argument the section is
          making. It ends in a brush edge back to §03's paper. */}
-    <section className="section cph-dark" id="the-gathering" style={anchor}>
+    <section className="section cph-dark" id="the-gathering" style={{ ...anchor, paddingBottom: 90 }}>
       <div className="container">
         {/* Title block: our headline left, their mark and lineage right.
             The mark used to sit alone under the headline with half the
@@ -2541,7 +2541,7 @@ const PageCamp = ({ onNav }) => {
         {/* the section where a reader decides whether the room is for them,
             so the argument opens beside a photograph of the room */}
         <CampAside
-          shot="table" alt="Conversation around a stone table" flip index="Plate II"
+          shot="table" alt="Conversation around a stone table" flip index="Plate III"
           caption="The design table, with more than one discipline at it."
         >
           <div className="q-body">
@@ -2786,7 +2786,7 @@ const PageCamp = ({ onNav }) => {
             a place — it carried no photograph of that place at all. This
             paragraph describes the land, so the land runs beside it. */}
         <CampAside
-          shot="path" alt="Someone walking a hedged path" index="Plate III"
+          shot="path" alt="Someone walking a hedged path" index="Plate IV"
           caption="Camp Navarro, between sessions."
         >
           <div className="q-body">
@@ -2898,7 +2898,7 @@ const PageCamp = ({ onNav }) => {
             experiment alongside you — is also the right thing to read
             immediately before the candour block. */}
         <CampAside
-          shot="platform" alt="Two people in close conversation on a platform" flip index="Plate IV"
+          shot="indoor2" alt="Two people in conversation, seated on the ground in a forest clearing" flip index="Plate V"
           ratio="4 / 3" caption="Real commitments, real tensions, real materials."
         >
           <div className="q-body">
