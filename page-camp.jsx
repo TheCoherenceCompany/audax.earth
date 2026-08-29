@@ -1304,7 +1304,7 @@ const CampTear = ({ image, edge, ground = 'var(--surface-parchment)', flip, deep
   </div>
 );
 
-const CampBand = ({ shot, kicker, numeral, label, rate = 0.16, tear, tearTop, tearGround, tearGroundTop }) => {
+const CampBand = ({ shot, kicker, label, rate = 0.16, tear, tearTop, tearGround, tearGroundTop }) => {
   const band = React.useRef(null);
   const art = React.useRef(null);
 
@@ -1340,7 +1340,6 @@ const CampBand = ({ shot, kicker, numeral, label, rate = 0.16, tear, tearTop, te
       {tear && <CampTear image={tear} edge="bottom" ground={tearGround} />}
       <div className="cph-band-inner">
         <div className="cph-band-kicker">{kicker}</div>
-        <div className="cph-band-numeral">{numeral}</div>
         <div className="cph-band-label">{label}</div>
       </div>
     </div>
@@ -1518,7 +1517,7 @@ const CampNav = () => {
 
    Parallax is CampBand's, at half its rate: this band is shorter, and
    at the chapter rate the drift reads as a wobble. */
-const CampJoinBand = ({ shot, children, note, tearTop, tearGroundTop, tear, tearGround }) => {
+const CampJoinBand = ({ shot, children, note, tearTop, tearGroundTop, tear, tearGround, pos, size }) => {
   const band = React.useRef(null);
   const art = React.useRef(null);
 
@@ -1547,7 +1546,7 @@ const CampJoinBand = ({ shot, children, note, tearTop, tearGroundTop, tear, tear
 
   return (
     <section className="cph-join" ref={band}>
-      <div className="cph-join-art" ref={art} style={{ backgroundImage: `url(${CPH(shot)})` }}></div>
+      <div className="cph-join-art" ref={art} style={{ backgroundImage: `url(${CPH(shot)})`, ...(pos ? { backgroundPosition: pos } : {}), ...(size ? { backgroundSize: size } : {}) }}></div>
       <div className="cph-join-scrim"></div>
       {tearTop && <CampTear image={tearTop} edge="top" ground={tearGroundTop} flip />}
       {tear && <CampTear image={tear} edge="bottom" ground={tearGround} />}
@@ -1909,17 +1908,17 @@ const CampLogoBar = () => (
     <div className="container">
       <p className="cph-logobar-label">Co-Created By</p>
       <div className="cph-logobar-row">
-        <div className="cph-logobar-item">
+        <a className="cph-logobar-item" href="https://coherence.tv/" target="_blank" rel="noreferrer">
           <img className="cph-logobar-full" src="assets/co-creators/coherence-company.png" alt="The Coherence Company" />
-        </div>
-        <div className="cph-logobar-item">
+        </a>
+        <a className="cph-logobar-item" href="https://geoship.is/" target="_blank" rel="noreferrer">
           <img className="cph-logobar-mark" src="assets/co-creators/geoship-mark.svg" alt="" />
           <img className="cph-logobar-word" src="assets/co-creators/geoship-wordmark.svg" alt="Geoship" />
-        </div>
-        <div className="cph-logobar-item cph-logobar-item-tight">
+        </a>
+        <a className="cph-logobar-item cph-logobar-item-tight" href="https://www.modernancients.com/" target="_blank" rel="noreferrer">
           <img className="cph-logobar-mark-ma" src="assets/co-creators/modern-ancients-mark.png" alt="" />
           <img className="cph-logobar-word-ma" src="assets/co-creators/modern-ancients-wordmark.png" alt="Modern Ancients" />
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -2240,7 +2239,13 @@ const PageCamp = ({ onNav }) => {
          consequence rather than as the opening move.
 
          Merges the old §09 Why now and §01 The theme. */}
-    <section className="section" id="why" style={anchor}>
+    {/* paddingBottom: 0 here - the section's default 128px was stacking
+        with the pull-quote's own 88px of closing space (border + margin)
+        and the next section's 96px top padding, for 312px of dead air
+        before the "Be early" cards. The quote's own rule and margin
+        already read as a close; the next section's top padding is
+        the real chapter break. */}
+    <section className="section" id="why" style={{ ...anchor, paddingBottom: 0 }}>
       <div className="container">
         <CampInk className="q-h1">
           <span className="num">01 · Why</span>
@@ -2255,7 +2260,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker top={56} bottom={8}>What follows from that</CampKicker>
         <CampAside
-          shot="studio" alt="People working together at a materials table" index="Plate I"
+          shot="dome" alt="Two people in conversation on a low stone wall" index="Plate I"
           caption="A design brief for what comes next."
           style={{ marginTop: 12 }}
         >
@@ -2361,7 +2366,7 @@ const PageCamp = ({ onNav }) => {
         green now, so it breaks into that instead and the photograph, the
         brush edge and the section read as one continuous descent into
         their world rather than a dark slab bounced off a cream one. */}
-    <CampBand shot="tents" kicker="Camp Navarro" numeral="II" label="A working village in the forest"
+    <CampBand shot="tents" kicker="Camp Navarro" label="A working village in the forest"
       tearTop={ART.crest} tearGroundTop="var(--surface-parchment)"
       tear={ART.spray} tearGround={GATHERING_DARK} rate={0.16} />
 
@@ -2614,7 +2619,7 @@ const PageCamp = ({ onNav }) => {
         wash, then the band's own top tear, both ART.spray. The band is
         the relief now, and it bridges the same two grounds the rule did
         (paper above, parchment below), so the rule went. */}
-    <CampJoinBand shot="furhat"
+    <CampJoinBand shot="lineup2" pos="center 34%"
       tearTop={ART.spray} tearGroundTop="var(--surface-paper)"
       tear={ART.wave} tearGround="var(--surface-parchment)">
       That is who is in the forest. <em>Come and be one of them.</em>
@@ -2673,6 +2678,8 @@ const PageCamp = ({ onNav }) => {
           <p>Every gathering runs one of two loops. We are designing hard for the second. Whatever your next step turns out to be, you are supported in taking it.</p>
         </div>
 
+        <CampPhoto shot="dance" alt="People dancing in a forest clearing as the sun breaks through the trees" ratio="3 / 2" pos="center 42%" caption="The bonds that outlast the week are made here - not only in the sessions." />
+
         <CampLoops>
           <div className="loop loop-ink">
             <div className="loop-title">The fading loop</div>
@@ -2706,17 +2713,21 @@ const PageCamp = ({ onNav }) => {
     </section>
 
     {/* pattern 02 */}
-    <CampBand shot="canopy" kicker="200 acres" numeral="III" label="Ancient redwood forest"
+    <CampBand shot="canopy" kicker="200 acres" label="Ancient redwood forest"
       tearTop={ART.spray} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-paper)" rate={0.2} />
 
     {/* ─── 06 · WHAT YOU GET ────────────────────────────────────────────────
          Merges the old §08 What you leave with and §10 What may emerge. */}
-    <section className="section" id="what-you-get" style={{ ...anchor, background: 'var(--surface-paper)' }}>
+    {/* paddingBottom: 0 - same fix as the §01 Why section above: the
+        default 128px was stacking with the pull-quote's own ~88px of
+        closing space and CampJoinBand's own top padding, for a very
+        large gap before "Everything above is the offer." */}
+    <section className="section" id="what-you-get" style={{ ...anchor, background: 'var(--surface-paper)', paddingBottom: 0 }}>
       <div className="container">
         <CampInk className="q-h1">
           <span className="num">05 · What you get</span>
-          Come with a question. <em>Leave with movement.</em>
+          Come with your questions. <em>Leave with momentum.</em>
         </CampInk>
 
         <CampCascade as="ol" indent className="q-list">
@@ -2885,7 +2896,7 @@ const PageCamp = ({ onNav }) => {
             experiment alongside you — is also the right thing to read
             immediately before the candour block. */}
         <CampAside
-          shot="studio" alt="People working together at a materials table" flip index="Plate IV"
+          shot="platform" alt="Two people in close conversation on a platform" flip index="Plate IV"
           ratio="4 / 3" caption="Real commitments, real tensions, real materials."
         >
           <div className="q-body">

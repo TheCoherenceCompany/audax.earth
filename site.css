@@ -1756,10 +1756,6 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   font-family: var(--font-mono); font-size: 11px; font-weight: 500;
   letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.74);
 }
-.cph-band-numeral {
-  font-family: var(--font-display); font-size: clamp(56px, 8vw, 110px);
-  line-height: 1; color: var(--lichen-400); letter-spacing: -0.02em;
-}
 .cph-band-label {
   font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 34px);
   color: #fff; letter-spacing: -0.015em;
@@ -2894,7 +2890,8 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   display: flex; justify-content: center; align-items: center;
   gap: 56px; flex-wrap: wrap;
 }
-.cph-logobar-item { display: flex; align-items: center; gap: 12px; }
+.cph-logobar-item { display: flex; align-items: center; gap: 12px; text-decoration: none; border-bottom: none; transition: opacity 0.15s ease; }
+.cph-logobar-item:hover { opacity: 0.7; border-bottom: none; }
 .cph-logobar-item img { display: block; width: auto; }
 .cph-logobar-mark { height: 40px; }
 .cph-logobar-word { height: 26px; }
@@ -3100,6 +3097,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .cph-join-art {
   position: absolute; inset: -12% 0; z-index: 0;
   background-size: cover; background-position: center 22%;
+  background-repeat: no-repeat;
   filter: saturate(0.86) brightness(0.9);
   will-change: transform;
 }
