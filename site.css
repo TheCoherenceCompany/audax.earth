@@ -2888,7 +2888,7 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .cph-logobar-row {
   display: flex; justify-content: center; align-items: center;
-  gap: 56px; flex-wrap: wrap;
+  column-gap: 56px; row-gap: 20px; flex-wrap: wrap;
 }
 .cph-logobar-item { display: flex; align-items: center; gap: 12px; text-decoration: none; border-bottom: none; transition: opacity 0.15s ease; }
 .cph-logobar-item:hover { opacity: 0.7; border-bottom: none; }
@@ -2907,6 +2907,15 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 .cph-logobar-item-tight { gap: 6px; }
 .cph-logobar-mark-ma { height: 60px; }
 .cph-logobar-word-ma { height: 38px; }
+/* Meta-Layer Initiative: wordmark is a two-line lockup (META-LAYER over
+   INITIATIVE), not a single line like the others, so it runs taller
+   than Geoship's or Modern Ancients' word at a comparable letter size —
+   58px here reads each line at roughly their cap height. Mark is a
+   bold two-ring-plus-nodes glyph, denser than Geoship's or Modern
+   Ancients', so it sits closer to their pixel height despite reading
+   heavier. */
+.cph-logobar-mark-mli { height: 54px; }
+.cph-logobar-word-mli { height: 50px; }
 
 /* ---------- narrow ---------- */
 @media (max-width: 1000px) {
@@ -2928,13 +2937,15 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   .cph-luma-card iframe { transform: scale(0.5); }
 
   .cph-logobar { padding: 28px 0; }
-  .cph-logobar-row { gap: 32px; }
+  .cph-logobar-row { column-gap: 32px; row-gap: 16px; }
   .cph-logobar-mark { height: 32px; }
   .cph-logobar-word { height: 20px; }
   .cph-logobar-full { height: 48px; }
   .cph-logobar-text { font-size: 15px; }
   .cph-logobar-mark-ma { height: 46px; }
   .cph-logobar-word-ma { height: 29px; }
+  .cph-logobar-mark-mli { height: 42px; }
+  .cph-logobar-word-mli { height: 39px; }
 }
 
 

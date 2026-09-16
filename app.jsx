@@ -62,7 +62,7 @@ const ROUTES = {
     nav: 'Camp',
     chrome: false,
     footer: 'Camp Audax',
-    title: 'Camp Audax — 12–18 October 2026, Camp Navarro, California',
+    title: 'Camp Audax — 15–18 October 2026, Camp Navarro, California',
     description: 'AI as the coordination layer of a wiser, regenerative society. Six days in the redwoods for the people building, funding, applying and philosophically shaping AI for societal good.',
   },
   sorrel: {

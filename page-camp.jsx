@@ -1,7 +1,7 @@
 /* Audax OS site · Camp Audax page (standalone landing page)
    ---------------------------------------------------------------
    Camp Audax at The Gathering US, Camp Navarro, Northern California,
-   12–18 October 2026. A stand-alone landing page: its own nav and
+   15–18 October 2026. A stand-alone landing page: its own nav and
    footer (no Audax OS site chrome), six anchored sections, and its
    own photography rather than the OS pages' abstract washes — Audax
    OS is an abstraction, Camp Audax is a place with mud in it.
@@ -240,7 +240,7 @@ const CAMP_GATHERING_DNA = [
 const CAMP_SHORTHAND = [
   ['A festival for changemakers', 'A temporary village whose cells are communities and organizations. Camps carry representation and responsibility as well as atmosphere.'],
   ['An unconference', 'Participant-led sessions are in there. They sit inside a village, with camps, thresholds, ceremony and a continuity layer wrapped around them.'],
-  ['A networking event', 'The unit is the camp you belong to for six days.'],
+  ['A networking event', 'The unit is the camp you belong to for four days.'],
   ['A conference in a forest', 'Every camp is its own stage, and the camps are the program.']
 ];
 
@@ -327,7 +327,7 @@ const CAMP_PROFILES = [
     short: 'You decide which futures get funded, which is to say which get attempted.',
     working: 'Directing capital towards beneficial AI, impact portfolios, philanthropic strategy, ecosystem funding.',
     brings: ['Capital', 'Field-level view', 'Pattern recognition across teams'],
-    benefit: 'A live map of teams, tools, narratives and gaps, built over six days in person.'
+    benefit: 'A live map of teams, tools, narratives and gaps, built over four days in person.'
   },
   {
     n: 'IV', name: 'The Ecosystem Practitioner',
@@ -366,7 +366,7 @@ const CAMP_LOOP_COHERENCE = [
 
 /* Item 1 is the change: the vanguard, stated plainly, first. */
 const CAMP_LEAVE_WITH = [
-  'A place in the vanguard of a field still finding its name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, and rarely all together in one forest for six days. You will be among the people who start it.',
+  'A place in the vanguard of a field still finding its name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, and rarely all together in one forest for four days. You will be among the people who start it.',
   'At least one named action and one follow-up. That is our commitment to you as hosts.',
   'Relationships formed through shared experience in nature, as whole humans rather than job titles.',
   'A field-level view of what is being built, funded, tested and struggled with across the space.',
@@ -392,10 +392,10 @@ const CAMP_EMERGE = [
    partnerships, the narrative, the dialogue, the exchange and the
    land. */
 const CAMP_WHY_COME = [
-  ['A six-day collaboration incubator', 'A working village, where the thing you start on Tuesday has four more days to become real.'],
+  ['A four-day collaboration incubator', 'A working village, where the thing you start on Friday has two more days to become real.'],
   ['Build connection, trust and lasting partnerships', 'Builders, entrepreneurs, investors, operators and practitioners in one room, for long enough to get past the pitch.'],
   ['Shape the narrative of Wise AI', 'The story of this technology is being written now, mostly without asking what it is for. Come and write a different one.'],
-  ['Deep dialogue about AI as the path to Planetary Adulthood', 'Six days is long enough to get past positions and into the question underneath: what this technology is for, and what growing up as a species would ask of us.'],
+  ['Deep dialogue about AI as the path to Planetary Adulthood', 'Four days is long enough to get past positions and into the question underneath: what this technology is for, and what growing up as a species would ask of us.'],
   ['Learn, teach, share, connect', 'Everyone arrives with something to give and something they are stuck on. Both count, and both are programmed for.'],
   ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms, and a good half of the week deliberately unscheduled.']
 ];
@@ -434,12 +434,12 @@ const CampLumaCarousel = ({ ids }) => (
 );
 
 const CAMP_PRACTICAL = [
-  ['Dates', '12–18 October 2026 (arrival Monday 2pm, closing Sunday 10am)'],
+  ['Dates', '15–18 October 2026 (arrival Thursday 2pm, closing Sunday 10am)'],
   ['Location', 'Camp Navarro, 901 Masonite Industrial Rd, Navarro, CA 95463'],
-  ['Duration', '7 days, 6 nights'],
+  ['Duration', '4 days, 3 nights'],
   ['Capacity', 'TBC'],
   ['How to join', 'Sign up and tell us which path you\'re aiming for - Co-Creator or Participant, above. Formal applications open there first - dates TBC'],
-  ['Cost', "Camp ticket TBC · accommodation from $35/night (tent) to $50/night (cabin or glamping) · meal plans $150 (3-day) or $300 (6-day) · bedding package $50"],
+  ['Cost', "Camp ticket TBC · accommodation from $35/night (tent) to $50/night (cabin or glamping) · meal plans $150 (3-day) · bedding package $50"],
   ['Food', "Breakfast and dinner daily from Camp Navarro's kitchen, plus café, pizza and BBQ through the day"],
   ['Language', 'English'],
   ['Scholarships', 'Some scholarship and volunteer places available - contact us'],
@@ -1648,7 +1648,7 @@ const CampFooter = ({ onJump, onNav, sectionsLabel = 'On this page' }) => (
       <div className="footer-brand">
         <Logo size={36} />
         <div className="footer-brand-text">Camp Audax</div>
-        <div className="footer-tagline">Camp Navarro, Northern California · 12–18 October 2026</div>
+        <div className="footer-tagline">Camp Navarro, Northern California · 15–18 October 2026</div>
         <a
           href={JOIN_URL} target="_blank" rel="noreferrer"
           className="footer-join-btn"
@@ -1817,7 +1817,7 @@ const CampApply = () => (
   <div className="cph-apply">
     <h3>Still reading?</h3>
     <p>
-      Then you are probably one of the five. Camp Navarro, 12–18 October 2026, seven days and six nights,
+      Then you are probably one of the five. Camp Navarro, 15–18 October 2026, four days and three nights,
       with builders, entrepreneurs, investors, practitioners and wisdom keepers in one forest.
     </p>
     <div className="cph-apply-ctas">
@@ -1918,6 +1918,11 @@ const CampLogoBar = () => (
         <a className="cph-logobar-item cph-logobar-item-tight" href="https://www.modernancients.com/" target="_blank" rel="noreferrer">
           <img className="cph-logobar-mark-ma" src="assets/co-creators/modern-ancients-mark.png" alt="" />
           <img className="cph-logobar-word-ma" src="assets/co-creators/modern-ancients-wordmark.png" alt="Modern Ancients" />
+        </a>
+        {/* TODO: real destination URL — placeholder until we have it */}
+        <a className="cph-logobar-item" href="#" target="_blank" rel="noreferrer">
+          <img className="cph-logobar-mark-mli" src="assets/co-creators/metalayer-mark.png" alt="" />
+          <img className="cph-logobar-word-mli" src="assets/co-creators/metalayer-wordmark.png" alt="Meta-Layer Initiative" />
         </a>
       </div>
     </div>
@@ -2172,7 +2177,7 @@ const PageCamp = ({ onNav }) => {
             a screen reader get it — one settled sentence, since the live
             one is mid-word most of the time. */}
         <h1 className="display lg">
-          Six days in the redwoods with the people
+          Four days in the redwoods with the people
           <span className="cph-rot cph-nosplit" aria-hidden="true"></span>
           <span className="cph-sr cph-nosplit">building what&rsquo;s next.</span>
         </h1>
@@ -2180,10 +2185,10 @@ const PageCamp = ({ onNav }) => {
           Builders, investors, ecosystem practitioners and wisdom keepers - one forest, one week - making AI serve a wiser, regenerative society.
         </p>
         <p className="cph-hero-meta">
-          Camp Navarro, Northern California&nbsp; ·&nbsp; <span className="cph-date">12–18 October 2026</span>
+          Camp Navarro, Northern California&nbsp; ·&nbsp; <span className="cph-date">15–18 October 2026</span>
         </p>
         <p className="cph-hero-meta cph-hero-meta-2">
-          7 days, 6 nights · applications open soon
+          4 days, 3 nights · applications open soon
         </p>
         {/* One button in the hero, deliberately. The Sorrel page is still
             reached from the closing CTA, the FAQ and the footer; a second
@@ -2204,7 +2209,7 @@ const PageCamp = ({ onNav }) => {
     <CampJoinBand shot="crowd-white"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
-      Six days. Five profiles. <em>One of them is you.</em>
+      Four days. Five profiles. <em>One of them is you.</em>
     </CampJoinBand>
 
     {/* Self-selection, before the argument rather than twelve screens into
@@ -2290,7 +2295,7 @@ const PageCamp = ({ onNav }) => {
         </CampCascade>
         <div className="q-body" style={{ maxWidth: 760, marginTop: 28 }}>
           <p>Every one of those conversations is right about something. The difficulty is that the questions which actually decide the outcome fall in the gaps between them. So the builder ships without the frame. The practitioner inherits a tool that was specified without them. Capital follows a thesis that nobody in the other three conversations helped write. And the wisdom arrives, eloquently, as commentary on an architecture that has already set.</p>
-          <p>Where the four do meet, it is usually for an hour, on a panel, in front of an audience - long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Six days, one forest, no main stage, and hands on the actual work is our attempt at the room that is missing.</p>
+          <p>Where the four do meet, it is usually for an hour, on a panel, in front of an audience - long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Four days, one forest, no main stage, and hands on the actual work is our attempt at the room that is missing.</p>
         </div>
 
         <div className="q-body" style={{ maxWidth: 760, marginTop: 28 }}>
@@ -2344,7 +2349,7 @@ const PageCamp = ({ onNav }) => {
       <div className="container">
         <CampCascade className="insight-grid">
           {[
-            ['Be early', 'Help us define a field before it has a name - builders, capital, practitioners and wisdom keepers, in one room, for six days.'],
+            ['Be early', 'Help us define a field before it has a name - builders, capital, practitioners and wisdom keepers, in one room, for four days.'],
             ['Move from ideas to action', 'You will leave with at least one named next step, and our support in taking it.'],
             ['Continue beyond the Camp', 'Your journey with us starts before you arrive and carries on after you leave.']
           ].map(([h, p]) => (
@@ -2355,7 +2360,7 @@ const PageCamp = ({ onNav }) => {
           ))}
         </CampCascade>
         <div className="q-body" style={{ maxWidth: 760, marginTop: 40 }}>
-          <p>A Camp is a working village inside {GATHERING}. We are the one for people building, funding, applying and philosophically shaping AI for societal good: our crew, our program, our culture, held for six days inside a wider field of 500 people.</p>
+          <p>A Camp is a working village inside {GATHERING}. We are the one for people building, funding, applying and philosophically shaping AI for societal good: our crew, our program, our culture, held for four days inside a wider field of 500 people.</p>
           <p>Audax OS is developed through practice. Camp Audax is where we bring that practice into one forest, and this page is our invitation to bring yours.</p>
         </div>
       </div>
@@ -2401,7 +2406,7 @@ const PageCamp = ({ onNav }) => {
                 the lineage stand about 380px tall, and a headline alone
                 beside them leaves that much empty column under it */}
             <div className="q-body">
-              <p>Camp Audax is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for seven days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
+              <p>Camp Audax is a camp inside {GATHERING} US: a temporary village of 500-odd people across twenty-plus camps, on 200 acres of redwood at Camp Navarro, for four days in October 2026. The village is convened by <a href="https://regenworld.net/" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>RegenWorld</a>. We are guests in it, with a camp to run and a share of the responsibility for the whole.</p>
             </div>
           </div>
 
@@ -2647,7 +2652,7 @@ const PageCamp = ({ onNav }) => {
         <div style={{ ...campNote, marginTop: 16 }}>
           <h6 style={campNoteH6}>A media strand runs through the week</h6>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 12px' }}>
-            This is a conversation about a better story for AI, and we are making it real. Our media team works across the six days with a small crew of partner organizations, producing recorded dialogue, published synthesis, and pieces co-authored with you rather than about you.
+            This is a conversation about a better story for AI, and we are making it real. Our media team works across the four days with a small crew of partner organizations, producing recorded dialogue, published synthesis, and pieces co-authored with you rather than about you.
           </p>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>
             If you flew across a continent, you should leave with something the world can read, watch or hear.
@@ -2664,7 +2669,7 @@ const PageCamp = ({ onNav }) => {
           <div className="contrast-col">
             <h6>During</h6>
             <h3 style={{ fontSize: 26 }}>Meet · Explore</h3>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-800)' }}>Six days in the forest. Dialogue, open space, project work, reflection, synthesis, declared commitments.</p>
+            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-800)' }}>Four days in the forest. Dialogue, open space, project work, reflection, synthesis, declared commitments.</p>
           </div>
           <div className="contrast-col">
             <h6>After</h6>
@@ -2740,7 +2745,7 @@ const PageCamp = ({ onNav }) => {
 
         <CampKicker top={16}>What may emerge</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Six days with us produce different things for different people. Among the paths we can already see:</p>
+          <p>Four days with us produce different things for different people. Among the paths we can already see:</p>
         </div>
         <CampCascade step={45} style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12 }}>
           {CAMP_EMERGE.map((c, i) => (
@@ -2790,7 +2795,7 @@ const PageCamp = ({ onNav }) => {
           caption="Camp Navarro, between sessions."
         >
           <div className="q-body">
-            <p>We will be on 200 acres of ancient redwood forest at Camp Navarro, Northern California, for seven days and six nights. Campfires in place of boardrooms, conversations in place of presentations, redwoods in place of hotel ballrooms.</p>
+            <p>We will be on 200 acres of ancient redwood forest at Camp Navarro, Northern California, for four days and three nights. Campfires in place of boardrooms, conversations in place of presentations, redwoods in place of hotel ballrooms.</p>
             <p>The land does something to people. It slows you down, opens you up, and creates the conditions for the kind of conversation that arrives when you step away from everything ordinary.</p>
             {/* The village itself is section 02 — no reason to describe it twice. */}
             <p>The village around us - the other twenty camps, the Council, the ceremonies, and everything your ticket opens beyond our own program - is <a href="#camp/the-gathering" onClick={(e) => { e.preventDefault(); jump('the-gathering'); }} style={{ color: 'var(--forest-700)' }}>The Gathering</a>, above.</p>
@@ -2845,8 +2850,8 @@ const PageCamp = ({ onNav }) => {
               <p style={{ fontFamily: 'var(--font-display)', fontSize: 19, fontWeight: 400, color: 'var(--ink-900)', margin: '0 0 10px' }}>{person.name}</p>
               {person.bio && <CampPersonBio text={person.bio} />}
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginTop: 'auto' }}>
-                {(person.links || []).map(s => (
-                  <a key={s.key} href={campSocialHref(s)} target="_blank" rel="noreferrer" aria-label={s.label} style={{
+                {(person.links || []).map((s, i) => (
+                  <a key={`${person.id}-${s.key}-${i}`} href={campSocialHref(s)} target="_blank" rel="noreferrer" aria-label={s.label} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     width: 30, height: 30, borderRadius: '50%',
                     color: 'var(--forest-700)', background: 'var(--forest-050)'
@@ -2869,7 +2874,7 @@ const PageCamp = ({ onNav }) => {
           <div className="contrast-col">
             <h6>Participant</h6>
             <h3 style={{ fontSize: 26 }}>Come and be here</h3>
-            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-800)' }}>You come for the six days: the dialogue, the connections, the forest, the work. Nothing is expected of you beyond what's on this page, and that is a complete way to be here.</p>
+            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-800)' }}>You come for the four days: the dialogue, the connections, the forest, the work. Nothing is expected of you beyond what's on this page, and that is a complete way to be here.</p>
           </div>
         </CampCascade>
 
@@ -2902,7 +2907,7 @@ const PageCamp = ({ onNav }) => {
           ratio="4 / 3" caption="Real commitments, real tensions, real materials."
         >
           <div className="q-body">
-            <p>We test the OS here too. Six days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are part of the experiment, alongside you.</p>
+            <p>We test the OS here too. Four days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are part of the experiment, alongside you.</p>
           </div>
         </CampAside>
 
