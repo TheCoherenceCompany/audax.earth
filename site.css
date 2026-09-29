@@ -3528,5 +3528,12 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 
 /* ---- co-creators bar: second line, and the Alinea logo (one file: arch mark over the wordmark) ---- */
 .li-logobar-row2 { margin-top: 20px; }
-.li-logobar-alinea { height: 92px; }
-@media (max-width: 640px) { .li-logobar-alinea { height: 72px; } }
+/* mark and word are separate files so each can be sized on its own; the lift brings ALINEA near the level of INITIATIVE in the Meta-Layer lockup */
+.li-logobar-alinea { flex-direction: column; gap: 8px; position: relative; top: -10px; }
+.li-alinea-mark { height: 44px; }
+.li-alinea-word { height: 16px; }
+@media (max-width: 640px) {
+  .li-logobar-alinea { gap: 7px; top: -8px; }
+  .li-alinea-mark { height: 36px; }
+  .li-alinea-word { height: 13px; }
+}
