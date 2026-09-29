@@ -3140,3 +3140,388 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
    than on a chapter plate: at the default 150px two of them eat most of
    a band this height and the photograph never gets to show. */
 .cph-join .cph-tear { z-index: 2; --tear-h: clamp(56px, 7vh, 84px); }
+
+/* ============================================================
+   LIVING INTELLIGENCE additions (.li-*)
+   Everything above is the Camp Audax design system, copied as is.
+   This block is ours: the living canvas hero, the mycelium reliefs,
+   the dark forest section and the mark.
+   ============================================================ */
+:root { --li-dark-ground: #0F2A1C; }
+
+/* ---------- hero: living canvas in place of the photograph ---------- */
+.li-stage { isolation: isolate; }
+.li-stage .lh-wash, .li-stage .lh-net {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+}
+.li-stage .lh-net { mix-blend-mode: difference; pointer-events: none; }
+.li-hero .li-veil {
+  background:
+    linear-gradient(90deg, rgba(8,18,12,0.50) 0%, rgba(8,18,12,0.26) 52%, rgba(8,18,12,0) 100%),
+    linear-gradient(180deg, rgba(8,18,12,0.30) 0%, rgba(14,36,25,0.10) 45%, rgba(14,36,25,0.50) 100%);
+}
+
+/* ---------- the mark ---------- */
+.li-mark { display: block; color: #fff; flex-shrink: 0; transition: color 240ms var(--ease-out); }
+.li-page .nav.scrolled .li-mark { color: var(--forest-700); }
+.li-brand { display: inline-flex; align-items: center; gap: 12px; }
+.li-mark-foot { display: block; margin-bottom: 4px; }
+.li-mark-foot .li-mark { color: var(--forest-100); }
+
+/* ---------- mycelium: hyphae that draw themselves as they arrive ---------- */
+.li-myc { display: block; width: 100%; overflow: hidden; }
+.li-myc path {
+  fill: none; stroke: var(--forest-400); stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0.8;
+  transition: stroke-dashoffset 2600ms var(--ease-out);
+}
+.li-myc circle {
+  fill: var(--lichen-500); opacity: 0;
+  transition: opacity 900ms var(--ease-out);
+}
+.li-myc.cph-in path { stroke-dashoffset: 0; }
+.li-myc.cph-in circle { opacity: 0.9; }
+.li-myc.dark path { stroke: var(--lichen-300); opacity: 0.5; }
+.li-myc.dark circle { fill: var(--lichen-200); }
+@media (prefers-reduced-motion: reduce) {
+  .li-myc path, .li-myc circle { transition: none; }
+}
+
+/* ---------- dark forest ground (.li-dark) ----------
+   The same trick the Camp page uses for its host section: redeclare the
+   tokens the components are built from, so everything inside inverts
+   without being forked. Ours runs on deep forest with lichen as the accent. */
+.li-dark {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0F2A1C 0%, #12321F 38%, #0C2116 100%);
+  padding-bottom: clamp(190px, 24vh, 290px);
+
+  --li-accent: #D6DD96;
+
+  --ink-900: #F4F3E8;
+  --ink-800: rgba(244,243,232,0.90);
+  --ink-700: rgba(244,243,232,0.80);
+  --ink-600: rgba(244,243,232,0.70);
+  --ink-500: rgba(244,243,232,0.58);
+  --ink-400: rgba(244,243,232,0.44);
+  --ink-300: rgba(244,243,232,0.32);
+  --ink-200: rgba(244,243,232,0.16);
+  --ink-100: rgba(244,243,232,0.10);
+  --ink-050: rgba(244,243,232,0.05);
+  --border-1: rgba(244,243,232,0.16);
+  --border-2: rgba(244,243,232,0.10);
+  --border-strong: rgba(244,243,232,0.30);
+  --surface-white: rgba(244,243,232,0.05);
+  --surface-card: rgba(244,243,232,0.05);
+  --surface-paper: rgba(244,243,232,0.03);
+  --surface-parchment: transparent;
+  --forest-050: rgba(214,221,150,0.09);
+  --forest-100: rgba(214,221,150,0.14);
+  --forest-200: rgba(214,221,150,0.30);
+  --forest-700: var(--li-accent);
+  --forest-800: var(--li-accent);
+  --forest-900: rgba(244,243,232,0.86);
+
+  color: var(--ink-800);
+}
+.li-dark .li-myc { position: relative; margin-top: 8px; }
+
+/* no sideways scroll from the parallax plates; clip (not hidden) so the sticky diptych keeps working */
+html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
+
+/* let the hyphae fade out at the top and foot of their band instead of ending on a straight cut */
+.li-myc {
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+}
+
+/* ============================================================
+   LIVING INTELLIGENCE: triad section, steps, prompt
+   ============================================================ */
+
+/* ---------- the triad, isolated on its own ground ---------- */
+.li-triad-sec {
+  background:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(244,243,232,0.20) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 84% 30%, rgba(244,243,232,0.16) 0, transparent 60%),
+    radial-gradient(2px 2px at 30% 74%, rgba(244,243,232,0.14) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 72% 82%, rgba(244,243,232,0.18) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 92% 64%, rgba(244,243,232,0.12) 0, transparent 60%),
+    radial-gradient(120% 80% at 50% 38%, #1F4D2E 0%, #0E2419 58%, #060D09 100%);
+}
+.li-triad-head { text-align: center; }
+.li-triad-head .q-h1 { margin-left: auto; margin-right: auto; max-width: 18ch; }
+.li-tri-q {
+  font-family: var(--font-display); font-style: italic; font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.4; color: rgba(244,243,232,0.82); max-width: 640px; margin: 22px auto 0;
+}
+.li-triad-stage { margin-top: 24px; }
+.li-tri-note {
+  max-width: 620px; margin: 8px auto 0; padding: 0 20px; text-align: center;
+  font-size: 14px; font-weight: 300; line-height: 1.65; color: rgba(244,243,232,0.6);
+}
+
+.li-tri-wrap { max-width: 900px; margin: 0 auto; }
+.li-tri { display: block; width: 100%; height: auto; overflow: visible; }
+.li-tri-orbit {
+  fill: none; stroke: rgba(244,243,232,0.10); stroke-width: 1; stroke-dasharray: 2 9;
+  opacity: 0; transition: opacity 1600ms var(--ease-out);
+}
+.li-tri.cph-in .li-tri-orbit { opacity: 1; }
+
+.li-tri-c .fill {
+  opacity: 0; mix-blend-mode: screen;
+  transition: opacity 1600ms var(--ease-out);
+}
+.li-tri.cph-in .li-tri-c .fill { opacity: 0.17; }
+.li-tri.cph-in .li-tri-c.hot .fill { opacity: 0.30; }
+.li-tri.cph-in .li-tri-c.dim .fill { opacity: 0.08; }
+.li-tri-c .ring {
+  stroke-width: 1.6; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0.9;
+  transition: stroke-dashoffset 2400ms var(--ease-out), opacity 400ms var(--ease-out);
+}
+.li-tri.cph-in .li-tri-c .ring { stroke-dashoffset: 0; }
+.li-tri.cph-in .li-tri-c.dim .ring { opacity: 0.35; }
+
+.li-tri .lbl {
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 1000ms var(--ease-out), transform 1000ms var(--ease-out);
+}
+.li-tri.cph-in .lbl { opacity: 1; transform: none; }
+.li-tri-set { cursor: default; outline: none; }
+.li-tri.has-hot .li-tri-set { opacity: 0.55; }
+.li-tri-set:hover, .li-tri-set:focus { opacity: 1 !important; }
+.li-tri-set:focus-visible .t-title { text-decoration: underline; }
+
+.li-tri .t-title { font: 600 12.5px var(--font-mono); letter-spacing: 0.26em; text-transform: uppercase; }
+.li-tri .t-item  { font: 400 21px var(--font-display); letter-spacing: -0.005em; }
+.li-tri .t-pair  { font: italic 400 16.5px var(--font-display); }
+.li-tri .t-core  { font: 600 11.5px var(--font-mono); letter-spacing: 0.28em; text-transform: uppercase; fill: #F4F3E8; }
+.li-tri .t-core2 { font: italic 400 16px var(--font-display); fill: rgba(244,243,232,0.82); }
+.li-tri-seed { fill: var(--lichen-400); opacity: 0.95; }
+
+/* the phone version: the figure needs width, so it becomes a stack */
+.li-tri-list { display: none; }
+@media (max-width: 680px) {
+  .li-tri { display: none; }
+  .li-tri-list { display: grid; gap: 12px; padding: 0 4px; }
+  .li-tri-card {
+    padding: 20px 22px; border: 1px solid rgba(244,243,232,0.16); border-radius: 14px;
+    border-left: 3px solid var(--tri, var(--lichen-400)); background: rgba(244,243,232,0.04);
+  }
+  .li-tri-card h4 {
+    margin: 0 0 8px; font: 600 11px var(--font-mono); letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--tri, var(--lichen-300));
+  }
+  .li-tri-card p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(244,243,232,0.86); }
+  .li-tri-card .core { margin-top: 10px; font: italic 400 18px var(--font-display); color: #F4F3E8; }
+  .li-tri-card-core { --tri: var(--lichen-400); }
+  .li-triad-sec { padding-top: 130px !important; }
+}
+
+/* ---------- from property to build: seven steps ---------- */
+.li-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.li-step {
+  display: grid; grid-template-columns: 56px 1fr auto; gap: 20px; align-items: start;
+  padding: 22px 26px; background: var(--surface-white);
+  border: 1px solid var(--border-1); border-radius: 14px;
+}
+.li-step .n { font: 500 13px var(--font-mono); letter-spacing: 0.12em; color: var(--ink-400); padding-top: 6px; }
+.li-step h4 { margin: 0 0 6px; font: 400 clamp(21px, 2.2vw, 26px)/1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink-900); }
+.li-step p { margin: 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--ink-700); max-width: 60ch; }
+.li-step .who {
+  font: 500 10.5px var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 999px; white-space: nowrap; margin-top: 4px;
+  border: 1px solid var(--forest-200); color: var(--forest-700); background: var(--forest-050);
+}
+.li-step.people { border-color: var(--forest-200); }
+.li-step.people .who { background: var(--forest-700); border-color: var(--forest-700); color: #fff; }
+@media (max-width: 720px) {
+  .li-step { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+  .li-step .n { padding-top: 0; }
+  .li-step .who { justify-self: start; margin-top: 0; }
+}
+
+/* ---------- four-up card row ---------- */
+.li-grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+@media (max-width: 1000px) { .li-grid-4 { grid-template-columns: 1fr 1fr !important; } }
+@media (max-width: 620px)  { .li-grid-4 { grid-template-columns: 1fr !important; } }
+
+/* ---------- the prompt to take away ---------- */
+.li-prompt {
+  border-radius: 16px; overflow: hidden; background: var(--forest-900);
+  border: 1px solid var(--forest-800); box-shadow: var(--shadow-forest);
+}
+.li-prompt-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 14px 20px; background: var(--forest-800); border-bottom: 1px solid rgba(244,243,232,0.10);
+}
+.li-prompt-head span { font: 500 11px var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--lichen-300); }
+.li-prompt-head button {
+  cursor: pointer; border-radius: 999px; padding: 8px 18px;
+  font: 600 13px var(--font-sans); color: var(--forest-900); background: var(--lichen-400);
+  border: 1px solid var(--lichen-400); transition: background 160ms var(--ease-out);
+}
+.li-prompt-head button:hover { background: var(--lichen-300); }
+.li-prompt pre {
+  margin: 0; padding: 22px 24px; max-height: 340px; overflow: auto;
+  font: 400 13px/1.75 var(--font-mono); color: rgba(244,243,232,0.9);
+  white-space: pre-wrap; word-break: break-word;
+}
+
+
+/* ---- triad, revised: fits one screen, class-safe reveal, quick hover ---- */
+.li-triad-sec { padding-bottom: clamp(110px, 15vh, 170px); }
+.li-triad-head .q-h1 { max-width: 20ch; margin-bottom: 0; }
+.li-tri-q { font-size: clamp(17px, 1.7vw, 22px); margin: 16px auto 0; }
+.li-tri-read {
+  max-width: 600px; margin: 12px auto 0; font-size: 14px; font-weight: 300; line-height: 1.6;
+  color: rgba(244,243,232,0.62);
+}
+.li-triad-stage { margin-top: 10px; }
+.li-tri-wrap { max-width: 1000px; }
+.li-tri { width: 100%; height: auto; max-height: min(82vh, 820px); margin: 0 auto; }
+.li-tri .lbl { transform: none; transition: opacity 900ms var(--ease-out); }
+.li-tri.cph-in .lbl { transform: none; }
+.li-tri-set { transition: opacity 200ms var(--ease-out); }
+.li-tri[data-hot] .li-tri-set { opacity: 0.7; }
+.li-tri-set:hover, .li-tri-set:focus { opacity: 1 !important; }
+.li-tri-c .fill { transition: opacity 1200ms var(--ease-out); }
+.li-tri-c .ring { transition: stroke-dashoffset 1400ms var(--ease-out), opacity 300ms var(--ease-out); }
+.li-tri .t-title { font-size: 15px; }
+.li-tri .t-item  { font-size: 26px; }
+.li-tri .t-pair  { font-size: 20px; }
+.li-tri .t-core  { font-size: 14px; }
+.li-tri .t-core2 { font-size: 19px; }
+.li-tri-note { margin-top: 4px; font-size: 13px; }
+
+
+/* ---- hero headline: the lead-in holds one line at every width ----
+   The lead-in takes its own size (a share of the headline size, capped by the
+   viewport so 29 characters always fit) and may not wrap. The rotating clause
+   below keeps the larger display size and still fits two lines. */
+.li-page .cph-hero.li-hero h1.display.lg {
+  font-size: clamp(46px, 6.6vw, 92px);
+  max-width: none;
+}
+.li-page .cph-hero.li-hero h1 .li-lead {
+  display: block;
+  white-space: nowrap;
+  font-size: min(0.62em, calc((100vw - 44px) / 9.8));
+  line-height: 1.15;
+  margin-bottom: 0.18em;
+}
+
+
+/* ---- mycelium: quicker draw-in (was ~5s end to end, now under 2s) ---- */
+.li-myc path   { transition: stroke-dashoffset 1300ms var(--ease-out); }
+.li-myc circle { transition: opacity 600ms var(--ease-out); }
+
+
+/* ---- triad, larger and zoomable ---- */
+.li-tri { max-height: min(88vh, 900px); }
+.li-tri .t-title { font-size: 17px; }
+.li-tri .t-item  { font-size: 30px; }
+.li-tri .t-pair  { font-size: 23px; }
+.li-tri .t-core  { font-size: 16px; }
+.li-tri .t-core2 { font-size: 20px; }
+.li-tri-wrap { max-width: 1040px; position: relative; }
+.li-tri-scroll { overflow: visible; }
+.li-tri-zoom { display: none; }
+@media (max-width: 900px) {
+  .li-tri { max-height: none; }
+  .li-tri-scroll {
+    overflow: auto; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y pinch-zoom; border-radius: 14px;
+  }
+  .li-tri { min-width: 100%; }
+  .li-tri-zoom {
+    display: flex; justify-content: center; align-items: center; gap: 8px; margin: 14px 0 0;
+  }
+  .li-tri-zoom button {
+    min-width: 44px; height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(244,243,232,0.28); background: rgba(244,243,232,0.08);
+    color: #F4F3E8; font: 500 18px/1 var(--font-sans);
+  }
+  .li-tri-zoom button.fit { font-size: 13px; letter-spacing: 0.06em; }
+  .li-tri-zoom button:hover { background: rgba(244,243,232,0.16); }
+  .li-tri-zoom button:disabled { opacity: 0.35; cursor: default; }
+  .li-tri-hint {
+    text-align: center; margin: 10px 0 0; font-size: 12.5px; color: rgba(244,243,232,0.55);
+  }
+}
+@media (min-width: 901px) { .li-tri-hint { display: none; } }
+/* the stacked list is retired: the figure itself scales and zooms on small screens */
+.li-tri-list { display: none !important; }
+@media (max-width: 680px) { .li-tri { display: block !important; } }
+
+/* triad: item size tuned so every word keeps clear of the circle edges */
+.li-tri .t-item { font-size: 28px; }
+
+
+/* the nature section ends on its mycelium: no empty green below it, and the brush edge
+   comes up over the foot of the network so the two read as one ending */
+.li-dark.li-precedent { padding-bottom: 0; }
+.li-dark.li-precedent .li-myc { margin-top: 24px; margin-bottom: -40px; }
+
+
+/* button inside the photo band */
+.li-page .cph-band-inner .li-band-cta { margin-top: 26px; display: inline-flex; text-decoration: none; position: relative; z-index: 6; }
+
+
+/* the Camp Audax link inside the hero meta line reads as text, underlined so it is findable */
+.li-page .cph-hero-meta a {
+  color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.45);
+  text-underline-offset: 4px; transition: text-decoration-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.li-page .cph-hero-meta a:hover { color: #fff; text-decoration-color: var(--lichen-300); }
+
+
+/* ---- section titles: no letter-spacing animation ----
+   The accent used to settle from wide tracking to normal while it played, which narrowed every
+   word mid-animation, re-wrapped the line and made the heading jump. It now keeps its width and
+   fades in from a soft blur; the delays are set per word in CampInk. */
+.li-page .cph-ink .cph-ink-em {
+  letter-spacing: inherit;
+  transition: opacity 900ms var(--ease-out), filter 1000ms var(--ease-out);
+}
+.li-page .cph-ink.cph-in .cph-ink-em { letter-spacing: inherit; }
+
+
+/* section titles wrap into evenly filled lines, so no word is left alone at the start of a line */
+.li-page .q-h1 { text-wrap: balance; }
+
+
+/* words that must stay together inside an animated title */
+.li-page .cph-ink .cph-keep { white-space: nowrap; }
+
+/* overlap labels: a touch smaller so each keeps clear of the circle edges */
+.li-tri .t-pair { font-size: 21px; }
+
+
+/* ---- triad: readable centre, larger figure ---- */
+.li-tri .t-core  { font: 400 27px var(--font-display); letter-spacing: 0; text-transform: none; fill: #F4F3E8; }
+.li-tri .t-core2 { font: italic 400 19px var(--font-display); fill: rgba(244,243,232,0.9); }
+.li-tri-wrap { max-width: 1140px; }
+.li-tri { max-height: min(96vh, 1000px); }
+@media (max-width: 900px) { .li-tri { max-height: none; } }
+
+
+/* ---- empty photo frame ---- */
+.li-plate-solo { margin: 56px 0 0; }
+.li-plate-frame {
+  display: flex; align-items: center; justify-content: center; width: 100%;
+  border-radius: 16px; border: 1px dashed var(--forest-300);
+  background: linear-gradient(180deg, var(--forest-050), var(--forest-100));
+}
+.li-plate-frame span {
+  font: 500 11px var(--font-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--forest-500);
+}
+
+
+/* The pinned image in the nature section must stay pinned: `hidden` turned the section into a
+   scroll container and let the picture scroll away with the text. `clip` still trims anything
+   that spills over, without breaking position: sticky. */
+.li-dark { overflow: clip; }

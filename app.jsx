@@ -65,6 +65,14 @@ const ROUTES = {
     title: 'Camp Audax — 15–18 October 2026, Camp Navarro, California',
     description: 'AI as the coordination layer of a wiser, regenerative society. Six days in the redwoods for the people building, funding, applying and philosophically shaping AI for societal good.',
   },
+  "living-intelligence": {
+    view: (p) => <PageLiving {...p} />,
+    // stand-alone like the camp page, with its own nav and footer. Unlisted (no nav,
+    // no footer): reachable at #living-intelligence and linked from where it is shared.
+    chrome: false,
+    title: 'Living Intelligence — Coevolution for a Regenerative Future',
+    description: 'A shared north star for the relationship between the living world, human beings and artificial/augmented intelligence, offered by people passionate about this work, designing and testing in the open.',
+  },
   sorrel: {
     view: (p) => <PageSorrel {...p} />,
     // stand-alone like the camp page it came out of, and reached from it:
