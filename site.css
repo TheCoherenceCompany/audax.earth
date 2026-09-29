@@ -3525,3 +3525,8 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
    scroll container and let the picture scroll away with the text. `clip` still trims anything
    that spills over, without breaking position: sticky. */
 .li-dark { overflow: clip; }
+
+/* ---- co-creators bar: second line, and the Alinea logo (one file: arch mark over the wordmark) ---- */
+.li-logobar-row2 { margin-top: 20px; }
+.li-logobar-alinea { height: 92px; }
+@media (max-width: 640px) { .li-logobar-alinea { height: 72px; } }

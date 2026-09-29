@@ -331,9 +331,14 @@ const LILogoBar = () => (
           <img className="cph-logobar-mark-ma" src="assets/co-creators/modern-ancients-mark.png" alt="" />
           <img className="cph-logobar-word-ma" src="assets/co-creators/modern-ancients-wordmark.png" alt="Modern Ancients" />
         </a>
+      </div>
+      <div className="cph-logobar-row li-logobar-row2">
         <a className="cph-logobar-item" href="https://themetalayer.org" target="_blank" rel="noreferrer">
           <img className="cph-logobar-mark-mli" src="assets/co-creators/metalayer-mark.png" alt="" />
           <img className="cph-logobar-word-mli" src="assets/co-creators/metalayer-wordmark.png" alt="Meta-Layer Initiative" />
+        </a>
+        <a className="cph-logobar-item" href="https://alinea.institute" target="_blank" rel="noreferrer">
+          <img className="li-logobar-alinea" src="assets/co-creators/alinea.png" alt="Alinea Institute" />
         </a>
       </div>
     </div>
