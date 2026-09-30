@@ -487,7 +487,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampBand shot="canopy" kicker="The questions we hold" label="Questions to carry into the redwoods"
+    <LICampBand shot="canopy" kicker="Open to every voice" label="Curiosity to carry into the redwoods"
       tearTop={ART.spray} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--li-dark-ground)" rate={0.18} />
 
@@ -496,10 +496,10 @@ const PageLiving = () => {
       <div className="container">
         <LICampInk className="q-h1">
           <span className="num">05 · The questions we hold</span>
-          Questions that begin <em>our inquiry.</em>
+          Where our inquiry <em>begins.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>These are the questions we start from. Each one is open, and each grows richer with more voices around it. As you read, notice which ones pull at you, then bring your own questions, needs, projects and proposals{LI_TELEGRAM_URL ? <> to the conversation already running in the <a href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--lichen-300)' }}>Telegram group</a></> : ' to the conversation'}.</p>
+          <p>These are some initial questions shaping our field of inquiry. Each grows richer with more voices &amp; perspective around it. We want to understand how to move more deeply into questioning.</p>
         </div>
 
         <LICampDiptych items={LI_QUESTION_ITEMS} label="Question" compact />
