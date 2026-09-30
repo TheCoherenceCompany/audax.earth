@@ -590,7 +590,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampJoinBand shot="trail" pos="center 33%"
+    <LICampJoinBand shot="carpet" pos="center 28%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
@@ -682,7 +682,7 @@ const PageLiving = () => {
     </section>
 
     {/* ─── JOIN ─────────────────────────────────────────────────────────── */}
-    <CampJoinBand shot="carpet" pos="center 28%"
+    <CampJoinBand shot="trail" pos="center 72%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Coevolve <em>with us.</em>
