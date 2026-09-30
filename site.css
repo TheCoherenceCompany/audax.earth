@@ -127,6 +127,28 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   text-transform: uppercase; color: var(--ink-700);
 }
 .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+/* .hero-wash is positioned as a % of the hero's width, but the text
+   column is a fixed max-width, so on ordinary desktop widths the wash's
+   fade-in zone lands underneath the right portion of every line - the
+   leaf or brush texture crosses right behind the letterforms, which
+   reads as noise even where the colour contrast is technically fine.
+   This sits behind the text only (z-index -1, still above the wash
+   itself) and matches --surface-parchment, the hero's own plain
+   ground, so it is invisible wherever the wash isn't already reaching -
+   only the actual overlap zone gets flattened, then fades out so nothing
+   makes a hard-edged box against the decorative image beyond the text.
+   Scoped off .living-hero: that one's a WebGL wash with no such offset
+   overlap, and already has its own .lh-veil for the same job - this
+   scrim showed through as a plain parchment box over its animation. */
+.hero:not(.living-hero) .hero-inner::before,
+.hero-small .hero-inner::before {
+  content: '';
+  position: absolute; z-index: -1;
+  top: -16px; bottom: -16px; left: -24px; right: -60px;
+  background: var(--surface-parchment);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 75%, transparent 100%);
+          mask-image: linear-gradient(90deg, #000 0%, #000 75%, transparent 100%);
+}
 .hero h1 { margin: 0 0 28px; }
 .hero h1.display.lg { margin: 0 0 32px; }
 .hero .lede { margin-bottom: 40px; }

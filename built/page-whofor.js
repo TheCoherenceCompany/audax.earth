@@ -1539,13 +1539,13 @@ const PageWhoFor = ({
   style: {
     maxWidth: 760
   }
-}, "Any group of people and agents trying to coordinate around shared purpose, contribution, work, learning, and value."), /*#__PURE__*/React.createElement("p", {
+}, "Any group of people and agents trying to coordinate around shared purpose, contribution, work, learning and value."), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 760,
     marginTop: 14
   }
-}, "Companies. Nonprofits. DAOs. Communities. Studios. Student groups. Research collectives. Ecosystem networks. Different forms \u2014 the same deeper coordination question."), /*#__PURE__*/React.createElement(EcosystemDiagram, null), /*#__PURE__*/React.createElement("div", {
+}, "Companies. Nonprofits. DAOs. Communities. Studios. Student groups. Research collectives. Ecosystem networks. Different forms - the same deeper coordination question."), /*#__PURE__*/React.createElement(EcosystemDiagram, null), /*#__PURE__*/React.createElement("div", {
   className: "hero-ctas",
   style: {
     marginTop: 40
@@ -1573,7 +1573,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "An organization is any group trying to coordinate around shared purpose, activity, and value. Most organizational tools were built around the company. The world is full of organizations that do not behave like one."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "An organization is any group trying to coordinate around shared purpose, activity and value. Most organizational tools were built around the company. The world is full of organizations that do not behave like one."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "The forms differ. ", /*#__PURE__*/React.createElement("em", null, "The operating questions rhyme."))), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -1660,7 +1660,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "A physical office used to provide hidden coordination: noticing who was stressed, context in corridors, trust through small encounters. Remote-first organizations do not get this for free. They need to design it."), /*#__PURE__*/React.createElement("p", null, "Without intentional structure, remote work becomes a strange soup of meetings, missing context, lonely contributors, and hidden overload. That is not remote work failing. ", /*#__PURE__*/React.createElement("strong", null, "That is underdesigned organization."))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "A physical office used to provide hidden coordination: noticing who was stressed, context in corridors, trust through small encounters. Remote-first organizations do not get this for free. They need to design it."), /*#__PURE__*/React.createElement("p", null, "Without intentional structure, remote work becomes a strange soup of meetings, missing context, lonely contributors and hidden overload. That is not remote work failing. ", /*#__PURE__*/React.createElement("strong", null, "That is underdesigned organization."))), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0 32px'
   }
@@ -1737,7 +1737,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "One person may be a founder in one project, an advisor in another, a contributor in a third, a community member in a fourth, and a curious observer in a fifth. The old model asks: what is your job title? The new model asks a much better \u2014 and heavier \u2014 question."), /*#__PURE__*/React.createElement("p", null, "Goodwill alone is a poor ledger. It works until money, ownership, pressure, or memory disagreements arrive wearing boots.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "One person may be a founder in one project, an advisor in another, a contributor in a third, a community member in a fourth and a curious observer in a fifth. The old model asks: what is your job title? The new model asks a much better - and heavier - question."), /*#__PURE__*/React.createElement("p", null, "Goodwill alone is a poor ledger. It works until money, ownership, pressure, or memory disagreements arrive wearing boots.")), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0 32px'
   }
@@ -1774,7 +1774,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "Most new organizations start with a name, a logo, a WhatsApp group, a shared drive, a half-written strategy, and a faint hope that governance will somehow emerge politely after lunch. It usually does not."), /*#__PURE__*/React.createElement("p", null, "Audax OS helps new organization starters begin with better defaults. Not a giant system. A starter kit for organizational coherence.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Most new organizations start with a name, a logo, a WhatsApp group, a shared drive, a half-written strategy and a faint hope that governance will somehow emerge politely after lunch. It usually does not."), /*#__PURE__*/React.createElement("p", null, "Audax OS helps new organization starters begin with better defaults. Not a giant system. A starter kit for organizational coherence.")), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0'
   }
@@ -1796,7 +1796,7 @@ const PageWhoFor = ({
     maxWidth: 780,
     marginBottom: 40
   }
-}, /*#__PURE__*/React.createElement("p", null, "Remote from day one. Fractional founders, advisors, contractors, AI agents. Pre-revenue. Dynamic contribution before conventional compensation is possible. The traditional startup stack handles product better than it handles contribution, agreements, learning, culture, and value fairness.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Remote from day one. Fractional founders, advisors, contractors, AI agents. Pre-revenue. Dynamic contribution before conventional compensation is possible. The traditional startup stack handles product better than it handles contribution, agreements, learning, culture and value fairness.")), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
@@ -1841,7 +1841,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "Nonprofits and purpose-led organizations often carry complex work with fragile infrastructure: staff, volunteers, donors, boards, partners, communities, campaigns, funders, reporting. High emotional load. Limited budgets. Shifting funding cycles."), /*#__PURE__*/React.createElement("p", null, "Purpose-led work needs more than inspiration. ", /*#__PURE__*/React.createElement("strong", null, "It needs an operating system that protects the purpose from overload, drift, and informal power."))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Nonprofits and purpose-led organizations often carry complex work with fragile infrastructure: staff, volunteers, donors, boards, partners, communities, campaigns, funders, reporting. High emotional load. Limited budgets. Shifting funding cycles."), /*#__PURE__*/React.createElement("p", null, "Purpose-led work needs more than inspiration. ", /*#__PURE__*/React.createElement("strong", null, "It needs an operating system that protects the purpose from overload, drift and informal power."))), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
@@ -1897,7 +1897,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "Communities often begin with belonging. That is beautiful. But when a community wants to act, it needs structure \u2014 not corporate structure, not heavy governance theatre, just enough coherence to turn shared energy into shared action."), /*#__PURE__*/React.createElement("p", null, "Student groups especially need this. They are laboratories for the next generation of organizing. But they suffer from fast turnover, weak continuity, lost knowledge, and structures that reset every year like ", /*#__PURE__*/React.createElement("em", null, "organizational amnesia with merch."))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Communities often begin with belonging. That is beautiful. But when a community wants to act, it needs structure - not corporate structure, not heavy governance theatre, just enough coherence to turn shared energy into shared action."), /*#__PURE__*/React.createElement("p", null, "Student groups especially need this. They are laboratories for the next generation of organizing. But they suffer from fast turnover, weak continuity, lost knowledge and structures that reset every year like ", /*#__PURE__*/React.createElement("em", null, "organizational amnesia with merch."))), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0'
   }
@@ -1955,7 +1955,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "Some users of Audax OS will not be single organizations. They will be organization families: a venture studio with several startups. A foundation supporting multiple initiatives. A regenerative network connecting land projects, communities, funders. A federation of local chapters. A field-building ecosystem."), /*#__PURE__*/React.createElement("p", null, "The question shifts from ", /*#__PURE__*/React.createElement("em", null, "how does our team work?"), " to ", /*#__PURE__*/React.createElement("em", null, "how do multiple organizations share learning, talent, capital, infrastructure, trust, and agents while maintaining autonomy?"))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Some users of Audax OS will not be single organizations. They will be organization families: a venture studio with several startups. A foundation supporting multiple initiatives. A regenerative network connecting land projects, communities, funders. A federation of local chapters. A field-building ecosystem."), /*#__PURE__*/React.createElement("p", null, "The question shifts from ", /*#__PURE__*/React.createElement("em", null, "how does our team work?"), " to ", /*#__PURE__*/React.createElement("em", null, "how do multiple organizations share learning, talent, capital, infrastructure, trust and agents while maintaining autonomy?"))), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0'
   }
@@ -1974,7 +1974,7 @@ const PageWhoFor = ({
   style: {
     maxWidth: 780
   }
-}, /*#__PURE__*/React.createElement("p", null, "The problem is not tool scarcity. It is fragmentation. Tools do not share enough language around contribution, commitments, missions, decisions, learning, value, roles, permissions, and agents. Audax OS can give builders a shared grammar to design around.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "The problem is not tool scarcity. It is fragmentation. Tools do not share enough language around contribution, commitments, missions, decisions, learning, value, roles, permissions and agents. Audax OS can give builders a shared grammar to design around.")), /*#__PURE__*/React.createElement("div", {
   style: {
     margin: '48px 0'
   }
@@ -1995,7 +1995,7 @@ const PageWhoFor = ({
     maxWidth: 780,
     marginBottom: 40
   }
-}, /*#__PURE__*/React.createElement("p", null, "Audax OS is for consultants, facilitators, organization designers, coaches, governance practitioners, and regenerative leadership practitioners. It gives a map across five spheres, five layers, and three modes \u2014 and practical objects to design with."), /*#__PURE__*/React.createElement("p", null, "This helps practitioners move beyond inspiration into implementation. Not because inspiration is bad \u2014 but because inspiration without structure becomes ", /*#__PURE__*/React.createElement("em", null, "expensive incense."))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Audax OS is for consultants, facilitators, organization designers, coaches, governance practitioners and regenerative leadership practitioners. It gives a map across five spheres, five layers and three modes - and practical objects to design with."), /*#__PURE__*/React.createElement("p", null, "This helps practitioners move beyond inspiration into implementation. Not because inspiration is bad - but because inspiration without structure becomes ", /*#__PURE__*/React.createElement("em", null, "expensive incense."))), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -2046,7 +2046,7 @@ const PageWhoFor = ({
     fontFamily: MONO,
     letterSpacing: '0.04em'
   }
-}, x))))), /*#__PURE__*/React.createElement(PullQuote, null, "The next organization design practice must understand humans, agents, value, learning, governance, and tools ", /*#__PURE__*/React.createElement("em", null, "as one field.")))), /*#__PURE__*/React.createElement("section", {
+}, x))))), /*#__PURE__*/React.createElement(PullQuote, null, "The next organization design practice must understand humans, agents, value, learning, governance and tools ", /*#__PURE__*/React.createElement("em", null, "as one field.")))), /*#__PURE__*/React.createElement("section", {
   className: "section",
   style: {
     background: 'var(--surface-paper)'
@@ -2069,7 +2069,7 @@ const PageWhoFor = ({
   }
 }, /*#__PURE__*/React.createElement(PersonalCoherence, null)), /*#__PURE__*/React.createElement(PullQuote, null, "People do not need to become more productive machines. ", /*#__PURE__*/React.createElement("em", null, "They need clearer ways to live inside many commitments.")))), /*#__PURE__*/React.createElement(CtaBand, {
   title: "Help build the OS<br />for the <em>organizations that come next.</em>",
-  body: "If you recognize yourself in any of these \u2014 come help write the protocols. The grammar is still being shaped.",
+  body: "If you recognize yourself in any of these - come help write the protocols. The grammar is still being shaped.",
   primary: "Join & Build the OS",
   onPrimary: () => window.open(JOIN_URL, '_blank')
 }));

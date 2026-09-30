@@ -38,10 +38,10 @@ const SORREL_JOURNEY = [
    Lived in page-camp.jsx as CAMP_UNDECIDED; moved with its section. */
 const SORREL_UNDECIDED = [
   ['Its voice', 'Warm or dry. Brief or expansive. Whether it is funny.'],
-  ['Its refusals', 'What it declines to answer, and how it says so.'],
-  ['Its opinions', 'Whether it has any, and whether it volunteers them.'],
+  ['Its refusals', 'What it declines to answer and how it says so.'],
+  ['Its opinions', 'Whether it has any and whether it volunteers them.'],
   ['Its presence', 'Whether it speaks at the fire circle or stays out of it.'],
-  ['Its forgetting', 'What it lets go of, when, and who decides.'],
+  ['Its forgetting', 'What it lets go of, when and who decides.'],
   ['Its face', 'The mark above is a first sketch, not a decision.']
 ];
 
@@ -70,7 +70,7 @@ const PageSorrel = ({ onNav }) => {
           Some communities keep a dog. <em>We are raising an agent.</em>
         </h1>
         <p className="lede">
-          Sorrel is the camp&rsquo;s agent: a working name for something we are building, and would like you to help finish.
+          Sorrel is the camp&rsquo;s agent: a working name for something we are building and would like you to help finish.
         </p>
       </div>
     </section>
@@ -86,8 +86,8 @@ const PageSorrel = ({ onNav }) => {
           </div>
           <div className="q-body">
             <p>Redwood sorrel carpets the forest floor at Navarro. In direct sun it folds its three leaflets shut; in shade it opens again. We wanted that instinct in an agent, so we borrowed the name.</p>
-            <p>We have woven Sorrel through the physical experience of our camp. It holds the memory of the week: who is here, what is happening, which conversations are live, which connections have been declared, and what emerged at 7am while you were asleep in a ShiftPod.</p>
-            <p>It works on consent. It knows only what you choose to tell it. It helps you orient, remember, connect and follow through, and it leaves every judgment that matters to you.</p>
+            <p>We have woven Sorrel through the physical experience of our camp. It holds the memory of the week: who is here, what is happening, which conversations are live, which connections have been declared and what emerged at 7am while you were asleep in a ShiftPod.</p>
+            <p>It works on consent. It knows only what you choose to tell it. It helps you orient, remember, connect and follow through and it leaves every judgment that matters to you.</p>
             <p>That makes us a live prototype of the thing we are discussing: a consent-based, agent-supported gathering, tested at human scale in a forest.</p>
           </div>
         </div>
@@ -134,7 +134,7 @@ const PageSorrel = ({ onNav }) => {
           Six things about Sorrel <em>we have not decided.</em>
         </CampInk>
         <div className="q-body" style={{ maxWidth: 760, margin: '24px 0' }}>
-          <p>Sorrel is not finished, and finishing it is not our job alone — this is the part we are most directly inviting you into. You and everyone else who comes will set its language, personality, behaviors and boundaries during the week. These are genuinely open:</p>
+          <p>Sorrel is not finished and finishing it is not our job alone - this is the part we are most directly inviting you into. You and everyone else who comes will set its language, personality, behaviors and boundaries during the week. These are genuinely open:</p>
         </div>
         <CampCascade style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 32 }}>
           {SORREL_UNDECIDED.map(([h, b]) => (
@@ -150,13 +150,13 @@ const PageSorrel = ({ onNav }) => {
         <div style={{ ...campNote, marginBottom: 24 }}>
           <h6 style={campNoteH6}>And one experiment we are curious about</h6>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>
-            Several of us will arrive with agents of our own. Where their people consent, we would like to run the first small trials of agents from different organizations talking to each other on their behalf — introductions, matching needs to offers, carrying a commitment between two teams. This is early, unglamorous and may not work. We will say so either way.
+            Several of us will arrive with agents of our own. Where their people consent, we would like to run the first small trials of agents from different organizations talking to each other on their behalf - introductions, matching needs to offers, carrying a commitment between two teams. This is early, unglamorous and may not work. We will say so either way.
           </p>
         </div>
 
         <div style={{ background: 'var(--surface-white)', border: '1px solid var(--border-1)', borderRadius: 12, padding: '20px 22px' }}>
           <h6 style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ink-500)', margin: '0 0 10px' }}>Consent, privacy and attention</h6>
-          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: '0 0 10px' }}>We make recording explicitly opt-in and visible. You can join us fully without using Sorrel at all. You can review, edit, export and delete your own material. You choose what stays private, what we as hosts see, what the rest of the camp sees, and what becomes public.</p>
+          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: '0 0 10px' }}>We make recording explicitly opt-in and visible. You can join us fully without using Sorrel at all. You can review, edit, export and delete your own material. You choose what stays private, what we as hosts see, what the rest of the camp sees and what becomes public.</p>
           <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.55, color: 'var(--ink-700)', margin: 0 }}>Sorrel is available when useful and quiet when it is not. Sometimes the best interface is a recorder on a table or a single physical display, rather than an app pecking at everyone&rsquo;s pockets in a forest.</p>
         </div>
 

@@ -26,7 +26,7 @@ const SPHERES = [
   },
   {
     n: 'III', key: 'rel', name: 'Human Relationship & Purpose',
-    q: 'What holds trust, belonging, meaning, and repair?',
+    q: 'What holds trust, belonging, meaning and repair?',
     visible: ['purpose alignment', 'relationship health', 'trust', 'conflict', 'feedback', 'belonging', 'values', 'human dignity'],
     art: 'assets/accent-images/The_Gathering_httpss.mj.runN91XiUaHp8U_httpss.mj.runymEnd1koJ_35f5c6fc-fc1b-438c-b64e-1f39d340862f_1.webp'
   },
@@ -54,7 +54,7 @@ const SphereSection = ({ sphere, deep }) => (
       <h1 className="q-h1" style={{ marginBottom: 28 }}>
         <span dangerouslySetInnerHTML={{ __html: deep.q }}></span>
       </h1>
-      <p className="lede" style={{ marginBottom: 24, maxWidth: 760, fontStyle: 'italic', color: 'var(--forest-800)' }}>
+      <p className="lede" style={{ marginBottom: 24, maxWidth: 760, fontStyle: 'italic', fontWeight: 400, color: 'var(--forest-800)' }}>
         {deep.shortDef}
       </p>
       <div className="q-body" style={{ maxWidth: 760 }}>
@@ -105,10 +105,10 @@ const PageSpheres = ({ onNav }) => (
             What does every healthy<br />organization <em>need to hold?</em>
           </h1>
           <p className="lede" style={{ maxWidth: 720 }}>
-            An organization is not only a structure for assigning work. It is a living system of contribution, commitments, relationships, learning, communication, purpose, and value.
+            An organization is not only a structure for assigning work. It is a living system of contribution, commitments, relationships, learning, communication, purpose and value.
           </p>
-          <p className="lede" style={{ maxWidth: 720, fontStyle: 'italic', color: 'var(--ink-800)', marginTop: 16 }}>
-            Every organization already has these functions. The question is whether they are visible, coherent, and cared for &mdash; or scattered across tools, habits, meetings, spreadsheets, and heroic memory.
+          <p className="lede" style={{ maxWidth: 720, fontStyle: 'italic', fontWeight: 400, color: 'var(--ink-800)', marginTop: 16 }}>
+            Most organizations already have these functions. The question is whether they are visible, coherent and cared for - or scattered across tools, habits, meetings, spreadsheets and heroic memory.
           </p>
           <div style={{ marginTop: 48, marginBottom: 40 }}>
             <SpheresOrbit onSelect={(key) => onNav('spheres', key)} />
@@ -129,7 +129,7 @@ const PageSpheres = ({ onNav }) => (
           What is a <em>sphere?</em>
         </h1>
         <div className="q-body">
-          <p>A sphere is not a department. A department is a container in an organization chart. A sphere is a living function of organizational life &mdash; something the organization must continuously sense, maintain, improve, and integrate with everything else.</p>
+          <p>A sphere is not a department. A department is a container in an organization chart. A sphere is a living function of organizational life - something the organization must continuously sense, maintain, improve and integrate with everything else.</p>
 
           <ul style={{ listStyle: 'none', padding: 0, margin: '32px 0', maxWidth: 760 }}>
             {[
@@ -149,7 +149,7 @@ const PageSpheres = ({ onNav }) => (
             ))}
           </ul>
 
-          <p>Each sphere exists everywhere &mdash; inside individuals, inside teams, across the organization, across related organizations, across ecosystems. The spheres describe <strong>what must be healthy.</strong> The layers describe <strong>where that health must show up.</strong></p>
+          <p>Each sphere exists everywhere - inside individuals, inside teams, across the organization, across related organizations, across ecosystems. The spheres describe <strong>what must be healthy.</strong> The layers describe <strong>where that health must show up.</strong></p>
 
           <div className="def-split">
             <div className="def-block">
@@ -160,7 +160,7 @@ const PageSpheres = ({ onNav }) => (
             <div className="def-block layer">
               <h6>Layer</h6>
               <h3>A scale of operation.</h3>
-              <p>Where that function operates &mdash; individual, team, organization, family, ecosystem.</p>
+              <p>Where that function operates - individual, team, organization, family, ecosystem.</p>
             </div>
           </div>
           <div className="def-summary">
@@ -194,7 +194,12 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 4. THE FIVE SPHERES OVERVIEW */}
-    <WashRule image={ART.tide} from="parchment" to="paper" />
+    {/* Was ART.tide: a scan with the paper's own cut edge in frame, which
+        lands as a hard, oddly-coloured vertical line near the right edge -
+        see the note on visible ink in CLAUDE.md. wave is the same forest
+        palette without that defect, and its brushwork already tapers to
+        nothing at both ends. */}
+    <WashRule image={ART.wave} from="parchment" to="paper" />
 
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
@@ -236,19 +241,19 @@ const PageSpheres = ({ onNav }) => (
       sphere={SPHERES[0]}
       deep={{
         q: 'How is contribution recognized and <em>translated into value?</em>',
-        shortDef: 'Value Accounting makes contribution, risk, ownership, compensation, recognition, and value flow visible enough for trust to survive complexity.',
+        shortDef: 'Value Accounting makes contribution, risk, ownership, compensation, recognition and value flow visible enough for trust to survive complexity.',
         body: [
-          'In a conventional organization, value is hidden inside a simple container: a person has a job, the job has a salary, the salary implies contribution. Fractional, distributed, early-stage, and ecosystemic work break that container.',
+          'In a conventional organization, value is hidden inside a simple container: a person has a job, the job has a salary, the salary implies contribution. Fractional, distributed, early-stage and ecosystemic work break that container.',
           'Someone gives time. Someone brings capital. Someone opens a relationship. Someone carries risk before money exists. Someone designs the architecture. Someone makes one strategic introduction that changes the entire future of the work.',
           'If the organization cannot see these contributions, it cannot honor them. And if it cannot honor them, <strong>trust begins to thin.</strong>',
-          'In the agentic age this becomes more important. Humans and agents will increasingly work together on the same outputs. The organization must know who framed the work, who guided the agent, who judged quality, who carried responsibility, and what value was created.',
-          'The person who asks the right question, shapes the mission, and takes responsibility for the outcome must not disappear behind the agent that drafted the text.'
+          'In the agentic age this becomes more important. Humans and agents will increasingly work together on the same outputs. The organization must know who framed the work, who guided the agent, who judged quality, who carried responsibility and what value was created.',
+          'The person who asks the right question, shapes the mission and takes responsibility for the outcome must not disappear behind the agent that drafted the text.'
         ],
         holds: ['contribution records', 'time and effort', 'strategic contribution', 'relationship contribution', 'capital contribution', 'creative contribution', 'care and coordination', 'risk taken', 'ownership agreements', 'payment agreements', 'credit and recognition', 'agent-assisted contribution', 'value review rituals'],
         weak: ['contribution becomes invisible', 'early contributors feel used', 'people remember agreements differently', 'resentment grows when money appears', 'ownership becomes political', 'care work disappears', 'agents make human contribution harder to attribute', 'trust is carried by goodwill alone'],
         adds: {
           name: 'A Contribution Ecology Ledger',
-          body: 'Transparent, human-sensitive recording of contribution across people, teams, organizations, and agents. Recognizes quantitative contribution without pretending everything valuable can be measured. Includes review, interpretation, and dialogue. Not cold accounting. Living accounting.'
+          body: 'Transparent, human-sensitive recording of contribution across people, teams, organizations and agents. Recognizes quantitative contribution without pretending everything valuable can be measured. Includes review, interpretation and dialogue. Not cold accounting. Living accounting.'
         },
         pullQuote: 'Finance is administration. <em>Value Accounting is trust infrastructure.</em>'
       }}
@@ -261,14 +266,14 @@ const PageSpheres = ({ onNav }) => (
       deep={{
         bg: 'var(--surface-paper)',
         q: 'How does <em>purpose become action?</em>',
-        shortDef: 'Organization of Work turns purpose into principles, quests, missions, commitments, delivery, and learning.',
+        shortDef: 'Organization of Work turns purpose into principles, quests, missions, commitments, delivery and learning.',
         body: [
           'Modern work is increasingly difficult to organize through static roles and long onboarding tunnels. People may only have a few hours to contribute. Teams may form around temporary missions. AI agents may support research, drafting, coordination, or delivery.',
-          'This means work must become more readable. A person should be able to see: what matters now, what the mission is, what help is needed, what the expected outcome is, what authority is required, what "done" would mean, and how contribution will be recognized.',
-          'The same is true for agents. Agents need clear context, constraints, permissions, output expectations, decision rights, and escalation pathways. If work is not clear enough for an agent to support, <strong>it is probably not clear enough for a new human contributor either.</strong>',
+          'This means work must become more readable. A person should be able to see: what matters now, what the mission is, what help is needed, what the expected outcome is, what authority is required, what "done" would mean and how contribution will be recognized.',
+          'The same is true for agents. Agents need clear context, constraints, permissions, output expectations, decision rights and escalation pathways. If work is not clear enough for an agent to support, <strong>it is probably not clear enough for a new human contributor either.</strong>',
           'That is the rude little gift of AI. It reveals where our work was already vague.',
           'Audax OS proposes a work architecture built around a few simple objects: <em>Purpose</em> gives direction. <em>Principles</em> guide decisions. <em>Quests</em> define strategic arcs. <em>Missions</em> invite concrete contribution. <em>Cells</em> carry work together. <em>Commitments</em> make promises visible. <em>Learning loops</em> help the system improve.',
-          'The atomic unit is not the task. <strong>The atomic unit is the commitment.</strong> Tasks can be completed in isolation. Commitments create relationship, responsibility, and trust.'
+          'The atomic unit is not the task. <strong>The atomic unit is the commitment.</strong> Tasks can be completed in isolation. Commitments create relationship, responsibility and trust.'
         ],
         holds: ['purpose', 'principles', 'quests', 'missions', 'cells', 'roles', 'responsibilities', 'commitments', 'definitions of done', 'decision rights', 'dependencies', 'evidence of progress', 'delivery rhythms', 'learning outputs'],
         weak: ['people are busy but not aligned', 'new contributors cannot enter easily', 'missions become vague', 'tasks multiply without meaning', 'decisions stall', 'accountability becomes loose or controlling', 'agents produce confident nonsense because context is missing', 'teams confuse motion with progress'],
@@ -285,20 +290,20 @@ const PageSpheres = ({ onNav }) => (
     <SphereSection
       sphere={SPHERES[2]}
       deep={{
-        q: 'What holds <em>trust, belonging, meaning, and repair?</em>',
-        shortDef: 'Human Relationship & Purpose makes trust, belonging, conflict, feedback, values, dignity, and shared direction part of the operating system.',
+        q: 'What holds <em>trust, belonging, meaning and repair?</em>',
+        shortDef: 'Human Relationship & Purpose makes trust, belonging, conflict, feedback, values, dignity and shared direction part of the operating system.',
         body: [
           'This is the sphere many organizations treat as optional. The "soft stuff." The offsite. The values workshop. The culture deck. The emotional weather people politely avoid until it becomes a storm.',
           'In distributed, fractional, AI-native work, this mistake becomes expensive. People do not collaborate well when they feel unseen, unsupported, confused, replaceable, or disconnected from purpose.',
           'Remote teams do not get trust for free. Fractional contributors do not get belonging by accident. <strong>AI agents do not understand values unless those values are made operational.</strong>',
-          'Purpose cannot remain a poetic sentence on a website. It must guide decisions, commitments, agent behavior, value allocation, communication, and escalation. Relationship cannot remain private emotional labor carried by a few sensitive people in the corner. It must become visible, legitimate, and supported.',
+          'Purpose cannot remain a poetic sentence on a website. It must guide decisions, commitments, agent behavior, value allocation, communication and escalation. Relationship cannot remain private emotional labor carried by a few sensitive people in the corner. It must become visible, legitimate and supported.',
           'This does not mean turning the organization into therapy software. It means recognizing that <strong>trust is operational infrastructure.</strong>'
         ],
         holds: ['purpose', 'values', 'belonging', 'trust rituals', 'onboarding conversations', 'relational agreements', 'conflict pathways', 'feedback practices', 'repair rituals', 'consent', 'psychological safety', 'dignity', 'emotional reality', 'human agency', 'boundaries for agents'],
         weak: ['people drift from purpose', 'conflict goes underground', 'feedback becomes political', 'trust depends on charisma', 'new contributors remain peripheral', 'founders carry too much emotional load', 'agents optimize tasks without understanding relational consequences', 'the organization delivers more while becoming less alive'],
         adds: {
           name: 'A Relationship Operating Layer',
-          body: 'Explicit practices for purpose alignment, trust-building, feedback, conflict, repair, consent, and relational health. Agents can prepare conversations, remember agreements, summarize tensions, support reflection, notice when commitments are at risk. They keep the lantern lit. Humans still meet each other.'
+          body: 'Explicit practices for purpose alignment, trust-building, feedback, conflict, repair, consent and relational health. Agents can prepare conversations, remember agreements, summarize tensions, support reflection, notice when commitments are at risk. They keep the lantern lit. Humans still meet each other.'
         },
         pullQuote: 'Trust is not soft. <em>It is load-bearing.</em>'
       }}
@@ -311,9 +316,9 @@ const PageSpheres = ({ onNav }) => (
       deep={{
         bg: 'var(--surface-paper)',
         q: 'How does the organization become <em>more intelligent over time?</em>',
-        shortDef: 'Development & Learning helps people, teams, agents, organizations, and ecosystems grow through practice.',
+        shortDef: 'Development & Learning helps people, teams, agents, organizations and ecosystems grow through practice.',
         body: [
-          'A 21st-century organization should not only deliver work. It should learn. People should grow through the work. Teams should become more capable over time. Agents should improve through feedback and correction. The organization should notice patterns, update its practices, and become wiser through experience.',
+          'A 21st-century organization should not only deliver work. It should learn. People should grow through the work. Teams should become more capable over time. Agents should improve through feedback and correction. The organization should notice patterns, update its practices and become wiser through experience.',
           'Most organizations say they value learning. Then they bury it under delivery pressure. Learning becomes a training budget, an abandoned course library, or a retrospective no one has time to act on.',
           'Audax OS treats learning as <strong>metabolic.</strong> Every mission produces learning. Every failure is harvested. Every team improves its own operating system. Every person sees how their development connects with their contribution. Every agent improves through visible correction, not invisible drift.',
           'The goal is not to design the perfect organization from the beginning. That is a noble way to never start.',
@@ -335,11 +340,11 @@ const PageSpheres = ({ onNav }) => (
       sphere={SPHERES[4]}
       deep={{
         q: 'How does <em>context move</em> through the system?',
-        shortDef: 'Communication moves context, meaning, decisions, updates, signals, and public voice through the organization and its ecosystem.',
+        shortDef: 'Communication moves context, meaning, decisions, updates, signals and public voice through the organization and its ecosystem.',
         body: [
           'Communication is often mistaken for channels. Slack. Email. Meetings. Docs. Newsletters. Dashboards. Social media.',
           'But channels are not communication. They are pipes. The real question is whether <em>context moves.</em>',
-          'Do people understand what matters now? Do teams know what other teams are doing? Are decisions visible? Are commitments clear? Are tensions surfaced early? Can new contributors orient quickly? Can the organization speak clearly to the world? Can agents summarize, translate, and route information without flattening meaning?',
+          'Do people understand what matters now? Do teams know what other teams are doing? Are decisions visible? Are commitments clear? Are tensions surfaced early? Can new contributors orient quickly? Can the organization speak clearly to the world? Can agents summarize, translate and route information without flattening meaning?',
           'Distributed work does not survive on assumptions. AI-native work does not survive on untraceable context. Communication must become intentional.',
           '<strong>Not more messages. Better circulation.</strong> Communication is not marketing at the edge of the organization. It is how the organization knows itself and becomes knowable to others.'
         ],
@@ -382,10 +387,10 @@ const PageSpheres = ({ onNav }) => (
         </h1>
         <div className="q-body">
           <p className="lead">AI agents do not create a separate sixth sphere. <em>They change every sphere.</em></p>
-          <p>In <strong>Value Accounting</strong>, the organization must understand human contribution, agent contribution, and human-agent contribution. In <strong>Organization of Work</strong>, missions must become clear enough for both humans and agents to support. In <strong>Human Relationship &amp; Purpose</strong>, agents must understand values, tone, relational boundaries, and when a human must step in.</p>
-          <p>In <strong>Development &amp; Learning</strong>, agents must improve through feedback without drifting away from purpose or contaminating memory. In <strong>Communication</strong>, agents must show what they know, what they assume, what they changed, and what requires human judgment.</p>
+          <p>In <strong>Value Accounting</strong>, the organization must understand human contribution, agent contribution and human-agent contribution. In <strong>Organization of Work</strong>, missions must become clear enough for both humans and agents to support. In <strong>Human Relationship &amp; Purpose</strong>, agents must understand values, tone, relational boundaries and when a human must step in.</p>
+          <p>In <strong>Development &amp; Learning</strong>, agents must improve through feedback without drifting away from purpose or contaminating memory. In <strong>Communication</strong>, agents must show what they know, what they assume, what they changed and what requires human judgment.</p>
           <p>AI does not sit on top of the organization. <strong>It enters the bloodstream.</strong></p>
-          <p>If the spheres are incoherent, agents amplify incoherence. If the spheres are coherent, agents can help humans work with more clarity, memory, reflection, and care.</p>
+          <p>If the spheres are incoherent, agents amplify incoherence. If the spheres are coherent, agents can help humans work with more clarity, memory, reflection and care.</p>
         </div>
 
         <table className="mini-matrix">
@@ -428,9 +433,9 @@ const PageSpheres = ({ onNav }) => (
           <HealthWheel />
           <div className="diagnostic-cards" style={{ gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {[
-              ['I', 'Value Accounting', 'Is contribution visible, fair, and reviewable?'],
+              ['I', 'Value Accounting', 'Is contribution visible, fair and reviewable?'],
               ['II', 'Organization of Work', 'Can humans and agents understand what matters now and how to contribute?'],
-              ['III', 'Relationship & Purpose', 'Is there enough trust, meaning, belonging, and repair to sustain collaboration?'],
+              ['III', 'Relationship & Purpose', 'Is there enough trust, meaning, belonging and repair to sustain collaboration?'],
               ['IV', 'Development & Learning', 'Does the organization improve through experience?'],
               ['V', 'Communication', 'Does context move clearly through the system?']
             ].map(([r, n, q]) => (
@@ -457,7 +462,7 @@ const PageSpheres = ({ onNav }) => (
           What becomes possible when the spheres are <em>coherent?</em>
         </h1>
         <div className="q-body">
-          <p>When the spheres are coherent, the organization becomes easier to enter, easier to trust, easier to contribute to, easier to learn from, and easier to evolve.</p>
+          <p>When the spheres are coherent, the organization becomes easier to enter, easier to trust, easier to contribute to, easier to learn from and easier to evolve.</p>
 
           <ul style={{ listStyle: 'none', padding: 0, margin: '32px 0' }}>
             {[
@@ -476,8 +481,8 @@ const PageSpheres = ({ onNav }) => (
             ))}
           </ul>
 
-          <p>This is not about creating one perfect structure. It is about creating a living architecture that helps people and agents <strong>participate with more clarity, dignity, and effectiveness.</strong></p>
-          <p>Audax OS gives organization designers and agentic AI builders a shared language for the real work ahead: making contribution visible, turning purpose into action, holding trust and repair, building learning into the work, and helping context circulate through the whole system.</p>
+          <p>This is not about creating one perfect structure. It is about creating a living architecture that helps people and agents <strong>participate with more clarity, dignity and effectiveness.</strong></p>
+          <p>Audax OS gives organization designers and agentic AI builders a shared language for the real work ahead: making contribution visible, turning purpose into action, holding trust and repair, building learning into the work and helping context circulate through the whole system.</p>
         </div>
 
         <PullQuote>Coherence is not control. <em>It is the capacity of a living system to act without losing itself.</em></PullQuote>
@@ -494,7 +499,7 @@ const PageSpheres = ({ onNav }) => (
           The five spheres describe what every healthy organization must care for. But every sphere operates at different scales. Value looks different for an individual than for an ecosystem. Communication looks different inside a team than across a family of organizations.
         </p>
         <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 1.8vw, 24px)', fontStyle: 'italic', color: 'var(--lichen-300)', maxWidth: 640, margin: '0 auto 40px', lineHeight: 1.3 }}>
-          That is why Audax OS also has five layers — individual, team, organization, organization family, ecosystem.
+          That is why Audax OS also has five layers - individual, team, organization, organization family, ecosystem.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button onClick={() => onNav('layers')} icon="arrow-right">Explore the Layers</Button>

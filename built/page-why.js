@@ -51,9 +51,10 @@ const PageWhy = ({
   style: {
     maxWidth: 700,
     fontStyle: 'italic',
+    fontWeight: 400,
     marginBottom: 40
   }
-}, "Audax OS is an open operating system for designing organizations where humans and AI agents work together coherently \u2014 across individuals, teams, organizations, organization families, and ecosystems."), /*#__PURE__*/React.createElement("div", {
+}, "Audax OS is an open operating system for designing organizations where humans and AI agents work together coherently - across individuals, teams, organizations, organization families and ecosystems."), /*#__PURE__*/React.createElement("div", {
   className: "hero-ctas"
 }, /*#__PURE__*/React.createElement(Button, {
   variant: "join",
@@ -65,7 +66,7 @@ const PageWhy = ({
   q: "Why can\u2019t the old organizational forms hold <em>the new work?</em>"
 }, /*#__PURE__*/React.createElement(ArtAside, {
   image: ART.orbHalf
-}, /*#__PURE__*/React.createElement("p", null, "Most organizations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organization at a time."), /*#__PURE__*/React.createElement("p", null, "This model made sense when communication was slow, labor was physically concentrated, expertise was harder to access, and the organization could be managed as a relatively stable machine."), /*#__PURE__*/React.createElement("p", null, "But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyze, and act.")), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "Most organizations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines and supervision. People are expected to belong mostly to one organization at a time."), /*#__PURE__*/React.createElement("p", null, "This model made sense when communication was slow, labor was physically concentrated, expertise was harder to access and the organization could be managed as a relatively stable machine."), /*#__PURE__*/React.createElement("p", null, "But the conditions have changed. People now collaborate across time zones, projects, companies, networks and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyze and act.")), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "The old model is not simply inefficient. ", /*#__PURE__*/React.createElement("em", null, "It is misaligned"), " with the world now emerging."), /*#__PURE__*/React.createElement("div", {
   className: "contrast-grid",
@@ -87,7 +88,7 @@ const PageWhy = ({
   bg: "var(--surface-paper)"
 }, /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "AI is moving ", /*#__PURE__*/React.createElement("em", null, "from assistant to participant.")), /*#__PURE__*/React.createElement("p", null, "Agents can research, draft, synthesize, schedule, translate, analyze, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organizational memory."), /*#__PURE__*/React.createElement("p", null, "But agents cannot work well inside fog. They need:"), /*#__PURE__*/React.createElement("div", {
+}, "AI is moving ", /*#__PURE__*/React.createElement("em", null, "from assistant to participant.")), /*#__PURE__*/React.createElement("p", null, "Agents can research, draft, synthesize, schedule, translate, analyze, remember, coordinate and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication and organizational memory."), /*#__PURE__*/React.createElement("p", null, "But agents cannot work well inside fog. They need:"), /*#__PURE__*/React.createElement("div", {
   className: "protocol-grid"
 }, [['Context', '01'], ['Permission', '02'], ['Memory', '03'], ['Feedback', '04'], ['Escalation', '05'], ['Human judgment', '06']].map(([name, n]) => /*#__PURE__*/React.createElement("div", {
   key: name,
@@ -104,9 +105,9 @@ const PageWhy = ({
 }), /*#__PURE__*/React.createElement(Section, {
   n: "03 \xB7 The collaboration gap",
   q: "Why do better tools still fail to create <em>better collaboration?</em>"
-}, /*#__PURE__*/React.createElement("p", null, "We can now communicate instantly across the planet. We can gather brilliant people into a call in days. We can generate documents, code, strategies, images, research, and plans at astonishing speed."), /*#__PURE__*/React.createElement("p", null, "And still, collaboration remains strangely difficult."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "We can now communicate instantly across the planet. We can gather brilliant people into a call in days. We can generate documents, code, strategies, images, research and plans at astonishing speed."), /*#__PURE__*/React.createElement("p", null, "And still, collaboration remains strangely difficult."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "Turning interest into trust is hard. Turning trust into commitment is harder. Turning commitment into ", /*#__PURE__*/React.createElement("em", null, "sustained action"), " is harder still."), /*#__PURE__*/React.createElement("p", null, "This is the paradox of our time:"), /*#__PURE__*/React.createElement(PullQuote, null, "Technology scales faster than ", /*#__PURE__*/React.createElement("em", null, "coherence.")), /*#__PURE__*/React.createElement("p", null, "AI amplifies individual capability. One person with the right tools can do what once required a team. But no AI tool can replace the trust, shared purpose, mutual commitment, and living coordination needed to do complex work together."), /*#__PURE__*/React.createElement("div", {
+}, "Turning interest into trust is hard. Turning trust into commitment is harder. Turning commitment into ", /*#__PURE__*/React.createElement("em", null, "sustained action"), " is harder still."), /*#__PURE__*/React.createElement("p", null, "This is the paradox of our time:"), /*#__PURE__*/React.createElement(PullQuote, null, "Technology scales faster than ", /*#__PURE__*/React.createElement("em", null, "coherence.")), /*#__PURE__*/React.createElement("p", null, "AI amplifies individual capability. One person with the right tools can do what once required a team. But no AI tool can replace the trust, shared purpose, mutual commitment and living coordination needed to do complex work together."), /*#__PURE__*/React.createElement("div", {
   className: "progression"
 }, /*#__PURE__*/React.createElement("div", {
   className: "progression-step"
@@ -135,7 +136,7 @@ const PageWhy = ({
   narrow: true
 }, /*#__PURE__*/React.createElement("p", null, "No single platform should own the organizational OS of the agentic age."), /*#__PURE__*/React.createElement("p", null, "Audax OS is not being designed as one closed product that every organization must adopt. The ambition is different."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "Audax OS should become a ", /*#__PURE__*/React.createElement("em", null, "shared operating system"), ": a language, architecture, and set of principles that many people can build with."), /*#__PURE__*/React.createElement("ul", {
+}, "Audax OS should become a ", /*#__PURE__*/React.createElement("em", null, "shared operating system"), ": a language, architecture and set of principles that many people can build with."), /*#__PURE__*/React.createElement("ul", {
   style: {
     listStyle: 'none',
     padding: 0,
@@ -173,7 +174,7 @@ const PageWhy = ({
   style: {
     maxWidth: 600
   }
-}, "We are inviting organization designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers, and serious operators to join the founding dialogue."), /*#__PURE__*/React.createElement("p", {
+}, "We are inviting organization designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers and serious operators to join the founding dialogue."), /*#__PURE__*/React.createElement("p", {
   style: {
     fontFamily: 'var(--font-display)',
     fontSize: 'clamp(20px, 2vw, 28px)',

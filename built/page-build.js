@@ -8,56 +8,56 @@ const BUILD_AUDIENCES = [{
   n: '01',
   name: 'Organization Designers',
   q: 'Are you designing how humans work together?',
-  who: 'People who design how teams, companies, networks, and institutions actually work — governance, roles, decision-making, culture, trust, facilitation, learning, power, and structure.',
+  who: 'People who design how teams, companies, networks and institutions actually work - governance, roles, decision-making, culture, trust, facilitation, learning, power and structure.',
   bring: ['team agreements', 'governance patterns', 'decision protocols', 'conflict pathways', 'culture diagnostics', 'trust infrastructure', 'organizational health maps'],
   invite: 'If you have spent years trying to make organizations more human, more adaptive, more honest, or more alive, Audax OS needs your scar tissue and your imagination.'
 }, {
   n: '02',
   name: 'Agentic AI Builders',
   q: 'Are you building agents that need better organizations to live inside?',
-  who: 'People building AI agents, agent platforms, AI-native tools, workflow automations, knowledge systems, and human-agent interfaces.',
+  who: 'People building AI agents, agent platforms, AI-native tools, workflow automations, knowledge systems and human-agent interfaces.',
   bring: ['agent role cards', 'permission profiles', 'agent-ready mission canvases', 'context packets', 'escalation rules', 'inter-agent handoff protocols', 'inspectable autonomy models'],
   invite: 'If you are building agents and keep finding that the hardest problem is not the model, but the messy organization around it, you are exactly in the problem space of Audax OS.'
 }, {
   n: '03',
   name: 'Collaboration Infrastructure Builders',
   q: 'Are you building the tools collective work now depends on?',
-  who: 'People building tools for coordination, knowledge, governance, communication, contribution, and distributed work — the plumbing of collective intelligence.',
+  who: 'People building tools for coordination, knowledge, governance, communication, contribution and distributed work - the plumbing of collective intelligence.',
   bring: ['shared work ontologies', 'commitment ledgers', 'portable contributor profiles', 'open protocols', 'tool interoperability models', 'human-agent collaboration interfaces'],
   invite: 'If you are building the pipes, rooms, ledgers, maps, dashboards, agents, or rituals through which modern collaboration happens, Audax OS is an invitation to make the pieces speak to each other.'
 }, {
   n: '04',
   name: 'Regenerative Practitioners',
   q: 'Are you working to make organizations more alive?',
-  who: 'People working with living systems, teal and turquoise organizations, developmental culture, regenerative leadership, and ecological ways of organizing.',
+  who: 'People working with living systems, teal and turquoise organizations, developmental culture, regenerative leadership and ecological ways of organizing.',
   bring: ['living systems principles', 'developmental pathways', 'relational rituals', 'regenerative diagnostics', 'purpose practices', 'consent and care protocols', 'culture and maturity maps'],
-  invite: 'If your work sits at the edge of organizational design, human development, living systems, and regeneration, Audax OS needs your depth. Otherwise the future becomes a spreadsheet with wings.'
+  invite: 'If your work sits at the edge of organizational design, human development, living systems and regeneration, Audax OS needs your depth. Otherwise the future becomes a spreadsheet with wings.'
 }, {
   n: '05',
   name: 'Future-of-Work Operators',
   q: 'Are you already living the problem?',
-  who: 'People running distributed teams, AI-native startups, fractional organizations, communities, DAOs, venture studios, and ecosystem initiatives.',
+  who: 'People running distributed teams, AI-native startups, fractional organizations, communities, DAOs, venture studios and ecosystem initiatives.',
   bring: ['real use cases', 'failure stories', 'adoption pathways', 'minimum viable protocols', 'practical diagnostics', 'operational constraints', 'what must stay simple'],
   invite: 'If you are already trying to run an organization that does not fit the old model, Audax OS is a place to turn the pain into pattern.'
 }, {
   n: '06',
   name: 'Governance Designers',
   q: 'Are you designing how decisions and accountability work?',
-  who: 'People designing decision systems, consent processes, contribution models, DAO governance, legal structures, accountability systems, and agent permission models.',
+  who: 'People designing decision systems, consent processes, contribution models, DAO governance, legal structures, accountability systems and agent permission models.',
   bring: ['governance frameworks', 'decision architectures', 'accountability models', 'permission systems', 'agent governance patterns', 'consent protocols'],
   invite: 'If you have been building trustworthy systems for collective decision-making, Audax OS needs governance intelligence at its core.'
 }, {
   n: '07',
   name: 'Ecosystem Weavers',
   q: 'Are you helping many centers act together?',
-  who: 'People who help independent actors discover alignment, form trust, coordinate missions, and learn together without central control.',
+  who: 'People who help independent actors discover alignment, form trust, coordinate missions and learn together without central control.',
   bring: ['ecosystem mapping', 'trust and reputation signals', 'partnership protocols', 'open mission frameworks', 'contribution pathways', 'collective intelligence practices'],
   invite: 'If you understand the art of making many centers act together without forcing them into one container, you are building the outer layer of Audax OS.'
 }];
 const BUILD_PATHWAYS = [{
   n: '01',
   title: 'Join the Dialogue',
-  body: 'Participate in conversations about the organizational OS needed for the agentic age. Bring questions, challenges, and half-formed ideas.'
+  body: 'Participate in conversations about the organizational OS needed for the agentic age. Bring questions, challenges and half-formed ideas.'
 }, {
   n: '02',
   title: 'Bring a Use Case',
@@ -65,7 +65,7 @@ const BUILD_PATHWAYS = [{
 }, {
   n: '03',
   title: 'Contribute to the OS',
-  body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics, and language.'
+  body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics and language.'
 }, {
   n: '04',
   title: 'Build an Implementation',
@@ -77,7 +77,7 @@ const BUILD_PATHWAYS = [{
 }, {
   n: '06',
   title: 'Become a Living Lab',
-  body: 'Use Audax OS as a lens for your own organization, team, or community, and share what is learned.'
+  body: 'Use Audax OS as a lens for your own organization, team, or community and share what is learned.'
 }];
 const BUILD_ROLES = ['Organization designer', 'Agentic AI builder', 'Collaboration tool builder', 'Researcher', 'Regenerative practitioner', 'Founder / operator', 'Strategic partner', 'Other'];
 const PageBuild = ({
@@ -164,7 +164,7 @@ const PageBuild = ({
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "This dialogue is not theoretical decoration. It should lead to principles, protocols, tools, language, practices, diagnostics, experiments, and implementations."), /*#__PURE__*/React.createElement("p", null, "Audax OS begins with a proposed architecture: ", /*#__PURE__*/React.createElement("strong", null, "Five Spheres"), " (what every healthy organization must care for), ", /*#__PURE__*/React.createElement("strong", null, "Five Layers"), " (where those functions operate), and ", /*#__PURE__*/React.createElement("strong", null, "Three Modes"), " (how collaboration happens between humans and agents)."), /*#__PURE__*/React.createElement("p", null, "But the details still need to be shaped. What should a contribution ledger include? How should personal agents protect consent? What does trust look like in a fractional organization? How do agent-to-agent workflows remain inspectable?"), /*#__PURE__*/React.createElement("p", null, "These are not small questions. They need many kinds of intelligence: organization intelligence, technical intelligence, governance intelligence, regenerative intelligence, and the quiet intelligence of people who have seen enough failed systems to recognize a real edge when they find one.")), /*#__PURE__*/React.createElement(PullQuote, null, "Audax OS is not a product looking for users. ", /*#__PURE__*/React.createElement("em", null, "It is a problem space looking for co-creators.")))), /*#__PURE__*/React.createElement("section", {
+  }, /*#__PURE__*/React.createElement("p", null, "This dialogue is not theoretical decoration. It should lead to principles, protocols, tools, language, practices, diagnostics, experiments and implementations."), /*#__PURE__*/React.createElement("p", null, "Audax OS begins with a proposed architecture: ", /*#__PURE__*/React.createElement("strong", null, "Five Spheres"), " (what every healthy organization must care for), ", /*#__PURE__*/React.createElement("strong", null, "Five Layers"), " (where those functions operate) and ", /*#__PURE__*/React.createElement("strong", null, "Three Modes"), " (how collaboration happens between humans and agents)."), /*#__PURE__*/React.createElement("p", null, "But the details still need to be shaped. What should a contribution ledger include? How should personal agents protect consent? What does trust look like in a fractional organization? How do agent-to-agent workflows remain inspectable?"), /*#__PURE__*/React.createElement("p", null, "These are not small questions. They need many kinds of intelligence: organization intelligence, technical intelligence, governance intelligence, regenerative intelligence and the quiet intelligence of people who have seen enough failed systems to recognize a real edge when they find one.")), /*#__PURE__*/React.createElement(PullQuote, null, "Audax OS is not a product looking for users. ", /*#__PURE__*/React.createElement("em", null, "It is a problem space looking for co-creators.")))), /*#__PURE__*/React.createElement("section", {
     className: "section",
     style: {
       background: 'var(--surface-paper)'
@@ -181,7 +181,7 @@ const PageBuild = ({
       marginBottom: 56,
       maxWidth: 760
     }
-  }, "At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners, and thinkers who understand that the organization itself is now the design frontier."), /*#__PURE__*/React.createElement("div", {
+  }, "At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners and thinkers who understand that the organization itself is now the design frontier."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 1fr)',
@@ -420,7 +420,7 @@ const PageBuild = ({
       maxWidth: 760,
       marginBottom: 48
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach, and build upon. Strategic partners are not future customers. They are potential co-creators.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach and build upon. Strategic partners are not future customers. They are potential co-creators.")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -534,7 +534,7 @@ const PageBuild = ({
       maxWidth: 760,
       marginBottom: 56
     }
-  }, /*#__PURE__*/React.createElement("p", null, "There are many ways to contribute. The goal is not to make everyone contribute in the same way. The goal is to make contribution visible, useful, and alive.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "There are many ways to contribute. The goal is not to make everyone contribute in the same way. The goal is to make contribution visible, useful and alive.")), /*#__PURE__*/React.createElement("div", {
     className: "join-grid"
   }, BUILD_PATHWAYS.map(p => /*#__PURE__*/React.createElement("div", {
     key: p.n,
@@ -593,7 +593,7 @@ const PageBuild = ({
       color: 'var(--ink-700)',
       margin: '0 0 16px'
     }
-  }, "The Coherence Company is the first organization joining to develop, test, and evolve Audax OS in real organizational life."), /*#__PURE__*/React.createElement("p", {
+  }, "The Coherence Company is the first organization joining to develop, test and evolve Audax OS in real organizational life."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       fontWeight: 300,
@@ -601,7 +601,7 @@ const PageBuild = ({
       color: 'var(--ink-700)',
       margin: '0 0 16px'
     }
-  }, "It is not the owner of the OS. It is the first living lab \u2014 using Audax OS to explore how a distributed, fractional, AI-native organization can organize work, contribution, learning, communication, human relationship, and agentic collaboration."), /*#__PURE__*/React.createElement("p", {
+  }, "It is not the owner of the OS. It is the first living lab - using Audax OS to explore how a distributed, fractional, AI-native organization can organize work, contribution, learning, communication, human relationship and agentic collaboration."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       fontWeight: 300,
@@ -609,7 +609,7 @@ const PageBuild = ({
       color: 'var(--ink-700)',
       margin: 0
     }
-  }, "The future organizational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects, and real learning loops.")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, "The future organizational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects and real learning loops.")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: 'var(--font-mono)',
       fontSize: 11,
@@ -646,7 +646,7 @@ const PageBuild = ({
       color: 'var(--ink-600)',
       margin: 0
     }
-  }, "The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners, and living labs. One node in a growing constellation \u2014 not the whole sky."))))), /*#__PURE__*/React.createElement("section", {
+  }, "The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners and living labs. One node in a growing constellation - not the whole sky."))))), /*#__PURE__*/React.createElement("section", {
     className: "section manifesto"
   }, /*#__PURE__*/React.createElement("div", {
     className: "container"
@@ -659,16 +659,16 @@ const PageBuild = ({
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The founding dialogue should be serious, generous, practical, and alive."), /*#__PURE__*/React.createElement("p", null, "Not a panel series where everyone performs insight and nothing changes. Not a Discord swamp where good ideas go to slowly become scroll sediment. Not a closed expert committee pretending the future has already been decided."), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", null, "The founding dialogue should be serious, generous, practical and alive."), /*#__PURE__*/React.createElement("p", null, "Not a panel series where everyone performs insight and nothing changes. Not a Discord swamp where good ideas go to slowly become scroll sediment. Not a closed expert committee pretending the future has already been decided."), /*#__PURE__*/React.createElement("p", {
     className: "lead"
-  }, "We want conversations that ", /*#__PURE__*/React.createElement("em", null, "move.")), /*#__PURE__*/React.createElement("p", null, "From question to pattern. From pattern to protocol. From protocol to test. From test to learning. From learning to better questions."), /*#__PURE__*/React.createElement("p", null, "The dialogue should welcome disagreement. Audax OS will be stronger if people challenge the language, test the assumptions, expose blind spots, bring edge cases, and refuse lazy consensus."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Co-creation is not polite agreement. It is disciplined imagination."))), /*#__PURE__*/React.createElement("div", {
+  }, "We want conversations that ", /*#__PURE__*/React.createElement("em", null, "move.")), /*#__PURE__*/React.createElement("p", null, "From question to pattern. From pattern to protocol. From protocol to test. From test to learning. From learning to better questions."), /*#__PURE__*/React.createElement("p", null, "The dialogue should welcome disagreement. Audax OS will be stronger if people challenge the language, test the assumptions, expose blind spots, bring edge cases and refuse lazy consensus."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Co-creation is not polite agreement. It is disciplined imagination."))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
       gap: '0 64px',
       margin: '48px 0 0'
     }
-  }, ['Start from real problems.', 'Stay close to practice.', 'Make concepts legible.', 'Name tensions early.', 'Protect human agency.', 'Respect technical reality.', 'Prefer protocols over slogans.', 'Treat critique as contribution.', 'Build with enough openness that others can extend it.', 'Keep asking what this makes possible for people, teams, and ecosystems.'].map((p, i) => /*#__PURE__*/React.createElement("div", {
+  }, ['Start from real problems.', 'Stay close to practice.', 'Make concepts legible.', 'Name tensions early.', 'Protect human agency.', 'Respect technical reality.', 'Prefer protocols over slogans.', 'Treat critique as contribution.', 'Build with enough openness that others can extend it.', 'Keep asking what this makes possible for people, teams and ecosystems.'].map((p, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       padding: '22px 0',
@@ -732,13 +732,13 @@ const PageBuild = ({
     becomes: 'A way to think beyond roles and task boards from the beginning.'
   }, {
     for: 'Contributors',
-    becomes: 'A way to see commitments, value, learning, and agency across contexts.'
+    becomes: 'A way to see commitments, value, learning and agency across contexts.'
   }, {
     for: 'Teams',
     becomes: 'A way to make work legible without becoming bureaucratic.'
   }, {
     for: 'Agents',
-    becomes: 'A way to participate with context, permissions, feedback, and clear boundaries.'
+    becomes: 'A way to participate with context, permissions, feedback and clear boundaries.'
   }, {
     for: 'Vendors',
     becomes: 'A way to build interoperable tools around shared organizational objects.'
@@ -821,7 +821,7 @@ const PageBuild = ({
       maxWidth: 620,
       margin: '0 auto 40px'
     }
-  }, "The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation."), /*#__PURE__*/React.createElement(Button, {
+  }, "The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue and serious experimentation."), /*#__PURE__*/React.createElement(Button, {
     size: "lg",
     variant: "join",
     icon: "arrow-right",

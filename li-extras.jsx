@@ -153,10 +153,10 @@ Here is my work: [describe your project, organization or question in a few sente
 
 Please respond with:
 1. Three properties my work already advances, each with a concrete example from what I described.
-2. Two properties it could advance with a small change, and the change.
-3. One tension between properties that my work surfaces, and a way to hold it openly.
+2. Two properties it could advance with a small change and the change.
+3. One tension between properties that my work surfaces and a way to hold it openly.
 4. One small experiment I could run in the next week (observe, orient, decide, act).
-5. Three kinds of people or organizations to talk to next, and a question for each.
+5. Three kinds of people or organizations to talk to next and a question for each.
 6. One property missing from the lists above that my work suggests.`;
 
 const LIPrompt = () => {

@@ -8,61 +8,61 @@ const BUILD_AUDIENCES = [
   {
     n: '01', name: 'Organization Designers',
     q: 'Are you designing how humans work together?',
-    who: 'People who design how teams, companies, networks, and institutions actually work — governance, roles, decision-making, culture, trust, facilitation, learning, power, and structure.',
+    who: 'People who design how teams, companies, networks and institutions actually work - governance, roles, decision-making, culture, trust, facilitation, learning, power and structure.',
     bring: ['team agreements', 'governance patterns', 'decision protocols', 'conflict pathways', 'culture diagnostics', 'trust infrastructure', 'organizational health maps'],
     invite: 'If you have spent years trying to make organizations more human, more adaptive, more honest, or more alive, Audax OS needs your scar tissue and your imagination.'
   },
   {
     n: '02', name: 'Agentic AI Builders',
     q: 'Are you building agents that need better organizations to live inside?',
-    who: 'People building AI agents, agent platforms, AI-native tools, workflow automations, knowledge systems, and human-agent interfaces.',
+    who: 'People building AI agents, agent platforms, AI-native tools, workflow automations, knowledge systems and human-agent interfaces.',
     bring: ['agent role cards', 'permission profiles', 'agent-ready mission canvases', 'context packets', 'escalation rules', 'inter-agent handoff protocols', 'inspectable autonomy models'],
     invite: 'If you are building agents and keep finding that the hardest problem is not the model, but the messy organization around it, you are exactly in the problem space of Audax OS.'
   },
   {
     n: '03', name: 'Collaboration Infrastructure Builders',
     q: 'Are you building the tools collective work now depends on?',
-    who: 'People building tools for coordination, knowledge, governance, communication, contribution, and distributed work — the plumbing of collective intelligence.',
+    who: 'People building tools for coordination, knowledge, governance, communication, contribution and distributed work - the plumbing of collective intelligence.',
     bring: ['shared work ontologies', 'commitment ledgers', 'portable contributor profiles', 'open protocols', 'tool interoperability models', 'human-agent collaboration interfaces'],
     invite: 'If you are building the pipes, rooms, ledgers, maps, dashboards, agents, or rituals through which modern collaboration happens, Audax OS is an invitation to make the pieces speak to each other.'
   },
   {
     n: '04', name: 'Regenerative Practitioners',
     q: 'Are you working to make organizations more alive?',
-    who: 'People working with living systems, teal and turquoise organizations, developmental culture, regenerative leadership, and ecological ways of organizing.',
+    who: 'People working with living systems, teal and turquoise organizations, developmental culture, regenerative leadership and ecological ways of organizing.',
     bring: ['living systems principles', 'developmental pathways', 'relational rituals', 'regenerative diagnostics', 'purpose practices', 'consent and care protocols', 'culture and maturity maps'],
-    invite: 'If your work sits at the edge of organizational design, human development, living systems, and regeneration, Audax OS needs your depth. Otherwise the future becomes a spreadsheet with wings.'
+    invite: 'If your work sits at the edge of organizational design, human development, living systems and regeneration, Audax OS needs your depth. Otherwise the future becomes a spreadsheet with wings.'
   },
   {
     n: '05', name: 'Future-of-Work Operators',
     q: 'Are you already living the problem?',
-    who: 'People running distributed teams, AI-native startups, fractional organizations, communities, DAOs, venture studios, and ecosystem initiatives.',
+    who: 'People running distributed teams, AI-native startups, fractional organizations, communities, DAOs, venture studios and ecosystem initiatives.',
     bring: ['real use cases', 'failure stories', 'adoption pathways', 'minimum viable protocols', 'practical diagnostics', 'operational constraints', 'what must stay simple'],
     invite: 'If you are already trying to run an organization that does not fit the old model, Audax OS is a place to turn the pain into pattern.'
   },
   {
     n: '06', name: 'Governance Designers',
     q: 'Are you designing how decisions and accountability work?',
-    who: 'People designing decision systems, consent processes, contribution models, DAO governance, legal structures, accountability systems, and agent permission models.',
+    who: 'People designing decision systems, consent processes, contribution models, DAO governance, legal structures, accountability systems and agent permission models.',
     bring: ['governance frameworks', 'decision architectures', 'accountability models', 'permission systems', 'agent governance patterns', 'consent protocols'],
     invite: 'If you have been building trustworthy systems for collective decision-making, Audax OS needs governance intelligence at its core.'
   },
   {
     n: '07', name: 'Ecosystem Weavers',
     q: 'Are you helping many centers act together?',
-    who: 'People who help independent actors discover alignment, form trust, coordinate missions, and learn together without central control.',
+    who: 'People who help independent actors discover alignment, form trust, coordinate missions and learn together without central control.',
     bring: ['ecosystem mapping', 'trust and reputation signals', 'partnership protocols', 'open mission frameworks', 'contribution pathways', 'collective intelligence practices'],
     invite: 'If you understand the art of making many centers act together without forcing them into one container, you are building the outer layer of Audax OS.'
   }
 ];
 
 const BUILD_PATHWAYS = [
-  { n: '01', title: 'Join the Dialogue', body: 'Participate in conversations about the organizational OS needed for the agentic age. Bring questions, challenges, and half-formed ideas.' },
+  { n: '01', title: 'Join the Dialogue', body: 'Participate in conversations about the organizational OS needed for the agentic age. Bring questions, challenges and half-formed ideas.' },
   { n: '02', title: 'Bring a Use Case', body: 'Share a real organizational challenge involving distributed work, fractional contribution, human-agent collaboration, or ecosystem coordination.' },
-  { n: '03', title: 'Contribute to the OS', body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics, and language.' },
+  { n: '03', title: 'Contribute to the OS', body: 'Help refine the Spheres, Layers, Modes, principles, protocols, diagnostics and language.' },
   { n: '04', title: 'Build an Implementation', body: 'Create tools, agents, interfaces, templates, workshops, or integrations based on Audax OS concepts.' },
   { n: '05', title: 'Host a Conversation', body: 'Bring together organization designers, AI builders, operators, or ecosystem actors to explore the problem space.' },
-  { n: '06', title: 'Become a Living Lab', body: 'Use Audax OS as a lens for your own organization, team, or community, and share what is learned.' }
+  { n: '06', title: 'Become a Living Lab', body: 'Use Audax OS as a lens for your own organization, team, or community and share what is learned.' }
 ];
 
 const BUILD_ROLES = [
@@ -132,10 +132,10 @@ const PageBuild = ({ onNav }) => {
         </div>
 
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>This dialogue is not theoretical decoration. It should lead to principles, protocols, tools, language, practices, diagnostics, experiments, and implementations.</p>
-          <p>Audax OS begins with a proposed architecture: <strong>Five Spheres</strong> (what every healthy organization must care for), <strong>Five Layers</strong> (where those functions operate), and <strong>Three Modes</strong> (how collaboration happens between humans and agents).</p>
+          <p>This dialogue is not theoretical decoration. It should lead to principles, protocols, tools, language, practices, diagnostics, experiments and implementations.</p>
+          <p>Audax OS begins with a proposed architecture: <strong>Five Spheres</strong> (what every healthy organization must care for), <strong>Five Layers</strong> (where those functions operate) and <strong>Three Modes</strong> (how collaboration happens between humans and agents).</p>
           <p>But the details still need to be shaped. What should a contribution ledger include? How should personal agents protect consent? What does trust look like in a fractional organization? How do agent-to-agent workflows remain inspectable?</p>
-          <p>These are not small questions. They need many kinds of intelligence: organization intelligence, technical intelligence, governance intelligence, regenerative intelligence, and the quiet intelligence of people who have seen enough failed systems to recognize a real edge when they find one.</p>
+          <p>These are not small questions. They need many kinds of intelligence: organization intelligence, technical intelligence, governance intelligence, regenerative intelligence and the quiet intelligence of people who have seen enough failed systems to recognize a real edge when they find one.</p>
         </div>
 
         <PullQuote>Audax OS is not a product looking for users. <em>It is a problem space looking for co-creators.</em></PullQuote>
@@ -150,7 +150,7 @@ const PageBuild = ({ onNav }) => {
           Who is needed <em>at the beginning?</em>
         </h1>
         <p className="lede" style={{ marginBottom: 56, maxWidth: 760 }}>
-          At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners, and thinkers who understand that the organization itself is now the design frontier.
+          At this stage, Audax OS is primarily for people who can help develop the OS itself. The first circle is not a mass market. It is builders, designers, practitioners and thinkers who understand that the organization itself is now the design frontier.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           {BUILD_AUDIENCES.slice(0, 4).map(a => (
@@ -310,7 +310,7 @@ const PageBuild = ({ onNav }) => {
           Who can <em>build with Audax OS?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 48 }}>
-          <p>Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach, and build upon. Strategic partners are not future customers. They are potential co-creators.</p>
+          <p>Audax OS is intended to be an open OS, not a closed product. Like Agile, it should become something many people can interpret, extend, implement, critique, teach and build upon. Strategic partners are not future customers. They are potential co-creators.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
@@ -371,7 +371,7 @@ const PageBuild = ({ onNav }) => {
           How can people <em>help shape Audax OS?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 56 }}>
-          <p>There are many ways to contribute. The goal is not to make everyone contribute in the same way. The goal is to make contribution visible, useful, and alive.</p>
+          <p>There are many ways to contribute. The goal is not to make everyone contribute in the same way. The goal is to make contribution visible, useful and alive.</p>
         </div>
         <div className="join-grid">
           {BUILD_PATHWAYS.map(p => (
@@ -414,13 +414,13 @@ const PageBuild = ({ onNav }) => {
               color: 'var(--ink-900)', margin: '0 0 24px'
             }}>The Coherence Company</h3>
             <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 16px' }}>
-              The Coherence Company is the first organization joining to develop, test, and evolve Audax OS in real organizational life.
+              The Coherence Company is the first organization joining to develop, test and evolve Audax OS in real organizational life.
             </p>
             <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: '0 0 16px' }}>
-              It is not the owner of the OS. It is the first living lab — using Audax OS to explore how a distributed, fractional, AI-native organization can organize work, contribution, learning, communication, human relationship, and agentic collaboration.
+              It is not the owner of the OS. It is the first living lab - using Audax OS to explore how a distributed, fractional, AI-native organization can organize work, contribution, learning, communication, human relationship and agentic collaboration.
             </p>
             <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-700)', margin: 0 }}>
-              The future organizational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects, and real learning loops.
+              The future organizational OS cannot be designed from a balcony. It must be tested inside real commitments, real tensions, real people, real agents, real projects and real learning loops.
             </p>
           </div>
           <div>
@@ -439,7 +439,7 @@ const PageBuild = ({ onNav }) => {
               </p>
             </div>
             <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, color: 'var(--ink-600)', margin: 0 }}>
-              The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners, and living labs. One node in a growing constellation — not the whole sky.
+              The Coherence Company will help generate the first practical patterns, but the OS should grow through a wider field of contributors, partners and living labs. One node in a growing constellation - not the whole sky.
             </p>
           </div>
         </div>
@@ -454,11 +454,11 @@ const PageBuild = ({ onNav }) => {
           What kind of conversation <em>are we trying to host?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>The founding dialogue should be serious, generous, practical, and alive.</p>
+          <p>The founding dialogue should be serious, generous, practical and alive.</p>
           <p>Not a panel series where everyone performs insight and nothing changes. Not a Discord swamp where good ideas go to slowly become scroll sediment. Not a closed expert committee pretending the future has already been decided.</p>
           <p className="lead">We want conversations that <em>move.</em></p>
           <p>From question to pattern. From pattern to protocol. From protocol to test. From test to learning. From learning to better questions.</p>
-          <p>The dialogue should welcome disagreement. Audax OS will be stronger if people challenge the language, test the assumptions, expose blind spots, bring edge cases, and refuse lazy consensus.</p>
+          <p>The dialogue should welcome disagreement. Audax OS will be stronger if people challenge the language, test the assumptions, expose blind spots, bring edge cases and refuse lazy consensus.</p>
           <p><strong>Co-creation is not polite agreement. It is disciplined imagination.</strong></p>
         </div>
 
@@ -473,7 +473,7 @@ const PageBuild = ({ onNav }) => {
             'Prefer protocols over slogans.',
             'Treat critique as contribution.',
             'Build with enough openness that others can extend it.',
-            'Keep asking what this makes possible for people, teams, and ecosystems.'
+            'Keep asking what this makes possible for people, teams and ecosystems.'
           ].map((p, i) => (
             <div key={i} style={{
               padding: '22px 0',
@@ -513,9 +513,9 @@ const PageBuild = ({ onNav }) => {
           {[
             { for: 'Organization designers', becomes: 'A way to speak with AI builders around shared organizational objects.' },
             { for: 'Founders', becomes: 'A way to think beyond roles and task boards from the beginning.' },
-            { for: 'Contributors', becomes: 'A way to see commitments, value, learning, and agency across contexts.' },
+            { for: 'Contributors', becomes: 'A way to see commitments, value, learning and agency across contexts.' },
             { for: 'Teams', becomes: 'A way to make work legible without becoming bureaucratic.' },
-            { for: 'Agents', becomes: 'A way to participate with context, permissions, feedback, and clear boundaries.' },
+            { for: 'Agents', becomes: 'A way to participate with context, permissions, feedback and clear boundaries.' },
             { for: 'Vendors', becomes: 'A way to build interoperable tools around shared organizational objects.' },
             { for: 'Ecosystems', becomes: 'A way to coordinate missions without central control.' },
             { for: 'The future of work', becomes: 'A way to become more humane, not merely more automated.' },
@@ -552,7 +552,7 @@ const PageBuild = ({ onNav }) => {
           The old organizational OS is <em>creaking.</em>
         </h2>
         <p style={{ fontSize: 19, fontWeight: 300, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 620, margin: '0 auto 40px' }}>
-          The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation.
+          The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue and serious experimentation.
         </p>
         <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>
           Let's build a holistic organization OS for our times

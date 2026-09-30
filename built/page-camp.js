@@ -97,7 +97,7 @@ const GatheringCredit = () => /*#__PURE__*/React.createElement("a", {
   className: "cph-tg-mark"
 }, /*#__PURE__*/React.createElement("img", {
   src: GATHERING_LOCKUP,
-  alt: "The Gathering \u2014 Connect for action"
+  alt: "The Gathering - Connect for action"
 }), /*#__PURE__*/React.createElement("span", null, "the-gathering.earth \u2197"));
 
 /* Where the village has stood. Five Gatherings; the four before this one
@@ -202,11 +202,11 @@ const CAMP_GATHERING_DNA = [['Co-creation', 'People and organizations hold real 
 
 /* The briefing keeps a list of shortcuts it considers misleading. All four
    of these are on it, and all four are what people will assume. */
-const CAMP_SHORTHAND = [['A festival for changemakers', 'A temporary village whose cells are communities and organizations. Camps carry representation and responsibility as well as atmosphere.'], ['An unconference', 'Participant-led sessions are in there. They sit inside a village, with camps, thresholds, ceremony and a continuity layer wrapped around them.'], ['A networking event', 'The unit is the camp you belong to for four days.'], ['A conference in a forest', 'Every camp is its own stage, and the camps are the program.']];
+const CAMP_SHORTHAND = [['A festival for changemakers', 'A temporary village whose cells are communities and organizations. Camps carry representation and responsibility as well as atmosphere.'], ['An unconference', 'Participant-led sessions are in there. They sit inside a village, with camps, thresholds, ceremony and a continuity layer wrapped around them.'], ['A networking event', 'The unit is the camp you belong to for four days.'], ['A conference in a forest', 'Every camp is its own stage and the camps are the program.']];
 
 /* Beyond our own camp, your ticket opens all of this. Program detail is
    the host team's to confirm, so it stays at this altitude. */
-const CAMP_PROPERTY = ['20+ community-led camps', '100+ workshops, sessions and masterminds', 'Opening and closing ceremonies', 'Open space, where the agenda comes from the room', 'Fire circle conversations', 'Live music, art and shared meals', "The 'Origins' global peace celebration", '200 acres of redwood to walk, and permission to rest'];
+const CAMP_PROPERTY = ['20+ community-led camps', '100+ workshops, sessions and masterminds', 'Opening and closing ceremonies', 'Open space, where the agenda comes from the room', 'Fire circle conversations', 'Live music, art and shared meals', "The 'Origins' global peace celebration", '200 acres of redwood to walk and permission to rest'];
 
 /* ─── The four rooms ─────────────────────────────────────────────────────
    §01's central claim, and the reason the camp exists in this form. The
@@ -221,8 +221,8 @@ const CAMP_PROPERTY = ['20+ community-led camps', '100+ workshops, sessions and 
    for capital and for wisdom keepers as squarely as for builders is
    deliberate — this page is read by all four, and a diagnosis that only
    indicts the engineers would be both flattering and useless. */
-const CAMP_ROOMS = [['I', 'The builders', 'Model releases, agent frameworks, launch cycles, evals. This room knows what is genuinely possible this quarter, and can ship it before the other three have finished describing it.', 'The second-order consequences of a default chosen in a sprint, surfacing years later, at civilizational scale, in somebody else’s field.'], ['II', 'The capital', 'Theses, allocation, portfolio construction on a five- to ten-year clock. This room decides which futures get funded, which is to say which futures get attempted at all.', 'Whether the thesis it is underwriting was written by anyone who will have to live inside the result of it.'], ['III', 'The practitioners', 'Regenerative work, social justice, the future of work, ecosystem stewardship. Decades of hard-won knowledge about how change actually holds in real communities and real landscapes.', 'The tool while it is still being specified. They meet it once it is shipped, priced and shaped, as users of somebody else’s decision.'], ['IV', 'The wisdom keepers', 'Ethics, philosophy, contemplative and indigenous traditions. The long view of what a technology does to a people, and the questions that sound naive right up until they turn out to have been the whole thing.', 'The roadmap. Their contribution arrives as commentary on an architecture that has already been poured.']];
-const CAMP_QUESTIONS = ['How can AI help us build wiser organizations?', 'How can AI support collaboration across teams, cultures, disciplines, movements and ecosystems?', 'How can regenerative, social justice, future-of-work and impact investment movements coordinate through AI?', 'How can AI bring nature more fundamentally into planning, governance and decision-making?', 'What keeps AI in service of human agency as it scales?', 'Which tools, protocols, values and organizational forms do we need to build now?', 'What does a genuinely inspiring story about AI and society sound like, and who tells it?'];
+const CAMP_ROOMS = [['I', 'The builders', 'Model releases, agent frameworks, launch cycles, evals. This room knows what is genuinely possible this quarter and can ship it before the other three have finished describing it.', 'The second-order consequences of a default chosen in a sprint, surfacing years later, at civilizational scale, in somebody else’s field.'], ['II', 'The capital', 'Theses, allocation, portfolio construction on a five- to ten-year clock. This room decides which futures get funded, which is to say which futures get attempted at all.', 'Whether the thesis it is underwriting was written by anyone who will have to live inside the result of it.'], ['III', 'The practitioners', 'Regenerative work, social justice, the future of work, ecosystem stewardship. Decades of hard-won knowledge about how change actually holds in real communities and real landscapes.', 'The tool while it is still being specified. They meet it once it is shipped, priced and shaped, as users of somebody else’s decision.'], ['IV', 'The wisdom keepers', 'Ethics, philosophy, contemplative and indigenous traditions. The long view of what a technology does to a people and the questions that sound naive right up until they turn out to have been the whole thing.', 'The roadmap. Their contribution arrives as commentary on an architecture that has already been poured.']];
+const CAMP_QUESTIONS = ['How can AI help us build wiser organizations?', 'How can AI support collaboration across teams, cultures, disciplines, movements and ecosystems?', 'How can regenerative, social justice, future-of-work and impact investment movements coordinate through AI?', 'How can AI bring nature more fundamentally into planning, governance and decision-making?', 'What keeps AI in service of human agency as it scales?', 'Which tools, protocols, values and organizational forms do we need to build now?', 'What does a genuinely inspiring story about AI and society sound like and who tells it?'];
 
 /* `short` is second person and one line, because it is read in the
    self-select strip directly under the hero — where the only job is to
@@ -231,14 +231,14 @@ const CAMP_QUESTIONS = ['How can AI help us build wiser organizations?', 'How ca
 const CAMP_PROFILES = [{
   n: 'I',
   name: 'The Builder',
-  short: 'You are shipping AI tools, and you want them to meet the world they are for.',
+  short: 'You are shipping AI tools and you want them to meet the world they are for.',
   working: 'AI and digital tools for collective intelligence, sensemaking, agents for teamwork, organizational intelligence, impact measurement, ecosystem infrastructure.',
   brings: ['Working systems', 'Architecture', 'What actually ships', 'The state of the possible'],
-  benefit: 'Your work meets the wider transition it is part of, and people sharp enough to ask better questions of it.'
+  benefit: 'Your work meets the wider transition it is part of and people sharp enough to ask better questions of it.'
 }, {
   n: 'II',
   name: 'The Entrepreneur',
-  short: 'You are turning this into something people actually use, and pay for.',
+  short: 'You are turning this into something people actually use and pay for.',
   working: 'Product, go-to-market, business models, partnerships, adoption, organizational development, venture creation.',
   brings: ['Distribution', 'Durability', 'Commercial reality', 'The path from prototype to used'],
   benefit: 'Collaborators, users and early customers, plus the clearest read you will get all year on where this field is heading.'
@@ -252,7 +252,7 @@ const CAMP_PROFILES = [{
 }, {
   n: 'IV',
   name: 'The Ecosystem Practitioner',
-  short: 'You work where these tools land, and you know what they get wrong.',
+  short: 'You work where these tools land and you know what they get wrong.',
   working: 'Networks, movements, communities, cooperatives, public initiatives, regenerative projects applying these technologies in real contexts.',
   brings: ['The ground truth', 'Real constraints', 'The needs that should shape what gets built'],
   benefit: 'Tools, partners and technical collaborators who want to build for the conditions you actually operate in.'
@@ -268,7 +268,7 @@ const CAMP_MOVEMENTS = [{
   n: 'I',
   shot: 'ceremony',
   title: 'Arrive and orient',
-  body: 'Opening circle. Everyone says their goal out loud. Who are you, what have you brought, what are you looking for, and what do you know that you do not yet know?'
+  body: 'Opening circle. Everyone says their goal out loud. Who are you, what have you brought, what are you looking for and what do you know that you do not yet know?'
 }, {
   n: 'II',
   shot: 'feast',
@@ -298,13 +298,13 @@ const CAMP_MOVEMENTS = [{
   n: 'VII',
   shot: 'circle-above',
   title: 'Carry it forward',
-  body: 'Closing harvest. You leave with a named next step, and our support in taking it.'
+  body: 'Closing harvest. You leave with a named next step and our support in taking it.'
 }];
 const CAMP_LOOP_FADING = ['Warm conversation', 'Good intentions', 'No visible commitment', 'Context lost', 'Relationships cool'];
 const CAMP_LOOP_COHERENCE = ['Conversation', 'Relationship', 'Declared commitment', 'Collaboration', 'Learning harvested', 'Wider field'];
 
 /* Item 1 is the change: the vanguard, stated plainly, first. */
-const CAMP_LEAVE_WITH = ['A place in the vanguard of a field still finding its name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, and rarely all together in one forest for four days. You will be among the people who start it.', 'At least one named action and one follow-up. That is our commitment to you as hosts.', 'Relationships formed through shared experience in nature, as whole humans rather than job titles.', 'A field-level view of what is being built, funded, tested and struggled with across the space.', 'Your work seen with depth and nuance by people equipped to understand it.', 'A place in a shared narrative and roadmap for AI in service of a wiser, regenerative future.', 'An agent you helped raise, and a record of everything that emerged.', 'Continuity: our post-Camp Coherence Conversations event, and the people you bring into it.'];
+const CAMP_LEAVE_WITH = ['A place in the vanguard of a field still finding its name. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere and rarely all together in one forest for four days. You will be among the people who start it.', 'At least one named action and one follow-up. That is our commitment to you as hosts.', 'Relationships formed through shared experience in nature, as whole humans rather than job titles.', 'A field-level view of what is being built, funded, tested and struggled with across the space.', 'Your work seen with depth and nuance by people equipped to understand it.', 'A place in a shared narrative and roadmap for AI in service of a wiser, regenerative future.', 'An agent you helped raise and a record of everything that emerged.', 'Continuity: our post-Camp Coherence Conversations event and the people you bring into it.'];
 const CAMP_EMERGE = ['Continued relationships', 'Research or learning groups', 'Product collaborations', 'Prototypes', 'New ventures', 'Employment', 'Investment conversations', 'Co-produced media', 'Application partnerships', 'Experiments in inter-organizational agent communication'];
 
 /* ─── Why come ───────────────────────────────────────────────────────────
@@ -315,7 +315,7 @@ const CAMP_EMERGE = ['Continued relationships', 'Research or learning groups', '
    a summary of the page rather than new claims: the incubator, the
    partnerships, the narrative, the dialogue, the exchange and the
    land. */
-const CAMP_WHY_COME = [['A four-day collaboration incubator', 'A working village, where the thing you start on Friday has two more days to become real.'], ['Build connection, trust and lasting partnerships', 'Builders, entrepreneurs, investors, operators and practitioners in one room, for long enough to get past the pitch.'], ['Shape the narrative of Wise AI', 'The story of this technology is being written now, mostly without asking what it is for. Come and write a different one.'], ['Deep dialogue about AI as the path to Planetary Adulthood', 'Four days is long enough to get past positions and into the question underneath: what this technology is for, and what growing up as a species would ask of us.'], ['Learn, teach, share, connect', 'Everyone arrives with something to give and something they are stuck on. Both count, and both are programmed for.'], ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms, and a good half of the week deliberately unscheduled.']];
+const CAMP_WHY_COME = [['A four-day collaboration incubator', 'A working village, where the thing you start on Friday has two more days to become real.'], ['Build connection, trust and lasting partnerships', 'Builders, entrepreneurs, investors, operators and practitioners in one room, for long enough to get past the pitch.'], ['Shape the narrative of Wise AI', 'The story of this technology is being written now, mostly without asking what it is for. Come and write a different one.'], ['Deep dialogue about AI as the path to Planetary Adulthood', 'Four days is long enough to get past positions and into the question underneath: what this technology is for and what growing up as a species would ask of us.'], ['Learn, teach, share, connect', 'Everyone arrives with something to give and something they are stuck on. Both count and both are programmed for.'], ['Regenerate in nature, with new friends', '200 acres of ancient redwood. Campfires in place of boardrooms and a good half of the week deliberately unscheduled.']];
 
 /* Luma event IDs for calls that are specifically about Camp Audax — not
    the whole Coherence Company calendar, which also carries unrelated
@@ -589,7 +589,7 @@ const CampPersonBio = ({
     d: "M6 9l6 6 6-6"
   })))));
 };
-const CAMP_FAQ = [['What is a Camp?', /*#__PURE__*/React.createElement(React.Fragment, null, "A working village within ", GATHERING, ". Ours has our own crew, our own culture and our own program, held inside a wider field of 500 people.")], ['What is The Gathering US?', 'The village we are a camp inside: 500+ people across 20+ camps at Camp Navarro, convened by RegenWorld. We are one camp among many - see The Gathering, section 02.'], ['Do I need a project already?', 'Bring us something real: a project, a question, a tool, capital, a practice, or experience.'], ['Who is Sorrel?', /*#__PURE__*/React.createElement(React.Fragment, null, "Our camp agent. A working name for something we are building and naming together, and would like your help with - ", /*#__PURE__*/React.createElement("a", {
+const CAMP_FAQ = [['What is a Camp?', /*#__PURE__*/React.createElement(React.Fragment, null, "A working village within ", GATHERING, ". Ours has our own crew, our own culture and our own program, held inside a wider field of 500 people.")], ['What is The Gathering US?', 'The village we are a camp inside: 500+ people across 20+ camps at Camp Navarro, convened by RegenWorld. We are one camp among many - see The Gathering, section 02.'], ['Do I need a project already?', 'Bring us something real: a project, a question, a tool, capital, a practice, or experience.'], ['Who is Sorrel?', /*#__PURE__*/React.createElement(React.Fragment, null, "Our camp agent. A working name for something we are building and naming together and would like your help with - ", /*#__PURE__*/React.createElement("a", {
   href: "#sorrel"
 }, "the whole story is here"), ".")], ['Can I attend without using the agent?', 'Yes. Fully.'], ['What happens to what I say?', 'We record nothing without everyone present agreeing to it. You can review, edit, export and delete your own material.'], ['What if the ticket is a stretch?', 'We hold scholarship and volunteer places. Get in touch.']];
 
@@ -2026,7 +2026,7 @@ const CampCandour = ({
   }
 }, /*#__PURE__*/React.createElement("h6", {
   style: campNoteH6
-}, "What is tested, and what is still a hypothesis"), /*#__PURE__*/React.createElement("p", {
+}, "What is tested and what is still a hypothesis"), /*#__PURE__*/React.createElement("p", {
   style: {
     fontSize: 15,
     fontWeight: 300,
@@ -2034,7 +2034,7 @@ const CampCandour = ({
     color: 'var(--forest-900)',
     margin: '0 0 12px'
   }
-}, "This has been run before, locally, more than once, and it delivers: friendships, organizational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards - all still developing, and we say so."), /*#__PURE__*/React.createElement("p", {
+}, "This has been run before, locally, more than once and it delivers: friendships, organizational clarity, teams that formed, real collaborations. We hold the larger claims more carefully. Consistent continuity after the event, ecosystem-level impact, global governance, fair economics, inclusion and ecological standards - all still developing and we say so."), /*#__PURE__*/React.createElement("p", {
   style: {
     fontSize: 15,
     fontWeight: 300,
@@ -2042,7 +2042,7 @@ const CampCandour = ({
     color: 'var(--forest-900)',
     margin: '0 0 12px'
   }
-}, "Saying that out loud is the good sign. It is also why we design so hard for the after: continuity is the open problem in the whole model, and we would rather help solve it than admire it. See ", /*#__PURE__*/React.createElement("a", {
+}, "Saying that out loud is the good sign. It is also why we design so hard for the after: continuity is the open problem in the whole model and we would rather help solve it than admire it. See ", /*#__PURE__*/React.createElement("a", {
   href: "#camp/the-week",
   onClick: e => {
     e.preventDefault();
@@ -2059,7 +2059,7 @@ const CampCandour = ({
     color: 'var(--forest-900)',
     margin: '0 0 20px'
   }
-}, "The same applies to us. Our own camp is early: some of the roles above are still open, the ticket price is not fixed, and Sorrel is a working name attached to a prototype. You would be joining something at the stage where joining still changes it."), /*#__PURE__*/React.createElement("blockquote", {
+}, "The same applies to us. Our own camp is early: some of the roles above are still open, the ticket price is not fixed and Sorrel is a working name attached to a prototype. You would be joining something at the stage where joining still changes it."), /*#__PURE__*/React.createElement("blockquote", {
   style: {
     margin: 0,
     paddingLeft: 18,
@@ -2071,7 +2071,7 @@ const CampCandour = ({
     lineHeight: 1.45,
     color: 'var(--forest-800)'
   }
-}, "\u201CThe poetry is the promise of joyful interdependence. The machinery is camps, boundaries, roles, rhythms, governance, and follow-through. It will need both.\u201D", /*#__PURE__*/React.createElement("footer", {
+}, "\u201CThe poetry is the promise of joyful interdependence. The machinery is camps, boundaries, roles, rhythms, governance and follow-through. It will need both.\u201D", /*#__PURE__*/React.createElement("footer", {
   style: {
     display: 'flex',
     alignItems: 'center',
@@ -2301,7 +2301,7 @@ const CampProfileStrip = ({
   className: "sh"
 }, p.short)))), /*#__PURE__*/React.createElement("p", {
   className: "cph-strip-foot"
-}, "Each brings something the others need, and the value is in all five being in one forest in one week.", ' ', /*#__PURE__*/React.createElement("button", {
+}, "Each brings something the others need and the value is in all five being in one forest in one week.", ' ', /*#__PURE__*/React.createElement("button", {
   type: "button",
   onClick: () => onJump('who-comes')
 }, "Read the five in full \u2193"))));
@@ -2682,7 +2682,7 @@ const PageCamp = ({
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "This is the finding of the last twenty-five years, and all of us sat through the experiment. Attention economies. Polarization. The steady fracturing of a shared reality. Nobody voted for any of it. It arrived as a long sequence of reasonable product decisions, taken by capable people, one release at a time - and then it was simply the water, and disagreeing with it had become the same thing as disagreeing with the world."), /*#__PURE__*/React.createElement("p", null, "So the lesson worth carrying forward is a blunt one. Technology arrives as society itself, early, in a form that is very hard to argue with once it has shipped.")), /*#__PURE__*/React.createElement(CampQuote, null, "We build the society our technology ", /*#__PURE__*/React.createElement("em", null, "will produce.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "This is the finding of the last twenty-five years and all of us sat through the experiment. Attention economies. Polarization. The steady fracturing of a shared reality. Nobody voted for any of it. It arrived as a long sequence of reasonable product decisions, taken by capable people, one release at a time - and then it was simply the water and disagreeing with it had become the same thing as disagreeing with the world."), /*#__PURE__*/React.createElement("p", null, "So the lesson worth carrying forward is a blunt one. Technology arrives as society itself, early, in a form that is very hard to argue with once it has shipped.")), /*#__PURE__*/React.createElement(CampQuote, null, "We build the society our technology ", /*#__PURE__*/React.createElement("em", null, "will produce.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "What follows from that"), /*#__PURE__*/React.createElement(CampAside, {
@@ -2695,7 +2695,7 @@ const PageCamp = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "If the tools become the society, then building tools is world-making, and everyone with their hands on them is answerable for the world it makes, whether or not they ever accepted that job. We would rather say that out loud than inherit it by accident a second time."), /*#__PURE__*/React.createElement("p", null, "AI carries the same power at a greater scale and at far greater speed. New agents, protocols, capabilities and risks arrive weekly, faster than any person, team or institution can track alone. The defaults being set this year - what these systems optimize for, whom they answer to, what they are allowed to count as value, how much of a decision they are permitted to hold - will be about as easy to unpick in 2040 as the attention economy is today."), /*#__PURE__*/React.createElement("p", null, "Which is why we start from the other end. Name the regenerative, coordinated, wiser society we actually want, and build backwards from it into the technology that would manifest it. The society we dream of becomes the design brief at the start of the roadmap."))), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "If the tools become the society, then building tools is world-making and everyone with their hands on them is answerable for the world it makes, whether or not they ever accepted that job. We would rather say that out loud than inherit it by accident a second time."), /*#__PURE__*/React.createElement("p", null, "AI carries the same power at a greater scale and at far greater speed. New agents, protocols, capabilities and risks arrive weekly, faster than any person, team or institution can track alone. The defaults being set this year - what these systems optimize for, whom they answer to, what they are allowed to count as value, how much of a decision they are permitted to hold - will be about as easy to unpick in 2040 as the attention economy is today."), /*#__PURE__*/React.createElement("p", null, "Which is why we start from the other end. Name the regenerative, coordinated, wiser society we actually want and build backwards from it into the technology that would manifest it. The society we dream of becomes the design brief at the start of the roadmap."))), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "Why it has to be gathered"), /*#__PURE__*/React.createElement("div", {
@@ -2703,7 +2703,7 @@ const PageCamp = ({
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Nobody meets a brief like that alone, and at the moment nobody is meeting it together. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, because each of them is already busy holding an excellent conversation of its own, in its own vocabulary, on its own clock.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Nobody meets a brief like that alone and at the moment nobody is meeting it together. The working dialogue between builders, entrepreneurs, investors and wisdom keepers is barely happening anywhere, because each of them is already busy holding an excellent conversation of its own, in its own vocabulary, on its own clock.")), /*#__PURE__*/React.createElement(CampCascade, {
     className: "cph-rooms"
   }, CAMP_ROOMS.map(([n, room, holds, blind]) => /*#__PURE__*/React.createElement("div", {
     key: room,
@@ -2722,13 +2722,13 @@ const PageCamp = ({
       maxWidth: 760,
       marginTop: 28
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Every one of those conversations is right about something. The difficulty is that the questions which actually decide the outcome fall in the gaps between them. So the builder ships without the frame. The practitioner inherits a tool that was specified without them. Capital follows a thesis that nobody in the other three conversations helped write. And the wisdom arrives, eloquently, as commentary on an architecture that has already set."), /*#__PURE__*/React.createElement("p", null, "Where the four do meet, it is usually for an hour, on a panel, in front of an audience - long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Four days, one forest, no main stage, and hands on the actual work is our attempt at the room that is missing.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "Every one of those conversations is right about something. The difficulty is that the questions which actually decide the outcome fall in the gaps between them. So the builder ships without the frame. The practitioner inherits a tool that was specified without them. Capital follows a thesis that nobody in the other three conversations helped write. And the wisdom arrives, eloquently, as commentary on an architecture that has already set."), /*#__PURE__*/React.createElement("p", null, "Where the four do meet, it is usually for an hour, on a panel, in front of an audience - long enough to be agreeable, nowhere near long enough to build anything. We think the format is the problem. Four days, one forest, no main stage and hands on the actual work is our attempt at the room that is missing.")), /*#__PURE__*/React.createElement("div", {
     className: "q-body",
     style: {
       maxWidth: 760,
       marginTop: 28
     }
-  }, /*#__PURE__*/React.createElement("p", null, "There is a second reason to do it now. The story about AI traveling furthest at the moment runs on fear. Surveillance. Control. Job loss. Concentrated power. The companies building these systems sell on that fear with striking enthusiasm, given that they are also the ones sending the invoices."), /*#__PURE__*/React.createElement("p", null, "A large and quiet population sees something else in this technology. That voice barely registers in public, because it has never been gathered in one place, given shape, and spoken together."), /*#__PURE__*/React.createElement("p", null, "We are gathering that voice and putting it to work, grounded in shipped products, real organizations, deployed capital and hard-won practice. If it is your voice, this is where we would like it.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "There is a second reason to do it now. The story about AI traveling furthest at the moment runs on fear. Surveillance. Control. Job loss. Concentrated power. The companies building these systems sell on that fear with striking enthusiasm, given that they are also the ones sending the invoices."), /*#__PURE__*/React.createElement("p", null, "A large and quiet population sees something else in this technology. That voice barely registers in public, because it has never been gathered in one place, given shape and spoken together."), /*#__PURE__*/React.createElement("p", null, "We are gathering that voice and putting it to work, grounded in shipped products, real organizations, deployed capital and hard-won practice. If it is your voice, this is where we would like it.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "What we are gathering around"), /*#__PURE__*/React.createElement(CampAside, {
@@ -2742,7 +2742,7 @@ const PageCamp = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "We are exploring how AI helps individuals, teams, organizations, networks, movements and ecosystems collaborate at a level that was previously too complex, too slow, or too expensive to attempt."), /*#__PURE__*/React.createElement("p", null, "Better sensemaking. Better agreements. Better mentoring. Better value flows. Better ecosystem coordination. More life-affirming decisions."), /*#__PURE__*/React.createElement("p", null, "We hold a picture of machines carrying more of the mechanical burden, so that humans can do what humans do best: dreaming, sensing, relating, building trust, creating meaning, holding values, and deepening relationship with each other and the living world."))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "We are exploring how AI helps individuals, teams, organizations, networks, movements and ecosystems collaborate at a level that was previously too complex, too slow, or too expensive to attempt."), /*#__PURE__*/React.createElement("p", null, "Better sensemaking. Better agreements. Better mentoring. Better value flows. Better ecosystem coordination. More life-affirming decisions."), /*#__PURE__*/React.createElement("p", null, "We hold a picture of machines carrying more of the mechanical burden, so that humans can do what humans do best: dreaming, sensing, relating, building trust, creating meaning, holding values and deepening relationship with each other and the living world."))), /*#__PURE__*/React.createElement("div", {
     className: "q-body",
     style: {
       maxWidth: 760
@@ -2772,7 +2772,7 @@ const PageCamp = ({
     className: "container"
   }, /*#__PURE__*/React.createElement(CampCascade, {
     className: "insight-grid"
-  }, [['Be early', 'Help us define a field before it has a name - builders, capital, practitioners and wisdom keepers, in one room, for four days.'], ['Move from ideas to action', 'You will leave with at least one named next step, and our support in taking it.'], ['Continue beyond the Camp', 'Your journey with us starts before you arrive and carries on after you leave.']].map(([h, p]) => /*#__PURE__*/React.createElement("article", {
+  }, [['Be early', 'Help us define a field before it has a name - builders, capital, practitioners and wisdom keepers, in one room, for four days.'], ['Move from ideas to action', 'You will leave with at least one named next step and our support in taking it.'], ['Continue beyond the Camp', 'Your journey with us starts before you arrive and carries on after you leave.']].map(([h, p]) => /*#__PURE__*/React.createElement("article", {
     key: h,
     className: "insight-card"
   }, /*#__PURE__*/React.createElement("h4", null, p), /*#__PURE__*/React.createElement("p", {
@@ -2791,7 +2791,7 @@ const PageCamp = ({
       maxWidth: 760,
       marginTop: 40
     }
-  }, /*#__PURE__*/React.createElement("p", null, "A Camp is a working village inside ", GATHERING, ". We are the one for people building, funding, applying and philosophically shaping AI for societal good: our crew, our program, our culture, held for four days inside a wider field of 500 people."), /*#__PURE__*/React.createElement("p", null, "Audax OS is developed through practice. Camp Audax is where we bring that practice into one forest, and this page is our invitation to bring yours.")))), /*#__PURE__*/React.createElement(CampBand, {
+  }, /*#__PURE__*/React.createElement("p", null, "A Camp is a working village inside ", GATHERING, ". We are the one for people building, funding, applying and philosophically shaping AI for societal good: our crew, our program, our culture, held for four days inside a wider field of 500 people."), /*#__PURE__*/React.createElement("p", null, "Audax OS is developed through practice. Camp Audax is where we bring that practice into one forest and this page is our invitation to bring yours.")))), /*#__PURE__*/React.createElement(CampBand, {
     shot: "tents",
     kicker: "Camp Navarro",
     label: "A working village in the forest",
@@ -2836,7 +2836,7 @@ const PageCamp = ({
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The Gathering is a co-created, camp-centered gathering in nature, built to help people and organizations across fragmented fields form belonging, trust, shared context, and pathways towards continued collaboration. Its visible form is a village: camps, shared meals, conversation, art, workshops, fire, ceremony, music, rest, celebration. Its deeper form is a social architecture - camps as the organizing cells, a Nest where camp leaders prepare together for months beforehand, a Council that senses across all of them, a welcome gate and ceremonies to mark the threshold, and a continuity layer built to carry what happens past the closing fire. That architecture is why we chose to be a camp rather than hire a venue."), /*#__PURE__*/React.createElement("p", null, "The shift is from audience to ecosystem. Participants are camp members, hosts, contributors and possible stewards, and organizations express their culture by building a camp rather than sponsoring a stage. This demands strong, visible, distributed leadership, and says so plainly in its own briefing, and co-creation means real agency.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "The Gathering is a co-created, camp-centered gathering in nature, built to help people and organizations across fragmented fields form belonging, trust, shared context and pathways towards continued collaboration. Its visible form is a village: camps, shared meals, conversation, art, workshops, fire, ceremony, music, rest, celebration. Its deeper form is a social architecture - camps as the organizing cells, a Nest where camp leaders prepare together for months beforehand, a Council that senses across all of them, a welcome gate and ceremonies to mark the threshold and a continuity layer built to carry what happens past the closing fire. That architecture is why we chose to be a camp rather than hire a venue."), /*#__PURE__*/React.createElement("p", null, "The shift is from audience to ecosystem. Participants are camp members, hosts, contributors and possible stewards and organizations express their culture by building a camp rather than sponsoring a stage. This demands strong, visible, distributed leadership and says so plainly in its own briefing and co-creation means real agency.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56
   }, "What it runs on"), /*#__PURE__*/React.createElement("div", {
     className: "q-body",
@@ -2844,7 +2844,7 @@ const PageCamp = ({
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The Gathering calls these six its DNA, and they are what the format is made of. Read each one next to the thing it gets mistaken for: in every case the mistake is the cheaper version, and from outside the two look identical.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "The Gathering calls these six its DNA and they are what the format is made of. Read each one next to the thing it gets mistaken for: in every case the mistake is the cheaper version and from outside the two look identical.")), /*#__PURE__*/React.createElement(CampCascade, {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
@@ -2918,11 +2918,11 @@ const PageCamp = ({
       margin: '20px 0 0',
       maxWidth: 760
     }
-  }, "None of it counts until it changes roles, budgets, spaces, schedules and who gets to decide. Put the six words on a poster while the organizers keep all the agency, and it's brand varnish. Hold us to that test too."), /*#__PURE__*/React.createElement(CampPhoto, {
+  }, "None of it counts until it changes roles, budgets, spaces, schedules and who gets to decide. Put the six words on a poster while the organizers keep all the agency and it's brand varnish. Hold us to that test too."), /*#__PURE__*/React.createElement(CampPhoto, {
     shot: "carpet",
     alt: "A circle of people seated on a patterned rug outside a bell tent, around a small altar of flowers and candles",
     caption: "Nothing on the property arrives finished. Somebody makes it, on the day, out of what is there."
-  }), /*#__PURE__*/React.createElement(CampKicker, null, "The shorthand, and the truth"), /*#__PURE__*/React.createElement("table", {
+  }), /*#__PURE__*/React.createElement(CampKicker, null, "The shorthand and the truth"), /*#__PURE__*/React.createElement("table", {
     className: "mini-matrix"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "The easy shorthand"), /*#__PURE__*/React.createElement("th", null, "Closer to the truth"))), /*#__PURE__*/React.createElement("tbody", null, CAMP_SHORTHAND.map(([shorthand, truth]) => /*#__PURE__*/React.createElement("tr", {
     key: shorthand
@@ -2941,7 +2941,7 @@ const PageCamp = ({
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "We run our own program, and you are free to walk out of it. Every public session on the property is open to you, in every other camp - founders, facilitators, community resilience, identity work, circle practice, and whatever the other nineteen bring.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "We run our own program and you are free to walk out of it. Every public session on the property is open to you, in every other camp - founders, facilitators, community resilience, identity work, circle practice and whatever the other nineteen bring.")), /*#__PURE__*/React.createElement(CampCascade, {
     step: 45,
     style: {
       display: 'grid',
@@ -3003,7 +3003,7 @@ const PageCamp = ({
     caption: "The design table, with more than one discipline at it."
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "The hard problems in AI are increasingly questions about being human. What is worth wanting. What deserves care. Which trade-offs a society can live with. Where authority should sit."), /*#__PURE__*/React.createElement("p", null, "These are existential technologies, and they are not, on the whole, being shaped by the people a society would choose to ask what a good life is. That is a structural accident rather than anybody's villainy: for most of the history of computing, shaping the technology required fluency in the technology, so the questions that mattered most were answered late, by whoever happened to be in the building."))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "The hard problems in AI are increasingly questions about being human. What is worth wanting. What deserves care. Which trade-offs a society can live with. Where authority should sit."), /*#__PURE__*/React.createElement("p", null, "These are existential technologies and they are not, on the whole, being shaped by the people a society would choose to ask what a good life is. That is a structural accident rather than anybody's villainy: for most of the history of computing, shaping the technology required fluency in the technology, so the questions that mattered most were answered late, by whoever happened to be in the building."))), /*#__PURE__*/React.createElement("div", {
     className: "shift-block"
   }, /*#__PURE__*/React.createElement("div", {
     className: "shift-card then"
@@ -3078,7 +3078,7 @@ const PageCamp = ({
     }
   }, /*#__PURE__*/React.createElement(CampKicker, {
     bottom: 12
-  }, "What we ask you to bring"), /*#__PURE__*/React.createElement("p", null, "Something real: a project, a tool, a question, a practice, capital, a network, or a body of experience. We run on reciprocity, with all of us contributing to the program and to each other's work."), /*#__PURE__*/React.createElement("p", null, "We are for you if you hold both hope and responsibility around AI - if you see the danger clearly, and also sense the possibility of humanity coordinating at a level we have never reached.")), /*#__PURE__*/React.createElement(CampQuote, null, "Critique arrives after the architecture is poured. ", /*#__PURE__*/React.createElement("em", null, "We would like to be there for the pour.")))), /*#__PURE__*/React.createElement(CampJoinBand, {
+  }, "What we ask you to bring"), /*#__PURE__*/React.createElement("p", null, "Something real: a project, a tool, a question, a practice, capital, a network, or a body of experience. We run on reciprocity, with all of us contributing to the program and to each other's work."), /*#__PURE__*/React.createElement("p", null, "We are for you if you hold both hope and responsibility around AI - if you see the danger clearly and also sense the possibility of humanity coordinating at a level we have never reached.")), /*#__PURE__*/React.createElement(CampQuote, null, "Critique arrives after the architecture is poured. ", /*#__PURE__*/React.createElement("em", null, "We would like to be there for the pour.")))), /*#__PURE__*/React.createElement(CampJoinBand, {
     shot: "lineup2",
     pos: "center 34%",
     tearTop: ART.spray,
@@ -3112,7 +3112,7 @@ const PageCamp = ({
       maxWidth: 760,
       marginTop: 40
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Woven through all seven: redwoods, shared meals, informal time, music, ceremony, rest, and the parts of a week that resist being put on a schedule.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "Woven through all seven: redwoods, shared meals, informal time, music, ceremony, rest and the parts of a week that resist being put on a schedule.")), /*#__PURE__*/React.createElement("div", {
     style: {
       ...campNote,
       marginTop: 16
@@ -3127,7 +3127,7 @@ const PageCamp = ({
       color: 'var(--forest-900)',
       margin: '0 0 12px'
     }
-  }, "This is a conversation about a better story for AI, and we are making it real. Our media team works across the four days with a small crew of partner organizations, producing recorded dialogue, published synthesis, and pieces co-authored with you rather than about you."), /*#__PURE__*/React.createElement("p", {
+  }, "This is a conversation about a better story for AI and we are making it real. Our media team works across the four days with a small crew of partner organizations, producing recorded dialogue, published synthesis and pieces co-authored with you rather than about you."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 15,
       fontWeight: 300,
@@ -3243,7 +3243,7 @@ const PageCamp = ({
       fontStyle: 'italic',
       margin: 0
     }
-  }, "A facilitated path from arrival to commitment. We ask you before you come, at the start, during, and at the close: what connection do you need, what are you offering, and what happens next? We make the field visible, and let you find each other in it.")), /*#__PURE__*/React.createElement(CampQuote, null, "The gathering is the easy part. ", /*#__PURE__*/React.createElement("em", null, "The follow-up is the product.")))), /*#__PURE__*/React.createElement(CampBand, {
+  }, "A facilitated path from arrival to commitment. We ask you before you come, at the start, during and at the close: what connection do you need, what are you offering and what happens next? We make the field visible and let you find each other in it.")), /*#__PURE__*/React.createElement(CampQuote, null, "The gathering is the easy part. ", /*#__PURE__*/React.createElement("em", null, "The follow-up is the product.")))), /*#__PURE__*/React.createElement(CampBand, {
     shot: "canopy",
     kicker: "200 acres",
     label: "Ancient redwood forest",
@@ -3340,7 +3340,7 @@ const PageCamp = ({
     caption: "Camp Navarro, between sessions."
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "We will be on 200 acres of ancient redwood forest at Camp Navarro, Northern California, for four days and three nights. Campfires in place of boardrooms, conversations in place of presentations, redwoods in place of hotel ballrooms."), /*#__PURE__*/React.createElement("p", null, "The land does something to people. It slows you down, opens you up, and creates the conditions for the kind of conversation that arrives when you step away from everything ordinary."), /*#__PURE__*/React.createElement("p", null, "The village around us - the other twenty camps, the Council, the ceremonies, and everything your ticket opens beyond our own program - is ", /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("p", null, "We will be on 200 acres of ancient redwood forest at Camp Navarro, Northern California, for four days and three nights. Campfires in place of boardrooms, conversations in place of presentations, redwoods in place of hotel ballrooms."), /*#__PURE__*/React.createElement("p", null, "The land does something to people. It slows you down, opens you up and creates the conditions for the kind of conversation that arrives when you step away from everything ordinary."), /*#__PURE__*/React.createElement("p", null, "The village around us - the other twenty camps, the Council, the ceremonies and everything your ticket opens beyond our own program - is ", /*#__PURE__*/React.createElement("a", {
     href: "#camp/the-gathering",
     onClick: e => {
       e.preventDefault();
@@ -3369,7 +3369,7 @@ const PageCamp = ({
     style: {
       color: 'var(--forest-700)'
     }
-  }, "The Coherence Company"), ", the first living lab of Audax OS, alongside partner organizations building in this space. The Coherence Company is one participant among several. Our camp carries many goals, and every organization and person in it brings their own - yours included."), /*#__PURE__*/React.createElement("p", null, "We are early, and we would rather say so than pretend otherwise. Some of what follows is fixed. Some of it is still being decided, in the open, with the people coming.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, "The Coherence Company"), ", the first living lab of Audax OS, alongside partner organizations building in this space. The Coherence Company is one participant among several. Our camp carries many goals and every organization and person in it brings their own - yours included."), /*#__PURE__*/React.createElement("p", null, "We are early and we would rather say so than pretend otherwise. Some of what follows is fixed. Some of it is still being decided, in the open, with the people coming.")), /*#__PURE__*/React.createElement(CampCascade, {
     as: "ul",
     indent: true,
     style: {
@@ -3499,7 +3499,7 @@ const PageCamp = ({
       lineHeight: 1.55,
       color: 'var(--ink-700)'
     }
-  }, "You bring in more of the people who should be here, and help shape the program while it's still taking form. In return, you carry a share of the responsibility for it, with real input into the vision that's evolving. Co-Creators join by ", /*#__PURE__*/React.createElement("strong", null, "31 August"), ", while there's still time for your hand to move it.")), /*#__PURE__*/React.createElement("div", {
+  }, "You bring in more of the people who should be here and help shape the program while it's still taking form. In return, you carry a share of the responsibility for it, with real input into the vision that's evolving. Co-Creators join by ", /*#__PURE__*/React.createElement("strong", null, "31 August"), ", while there's still time for your hand to move it.")), /*#__PURE__*/React.createElement("div", {
     className: "contrast-col"
   }, /*#__PURE__*/React.createElement("h6", null, "Participant"), /*#__PURE__*/React.createElement("h3", {
     style: {
@@ -3512,7 +3512,7 @@ const PageCamp = ({
       lineHeight: 1.55,
       color: 'var(--ink-800)'
     }
-  }, "You come for the four days: the dialogue, the connections, the forest, the work. Nothing is expected of you beyond what's on this page, and that is a complete way to be here."))), /*#__PURE__*/React.createElement("div", {
+  }, "You come for the four days: the dialogue, the connections, the forest, the work. Nothing is expected of you beyond what's on this page and that is a complete way to be here."))), /*#__PURE__*/React.createElement("div", {
     id: "camp-calls",
     style: anchor
   }, /*#__PURE__*/React.createElement(CampKicker, null, "Meet us on a call"), /*#__PURE__*/React.createElement("p", {
@@ -3544,7 +3544,7 @@ const PageCamp = ({
     caption: "Real commitments, real tensions, real materials."
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "We test the OS here too. Four days of real commitments, real tensions, real missions, real people, real agents, and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are part of the experiment, alongside you."))), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "We test the OS here too. Four days of real commitments, real tensions, real missions, real people, real agents and real learning loops, in a forest, with the humidity and the mosquitoes and everything. We are part of the experiment, alongside you."))), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56
   }, "FAQ"), /*#__PURE__*/React.createElement(CampCascade, {
     indent: true,

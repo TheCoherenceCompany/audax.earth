@@ -27,7 +27,7 @@ const SORREL_JOURNEY = [['Before', 'A conversational orientation rather than a f
 /* Sorrel's open questions — the "raise it together" invitation, made
    concrete. Victor: "it's an invitation to together raise the agent."
    Lived in page-camp.jsx as CAMP_UNDECIDED; moved with its section. */
-const SORREL_UNDECIDED = [['Its voice', 'Warm or dry. Brief or expansive. Whether it is funny.'], ['Its refusals', 'What it declines to answer, and how it says so.'], ['Its opinions', 'Whether it has any, and whether it volunteers them.'], ['Its presence', 'Whether it speaks at the fire circle or stays out of it.'], ['Its forgetting', 'What it lets go of, when, and who decides.'], ['Its face', 'The mark above is a first sketch, not a decision.']];
+const SORREL_UNDECIDED = [['Its voice', 'Warm or dry. Brief or expansive. Whether it is funny.'], ['Its refusals', 'What it declines to answer and how it says so.'], ['Its opinions', 'Whether it has any and whether it volunteers them.'], ['Its presence', 'Whether it speaks at the fire circle or stays out of it.'], ['Its forgetting', 'What it lets go of, when and who decides.'], ['Its face', 'The mark above is a first sketch, not a decision.']];
 const PageSorrel = ({
   onNav
 }) => {
@@ -59,7 +59,7 @@ const PageSorrel = ({
     className: "display lg"
   }, "Some communities keep a dog. ", /*#__PURE__*/React.createElement("em", null, "We are raising an agent.")), /*#__PURE__*/React.createElement("p", {
     className: "lede"
-  }, "Sorrel is the camp\u2019s agent: a working name for something we are building, and would like you to help finish."))), /*#__PURE__*/React.createElement("section", {
+  }, "Sorrel is the camp\u2019s agent: a working name for something we are building and would like you to help finish."))), /*#__PURE__*/React.createElement("section", {
     className: "section",
     style: {
       background: 'var(--surface-parchment)'
@@ -78,7 +78,7 @@ const PageSorrel = ({
     className: "sorrel-name-note"
   }, "Working name")), /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Redwood sorrel carpets the forest floor at Navarro. In direct sun it folds its three leaflets shut; in shade it opens again. We wanted that instinct in an agent, so we borrowed the name."), /*#__PURE__*/React.createElement("p", null, "We have woven Sorrel through the physical experience of our camp. It holds the memory of the week: who is here, what is happening, which conversations are live, which connections have been declared, and what emerged at 7am while you were asleep in a ShiftPod."), /*#__PURE__*/React.createElement("p", null, "It works on consent. It knows only what you choose to tell it. It helps you orient, remember, connect and follow through, and it leaves every judgment that matters to you."), /*#__PURE__*/React.createElement("p", null, "That makes us a live prototype of the thing we are discussing: a consent-based, agent-supported gathering, tested at human scale in a forest."))), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Redwood sorrel carpets the forest floor at Navarro. In direct sun it folds its three leaflets shut; in shade it opens again. We wanted that instinct in an agent, so we borrowed the name."), /*#__PURE__*/React.createElement("p", null, "We have woven Sorrel through the physical experience of our camp. It holds the memory of the week: who is here, what is happening, which conversations are live, which connections have been declared and what emerged at 7am while you were asleep in a ShiftPod."), /*#__PURE__*/React.createElement("p", null, "It works on consent. It knows only what you choose to tell it. It helps you orient, remember, connect and follow through and it leaves every judgment that matters to you."), /*#__PURE__*/React.createElement("p", null, "That makes us a live prototype of the thing we are discussing: a consent-based, agent-supported gathering, tested at human scale in a forest."))), /*#__PURE__*/React.createElement(CampCascade, {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -161,7 +161,7 @@ const PageSorrel = ({
       maxWidth: 760,
       margin: '24px 0'
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Sorrel is not finished, and finishing it is not our job alone \u2014 this is the part we are most directly inviting you into. You and everyone else who comes will set its language, personality, behaviors and boundaries during the week. These are genuinely open:")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Sorrel is not finished and finishing it is not our job alone - this is the part we are most directly inviting you into. You and everyone else who comes will set its language, personality, behaviors and boundaries during the week. These are genuinely open:")), /*#__PURE__*/React.createElement(CampCascade, {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
@@ -206,7 +206,7 @@ const PageSorrel = ({
       color: 'var(--forest-900)',
       margin: 0
     }
-  }, "Several of us will arrive with agents of our own. Where their people consent, we would like to run the first small trials of agents from different organizations talking to each other on their behalf \u2014 introductions, matching needs to offers, carrying a commitment between two teams. This is early, unglamorous and may not work. We will say so either way.")), /*#__PURE__*/React.createElement("div", {
+  }, "Several of us will arrive with agents of our own. Where their people consent, we would like to run the first small trials of agents from different organizations talking to each other on their behalf - introductions, matching needs to offers, carrying a commitment between two teams. This is early, unglamorous and may not work. We will say so either way.")), /*#__PURE__*/React.createElement("div", {
     style: {
       background: 'var(--surface-white)',
       border: '1px solid var(--border-1)',
@@ -230,7 +230,7 @@ const PageSorrel = ({
       color: 'var(--ink-700)',
       margin: '0 0 10px'
     }
-  }, "We make recording explicitly opt-in and visible. You can join us fully without using Sorrel at all. You can review, edit, export and delete your own material. You choose what stays private, what we as hosts see, what the rest of the camp sees, and what becomes public."), /*#__PURE__*/React.createElement("p", {
+  }, "We make recording explicitly opt-in and visible. You can join us fully without using Sorrel at all. You can review, edit, export and delete your own material. You choose what stays private, what we as hosts see, what the rest of the camp sees and what becomes public."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 14,
       fontWeight: 300,

@@ -57,12 +57,13 @@ const PageMap = ({
     maxWidth: 730,
     marginTop: 18
   }
-}, "The shifts that changed how organizations work, what they made load-bearing, and the architecture Audax OS proposes in response."), /*#__PURE__*/React.createElement("p", {
+}, "The shifts that changed how organizations work, what they made load-bearing and the architecture Audax OS proposes in response."), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 730,
     marginTop: 14,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    fontWeight: 400
   }
 }, "The Spheres, the Layers and the Modes are the pieces of this map."))), /*#__PURE__*/React.createElement("section", {
   className: "section manifesto"
@@ -77,7 +78,7 @@ const PageMap = ({
   style: {
     maxWidth: 760
   }
-}, /*#__PURE__*/React.createElement("p", null, "For most of the modern era, organizations were designed around one question. That question belonged to a world of factories, offices, departments, reporting lines, job descriptions, and managers who could see whether someone was at their desk."), /*#__PURE__*/React.createElement("p", null, "The question no longer fits.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "For most of the modern era, organizations were designed around one question. That question belonged to a world of factories, offices, departments, reporting lines, job descriptions and managers who could see whether someone was at their desk."), /*#__PURE__*/React.createElement("p", null, "The question no longer fits.")), /*#__PURE__*/React.createElement("div", {
   className: "shift-block"
 }, /*#__PURE__*/React.createElement("div", {
   className: "shift-card then"
@@ -91,7 +92,7 @@ const PageMap = ({
   className: "label now-label"
 }, "Now"), /*#__PURE__*/React.createElement("p", {
   className: "q"
-}, "How do humans and AI agents ", /*#__PURE__*/React.createElement("em", null, "coordinate"), " around purpose, contribution, trust, learning, communication, and value?"))), /*#__PURE__*/React.createElement("div", {
+}, "How do humans and AI agents ", /*#__PURE__*/React.createElement("em", null, "coordinate"), " around purpose, contribution, trust, learning, communication and value?"))), /*#__PURE__*/React.createElement("div", {
   className: "q-body",
   style: {
     maxWidth: 760
@@ -107,7 +108,7 @@ const PageMap = ({
   narrow: true
 }, /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "Remote work did not fail. ", /*#__PURE__*/React.createElement("em", null, "Underdesigned organizations"), " failed remote work."), /*#__PURE__*/React.createElement("p", null, "When work moved online, many organizations treated the shift as technical. Move meetings to Zoom. Move chat to Slack. Move documents to the cloud. Give everyone a laptop. Call it transformation."), /*#__PURE__*/React.createElement("p", null, "But the office had been doing invisible organizational work. It carried ambient context. It made availability visible. It created informal learning. It allowed casual trust-building. It helped people overhear priorities, notice tension, and ask small questions before they became large problems."), /*#__PURE__*/React.createElement("p", null, "Distributed work removed that hidden coordination layer."), /*#__PURE__*/React.createElement("p", null, "Without redesign, context fragments. Trust thins. New people struggle to orient. Work becomes invisible. Managers panic. The calendar mutates into a swamp creature."), /*#__PURE__*/React.createElement(PullQuote, null, "Distributed work requires ", /*#__PURE__*/React.createElement("em", null, "organizational design"), ", not just better tools."), /*#__PURE__*/React.createElement("p", null, "Remote work was the first crack in the old operating system.")), /*#__PURE__*/React.createElement(WashRule, {
+}, "Remote work did not fail. ", /*#__PURE__*/React.createElement("em", null, "Underdesigned organizations"), " failed remote work."), /*#__PURE__*/React.createElement("p", null, "When work moved online, many organizations treated the shift as technical. Move meetings to Zoom. Move chat to Slack. Move documents to the cloud. Give everyone a laptop. Call it transformation."), /*#__PURE__*/React.createElement("p", null, "But the office had been doing invisible organizational work. It carried ambient context. It made availability visible. It created informal learning. It allowed casual trust-building. It helped people overhear priorities, notice tension and ask small questions before they became large problems."), /*#__PURE__*/React.createElement("p", null, "Distributed work removed that hidden coordination layer."), /*#__PURE__*/React.createElement("p", null, "Without redesign, context fragments. Trust thins. New people struggle to orient. Work becomes invisible. Managers panic. The calendar mutates into a swamp creature."), /*#__PURE__*/React.createElement(PullQuote, null, "Distributed work requires ", /*#__PURE__*/React.createElement("em", null, "organizational design"), ", not just better tools."), /*#__PURE__*/React.createElement("p", null, "Remote work was the first crack in the old operating system.")), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.spray,
   flip: true,
   from: "paper",
@@ -155,7 +156,7 @@ const PageMap = ({
   narrow: true
 }, /*#__PURE__*/React.createElement("p", null, "Many organizations treat the human layer as decoration. Culture is an offsite. Purpose is a slide. Learning is a benefit. Communication is a channel. Trust is assumed until it breaks."), /*#__PURE__*/React.createElement("p", null, "That no longer works."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "In distributed, fractional, AI-native organizations, the human layer must ", /*#__PURE__*/React.createElement("em", null, "become part of the operating system.")), /*#__PURE__*/React.createElement("p", null, "People need to understand why they are here, what they can commit to, how decisions are made, how conflict is handled, how contribution is recognized, and how they can grow through the work."), /*#__PURE__*/React.createElement("p", null, "Agents need something parallel. If agents are going to act with increasing autonomy, they need more than tasks. They need values, tone, boundaries, permissions, purpose, and escalation rules."), /*#__PURE__*/React.createElement("div", {
+}, "In distributed, fractional, AI-native organizations, the human layer must ", /*#__PURE__*/React.createElement("em", null, "become part of the operating system.")), /*#__PURE__*/React.createElement("p", null, "People need to understand why they are here, what they can commit to, how decisions are made, how conflict is handled, how contribution is recognized and how they can grow through the work."), /*#__PURE__*/React.createElement("p", null, "Agents need something parallel. If agents are going to act with increasing autonomy, they need more than tasks. They need values, tone, boundaries, permissions, purpose and escalation rules."), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
@@ -188,7 +189,7 @@ const PageMap = ({
 }), /*#__PURE__*/React.createElement(MapSection, {
   n: "05 \xB7 Living systems",
   q: "What if the organization is <em>not a machine?</em>"
-}, /*#__PURE__*/React.createElement("p", null, "The machine metaphor shaped modern management. Break work into parts. Optimize each part. Control the process. Measure output. Reduce variance. Scale the machine."), /*#__PURE__*/React.createElement("p", null, "This logic created enormous productivity. It also created silos, bureaucracy, extraction, burnout, and organizations that struggle to adapt when the environment changes."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "The machine metaphor shaped modern management. Break work into parts. Optimize each part. Control the process. Measure output. Reduce variance. Scale the machine."), /*#__PURE__*/React.createElement("p", null, "This logic created enormous productivity. It also created silos, bureaucracy, extraction, burnout and organizations that struggle to adapt when the environment changes."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "Living systems ", /*#__PURE__*/React.createElement("em", null, "work differently.")), /*#__PURE__*/React.createElement("div", {
   className: "machine-living"
@@ -227,7 +228,7 @@ const PageMap = ({
   cy: y,
   r: i === 1 ? 8 : 6,
   fill: i === 1 ? '#B8C766' : '#1F4D2E'
-}))))), /*#__PURE__*/React.createElement("p", null, "Living systems sense, adapt, learn, regenerate, organize through relationship, and maintain coherence without requiring total control."), /*#__PURE__*/React.createElement("p", null, "Audax OS does not reject structure. Structure is essential. But the structure must ", /*#__PURE__*/React.createElement("strong", null, "serve life, learning, trust, contribution, and intelligent action.")), /*#__PURE__*/React.createElement("p", null, "The future organization cannot be a machine with a chatbot bolted on. It must become a living coordination system where humans and agents can sense, decide, act, learn, and evolve together."), /*#__PURE__*/React.createElement(PullQuote, null, "Bureaucracy is structure ", /*#__PURE__*/React.createElement("em", null, "without life."), " Audax OS is structure ", /*#__PURE__*/React.createElement("em", null, "in service of life."))), /*#__PURE__*/React.createElement(WashRule, {
+}))))), /*#__PURE__*/React.createElement("p", null, "Living systems sense, adapt, learn, regenerate, organize through relationship and maintain coherence without requiring total control."), /*#__PURE__*/React.createElement("p", null, "Audax OS does not reject structure. Structure is essential. But the structure must ", /*#__PURE__*/React.createElement("strong", null, "serve life, learning, trust, contribution and intelligent action.")), /*#__PURE__*/React.createElement("p", null, "The future organization cannot be a machine with a chatbot bolted on. It must become a living coordination system where humans and agents can sense, decide, act, learn and evolve together."), /*#__PURE__*/React.createElement(PullQuote, null, "Bureaucracy is structure ", /*#__PURE__*/React.createElement("em", null, "without life."), " Audax OS is structure ", /*#__PURE__*/React.createElement("em", null, "in service of life."))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.burst,
   from: "parchment",
   to: "parchment"
@@ -285,9 +286,9 @@ const PageMap = ({
     maxWidth: 760,
     marginTop: 40
   }
-}, /*#__PURE__*/React.createElement("p", null, "Together, these create a ", /*#__PURE__*/React.createElement("strong", null, "living matrix"), " for designing organizations that can coordinate contribution, work, trust, learning, communication, and value across human and agentic systems."), /*#__PURE__*/React.createElement("p", null, "Each is a piece of the map, and each is still being drawn.")))), /*#__PURE__*/React.createElement(CtaBand, {
+}, /*#__PURE__*/React.createElement("p", null, "Together, these create a ", /*#__PURE__*/React.createElement("strong", null, "living matrix"), " for designing organizations that can coordinate contribution, work, trust, learning, communication and value across human and agentic systems."), /*#__PURE__*/React.createElement("p", null, "Each is a piece of the map and each is still being drawn.")))), /*#__PURE__*/React.createElement(CtaBand, {
   title: "This is an invitation to a<br /><em>shared inquiry</em>.",
-  body: "We have starting questions rather than finished answers. We know this area matters, and we know it needs the best people and organizations in the world working on it.",
+  body: "We have starting questions rather than finished answers. We know this area matters and we know it needs the best people and organizations in the world working on it.",
   primary: "Join the inquiry",
   secondary: "Who is this for?",
   onPrimary: () => window.open(JOIN_URL, '_blank'),

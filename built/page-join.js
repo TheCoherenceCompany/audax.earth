@@ -53,7 +53,7 @@ const PageJoin = () => {
     className: "display"
   }, "Join to co-create.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "Help shape"), " Audax OS."), /*#__PURE__*/React.createElement("p", {
     className: "lede"
-  }, "We are convening organization designers, agentic AI builders, and future-facing practitioners to explore the company OS needed for humans and agents working together.")))), /*#__PURE__*/React.createElement("section", {
+  }, "We are convening organization designers, agentic AI builders and future-facing practitioners to explore the company OS needed for humans and agents working together.")))), /*#__PURE__*/React.createElement("section", {
     className: "section"
   }, /*#__PURE__*/React.createElement("div", {
     className: "container-narrow"
@@ -64,7 +64,7 @@ const PageJoin = () => {
     }
   }, "What organizational OS is ", /*#__PURE__*/React.createElement("em", null, "worthy"), /*#__PURE__*/React.createElement("br", null), "of humans and AI agents working together?"), /*#__PURE__*/React.createElement("ol", {
     className: "q-list"
-  }, /*#__PURE__*/React.createElement("li", null, "How should humans and agents coordinate around purpose?"), /*#__PURE__*/React.createElement("li", null, "How should contribution and value be recognized?"), /*#__PURE__*/React.createElement("li", null, "How should agents participate without becoming supervisors?"), /*#__PURE__*/React.createElement("li", null, "How should organizations learn continuously?"), /*#__PURE__*/React.createElement("li", null, "How should multiple vendors build around a shared OS?"), /*#__PURE__*/React.createElement("li", null, "What protocols are needed for human\u2013human, human\u2013agent, and agent\u2013agent collaboration?"), /*#__PURE__*/React.createElement("li", null, "How do we make humane organizations that still deliver?")))), /*#__PURE__*/React.createElement(WashRule, {
+  }, /*#__PURE__*/React.createElement("li", null, "How should humans and agents coordinate around purpose?"), /*#__PURE__*/React.createElement("li", null, "How should contribution and value be recognized?"), /*#__PURE__*/React.createElement("li", null, "How should agents participate without becoming supervisors?"), /*#__PURE__*/React.createElement("li", null, "How should organizations learn continuously?"), /*#__PURE__*/React.createElement("li", null, "How should multiple vendors build around a shared OS?"), /*#__PURE__*/React.createElement("li", null, "What protocols are needed for human\u2013human, human\u2013agent and agent\u2013agent collaboration?"), /*#__PURE__*/React.createElement("li", null, "How do we make humane organizations that still deliver?")))), /*#__PURE__*/React.createElement(WashRule, {
     image: ART.wave,
     from: "parchment",
     to: "paper"
@@ -78,10 +78,10 @@ const PageJoin = () => {
   }, /*#__PURE__*/React.createElement(SectionHead, {
     eyebrow: "Five ways",
     title: "<em>Different</em> entries to the same field.",
-    sub: "Pick the one that fits \u2014 or write your own in the form below."
+    sub: "Pick the one that fits - or write your own in the form below."
   }), /*#__PURE__*/React.createElement("div", {
     className: "join-grid"
-  }, [['01', 'Join a dialogue', 'For people exploring the core question. Closed-room conversations with practitioners across the field.'], ['02', 'Contribute to the OS', 'For organization designers, researchers, and practitioners shaping spheres, layers, and modes.'], ['03', 'Build an implementation', 'For AI builders, toolmakers, vendors, and open-source teams. Build with the OS. Ship something real.'], ['04', 'Bring a use case', 'For organizations experimenting with agentic, distributed, or fractional work. Be a case study.'], ['05', 'Strategic partner', 'For aligned organizations, labs, networks, and funders willing to steward the OS.']].map(([n, h, p]) => /*#__PURE__*/React.createElement("article", {
+  }, [['01', 'Join a dialogue', 'For people exploring the core question. Closed-room conversations with practitioners across the field.'], ['02', 'Contribute to the OS', 'For organization designers, researchers and practitioners shaping spheres, layers and modes.'], ['03', 'Build an implementation', 'For AI builders, toolmakers, vendors and open-source teams. Build with the OS. Ship something real.'], ['04', 'Bring a use case', 'For organizations experimenting with agentic, distributed, or fractional work. Be a case study.'], ['05', 'Strategic partner', 'For aligned organizations, labs, networks and funders willing to steward the OS.']].map(([n, h, p]) => /*#__PURE__*/React.createElement("article", {
     key: n,
     className: "join-card"
   }, /*#__PURE__*/React.createElement("div", {
@@ -192,7 +192,7 @@ const PageJoin = () => {
     rows: 3,
     value: form.question,
     onChange: set('question'),
-    placeholder: "Lorem ipsum dolor sit amet \u2014 the question that brought you to this page."
+    placeholder: "Lorem ipsum dolor sit amet - the question that brought you to this page."
   })), /*#__PURE__*/React.createElement("div", {
     className: "field full"
   }, /*#__PURE__*/React.createElement("label", null, "How would you like to contribute?"), /*#__PURE__*/React.createElement("textarea", {
@@ -272,7 +272,7 @@ const PageJoin = () => {
       maxWidth: 620,
       margin: '0 auto 40px'
     }
-  }, "The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation."))), submitted && /*#__PURE__*/React.createElement("div", {
+  }, "The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue and serious experimentation."))), submitted && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: 32,

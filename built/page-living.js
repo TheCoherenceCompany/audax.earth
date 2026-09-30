@@ -48,13 +48,13 @@ const LI_SECTIONS = [{
 /* Every entry completes "People, the Biosphere and AI, ___". The first is the anchor:
    what crawlers, screen readers and reduced-motion readers get. */
 const LI_ROTATION = ['learning to coevolve.', 'nurturing wiser intelligence.', 'tending the same roots.', 'building the vision together.', 'in the flow of regeneration.', 'remembering we are one system.'];
-const LI_WHY_COME = [['The biosphere as a participant', 'The living world is one of three intelligences whose relationship we are designing, and its stewards belong at the table.'], ['A north star before the architecture hardens', 'The defaults set this year will be very hard to unpick later. Better to ask now what the whole system should be true of.'], ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward, and to disagree about.'], ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'], ['Open to any organization, wherever its people are', 'Grown from Camp Audax and built to widen. Anyone can take part from wherever they work.'], ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, for a very long time.']];
+const LI_WHY_COME = [['The biosphere as a participant', 'The living world is one of three intelligences whose relationship we are designing and its stewards belong at the table.'], ['A north star before the architecture hardens', 'The defaults set this year will be very hard to unpick later. Better to ask now what the whole system should be true of.'], ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward and to disagree about.'], ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'], ['Open to any organization, wherever its people are', 'Grown from Camp Audax and built to widen. Anyone can take part from wherever they work.'], ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, for a very long time.']];
 const LI_TRIAD = [{
   n: '1',
   name: 'Biosphere',
   short: 'Four billion years of research and development, still running.',
   benefit: 'Four billion years of research and development, still running.',
-  working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests, and the practices of the people who tend them.',
+  working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests and the practices of the people who tend them.',
   brings: ['Regenerative timescales', 'Standing for other species', 'Polycentric stewardship', 'Visible cost to the biosphere'],
   blind: 'Its own exposure to decisions made in a language it cannot contest: contracts, models and quarterly plans.'
 }, {
@@ -62,9 +62,9 @@ const LI_TRIAD = [{
   name: 'Human',
   short: 'The ability to ask what a thing is for.',
   benefit: 'The ability to ask what a thing is for.',
-  working: 'Meaning, care and judgment, and the shared spaces where people deliberate, disagree and decide together.',
+  working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together.',
   brings: ['Portability that survives a change of provider', 'Agents that stay answerable', 'Shared spaces communities can govern', 'Individual and collective agency'],
-  blind: 'The long timescales and quiet costs that never reach a dashboard, and what a default chosen in a sprint does ten years on.'
+  blind: 'The long timescales and quiet costs that never reach a dashboard and what a default chosen in a sprint does ten years on.'
 }, {
   n: '3',
   name: 'AI',
@@ -72,9 +72,9 @@ const LI_TRIAD = [{
   benefit: 'Pattern, speed and synthesis at a scale beyond any single team.',
   working: 'The capacity to sense, model and coordinate across more information than any person or institution can track alone.',
   brings: ['Bounded authority', 'Revocable delegation', 'Compartmentalization', 'Independent monitoring', 'Reliable provenance', 'Multiple centers of control'],
-  blind: 'What the data leaves out: whatever was never measured, and whoever was never asked.'
+  blind: 'What the data leaves out: whatever was never measured and whoever was never asked.'
 }];
-const LI_VALUE_PROPERTY = [['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'], ['Accountability', 'Can anyone see who an agent represents, what authority it holds, and how to challenge what it does?'], ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'], ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent reach a whole environment?']];
+const LI_VALUE_PROPERTY = [['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'], ['Accountability', 'Can anyone see who an agent represents, what authority it holds and how to challenge what it does?'], ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'], ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent reach a whole environment?']];
 const LI_HYPHEN = [['Pro-Human AI', 'Service, loyalty, accountability and control: what AI owes the people it works for.'], ['Pro Human-AI', 'The relationship itself: symbiosis, mutual augmentation and durable boundaries between distinct participants.'], ['Pro Human-Biosphere-AI', 'The living systems both depend on. Cost to the biosphere becomes visible and the health of the whole living system joins the design brief.']];
 const LI_STEPS = [{
   title: 'Name the properties',
@@ -103,11 +103,11 @@ const LI_STEPS = [{
 }, {
   title: 'Overlay and evolve',
   who: 'People',
-  body: 'Communities and applications grow on the shared substrate. Each grants the same basic rights to everyone, enforced by code where possible, and patches keep the list alive.'
+  body: 'Communities and applications grow on the shared substrate. Each grants the same basic rights to everyone, enforced by code where possible and patches keep the list alive.'
 }];
 const LI_STOOL = [['Tools that work', 'Agents, protocols and infrastructure that people can inspect, leave and govern. The properties in this list turn into requirements here.', 'Technology'], ['Mindsets that mature', 'Cultural maturity, sometimes called planetary adulthood: the capacity to hold long timescales, other species and other people’s needs in one decision. Learning systems built for free thinking carry this work.', 'Culture and learning'], ['Equity that reaches everyone', 'A future that is fair, free and flourishing for all, with shelter, food and energy within reach of every household and agency in the hands of the many.', 'Economy and justice']];
-const LI_TETRIS = [['Everyone does', 'The shared basics: identity, consent, provenance, memory. Agree them once and reuse them everywhere.', 'Common ground'], ['One team holds', 'Capabilities that gain from concentrated focus. Each is held by whoever does it best and offered to the rest.', 'Shared load'], ['Each brings something new', 'The novel work each team pursues alone, kept distinct so the network keeps its variety.', 'Distinct gifts']];
-const LI_QUESTIONS = ['How can AI bring the living world into planning, governance and everyday decisions?', 'What would it take for a river’s sensor network to belong to the community that lives along it?', 'Which properties stay valuable if AI capability grows faster than our institutions?', 'Where do individual agency, collective agency and the flourishing of the biosphere reinforce one another?', 'As AI grows more capable, what kind of partnership keeps the biosphere, people and AI all flourishing together?', 'How do our own agents relate to us, to one another and to the living world?', 'Who speaks for the places, species and future generations that cannot attend?', 'What does an inspiring story about all three sound like, and who tells it?'];
+const LI_FOREST_LAYERS = [['Shared roots', 'Identity, consent, provenance and memory, agreed once and drawn on by every tool.', 'Everyone holds'], ['Tended in coherence', 'Some capabilities gain from concentrated focus. Whoever does one best tends it and offers it to the rest.', 'One team tends'], ['Each brings something new', 'The novel work each team pursues, kept distinct so the network keeps its variety.', 'Distinct gifts']];
+const LI_QUESTIONS = ['How can AI bring the living world into planning, governance and everyday decisions?', 'What would it take for a river’s sensor network to belong to the community that lives along it?', 'Which properties stay valuable if AI capability grows faster than our institutions?', 'Where do individual agency, collective agency and the flourishing of the biosphere reinforce one another?', 'As AI grows more capable, what kind of partnership keeps the biosphere, people and AI all flourishing together?', 'How do our own agents relate to us, to one another and to the living world?', 'Who speaks for the places, species and future generations that cannot attend?', 'What does an inspiring story about all three sound like and who tells it?'];
 
 /* One photograph per question, chosen for the feeling of the question. */
 const LI_QUESTION_SHOTS = ['meadow', 'meadow', 'hummingbird', 'hummingbird', 'reading', 'reading', 'forest-circle', 'forest-circle'];
@@ -326,7 +326,7 @@ const LIFooter = ({
   rel: "noreferrer"
 }, "Camp Audax"))), /*#__PURE__*/React.createElement("div", {
   className: "footer-bottom"
-}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 \xB7 A narrative grown from Camp Audax, open to any organization building toward it."), /*#__PURE__*/React.createElement("span", null, "For the biosphere, for people, and for the machines we are learning to live with.")));
+}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 \xB7 A narrative grown from Camp Audax, open to any organization building toward it."), /*#__PURE__*/React.createElement("span", null, "For the biosphere, for people and for the machines we are learning to live with.")));
 
 /* Nodes and ink instead of a photograph. Same orchestration as the Camp hero
    (headline types in, the clause writes itself, the meta line types), on top of
@@ -595,7 +595,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work, and each concern deserves a serious answer."), /*#__PURE__*/React.createElement("p", null, "This page adds one question that sits beside all of those efforts: what kind of relationship among the biosphere, people and AI do we want to grow into? If far more capable systems arrive, which looks likely, authority over them forms one part of a larger picture. That picture also holds what those systems owe the living world, what people owe each other, and what kind of partnership endures as capability grows. A durable, mutually flourishing relationship among all three gives every alliance something shared to build toward, on any timeline."))), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work and each concern deserves a serious answer."), /*#__PURE__*/React.createElement("p", null, "This page adds one question that sits beside all of those efforts: what kind of relationship among the biosphere, people and AI do we want to grow into? If far more capable systems arrive, which looks likely, authority over them forms one part of a larger picture. That picture also holds what those systems owe the living world, what people owe each other and what kind of partnership endures as capability grows. A durable, mutually flourishing relationship among all three gives every alliance something shared to build toward, on any timeline."))), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "Three ways to name the relationship"), /*#__PURE__*/React.createElement("div", {
@@ -604,7 +604,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Each framing brings different things into view, and read in order they widen the picture.")), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("p", null, "Each framing brings different things into view and read in order they widen the picture.")), /*#__PURE__*/React.createElement("table", {
     className: "mini-matrix"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "The framing"), /*#__PURE__*/React.createElement("th", null, "What it brings into view"))), /*#__PURE__*/React.createElement("tbody", null, LI_HYPHEN.map(([f, v]) => /*#__PURE__*/React.createElement("tr", {
     key: f
@@ -628,7 +628,7 @@ const PageLiving = () => {
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The early web was built by people who wanted openness and connection, and it delivered both. It also delivered concentrated platforms, opaque recommendation systems and incentives that emerged by accident. Each choice looked reasonable at the time, and together they accumulated until they became the water we swim in. One of the internet\u2019s own founders has said as much: the people building it had no idea what would follow."), /*#__PURE__*/React.createElement("p", null, "AI is arriving the same way, only faster and at greater scale. The defaults being set now, what these systems optimize for, whom they answer to, what they count as value and what they are allowed to leave out, will be very hard to change once they ship. The living world is usually the first thing left out.")), /*#__PURE__*/React.createElement(CampQuote, null, "Whatever we leave out of the design, ", /*#__PURE__*/React.createElement("em", null, "we leave out of the future.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "The early web was built by people who wanted openness and connection and it delivered both. It also delivered concentrated platforms, opaque recommendation systems and incentives that emerged by accident. Each choice looked reasonable at the time and together they accumulated until they became the water we swim in. One of the internet\u2019s own founders has said as much: the people building it had no idea what would follow."), /*#__PURE__*/React.createElement("p", null, "AI is arriving the same way, only faster and at greater scale. The defaults being set now, what these systems optimize for, whom they answer to, what they count as value and what they are allowed to leave out, will be very hard to change once they ship. The living world is usually the first thing left out.")), /*#__PURE__*/React.createElement(CampQuote, null, "Whatever we leave out of the design, ", /*#__PURE__*/React.createElement("em", null, "we leave out of the future.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "What we are asking instead"), /*#__PURE__*/React.createElement(CampAside, {
@@ -641,7 +641,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Before the architecture hardens, we would like to ask what should be true of the whole ecosystem that emerges as products, models and policies come together."), /*#__PURE__*/React.createElement("p", null, "So we start with the destination. We describe the properties we would consciously choose, in language specific enough to build toward, and invite builders, stewards, funders and policy makers to test their work against the same shared reference."), /*#__PURE__*/React.createElement("p", null, "We call these the Desirable Properties. Together they form a north star, offered lightly and open to challenge."))))), /*#__PURE__*/React.createElement("section", {
+  }, /*#__PURE__*/React.createElement("p", null, "Before the architecture hardens, we would like to ask what should be true of the whole ecosystem that emerges as products, models and policies come together."), /*#__PURE__*/React.createElement("p", null, "So we start with the destination. We describe the properties we would consciously choose, in language specific enough to build toward and invite builders, stewards, funders and policy makers to test their work against the same shared reference."), /*#__PURE__*/React.createElement("p", null, "We call these the Desirable Properties. Together they form a north star, offered lightly and open to challenge."))))), /*#__PURE__*/React.createElement("section", {
     className: "section li-dark li-triad-sec",
     id: "triad",
     style: {
@@ -663,7 +663,7 @@ const PageLiving = () => {
     className: "li-tri-q"
   }, "What should be true of the relationship between the biosphere, human beings and AI?"), /*#__PURE__*/React.createElement("p", {
     className: "li-tri-read"
-  }, "How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the center holds the aim they serve together.")), /*#__PURE__*/React.createElement("div", {
+  }, "How to read it: five qualities orient each circle, each overlap names what two intelligences share and the center holds the aim they serve together.")), /*#__PURE__*/React.createElement("div", {
     className: "container li-triad-stage"
   }, /*#__PURE__*/React.createElement(TriadDiagram, null)), /*#__PURE__*/React.createElement("p", {
     className: "li-tri-note"
@@ -691,7 +691,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 40
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Each of these three shapes the other two, and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.")), /*#__PURE__*/React.createElement(LICampPersonaSlider, {
+  }, /*#__PURE__*/React.createElement("p", null, "Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.")), /*#__PURE__*/React.createElement(LICampPersonaSlider, {
     profiles: LI_TRIAD
   }), /*#__PURE__*/React.createElement(CampQuote, null, "Each is right about something. ", /*#__PURE__*/React.createElement("em", null, "Holding the whole takes all three.")))), /*#__PURE__*/React.createElement(LICampBand, {
     shot: "canopy",
@@ -752,7 +752,7 @@ const PageLiving = () => {
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Technology is the first. The second is the maturity to use it well, and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Technology is the first. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.")), /*#__PURE__*/React.createElement(CampCascade, {
     className: "insight-grid",
     style: {
       marginTop: 36
@@ -806,7 +806,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 32
     }
-  }, /*#__PURE__*/React.createElement("p", null, "A Desirable Property is a condition, specific enough to build toward and specific enough to disagree about. It sits between a value, such as regeneration, and a requirement, such as \u201Cthe system must\u2026\u201D, and it is the step most projects skip on the way from one to the other.")), /*#__PURE__*/React.createElement(CampKicker, null, "A value says. A property asks."), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("p", null, "A Desirable Property is a condition, specific enough to build toward and specific enough to disagree about. It sits between a value, such as regeneration and a requirement, such as \u201Cthe system must\u2026\u201D and it is the step most projects skip on the way from one to the other.")), /*#__PURE__*/React.createElement(CampKicker, null, "A value says. A property asks."), /*#__PURE__*/React.createElement("table", {
     className: "mini-matrix"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "The value"), /*#__PURE__*/React.createElement("th", null, "The property"))), /*#__PURE__*/React.createElement("tbody", null, LI_VALUE_PROPERTY.map(([v, p]) => /*#__PURE__*/React.createElement("tr", {
     key: v
@@ -830,7 +830,7 @@ const PageLiving = () => {
     bottom: 8
   }, "How each property gets written"), /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Each property works like a small lab. Three to five subject-matter experts anchor it, joined by practitioners and community voices who bring lived evidence. A lab produces an explanation, a practical example, an honest account of the tensions and a list of the projects already advancing the property."), /*#__PURE__*/React.createElement("p", null, "Every property has its own collaboration page where anyone can propose a revision, and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "Each property works like a small lab. Three to five subject-matter experts anchor it, joined by practitioners and community voices who bring lived evidence. A lab produces an explanation, a practical example, an honest account of the tensions and a list of the projects already advancing the property."), /*#__PURE__*/React.createElement("p", null, "Every property has its own collaboration page where anyone can propose a revision and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 44,
     bottom: 8
   }, "Two layers, side by side"), /*#__PURE__*/React.createElement("div", {
@@ -857,7 +857,7 @@ const PageLiving = () => {
       color: 'var(--forest-900)',
       margin: '0 0 14px'
     }
-  }, "The Desirable Properties approach comes from Daveed Benjamin\u2019s work through a Meta-Layer lens. His two recommendations set out the method we are extending: a North Star Analysis over four to six weeks, and an exploration of the words we start from."), /*#__PURE__*/React.createElement("p", {
+  }, "The Desirable Properties approach comes from Daveed Benjamin\u2019s work through a Meta-Layer lens. His two recommendations set out the method we are extending: a North Star Analysis over four to six weeks and an exploration of the words we start from."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 15,
       fontWeight: 300,
@@ -913,7 +913,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 32
     }
-  }, /*#__PURE__*/React.createElement("p", null, "A list of properties gains force when builders can use it. The method runs in seven steps, and every second step belongs to people. AI drafts at speed, and people decide what the drafts are worth.")), /*#__PURE__*/React.createElement(LISteps, {
+  }, /*#__PURE__*/React.createElement("p", null, "A list of properties gains force when builders can use it. The method runs in seven steps and every second step belongs to people. AI drafts at speed and people decide what the drafts are worth.")), /*#__PURE__*/React.createElement(LISteps, {
     steps: LI_STEPS
   }), /*#__PURE__*/React.createElement(CampQuote, null, "A property earns its place ", /*#__PURE__*/React.createElement("em", null, "the day someone builds with it.")))), /*#__PURE__*/React.createElement(Mycelium, {
     seed: 37,
@@ -934,25 +934,38 @@ const PageLiving = () => {
     className: "num"
   }, "09 \xB7 Weaving the field"), "Many tools. ", /*#__PURE__*/React.createElement("em", null, "One field.")), /*#__PURE__*/React.createElement(CampAside, {
     flip: true,
-    shot: "wing",
-    alt: "A butterfly wing up close, teal scales with orange and cream markings",
+    shot: "forest-gathering",
+    alt: "People gathered among trees at a forest camp, some seated on hay bales and others standing in conversation",
     ratio: "1 / 1",
     style: {
       marginTop: 12
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience, and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.")), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.")), /*#__PURE__*/React.createElement(CampKicker, {
     top: 40,
     bottom: 8
-  }, "The Tetris principle"), /*#__PURE__*/React.createElement("div", {
+  }, "Emergence guides the work"), /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Many of the pieces each team builds fit together like blocks, and the field moves fastest when every block finds its place. Three tiers keep the differences clear.")))), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Our work follows the way living systems organize. Order arises from many small relationships: one team shares what it has learned, another builds on it, and patterns take shape that no one planned in advance. We pay attention to what is already forming and support it, the way a gardener tends what wants to grow.")), /*#__PURE__*/React.createElement(CampKicker, {
+    top: 40,
+    bottom: 8
+  }, "Resonance draws us together"), /*#__PURE__*/React.createElement("div", {
+    className: "q-body"
+  }, /*#__PURE__*/React.createElement("p", null, "Organizations and individuals whose purposes align recognize one another. Resonance brings them together, and collaborations form around shared questions and complementary gifts. A living map of the field helps these connections find each other sooner, and each one strengthens the whole.")))), /*#__PURE__*/React.createElement(CampKicker, {
+    top: 56,
+    bottom: 8
+  }, "How a forest shares"), /*#__PURE__*/React.createElement("div", {
+    className: "q-body",
+    style: {
+      maxWidth: 760
+    }
+  }, /*#__PURE__*/React.createElement("p", null, "A forest moves water, sugar and signals through a web of roots and fungi, and every species contributes what it does best. Three layers give the field the same shape.")), /*#__PURE__*/React.createElement(CampCascade, {
     className: "insight-grid",
     style: {
       marginTop: 24
     }
-  }, LI_TETRIS.map(([h, p, label]) => /*#__PURE__*/React.createElement("article", {
+  }, LI_FOREST_LAYERS.map(([h, p, label]) => /*#__PURE__*/React.createElement("article", {
     key: h,
     className: "insight-card"
   }, /*#__PURE__*/React.createElement("h4", null, h, ". ", p), /*#__PURE__*/React.createElement("p", {
@@ -965,23 +978,24 @@ const PageLiving = () => {
       textTransform: 'uppercase',
       color: 'var(--forest-700)'
     }
-  }, label)))), /*#__PURE__*/React.createElement(CampKicker, {
-    top: 56,
+  }, label)))), /*#__PURE__*/React.createElement(CampAside, {
+    shot: "wing",
+    alt: "A butterfly wing up close, teal scales with orange and cream markings",
+    ratio: "3 / 4",
+    style: {
+      marginTop: 32
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(CampKicker, {
+    top: 0,
     bottom: 8
   }, "Agreements that keep it fair"), /*#__PURE__*/React.createElement("div", {
-    className: "q-body",
-    style: {
-      maxWidth: 760
-    }
-  }, /*#__PURE__*/React.createElement("p", null, "Reciprocity needs terms: how contributions are credited, how intellectual property and data rights are shared, and what happens when one team expands a product while another steps back from a layer a partner covers better. Trade-offs of that kind, investing here and divesting there, are the working substance of a co-development agreement.")), /*#__PURE__*/React.createElement(CampKicker, {
-    top: 56,
+    className: "q-body"
+  }, /*#__PURE__*/React.createElement("p", null, "Reciprocity needs terms: how contributions are credited, how intellectual property and data rights are shared and what happens when one team expands a product while another steps back from a layer a partner covers better. Trade-offs of that kind, investing here and divesting there, are the working substance of a co-development agreement.")), /*#__PURE__*/React.createElement(CampKicker, {
+    top: 44,
     bottom: 8
   }, "A map that keeps itself current"), /*#__PURE__*/React.createElement("div", {
-    className: "q-body",
-    style: {
-      maxWidth: 760
-    }
-  }, /*#__PURE__*/React.createElement("p", null, "Each organization shares what it can publicly: papers, websites, programs. A community AI reads it all into a graph database and answers questions such as which collaborations would serve the most properties and remain untried. A link is enough to add a new program, and a notification follows when a member\u2019s site changes. An ecosystem-weaving agent grows out of this map."), /*#__PURE__*/React.createElement("p", null, "Agents take a seat at this table too. Each person may bring their own agent, and the field needs norms for how agents relate to their people, to one another and to the living world.")), /*#__PURE__*/React.createElement(CampQuote, null, "The North Star names the destination. ", /*#__PURE__*/React.createElement("em", null, "The map reveals the travelers.")))), /*#__PURE__*/React.createElement(LICampBand, {
+    className: "q-body"
+  }, /*#__PURE__*/React.createElement("p", null, "Each organization shares what it can publicly: papers, websites, programs. A community AI reads it all into a graph database and answers questions such as which collaborations would serve the most properties and remain untried. A link is enough to add a new program and a notification follows when a member\u2019s site changes. An ecosystem-weaving agent grows out of this map."), /*#__PURE__*/React.createElement("p", null, "Agents take a seat at this table too. Each person may bring their own agent and the field needs norms for how agents relate to their people, to one another and to the living world.")))), /*#__PURE__*/React.createElement(CampQuote, null, "The North Star names the destination. ", /*#__PURE__*/React.createElement("em", null, "The map reveals the travelers.")))), /*#__PURE__*/React.createElement(LICampBand, {
     shot: "tents",
     kicker: "Camp Navarro \xB7 15\u201318 October 2026",
     label: "Where the work begins",
@@ -1013,7 +1027,7 @@ const PageLiving = () => {
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible, and small experiments give partners and grant makers something real to test."), /*#__PURE__*/React.createElement("p", null, "The reference itself works like a living book. A community AI turns an idea, a link or an uploaded document into a drafted submission and suggests where in the existing text it belongs. Submissions post as drafts and reach the book through the group\u2019s review.")))), /*#__PURE__*/React.createElement("section", {
+  }, /*#__PURE__*/React.createElement("p", null, "At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible and small experiments give partners and grant makers something real to test."), /*#__PURE__*/React.createElement("p", null, "The reference itself works like a living book. A community AI turns an idea, a link or an uploaded document into a drafted submission and suggests where in the existing text it belongs. Submissions post as drafts and reach the book through the group\u2019s review.")))), /*#__PURE__*/React.createElement("section", {
     className: "section-tight",
     id: "calls",
     style: {
@@ -1056,7 +1070,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The quickest way in is to see how your own work meets the properties. Copy the prompt, paste it into any assistant, add a few sentences about what you do, and read the first map it draws. If it sparks something, come and continue the conversation with us.")), /*#__PURE__*/React.createElement(LIPrompt, null), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "The quickest way in is to see how your own work meets the properties. Copy the prompt, paste it into any assistant, add a few sentences about what you do and read the first map it draws. If it sparks something, come and continue the conversation with us.")), /*#__PURE__*/React.createElement(LIPrompt, null), /*#__PURE__*/React.createElement("div", {
     className: "cph-apply",
     style: {
       marginTop: 56

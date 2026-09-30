@@ -30,9 +30,9 @@ const LI_ROTATION = [
 ];
 
 const LI_WHY_COME = [
-  ['The biosphere as a participant', 'The living world is one of three intelligences whose relationship we are designing, and its stewards belong at the table.'],
+  ['The biosphere as a participant', 'The living world is one of three intelligences whose relationship we are designing and its stewards belong at the table.'],
   ['A north star before the architecture hardens', 'The defaults set this year will be very hard to unpick later. Better to ask now what the whole system should be true of.'],
-  ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward, and to disagree about.'],
+  ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward and to disagree about.'],
   ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'],
   ['Open to any organization, wherever its people are', 'Grown from Camp Audax and built to widen. Anyone can take part from wherever they work.'],
   ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, for a very long time.']
@@ -43,7 +43,7 @@ const LI_TRIAD = [
     n: '1', name: 'Biosphere',
     short: 'Four billion years of research and development, still running.',
     benefit: 'Four billion years of research and development, still running.',
-    working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests, and the practices of the people who tend them.',
+    working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests and the practices of the people who tend them.',
     brings: ['Regenerative timescales', 'Standing for other species', 'Polycentric stewardship', 'Visible cost to the biosphere'],
     blind: 'Its own exposure to decisions made in a language it cannot contest: contracts, models and quarterly plans.'
   },
@@ -51,9 +51,9 @@ const LI_TRIAD = [
     n: '2', name: 'Human',
     short: 'The ability to ask what a thing is for.',
     benefit: 'The ability to ask what a thing is for.',
-    working: 'Meaning, care and judgment, and the shared spaces where people deliberate, disagree and decide together.',
+    working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together.',
     brings: ['Portability that survives a change of provider', 'Agents that stay answerable', 'Shared spaces communities can govern', 'Individual and collective agency'],
-    blind: 'The long timescales and quiet costs that never reach a dashboard, and what a default chosen in a sprint does ten years on.'
+    blind: 'The long timescales and quiet costs that never reach a dashboard and what a default chosen in a sprint does ten years on.'
   },
   {
     n: '3', name: 'AI',
@@ -61,13 +61,13 @@ const LI_TRIAD = [
     benefit: 'Pattern, speed and synthesis at a scale beyond any single team.',
     working: 'The capacity to sense, model and coordinate across more information than any person or institution can track alone.',
     brings: ['Bounded authority', 'Revocable delegation', 'Compartmentalization', 'Independent monitoring', 'Reliable provenance', 'Multiple centers of control'],
-    blind: 'What the data leaves out: whatever was never measured, and whoever was never asked.'
+    blind: 'What the data leaves out: whatever was never measured and whoever was never asked.'
   }
 ];
 
 const LI_VALUE_PROPERTY = [
   ['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'],
-  ['Accountability', 'Can anyone see who an agent represents, what authority it holds, and how to challenge what it does?'],
+  ['Accountability', 'Can anyone see who an agent represents, what authority it holds and how to challenge what it does?'],
   ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'],
   ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent reach a whole environment?']
 ];
@@ -85,7 +85,7 @@ const LI_STEPS = [
   { title: 'Propose architectures', who: 'AI drafts', body: 'Candidate designs are generated for each requirement and compared on their consequences, including who controls them and how people leave.' },
   { title: 'Choose collectively', who: 'People decide', body: 'The group selects the architectures it will build and records the reasons.' },
   { title: 'Scaffold the substrate', who: 'AI drafts', body: 'The chosen architecture becomes code: the smallest foundation that lets anyone create communities and applications that live above the web page.' },
-  { title: 'Overlay and evolve', who: 'People', body: 'Communities and applications grow on the shared substrate. Each grants the same basic rights to everyone, enforced by code where possible, and patches keep the list alive.' }
+  { title: 'Overlay and evolve', who: 'People', body: 'Communities and applications grow on the shared substrate. Each grants the same basic rights to everyone, enforced by code where possible and patches keep the list alive.' }
 ];
 
 const LI_STOOL = [
@@ -94,10 +94,10 @@ const LI_STOOL = [
   ['Equity that reaches everyone', 'A future that is fair, free and flourishing for all, with shelter, food and energy within reach of every household and agency in the hands of the many.', 'Economy and justice']
 ];
 
-const LI_TETRIS = [
-  ['Everyone does', 'The shared basics: identity, consent, provenance, memory. Agree them once and reuse them everywhere.', 'Common ground'],
-  ['One team holds', 'Capabilities that gain from concentrated focus. Each is held by whoever does it best and offered to the rest.', 'Shared load'],
-  ['Each brings something new', 'The novel work each team pursues alone, kept distinct so the network keeps its variety.', 'Distinct gifts']
+const LI_FOREST_LAYERS = [
+  ['Shared roots', 'Identity, consent, provenance and memory, agreed once and drawn on by every tool.', 'Everyone holds'],
+  ['Tended in coherence', 'Some capabilities gain from concentrated focus. Whoever does one best tends it and offers it to the rest.', 'One team tends'],
+  ['Each brings something new', 'The novel work each team pursues, kept distinct so the network keeps its variety.', 'Distinct gifts']
 ];
 
 const LI_QUESTIONS = [
@@ -108,7 +108,7 @@ const LI_QUESTIONS = [
   'As AI grows more capable, what kind of partnership keeps the biosphere, people and AI all flourishing together?',
   'How do our own agents relate to us, to one another and to the living world?',
   'Who speaks for the places, species and future generations that cannot attend?',
-  'What does an inspiring story about all three sound like, and who tells it?'
+  'What does an inspiring story about all three sound like and who tells it?'
 ];
 
 /* One photograph per question, chosen for the feeling of the question. */
@@ -222,7 +222,7 @@ const LIFooter = ({ onJump }) => (
     </div>
     <div className="footer-bottom">
       <span>© 2026 · A narrative grown from Camp Audax, open to any organization building toward it.</span>
-      <span>For the biosphere, for people, and for the machines we are learning to live with.</span>
+      <span>For the biosphere, for people and for the machines we are learning to live with.</span>
     </div>
   </footer>
 );
@@ -406,14 +406,14 @@ const PageLiving = () => {
         </LICampInk>
         <CampAside shot="owl" alt="An owl perched on a tree in a forest" ratio="4 / 5" style={{ marginTop: 12 }}>
           <div className="q-body">
-            <p>Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work, and each concern deserves a serious answer.</p>
-            <p>This page adds one question that sits beside all of those efforts: what kind of relationship among the biosphere, people and AI do we want to grow into? If far more capable systems arrive, which looks likely, authority over them forms one part of a larger picture. That picture also holds what those systems owe the living world, what people owe each other, and what kind of partnership endures as capability grows. A durable, mutually flourishing relationship among all three gives every alliance something shared to build toward, on any timeline.</p>
+            <p>Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work and each concern deserves a serious answer.</p>
+            <p>This page adds one question that sits beside all of those efforts: what kind of relationship among the biosphere, people and AI do we want to grow into? If far more capable systems arrive, which looks likely, authority over them forms one part of a larger picture. That picture also holds what those systems owe the living world, what people owe each other and what kind of partnership endures as capability grows. A durable, mutually flourishing relationship among all three gives every alliance something shared to build toward, on any timeline.</p>
           </div>
         </CampAside>
 
         <CampKicker top={56} bottom={8}>Three ways to name the relationship</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Each framing brings different things into view, and read in order they widen the picture.</p>
+          <p>Each framing brings different things into view and read in order they widen the picture.</p>
         </div>
         <table className="mini-matrix">
           <thead><tr><th>The framing</th><th>What it brings into view</th></tr></thead>
@@ -433,7 +433,7 @@ const PageLiving = () => {
           The tools we build become the society we <span className="cph-keep">live in.</span> <em>So does the way we tend the living world.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>The early web was built by people who wanted openness and connection, and it delivered both. It also delivered concentrated platforms, opaque recommendation systems and incentives that emerged by accident. Each choice looked reasonable at the time, and together they accumulated until they became the water we swim in. One of the internet&rsquo;s own founders has said as much: the people building it had no idea what would follow.</p>
+          <p>The early web was built by people who wanted openness and connection and it delivered both. It also delivered concentrated platforms, opaque recommendation systems and incentives that emerged by accident. Each choice looked reasonable at the time and together they accumulated until they became the water we swim in. One of the internet&rsquo;s own founders has said as much: the people building it had no idea what would follow.</p>
           <p>AI is arriving the same way, only faster and at greater scale. The defaults being set now, what these systems optimize for, whom they answer to, what they count as value and what they are allowed to leave out, will be very hard to change once they ship. The living world is usually the first thing left out.</p>
         </div>
 
@@ -447,7 +447,7 @@ const PageLiving = () => {
         >
           <div className="q-body">
             <p>Before the architecture hardens, we would like to ask what should be true of the whole ecosystem that emerges as products, models and policies come together.</p>
-            <p>So we start with the destination. We describe the properties we would consciously choose, in language specific enough to build toward, and invite builders, stewards, funders and policy makers to test their work against the same shared reference.</p>
+            <p>So we start with the destination. We describe the properties we would consciously choose, in language specific enough to build toward and invite builders, stewards, funders and policy makers to test their work against the same shared reference.</p>
             <p>We call these the Desirable Properties. Together they form a north star, offered lightly and open to challenge.</p>
           </div>
         </CampAside>
@@ -463,7 +463,7 @@ const PageLiving = () => {
           Where the three meet, <em>a regenerative future grows.</em>
         </LICampInk>
         <p className="li-tri-q">What should be true of the relationship between the biosphere, human beings and AI?</p>
-        <p className="li-tri-read">How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the center holds the aim they serve together.</p>
+        <p className="li-tri-read">How to read it: five qualities orient each circle, each overlap names what two intelligences share and the center holds the aim they serve together.</p>
       </div>
       <div className="container li-triad-stage">
         <TriadDiagram />
@@ -480,7 +480,7 @@ const PageLiving = () => {
           Each holds something <em>the others need.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>Each of these three shapes the other two, and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.</p>
+          <p>Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.</p>
         </div>
         <LICampPersonaSlider profiles={LI_TRIAD} />
         <CampQuote>Each is right about something. <em>Holding the whole takes all three.</em></CampQuote>
@@ -516,7 +516,7 @@ const PageLiving = () => {
           Three things carry the transition: <em>tools, mindsets and equity.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Technology is the first. The second is the maturity to use it well, and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.</p>
+          <p>Technology is the first. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.</p>
         </div>
         <CampCascade className="insight-grid" style={{ marginTop: 36 }}>
           {LI_STOOL.map(([h, p, label]) => (
@@ -543,7 +543,7 @@ const PageLiving = () => {
           What would have to be true <em>for this to be desirable?</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
-          <p>A Desirable Property is a condition, specific enough to build toward and specific enough to disagree about. It sits between a value, such as regeneration, and a requirement, such as &ldquo;the system must&hellip;&rdquo;, and it is the step most projects skip on the way from one to the other.</p>
+          <p>A Desirable Property is a condition, specific enough to build toward and specific enough to disagree about. It sits between a value, such as regeneration and a requirement, such as &ldquo;the system must&hellip;&rdquo; and it is the step most projects skip on the way from one to the other.</p>
         </div>
 
         <CampKicker>A value says. A property asks.</CampKicker>
@@ -562,7 +562,7 @@ const PageLiving = () => {
             <CampKicker top={0} bottom={8}>How each property gets written</CampKicker>
             <div className="q-body">
               <p>Each property works like a small lab. Three to five subject-matter experts anchor it, joined by practitioners and community voices who bring lived evidence. A lab produces an explanation, a practical example, an honest account of the tensions and a list of the projects already advancing the property.</p>
-              <p>Every property has its own collaboration page where anyone can propose a revision, and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.</p>
+              <p>Every property has its own collaboration page where anyone can propose a revision and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.</p>
             </div>
 
             <CampKicker top={44} bottom={8}>Two layers, side by side</CampKicker>
@@ -575,7 +575,7 @@ const PageLiving = () => {
         <div style={{ ...campNote, marginTop: 44 }}>
           <h6 style={campNoteH6}>Read the method in full</h6>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: '0 0 14px' }}>
-            The Desirable Properties approach comes from Daveed Benjamin&rsquo;s work through a Meta-Layer lens. His two recommendations set out the method we are extending: a North Star Analysis over four to six weeks, and an exploration of the words we start from.
+            The Desirable Properties approach comes from Daveed Benjamin&rsquo;s work through a Meta-Layer lens. His two recommendations set out the method we are extending: a North Star Analysis over four to six weeks and an exploration of the words we start from.
           </p>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>
             <a href="https://prohumannatureai.com/r/north-star" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>The North Star Analysis</a>
@@ -604,7 +604,7 @@ const PageLiving = () => {
           From Desirable Properties <em>to a working system.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
-          <p>A list of properties gains force when builders can use it. The method runs in seven steps, and every second step belongs to people. AI drafts at speed, and people decide what the drafts are worth.</p>
+          <p>A list of properties gains force when builders can use it. The method runs in seven steps and every second step belongs to people. AI drafts at speed and people decide what the drafts are worth.</p>
         </div>
         <LISteps steps={LI_STEPS} />
 
@@ -621,37 +621,51 @@ const PageLiving = () => {
           <span className="num">09 · Weaving the field</span>
           Many tools. <em>One field.</em>
         </LICampInk>
-        <CampAside flip shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings" ratio="1 / 1" style={{ marginTop: 12 }}>
+        <CampAside flip shot="forest-gathering" alt="People gathered among trees at a forest camp, some seated on hay bales and others standing in conversation" ratio="1 / 1" style={{ marginTop: 12 }}>
           <div>
             <div className="q-body">
-              <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience, and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.</p>
+              <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.</p>
             </div>
 
-            <CampKicker top={40} bottom={8}>The Tetris principle</CampKicker>
+            <CampKicker top={40} bottom={8}>Emergence guides the work</CampKicker>
             <div className="q-body">
-              <p>Many of the pieces each team builds fit together like blocks, and the field moves fastest when every block finds its place. Three tiers keep the differences clear.</p>
+              <p>Our work follows the way living systems organize. Order arises from many small relationships: one team shares what it has learned, another builds on it, and patterns take shape that no one planned in advance. We pay attention to what is already forming and support it, the way a gardener tends what wants to grow.</p>
+            </div>
+
+            <CampKicker top={40} bottom={8}>Resonance draws us together</CampKicker>
+            <div className="q-body">
+              <p>Organizations and individuals whose purposes align recognize one another. Resonance brings them together, and collaborations form around shared questions and complementary gifts. A living map of the field helps these connections find each other sooner, and each one strengthens the whole.</p>
             </div>
           </div>
         </CampAside>
+        <CampKicker top={56} bottom={8}>How a forest shares</CampKicker>
+        <div className="q-body" style={{ maxWidth: 760 }}>
+          <p>A forest moves water, sugar and signals through a web of roots and fungi, and every species contributes what it does best. Three layers give the field the same shape.</p>
+        </div>
         <CampCascade className="insight-grid" style={{ marginTop: 24 }}>
-          {LI_TETRIS.map(([h, p, label]) => (
-            <article key={h} className="insight-card">
-              <h4>{h}. {p}</h4>
-              <p style={{ marginTop: 10, fontFamily: 'var(--font-sans)', fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--forest-700)' }}>{label}</p>
-            </article>
-          ))}
-        </CampCascade>
+              {LI_FOREST_LAYERS.map(([h, p, label]) => (
+                <article key={h} className="insight-card">
+                  <h4>{h}. {p}</h4>
+                  <p style={{ marginTop: 10, fontFamily: 'var(--font-sans)', fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--forest-700)' }}>{label}</p>
+                </article>
+              ))}
+            </CampCascade>
 
-        <CampKicker top={56} bottom={8}>Agreements that keep it fair</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Reciprocity needs terms: how contributions are credited, how intellectual property and data rights are shared, and what happens when one team expands a product while another steps back from a layer a partner covers better. Trade-offs of that kind, investing here and divesting there, are the working substance of a co-development agreement.</p>
-        </div>
+        <CampAside shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings" ratio="3 / 4" style={{ marginTop: 32 }}>
+          <div>
 
-        <CampKicker top={56} bottom={8}>A map that keeps itself current</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Each organization shares what it can publicly: papers, websites, programs. A community AI reads it all into a graph database and answers questions such as which collaborations would serve the most properties and remain untried. A link is enough to add a new program, and a notification follows when a member&rsquo;s site changes. An ecosystem-weaving agent grows out of this map.</p>
-          <p>Agents take a seat at this table too. Each person may bring their own agent, and the field needs norms for how agents relate to their people, to one another and to the living world.</p>
-        </div>
+            <CampKicker top={0} bottom={8}>Agreements that keep it fair</CampKicker>
+            <div className="q-body">
+              <p>Reciprocity needs terms: how contributions are credited, how intellectual property and data rights are shared and what happens when one team expands a product while another steps back from a layer a partner covers better. Trade-offs of that kind, investing here and divesting there, are the working substance of a co-development agreement.</p>
+            </div>
+
+            <CampKicker top={44} bottom={8}>A map that keeps itself current</CampKicker>
+            <div className="q-body">
+              <p>Each organization shares what it can publicly: papers, websites, programs. A community AI reads it all into a graph database and answers questions such as which collaborations would serve the most properties and remain untried. A link is enough to add a new program and a notification follows when a member&rsquo;s site changes. An ecosystem-weaving agent grows out of this map.</p>
+              <p>Agents take a seat at this table too. Each person may bring their own agent and the field needs norms for how agents relate to their people, to one another and to the living world.</p>
+            </div>
+          </div>
+        </CampAside>
 
         <CampQuote>The North Star names the destination. <em>The map reveals the travelers.</em></CampQuote>
       </div>
@@ -667,7 +681,7 @@ const PageLiving = () => {
       <div className="container">
         <CampKicker top={0} bottom={8}>Small loops first</CampKicker>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible, and small experiments give partners and grant makers something real to test.</p>
+          <p>At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible and small experiments give partners and grant makers something real to test.</p>
           <p>The reference itself works like a living book. A community AI turns an idea, a link or an uploaded document into a drafted submission and suggests where in the existing text it belongs. Submissions post as drafts and reach the book through the group&rsquo;s review.</p>
         </div>
       </div>
@@ -695,7 +709,7 @@ const PageLiving = () => {
       <div className="container">
         <CampKicker bottom={8}>Try it with your own AI</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>The quickest way in is to see how your own work meets the properties. Copy the prompt, paste it into any assistant, add a few sentences about what you do, and read the first map it draws. If it sparks something, come and continue the conversation with us.</p>
+          <p>The quickest way in is to see how your own work meets the properties. Copy the prompt, paste it into any assistant, add a few sentences about what you do and read the first map it draws. If it sparks something, come and continue the conversation with us.</p>
         </div>
         <LIPrompt />
 
