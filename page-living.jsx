@@ -557,16 +557,20 @@ const PageLiving = () => {
           These are candidates for discussion. Each needs an explanation, a practical example and an honest account of the tensions it creates.
         </p>
 
-        <CampKicker top={64} bottom={8}>How each property gets written</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Each property works like a small lab. Three to five subject-matter experts anchor it, joined by practitioners and community voices who bring lived evidence. A lab produces an explanation, a practical example, an honest account of the tensions and a list of the projects already advancing the property.</p>
-          <p>Every property has its own collaboration page where anyone can propose a revision, and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.</p>
-        </div>
+        <CampAside shot="leafveins" alt="The veins of a backlit leaf, a fine network in pink and gold" ratio="4 / 5" style={{ marginTop: 64 }}>
+          <div>
+            <CampKicker top={0} bottom={8}>How each property gets written</CampKicker>
+            <div className="q-body">
+              <p>Each property works like a small lab. Three to five subject-matter experts anchor it, joined by practitioners and community voices who bring lived evidence. A lab produces an explanation, a practical example, an honest account of the tensions and a list of the projects already advancing the property.</p>
+              <p>Every property has its own collaboration page where anyone can propose a revision, and the group adjudicates what enters the next version. Revisions arrive as patches, each traceable to the person or the conversation it came from.</p>
+            </div>
 
-        <CampKicker top={56} bottom={8}>Two layers, side by side</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>The <a href="https://themetalayer.org" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>Meta-Layer Initiative</a> maintains a canonical set of twenty-three properties for digital and social coordination systems, among them agency, privacy, trust and interoperability. The Biosphere–Human–AI process forms a second layer beside it, a parallel exercise with the same method and the biosphere at its center of gravity. A third set covering federation and governance may follow. Expect roughly five to fifteen properties in each new set.</p>
-        </div>
+            <CampKicker top={44} bottom={8}>Two layers, side by side</CampKicker>
+            <div className="q-body">
+              <p>The <a href="https://themetalayer.org" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>Meta-Layer Initiative</a> maintains a canonical set of twenty-three properties for digital and social coordination systems, among them agency, privacy, trust and interoperability. The Biosphere–Human–AI process forms a second layer beside it, a parallel exercise with the same method and the biosphere at its center of gravity. A third set covering federation and governance may follow. Expect roughly five to fifteen properties in each new set.</p>
+            </div>
+          </div>
+        </CampAside>
 
         <div style={{ ...campNote, marginTop: 44 }}>
           <h6 style={campNoteH6}>Read the method in full</h6>
@@ -596,8 +600,8 @@ const PageLiving = () => {
     <section className="section" id="build" style={{ ...anchor, paddingBottom: 0, paddingTop: 24 }}>
       <div className="container">
         <LICampInk className="q-h1">
-          <span className="num">08 · From property to build</span>
-          From a property <em>to a working system.</em>
+          <span className="num">08 · From design to build</span>
+          From Desirable Properties <em>to a working system.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
           <p>A list of properties gains force when builders can use it. The method runs in seven steps, and every second step belongs to people. AI drafts at speed, and people decide what the drafts are worth.</p>
