@@ -708,7 +708,7 @@ const PageLiving = () => {
     </section>
 
     {/* ─── JOIN ─────────────────────────────────────────────────────────── */}
-    <CampJoinBand shot="stone-sit" pos="center 35%"
+    <CampJoinBand shot="carpet" pos="center 40%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Come and coevolve <em>with us.</em>
