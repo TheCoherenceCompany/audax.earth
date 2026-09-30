@@ -499,7 +499,7 @@ const PageLiving = () => {
           Where our inquiry <em>begins.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>These are some initial questions shaping our field of inquiry. Each grows richer with more voices &amp; perspective around it. We want to understand how to move more deeply into questioning.</p>
+          <p>These are some initial questions shaping our field of inquiry. Each grows richer with more voices &amp; perspective around it. We want to understand how to move more deeply into this questioning.</p>
         </div>
 
         <LICampDiptych items={LI_QUESTION_ITEMS} label="Question" compact />
