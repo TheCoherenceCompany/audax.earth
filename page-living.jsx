@@ -608,18 +608,6 @@ const PageLiving = () => {
         </div>
         <LISteps steps={LI_STEPS} />
 
-        <CampKicker top={64} bottom={8}>Small loops first</CampKicker>
-        <CampAside
-          shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings"
-          caption="One small loop, then the next."
-          style={{ marginTop: 12 }}
-        >
-          <div className="q-body">
-            <p>At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible, and small experiments give partners and grant makers something real to test.</p>
-            <p>The reference itself works like a living book. A community AI turns an idea, a link or an uploaded document into a drafted submission and suggests where in the existing text it belongs. Submissions post as drafts and reach the book through the group&rsquo;s review.</p>
-          </div>
-        </CampAside>
-
         <CampQuote>A property earns its place <em>the day someone builds with it.</em></CampQuote>
       </div>
     </section>
@@ -633,14 +621,18 @@ const PageLiving = () => {
           <span className="num">09 · Weaving the field</span>
           Many tools. <em>One field.</em>
         </LICampInk>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience, and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.</p>
-        </div>
+        <CampAside flip shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings" ratio="1 / 1" style={{ marginTop: 12 }}>
+          <div>
+            <div className="q-body">
+              <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience, and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.</p>
+            </div>
 
-        <CampKicker top={56} bottom={8}>The Tetris principle</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Many of the pieces each team builds fit together like blocks, and the field moves fastest when every block finds its place. Three tiers keep the differences clear.</p>
-        </div>
+            <CampKicker top={40} bottom={8}>The Tetris principle</CampKicker>
+            <div className="q-body">
+              <p>Many of the pieces each team builds fit together like blocks, and the field moves fastest when every block finds its place. Three tiers keep the differences clear.</p>
+            </div>
+          </div>
+        </CampAside>
         <CampCascade className="insight-grid" style={{ marginTop: 24 }}>
           {LI_TETRIS.map(([h, p, label]) => (
             <article key={h} className="insight-card">
@@ -669,6 +661,17 @@ const PageLiving = () => {
       cta={{ label: 'Visit the Camp Audax page', href: LI_JOIN_URL }}
       tearTop={ART.crest} tearGroundTop="var(--surface-parchment)"
       tear={ART.spray} tearGround="var(--surface-parchment)" rate={0.16} />
+
+    {/* ─── SMALL LOOPS FIRST ────────────────────────────────────────────── */}
+    <section className="section-tight" id="loops" style={{ ...anchor, paddingTop: 72, paddingBottom: 0 }}>
+      <div className="container">
+        <CampKicker top={0} bottom={8}>Small loops first</CampKicker>
+        <div className="q-body" style={{ maxWidth: 760 }}>
+          <p>At the Gathering this October at Camp Navarro, CA, the aim is to execute three or four small OODA loops (observe, orient, decide, act) that carry select properties from idea to working prototype in days. The tooling makes that speed possible, and small experiments give partners and grant makers something real to test.</p>
+          <p>The reference itself works like a living book. A community AI turns an idea, a link or an uploaded document into a drafted submission and suggests where in the existing text it belongs. Submissions post as drafts and reach the book through the group&rsquo;s review.</p>
+        </div>
+      </div>
+    </section>
 
     {/* ─── MEET US ON A CALL ────────────────────────────────────────────── */}
     <section className="section-tight" id="calls" style={{ ...anchor, paddingTop: 56, paddingBottom: 110 }}>
