@@ -3552,3 +3552,8 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 .cph-steps.li-q-steps .cph-step h4 { font-size: clamp(21px, 2.2vw, 29px); line-height: 1.2; letter-spacing: -0.018em; margin: 0; max-width: 24em; }
 .cph-steps.li-q-steps.cph-focus .cph-step h4 { font-size: calc(clamp(21px, 2.2vw, 29px) * (0.88 + var(--near, 1) * 0.12)); }
 @media (max-width: 900px) { .cph-steps.li-q-steps .cph-step { min-height: auto; padding: 16px 0; } }
+
+/* tighter rhythm between sections: the default section top was 128px, and a pull quote added 56px more below itself */
+.li-page .section { padding-top: 72px; }
+.li-page .pull-quote { margin-bottom: 32px; }
+@media (max-width: 900px) { .li-page .section { padding-top: 52px; } }
