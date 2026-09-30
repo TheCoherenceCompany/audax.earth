@@ -685,7 +685,7 @@ const PageLiving = () => {
     <CampJoinBand shot="carpet" pos="center 28%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
-      Come and coevolve <em>with us.</em>
+      Coevolve <em>with us.</em>
     </CampJoinBand>
 
     <section className="section-tight" id="join" style={{ ...anchor }}>
