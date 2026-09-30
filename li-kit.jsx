@@ -20,7 +20,7 @@ const LICampInk = ({ as: Tag = 'h1', className = '', children, ...rest }) => {
   return <Tag ref={ref} className={`cph-ink${className ? ' ' + className : ''}`} {...rest}>{children}</Tag>;
 };
 
-const LICampBand = ({ shot, kicker, label, rate = 0.16, tear, tearTop, tearGround, tearGroundTop, cta }) => {
+const LICampBand = ({ shot, kicker, label, rate = 0.16, tear, tearTop, tearGround, tearGroundTop, cta, featured }) => {
   const band = React.useRef(null);
   const art = React.useRef(null);
 
@@ -49,7 +49,7 @@ const LICampBand = ({ shot, kicker, label, rate = 0.16, tear, tearTop, tearGroun
   }, [rate]);
 
   return (
-    <div className="cph-band" ref={band}>
+    <div className={`cph-band${featured ? ' li-band-feature' : ''}`} ref={band}>
       <div className="cph-band-art" ref={art} style={{ backgroundImage: `url(${CPH(shot)})` }}></div>
       <div className="cph-veil cph-band-veil"></div>
       {tearTop && <CampTear image={tearTop} edge="top" ground={tearGroundTop} flip />}

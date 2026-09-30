@@ -3537,3 +3537,12 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
   .li-alinea-mark { height: 36px; }
   .li-alinea-word { height: 13px; }
 }
+
+/* the Camp Navarro band: the place and dates lead, so the kicker runs large and bright */
+.li-band-feature .cph-band-kicker {
+  font-size: clamp(15px, 1.9vw, 22px); font-weight: 600; letter-spacing: 0.2em;
+  color: #fff; text-shadow: 0 1px 4px rgba(8,16,11,0.7), 0 2px 26px rgba(8,16,11,0.75);
+}
+.li-band-feature .cph-band-inner { gap: 16px; }
+.li-band-feature .cph-band-label { font-size: clamp(28px, 3.6vw, 46px); }
+@media (max-width: 640px) { .li-band-feature .cph-band-kicker { letter-spacing: 0.14em; } }

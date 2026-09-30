@@ -675,7 +675,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampBand shot="tents" kicker="Camp Navarro · 15–18 October 2026" label="Where the work begins"
+    <LICampBand shot="tents" kicker="Camp Navarro · 15–18 October 2026" label="Where the work begins" featured
       cta={{ label: 'Visit the Camp Audax page', href: LI_JOIN_URL }}
       tearTop={ART.crest} tearGroundTop="var(--surface-parchment)"
       tear={ART.spray} tearGround="var(--surface-parchment)" rate={0.16} />
