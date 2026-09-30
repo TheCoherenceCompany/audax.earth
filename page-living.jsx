@@ -333,13 +333,13 @@ const LILogoBar = () => (
         </a>
       </div>
       <div className="cph-logobar-row li-logobar-row2">
-        <a className="cph-logobar-item" href="https://themetalayer.org" target="_blank" rel="noreferrer">
-          <img className="cph-logobar-mark-mli" src="assets/co-creators/metalayer-mark.png" alt="" />
-          <img className="cph-logobar-word-mli" src="assets/co-creators/metalayer-wordmark.png" alt="Meta-Layer Initiative" />
-        </a>
         <a className="cph-logobar-item li-logobar-alinea" href="https://alinea.institute" target="_blank" rel="noreferrer" aria-label="Alinea Institute">
           <img className="li-alinea-mark" src="assets/co-creators/alinea-mark.png" alt="" />
           <img className="li-alinea-word" src="assets/co-creators/alinea-word.png" alt="Alinea" />
+        </a>
+        <a className="cph-logobar-item" href="https://themetalayer.org" target="_blank" rel="noreferrer">
+          <img className="cph-logobar-mark-mli" src="assets/co-creators/metalayer-mark.png" alt="" />
+          <img className="cph-logobar-word-mli" src="assets/co-creators/metalayer-wordmark.png" alt="Meta-Layer Initiative" />
         </a>
       </div>
     </div>
