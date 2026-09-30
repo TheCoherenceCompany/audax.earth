@@ -540,10 +540,12 @@ const PageLiving = () => {
             </article>
           ))}
         </CampCascade>
-        <div className="q-body" style={{ maxWidth: 760, marginTop: 40 }}>
-          <p>People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere&rsquo;s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of Pavel Luksha&rsquo;s work on planetary adulthood, ties these threads together.</p>
-          <p>One idea from the wider conversation, sometimes called ecosystemic singularity, imagines the point where the whole living system, people, machines and biosphere included, begins to think together. Coevolution describes the road toward it.</p>
-        </div>
+        <CampAside flip shot="delta" alt="Aerial view of a river delta, its channels fanning out in bands of colour" ratio="1 / 1" style={{ marginTop: 40 }}>
+          <div className="q-body">
+            <p>People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere&rsquo;s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of Pavel Luksha&rsquo;s work on planetary adulthood, ties these threads together.</p>
+            <p>One idea from the wider conversation, sometimes called ecosystemic singularity, imagines the point where the whole living system, people, machines and biosphere included, begins to think together. Coevolution describes the road toward it.</p>
+          </div>
+        </CampAside>
       </div>
     </section>
 
