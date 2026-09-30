@@ -603,7 +603,7 @@ const PageLiving = () => {
     <CampJoinBand shot="carpet" pos="center 40%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
-      Three intelligences. <em>One shared future.</em>
+      Pull up a seat. <em>Shape what comes next.</em>
     </CampJoinBand>
 
     {/* ─── 08 · FROM PROPERTY TO BUILD ──────────────────────────────────── */}
