@@ -450,7 +450,7 @@ const PageLiving = () => {
 
         <CampKicker top={56} bottom={8}>What we are asking instead</CampKicker>
         <CampAside
-          shot="indoor" alt="Two women in conversation in a forest clearing" ratio="4 / 3" index="Plate I"
+          shot="indoor-plate" alt="Two people in conversation in a forest clearing" ratio="4 / 3" index="Plate I"
           caption="Slow questions, asked early."
           style={{ marginTop: 12 }}
         >
