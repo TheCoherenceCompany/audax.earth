@@ -1919,8 +1919,15 @@ const CampLogoBar = () => (
           <img className="cph-logobar-mark-ma" src="assets/co-creators/modern-ancients-mark.png" alt="" />
           <img className="cph-logobar-word-ma" src="assets/co-creators/modern-ancients-wordmark.png" alt="Modern Ancients" />
         </a>
-        {/* TODO: real destination URL — placeholder until we have it */}
-        <a className="cph-logobar-item" href="#" target="_blank" rel="noreferrer">
+      </div>
+      {/* Second line: Alinea, then Meta-Layer. Alinea's mark and word are separate files sized in
+          site.css (.li-alinea-*), lifted so ALINEA sits near the level of INITIATIVE. */}
+      <div className="cph-logobar-row li-logobar-row2">
+        <a className="cph-logobar-item li-logobar-alinea" href="https://alinea.institute" target="_blank" rel="noreferrer" aria-label="Alinea Institute">
+          <img className="li-alinea-mark" src="assets/co-creators/alinea-mark.png" alt="" />
+          <img className="li-alinea-word" src="assets/co-creators/alinea-word.png" alt="Alinea" />
+        </a>
+        <a className="cph-logobar-item" href="https://themetalayer.org" target="_blank" rel="noreferrer">
           <img className="cph-logobar-mark-mli" src="assets/co-creators/metalayer-mark.png" alt="" />
           <img className="cph-logobar-word-mli" src="assets/co-creators/metalayer-wordmark.png" alt="Meta-Layer Initiative" />
         </a>
