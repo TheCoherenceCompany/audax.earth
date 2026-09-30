@@ -586,11 +586,11 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <CampJoinBand shot="ceremony" pos="center 30%"
+    <LICampJoinBand
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
-    </CampJoinBand>
+    </LICampJoinBand>
 
     {/* ─── 08 · FROM PROPERTY TO BUILD ──────────────────────────────────── */}
     <section className="section" id="build" style={{ ...anchor, paddingBottom: 0, paddingTop: 24 }}>

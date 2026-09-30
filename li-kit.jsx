@@ -366,4 +366,49 @@ const LICampPersonaSlider = ({ profiles }) => {
   );
 };
 
-Object.assign(window, { LICampInk, LICampBand, LICampDiptych, LICampSignposts, LICampWhyCome, LICampPersonaSlider });
+/* The closing-style band with a photograph that is optional: with no `shot` it stays plain forest green. */
+const LICampJoinBand = ({ shot, children, note, tearTop, tearGroundTop, tear, tearGround, pos, size }) => {
+  const band = React.useRef(null);
+  const art = React.useRef(null);
+
+  React.useEffect(() => {
+    if (cphReduced()) return undefined;
+    let ticking = false;
+    const frame = () => {
+      ticking = false;
+      const el = band.current, a = art.current;
+      if (!el || !a) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const p = ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2);
+      a.style.transform = `translate3d(0,${(p * 0.08 * r.height).toFixed(1)}px,0)`;
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    frame();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  return (
+    <section className="cph-join" ref={band}>
+      {shot && <div className="cph-join-art" ref={art} style={{ backgroundImage: `url(${CPH(shot)})`, ...(pos ? { backgroundPosition: pos } : {}), ...(size ? { backgroundSize: size } : {}) }}></div>}
+      <div className="cph-join-scrim"></div>
+      {tearTop && <CampTear image={tearTop} edge="top" ground={tearGroundTop} flip />}
+      {tear && <CampTear image={tear} edge="bottom" ground={tearGround} />}
+      <div className="container cph-join-inner">
+        <h2 className="cph-join-line">{children}</h2>
+        <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(LI_JOIN_URL, '_blank')}>
+          {LI_CTA}
+        </Button>
+        {note && <p className="cph-join-note">{note}</p>}
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { LICampJoinBand, LICampInk, LICampBand, LICampDiptych, LICampSignposts, LICampWhyCome, LICampPersonaSlider });
