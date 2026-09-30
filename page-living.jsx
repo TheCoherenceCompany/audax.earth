@@ -112,7 +112,7 @@ const LI_QUESTIONS = [
 ];
 
 /* One photograph per question, chosen for the feeling of the question. */
-const LI_QUESTION_SHOTS = ['meadow', 'reading', 'shadow', 'forest-circle', 'hummingbird', 'mandala', 'owl', 'owl'];
+const LI_QUESTION_SHOTS = ['meadow', 'meadow', 'hummingbird', 'hummingbird', 'reading', 'reading', 'forest-circle', 'forest-circle'];
 const LI_QUESTION_ITEMS = LI_QUESTIONS.map((q, i) => ({ n: String(i + 1), shot: LI_QUESTION_SHOTS[i], title: q }));
 
 /* ─── The mark ───────────────────────────────────────────────────────────
