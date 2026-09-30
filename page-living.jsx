@@ -66,9 +66,9 @@ const LI_TRIAD = [
 ];
 
 const LI_PRECEDENT = [
-  { n: 'I', shot: 'joy', title: 'Regenerative timescales',
+  { n: 'I', shot: 'dome', title: 'Regenerative timescales',
     body: 'A global seed bank in Baja Sur, Mexico, has grown from desert into a garden of more than 3,000 species over twenty-five years. It grows on the scale of decades. Resilience earns its meaning when it is tested against timescales like this one.' },
-  { n: 'II', shot: 'canopy', title: 'Standing for other species',
+  { n: 'II', shot: 'hummingbird', title: 'Standing for other species',
     body: 'Nature Tech Collective brings together more than ninety organizations that track ecosystems and biodiversity with technology, and points toward an internet with other species in it. Taken seriously, that asks who controls a river’s sensor network, whether a community can leave a monitoring platform without losing its own history, and whether a biodiversity claim can be traced to its source.' },
   { n: 'III', shot: 'forest-circle', title: 'Polycentric stewardship',
     body: 'Networks like Fifth Fire, which works with sacred sites around the world, have long practice in spreading authority so that no single failure, or single funder’s withdrawal, brings the whole system down. The AI world calls this bounded authority and multiple centers of control. Stewardship traditions arrived there independently, and much earlier.' },
@@ -450,7 +450,7 @@ const PageLiving = () => {
 
         <CampKicker top={56} bottom={8}>What we are asking instead</CampKicker>
         <CampAside
-          shot="reading" alt="Someone reading beside the water" index="Plate I"
+          shot="indoor" alt="Two women in conversation in a forest clearing" ratio="4 / 3" index="Plate I"
           caption="Slow questions, asked early."
           style={{ marginTop: 12 }}
         >
@@ -600,7 +600,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <CampJoinBand shot="carpet" pos="center 40%"
+    <CampJoinBand shot="meadow" pos="center 58%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
