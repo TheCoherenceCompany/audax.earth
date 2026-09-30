@@ -69,7 +69,7 @@ const LICampBand = ({ shot, kicker, label, rate = 0.16, tear, tearTop, tearGroun
 
 /* ─── Pattern 04 · sticky diptych ────────────────────────────────────────
    One image pinned while the movements scroll past it. */
-const LICampDiptych = ({ items }) => {
+const LICampDiptych = ({ items, label = 'Example', compact }) => {
   const [active, setActive] = React.useState(0);
   const steps = React.useRef([]);
 
@@ -117,20 +117,20 @@ const LICampDiptych = ({ items }) => {
             className={`cph-shot${n === active ? ' on' : ''}`}
             style={{ backgroundImage: `url(${CPH(m.shot)})` }}
             role="img"
-            aria-label={`Example ${m.n} - ${m.title}`}
+            aria-label={`${label} ${m.n} - ${m.title}`}
           />
         ))}
       </div>
-      <div className="cph-steps" ref={col}>
+      <div className={`cph-steps${compact ? ' li-q-steps' : ''}`} ref={col}>
         {items.map((m, n) => (
           <div
             key={m.n}
             ref={el => { steps.current[n] = el; }}
             className={`cph-step${n === active ? ' on' : ''}`}
           >
-            <div className="n">Example {m.n}</div>
+            <div className="n">{label} {m.n}</div>
             <h4>{m.title}</h4>
-            <p>{m.body}</p>
+            {m.body && <p>{m.body}</p>}
           </div>
         ))}
       </div>

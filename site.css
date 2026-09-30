@@ -3546,3 +3546,9 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 .li-band-feature .cph-band-inner { gap: 16px; }
 .li-band-feature .cph-band-label { font-size: clamp(28px, 3.6vw, 46px); }
 @media (max-width: 640px) { .li-band-feature .cph-band-kicker { letter-spacing: 0.14em; } }
+
+/* questions section: eight short steps take the room five long ones had, so each is shorter and its type smaller */
+.cph-steps.li-q-steps .cph-step { min-height: 35vh; padding: 18px 0; }
+.cph-steps.li-q-steps .cph-step h4 { font-size: clamp(21px, 2.2vw, 29px); line-height: 1.2; letter-spacing: -0.018em; margin: 0; max-width: 24em; }
+.cph-steps.li-q-steps.cph-focus .cph-step h4 { font-size: calc(clamp(21px, 2.2vw, 29px) * (0.88 + var(--near, 1) * 0.12)); }
+@media (max-width: 900px) { .cph-steps.li-q-steps .cph-step { min-height: auto; padding: 16px 0; } }

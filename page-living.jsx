@@ -12,7 +12,7 @@ const LI_SECTIONS = [
   { id: 'relationship', label: 'The relationship',   mile: 'MI 0', icon: '◈' },
   { id: 'why',          label: 'Why',                mile: 'MI 1', icon: '◎' },
   { id: 'triad',        label: 'The triad',          mile: 'MI 2', icon: '◐' },
-  { id: 'precedent',    label: 'Living examples',    mile: 'MI 3', icon: '▲' },
+  { id: 'questions',    label: 'The questions',      mile: 'MI 3', icon: '▲' },
   { id: 'properties',   label: 'Desirable Properties', mile: 'MI 4', icon: '◇' },
   { id: 'field',        label: 'Weaving the field',  mile: 'MI 5', icon: '▣' },
   { id: 'join',         label: 'Join',               mile: 'MI 6', icon: '❖' }
@@ -65,19 +65,6 @@ const LI_TRIAD = [
   }
 ];
 
-const LI_PRECEDENT = [
-  { n: 'I', shot: 'meadow', title: 'Regenerative timescales',
-    body: 'A global seed bank in Baja Sur, Mexico, has grown from desert into a garden of more than 3,000 species over twenty-five years. It grows on the scale of decades. Resilience earns its meaning when it is tested against timescales like this one.' },
-  { n: 'II', shot: 'hummingbird', title: 'Standing for other species',
-    body: 'Nature Tech Collective brings together more than ninety organizations that track ecosystems and biodiversity with technology, and points toward an internet with other species in it. Taken seriously, that asks who controls a river’s sensor network, whether a community can leave a monitoring platform without losing its own history, and whether a biodiversity claim can be traced to its source.' },
-  { n: 'III', shot: 'forest-circle', title: 'Polycentric stewardship',
-    body: 'Networks like Fifth Fire, which works with sacred sites around the world, have long practice in spreading authority so that no single failure, or single funder’s withdrawal, brings the whole system down. The AI world calls this bounded authority and multiple centers of control. Stewardship traditions arrived there independently, and much earlier.' },
-  { n: 'IV', shot: 'shadow', title: 'Visible cost to the biosphere',
-    body: 'Ecological engineers already feed real data, from soil health to water tables to species counts, straight into technical systems. Doing it well raises the questions any information environment raises: whose data, collected under what consent, made visible to whom, and at what cost to the place it came from.' },
-  { n: 'V', shot: 'mandala', title: 'A bridge already in the room',
-    body: 'Mindaroo Foundation sits on the member list of the Pro-Human AI Coalition and describes its vision as a society that values all people and natural ecosystems. A bridge between the AI conversation and the living world already stands inside the room where AI’s future is being argued, ready to be crossed.' }
-];
-
 const LI_VALUE_PROPERTY = [
   ['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'],
   ['Accountability', 'Can anyone see who an agent represents, what authority it holds, and how to challenge what it does?'],
@@ -123,6 +110,10 @@ const LI_QUESTIONS = [
   'Who speaks for the places, species and future generations that cannot attend?',
   'What does an inspiring story about all three sound like, and who tells it?'
 ];
+
+/* One photograph per question, chosen for the feeling of the question. */
+const LI_QUESTION_SHOTS = ['hummingbird', 'reading', 'shadow', 'forest-circle', 'meadow', 'mandala', 'stone-sit', 'circle-above'];
+const LI_QUESTION_ITEMS = LI_QUESTIONS.map((q, i) => ({ n: String(i + 1), shot: LI_QUESTION_SHOTS[i], title: q }));
 
 /* ─── The mark ───────────────────────────────────────────────────────────
    Three circles, one overlap: biosphere, human, AI, and the lens where they meet. */
@@ -496,27 +487,22 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampBand shot="canopy" kicker="Living examples" label="The biosphere has been practicing these properties for a very long time"
+    <LICampBand shot="canopy" kicker="The questions we hold" label="Questions to carry into the redwoods"
       tearTop={ART.spray} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--li-dark-ground)" rate={0.18} />
 
-    {/* ─── 05 · LIVING PRECEDENT (dark ground) ──────────────────────────── */}
-    <section className="section li-dark li-precedent" id="precedent" style={{ ...anchor }}>
+    {/* ─── 05 · THE QUESTIONS WE HOLD (dark ground) ─────────────────────── */}
+    <section className="section li-dark li-precedent" id="questions" style={{ ...anchor }}>
       <div className="container">
         <LICampInk className="q-h1">
-          <span className="num">05 · Living examples</span>
-          The Biosphere&rsquo;s properties <em>start from practice.</em>
+          <span className="num">05 · The questions we hold</span>
+          Eight questions <em>for the week and beyond.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>The flourishing of the biosphere is easy to write into a list and hard to make specific. The risk lies in a line item taking the place of a relationship with people who already look after real places and species, and who would notice at once if a property were shallow. Five places to begin sit already inside this network&rsquo;s reach.</p>
+          <p>The program is co-created, which means you help finish it. Bring your questions, your needs, your projects and your proposals.{LI_TELEGRAM_URL && <> The conversation is already running in the <a href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--lichen-300)' }}>Telegram group</a>.</>}</p>
         </div>
 
-        <LICampDiptych items={LI_PRECEDENT} />
-
-        <div className="q-body" style={{ maxWidth: 760, marginTop: 44 }}>
-          <p>We would like them, and others like them, as co-authors of the Biosphere properties in the Desirable Properties.</p>
-        </div>
-        <CampQuote>The people already doing this work are <em>the authors we are looking for.</em></CampQuote>
+        <LICampDiptych items={LI_QUESTION_ITEMS} label="Question" compact />
       </div>
       <Mycelium seed={23} height={190} dark />
       <CampTear image={ART.crest} edge="bottom" ground="var(--surface-parchment)" deep />
@@ -688,22 +674,6 @@ const PageLiving = () => {
           <p>Join one of the next Camp Audax calls to meet the people involved and bring your questions. Pick whichever time suits you.</p>
         </div>
         <LILumaCarousel ids={LI_LUMA_EVENTS} />
-      </div>
-    </section>
-
-    {/* ─── 10 · THE QUESTIONS WE HOLD ───────────────────────────────────── */}
-    <section className="section" id="questions" style={{ ...anchor, paddingBottom: 0 }}>
-      <div className="container">
-        <LICampInk className="q-h1">
-          <span className="num">10 · The questions we hold</span>
-          Eight questions <em>for the week and beyond.</em>
-        </LICampInk>
-        <CampCascade as="ol" indent className="q-list" style={{ marginTop: 24 }}>
-          {LI_QUESTIONS.map(q => <li key={q}>{q}</li>)}
-        </CampCascade>
-        <div className="q-body" style={{ maxWidth: 760, marginTop: 32 }}>
-          <p>The program is co-created, which means you help finish it. Bring your questions, your needs, your projects and your proposals.{LI_TELEGRAM_URL && <> The conversation is already running in the <a href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>Telegram group</a>.</>}</p>
-        </div>
       </div>
     </section>
 
