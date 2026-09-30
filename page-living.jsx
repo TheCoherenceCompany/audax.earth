@@ -496,10 +496,10 @@ const PageLiving = () => {
       <div className="container">
         <LICampInk className="q-h1">
           <span className="num">05 · The questions we hold</span>
-          Eight questions <em>for the week and beyond.</em>
+          Questions that begin <em>our inquiry.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
-          <p>The program is co-created, which means you help finish it. Bring your questions, your needs, your projects and your proposals.{LI_TELEGRAM_URL && <> The conversation is already running in the <a href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--lichen-300)' }}>Telegram group</a>.</>}</p>
+          <p>These are the questions we start from. Each one is open, and each grows richer with more voices around it. As you read, notice which ones pull at you, then bring your own questions, needs, projects and proposals{LI_TELEGRAM_URL ? <> to the conversation already running in the <a href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--lichen-300)' }}>Telegram group</a></> : ' to the conversation'}.</p>
         </div>
 
         <LICampDiptych items={LI_QUESTION_ITEMS} label="Question" compact />
