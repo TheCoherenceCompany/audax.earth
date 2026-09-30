@@ -590,7 +590,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampJoinBand shot="wing-wide" pos="center 42%"
+    <LICampJoinBand shot="trail" pos="center 33%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
@@ -610,7 +610,7 @@ const PageLiving = () => {
 
         <CampKicker top={64} bottom={8}>Small loops first</CampKicker>
         <CampAside
-          shot="trail" alt="A sunlit dirt path through a forest"
+          shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings"
           caption="One small loop, then the next."
           style={{ marginTop: 12 }}
         >
