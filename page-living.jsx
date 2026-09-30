@@ -66,7 +66,7 @@ const LI_TRIAD = [
 ];
 
 const LI_PRECEDENT = [
-  { n: 'I', shot: 'path', title: 'Regenerative timescales',
+  { n: 'I', shot: 'crowd-white', title: 'Regenerative timescales',
     body: 'A global seed bank in Baja Sur, Mexico, has grown from desert into a garden of more than 3,000 species over twenty-five years. It grows on the scale of decades. Resilience earns its meaning when it is tested against timescales like this one.' },
   { n: 'II', shot: 'canopy', title: 'Standing for other species',
     body: 'Nature Tech Collective brings together more than ninety organizations that track ecosystems and biodiversity with technology, and points toward an internet with other species in it. Taken seriously, that asks who controls a river’s sensor network, whether a community can leave a monitoring platform without losing its own history, and whether a biodiversity claim can be traced to its source.' },
