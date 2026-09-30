@@ -487,7 +487,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampBand shot="canopy" kicker="Open to every voice" label="Curiosity to carry into the redwoods"
+    <LICampBand shot="canopy" kicker="Beneath the canopy" label="Wonder is where we begin"
       tearTop={ART.spray} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--li-dark-ground)" rate={0.18} />
 
