@@ -66,7 +66,7 @@ const LI_TRIAD = [
 ];
 
 const LI_PRECEDENT = [
-  { n: 'I', shot: 'dome', title: 'Regenerative timescales',
+  { n: 'I', shot: 'meadow', title: 'Regenerative timescales',
     body: 'A global seed bank in Baja Sur, Mexico, has grown from desert into a garden of more than 3,000 species over twenty-five years. It grows on the scale of decades. Resilience earns its meaning when it is tested against timescales like this one.' },
   { n: 'II', shot: 'hummingbird', title: 'Standing for other species',
     body: 'Nature Tech Collective brings together more than ninety organizations that track ecosystems and biodiversity with technology, and points toward an internet with other species in it. Taken seriously, that asks who controls a river’s sensor network, whether a community can leave a monitoring platform without losing its own history, and whether a biodiversity claim can be traced to its source.' },
@@ -600,7 +600,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <CampJoinBand shot="meadow" pos="center 58%"
+    <CampJoinBand shot="ceremony" pos="center 30%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
