@@ -671,7 +671,7 @@ const PageLiving = () => {
       tear={ART.spray} tearGround="var(--surface-parchment)" rate={0.16} />
 
     {/* ─── MEET US ON A CALL ────────────────────────────────────────────── */}
-    <section className="section-tight" id="calls" style={{ ...anchor, paddingTop: 56, paddingBottom: 0 }}>
+    <section className="section-tight" id="calls" style={{ ...anchor, paddingTop: 56, paddingBottom: 110 }}>
       <div className="container">
         <CampKicker bottom={8}>Meet us on a call</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
@@ -682,7 +682,7 @@ const PageLiving = () => {
     </section>
 
     {/* ─── JOIN ─────────────────────────────────────────────────────────── */}
-    <CampJoinBand shot="trail" pos="center 72%"
+    <CampJoinBand shot="trail" pos="center 50%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Coevolve <em>with us.</em>
