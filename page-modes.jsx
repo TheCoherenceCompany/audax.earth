@@ -88,7 +88,7 @@ const PageModes = ({ onNav }) => (
     <section className="hero" style={{ '--hero-image': `url(${HERO_MOD})`, minHeight: '92vh', alignItems: 'center' }}>
       <div className="hero-wash"></div>
       <div className="hero-fade"></div>
-      <div className="hero-vertical"><span>Three modes of organisational collaboration</span></div>
+      <div className="hero-vertical"><span>Three modes of organizational collaboration</span></div>
       <div className="container">
         <div className="hero-inner" style={{ maxWidth: 920 }}>
           <Eyebrow>The three modes</Eyebrow>
@@ -96,7 +96,7 @@ const PageModes = ({ onNav }) => (
             Who, or what, is<br /><em>collaborating now?</em>
           </h1>
           <p className="lede" style={{ maxWidth: 720 }}>
-            For most of organisational history, collaboration meant humans working with other humans.
+            For most of organizational history, collaboration meant humans working with other humans.
           </p>
           <p className="lede" style={{ maxWidth: 720, marginTop: 16 }}>
             That mode still matters. In fact, it matters more than ever. But the collaboration field has changed. Audax OS is designed for all three modes.
@@ -124,7 +124,7 @@ const PageModes = ({ onNav }) => (
         </h1>
         <div className="q-body">
           <p>A mode is a pattern of collaboration. It describes who or what is working together, and what kind of structure that collaboration requires.</p>
-          <p>The same work may move through all three modes. A person frames a mission with another person. A human asks an agent to research it. That agent asks another agent to analyse the data. A third agent drafts a summary. The team reviews. A human makes the judgment. The system records the learning.</p>
+          <p>The same work may move through all three modes. A person frames a mission with another person. A human asks an agent to research it. That agent asks another agent to analyze the data. A third agent drafts a summary. The team reviews. A human makes the judgment. The system records the learning.</p>
           <p className="lead">If the modes are not designed, <em>collaboration becomes fog.</em></p>
 
           <div className="def-split" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
@@ -204,11 +204,11 @@ const PageModes = ({ onNav }) => (
         shortDef: 'Human to Human is the foundational mode of collaboration: people working with people through trust, conversation, commitment, conflict, shared meaning, and mutual responsibility.',
         body: [
           'Human-to-human collaboration is the original operating system of our species.',
-          'Before organisations, before companies, before project boards, before agents, people gathered around shared needs and learned how to act together.',
+          'Before organizations, before companies, before project boards, before agents, people gathered around shared needs and learned how to act together.',
           'This mode does not disappear in the agentic age. It becomes more important.',
           'Because the more powerful our tools become, the more carefully we need to protect the human field of trust, judgment, care, courage, and meaning.',
           'Human-to-human collaboration is where purpose becomes felt. It is where trust is built. It is where conflict is repaired. It is where commitments become real because a person has made a promise to another person.',
-          'AI agents can support this mode beautifully. They can help people prepare for conversations. They can summarise meetings. They can remember agreements. They can translate across languages. They can surface tensions early. They can help teams reflect.',
+          'AI agents can support this mode beautifully. They can help people prepare for conversations. They can summarize meetings. They can remember agreements. They can translate across languages. They can surface tensions early. They can help teams reflect.',
           'But they should not replace the relational field. An agent can remind us of the promise. <strong>It cannot make the promise for us.</strong>',
           'Human-to-human collaboration needs to become more intentional, especially in distributed and fractional work. Trust can no longer depend on being in the same room. Belonging can no longer be left to office osmosis. Shared meaning can no longer hide inside founder telepathy. <em>It must be designed.</em>'
         ],
@@ -238,15 +238,15 @@ const PageModes = ({ onNav }) => (
         shortDef: 'Human to Agent is the mode where people collaborate directly with AI agents as assistants, guides, researchers, drafters, coordinators, memory-holders, and increasingly capable contributors.',
         body: [
           'Human-to-agent collaboration is the new daily frontier.',
-          'At first, this can look simple. Ask a question. Get an answer. Ask for a draft. Receive a draft. But inside organisations, this quickly becomes more serious.',
-          'Agents may handle sensitive context. They may draft public communications. They may shape strategic options. They may summarise meetings. They may remember commitments. They may prepare decisions. They may influence what people see, know, and prioritise.',
+          'At first, this can look simple. Ask a question. Get an answer. Ask for a draft. Receive a draft. But inside organizations, this quickly becomes more serious.',
+          'Agents may handle sensitive context. They may draft public communications. They may shape strategic options. They may summarize meetings. They may remember commitments. They may prepare decisions. They may influence what people see, know, and prioritize.',
           'That means human-to-agent collaboration requires design.',
           'Agents need role clarity before autonomy. They need to know: what is the mission? What context matters? What sources may be used? What can be changed? What must not be touched? What requires human judgment? Who is accountable?',
           'The same clarity that helps an agent also helps a human contributor. If a mission is clear enough for an agent to support, it is usually clearer for a new team member too.',
-          '<strong>This is the gift hidden inside the annoyance.</strong> AI agents force organisations to describe work, authority, context, purpose, and boundaries more clearly than they could get away with before.'
+          '<strong>This is the gift hidden inside the annoyance.</strong> AI agents force organizations to describe work, authority, context, purpose, and boundaries more clearly than they could get away with before.'
         ],
         holds: ['agent role cards', 'mission briefs', 'context packets', 'permissions', 'boundaries', 'decision rights', 'memory rules', 'output expectations', 'quality criteria', 'source requirements', 'feedback loops', 'escalation pathways', 'human accountability', 'audit trails'],
-        weak: ['agents produce plausible nonsense', 'humans overtrust outputs', 'private context leaks into the wrong place', 'work is delegated without accountability', 'agents imitate authority they do not have', 'people use agents to avoid judgment', 'quality becomes difficult to trace', 'organisations accelerate confusion'],
+        weak: ['agents produce plausible nonsense', 'humans overtrust outputs', 'private context leaks into the wrong place', 'work is delegated without accountability', 'agents imitate authority they do not have', 'people use agents to avoid judgment', 'quality becomes difficult to trace', 'organizations accelerate confusion'],
         adds: {
           name: 'Agent-Ready Work Protocols',
           body: 'The Agent-Ready Mission Canvas defines purpose, context, desired outcome, definition of done, available and forbidden sources, allowed and forbidden actions, output format, quality criteria, decision rights, human owner, escalation path, and memory rules. Agent Role Cards clarify what the agent may access, do, suggest, and never decide — including when it must ask a human.'
@@ -270,15 +270,15 @@ const PageModes = ({ onNav }) => (
         shortDef: 'Agent to Agent is the mode where AI agents coordinate with other AI agents across tasks, teams, workflows, memory, research, decisions, communication, and learning.',
         body: [
           'Agent-to-agent collaboration is the least mature mode. It may also become the most consequential.',
-          'At this level, agents do not simply respond to human prompts. They coordinate with one another. One agent gathers research. Another analyses it. Another checks sources. Another drafts a recommendation. Another updates a project context. Another notifies a team. Another notices a risk. Another asks a human to intervene.',
+          'At this level, agents do not simply respond to human prompts. They coordinate with one another. One agent gathers research. Another analyzes it. Another checks sources. Another drafts a recommendation. Another updates a project context. Another notifies a team. Another notices a risk. Another asks a human to intervene.',
           'This could be powerful. It could also become a fog machine with APIs.',
           'The danger is not that agents collaborate. The danger is that agents create operational reality faster than humans can understand it.',
           'If agents pass work between each other, alter priorities, update records, prepare decisions, or trigger workflows, humans need to be able to inspect what happened. Who did what? Based on what evidence? Under what authority? With what uncertainty? What changed?',
           'Agent-to-agent collaboration needs protocols before autonomy.',
-          'Without them, organisations risk creating a black-box bureaucracy: not command-and-control by managers, but command-and-control by invisible chains of automated delegation. <strong>We have enough bureaucracy already. No need to teach it to wear a neural cape.</strong>'
+          'Without them, organizations risk creating a black-box bureaucracy: not command-and-control by managers, but command-and-control by invisible chains of automated delegation. <strong>We have enough bureaucracy already. No need to teach it to wear a neural cape.</strong>'
         ],
         holds: ['agent identity', 'agent roles', 'capability registry', 'shared ontology of work', 'delegation contracts', 'handoff packets', 'source trails', 'provenance', 'audit logs', 'conflict detection', 'uncertainty reporting', 'permission boundaries', 'human escalation', 'interruption points', 'review cycles'],
-        weak: ['agents act beyond their mandate', 'context moves without consent', 'errors compound across chains', 'nobody knows why a decision was prepared', 'duplicated work multiplies', 'humans lose inspectability', 'accountability becomes diffuse', 'agents optimise locally against the wider purpose', 'the organisation becomes fast but less wise'],
+        weak: ['agents act beyond their mandate', 'context moves without consent', 'errors compound across chains', 'nobody knows why a decision was prepared', 'duplicated work multiplies', 'humans lose inspectability', 'accountability becomes diffuse', 'agents optimize locally against the wider purpose', 'the organization becomes fast but less wise'],
         adds: {
           name: 'Agent Collaboration Protocols',
           body: 'Every agent-to-agent chain includes clear agent identity, role declaration, task contract, permission boundary, source trail, handoff format, quality gate, conflict detection, failure state, escalation rule, human review point, and a narrative summary. Agents need machine-readable structures. Humans need human-readable decision stories. The principle: every important agent-to-agent chain should be able to say what happened, why, which agents were involved, what changed, and what needs human attention.'
@@ -296,7 +296,7 @@ const PageModes = ({ onNav }) => (
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 40 }}>
           <p>Each collaboration mode changes how the five spheres operate. The modes do not sit outside the spheres. They pass through them.</p>
-          <p>Human-to-human asks how people recognise value, organise work, hold relationships, learn together, and communicate clearly. Human-to-agent asks how people delegate, guide, review, and learn with agents. Agent-to-agent asks how agents coordinate across value, work, purpose, learning, and communication without becoming opaque.</p>
+          <p>Human-to-human asks how people recognize value, organize work, hold relationships, learn together, and communicate clearly. Human-to-agent asks how people delegate, guide, review, and learn with agents. Agent-to-agent asks how agents coordinate across value, work, purpose, learning, and communication without becoming opaque.</p>
         </div>
         <table className="mini-matrix">
           <thead>
@@ -315,7 +315,7 @@ const PageModes = ({ onNav }) => (
               <td>Multi-agent value ledger</td>
             </tr>
             <tr>
-              <th>Organisation of Work</th>
+              <th>Organization of Work</th>
               <td>Missions, cells, commitments</td>
               <td>Agent-ready <em>mission canvas</em></td>
               <td>Agent collaboration protocol</td>
@@ -380,13 +380,13 @@ const PageModes = ({ onNav }) => (
               <td>Team agent protocol</td>
             </tr>
             <tr>
-              <th>Organisation</th>
+              <th>Organization</th>
               <td>Governance, culture, strategy</td>
-              <td>Organisational <em>agent layer</em></td>
+              <td>Organizational <em>agent layer</em></td>
               <td>Agent governance system</td>
             </tr>
             <tr>
-              <th>Organisation Family</th>
+              <th>Organization Family</th>
               <td>Shared operating grammar</td>
               <td>Portable contribution <em>protocol</em></td>
               <td>Federated agent network</td>
@@ -395,7 +395,7 @@ const PageModes = ({ onNav }) => (
               <th>Ecosystem</th>
               <td>Coherence journey and partnership</td>
               <td>Ecosystem-facing <em>agent interface</em></td>
-              <td>Inter-organisational agent protocols</td>
+              <td>Inter-organizational agent protocols</td>
             </tr>
           </tbody>
         </table>
@@ -419,11 +419,11 @@ const PageModes = ({ onNav }) => (
             { n: '02', head: 'Coherence over speed', body: 'Fast incoherence is still incoherence. It just arrives with better formatting.' },
             { n: '03', head: 'Visibility over surveillance', body: 'People and agents need transparent work trails, not covert monitoring.' },
             { n: '04', head: 'Protocols before autonomy', body: 'Autonomy without boundaries becomes operational fog.' },
-            { n: '05', head: 'Purpose before optimisation', body: 'Agents should not optimise locally against the soul of the whole.' },
+            { n: '05', head: 'Purpose before optimization', body: 'Agents should not optimize locally against the soul of the whole.' },
             { n: '06', head: 'Human judgment for irreversible consequences', body: 'Important decisions require accountable human stewardship.' },
             { n: '07', head: 'Consent by architecture', body: 'Privacy, memory, data access, and sharing should be designed explicitly, not handled by vibes and a checkbox.' },
             { n: '08', head: 'Learning at every mode', body: 'Humans learn. Agents learn. Teams learn. Systems learn. Every mode should generate feedback.' },
-            { n: '09', head: 'Interoperability over platform capture', body: 'Audax OS should allow many tools, vendors, communities, and organisations to build with it.' },
+            { n: '09', head: 'Interoperability over platform capture', body: 'Audax OS should allow many tools, vendors, communities, and organizations to build with it.' },
             { n: '10', head: 'Care with teeth', body: 'Humane does not mean vague. The system should protect dignity and still help people deliver.' }
           ].map(p => (
             <div key={p.n} style={{
@@ -450,7 +450,7 @@ const PageModes = ({ onNav }) => (
           ))}
         </div>
 
-        <PullQuote>The point is not to automate the organisation. <em>The point is to make collaboration wiser.</em></PullQuote>
+        <PullQuote>The point is not to automate the organization. <em>The point is to make collaboration wiser.</em></PullQuote>
       </div>
     </section>
 
@@ -464,7 +464,7 @@ const PageModes = ({ onNav }) => (
           What protocols do <em>the modes require?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 56 }}>
-          <p>Modes become real through protocols. Without protocols, the three modes remain concepts. With protocols, they become usable patterns for work. A small team should be able to use a simple version. A complex organisation should be able to deepen it. The art is right-sized structure.</p>
+          <p>Modes become real through protocols. Without protocols, the three modes remain concepts. With protocols, they become usable patterns for work. A small team should be able to use a simple version. A complex organization should be able to deepen it. The art is right-sized structure.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
@@ -531,8 +531,8 @@ const PageModes = ({ onNav }) => (
           How do we know if <em>each mode is healthy?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 56 }}>
-          <p>Each mode needs diagnostics. Not to score people. Not to monitor behaviour. Not to create a dashboard panopticon with tasteful typography.</p>
-          <p>Diagnostics should help organisations sense whether collaboration is healthy, legible, accountable, and alive.</p>
+          <p>Each mode needs diagnostics. Not to score people. Not to monitor behavior. Not to create a dashboard panopticon with tasteful typography.</p>
+          <p>Diagnostics should help organizations sense whether collaboration is healthy, legible, accountable, and alive.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
@@ -544,7 +544,7 @@ const PageModes = ({ onNav }) => (
                 'Are commitments visible and realistic?',
                 'Is trust strong enough for truth?',
                 'Are conflict and repair possible?',
-                'Are contributions recognised fairly?',
+                'Are contributions recognized fairly?',
                 'Are meetings creating clarity or fog?',
                 'Are people learning through the work?'
               ]
@@ -612,7 +612,7 @@ const PageModes = ({ onNav }) => (
         </h1>
         <div className="q-body" style={{ maxWidth: 760 }}>
           <p>An operating system for agentic collaboration carries real risks. These are not hypothetical future risks. Several of them are already present in early deployments.</p>
-          <p className="lead">Audax OS should help organisations move forward <em>without becoming what they are trying to avoid.</em></p>
+          <p className="lead">Audax OS should help organizations move forward <em>without becoming what they are trying to avoid.</em></p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, margin: '48px 0' }}>
@@ -623,7 +623,7 @@ const PageModes = ({ onNav }) => (
             },
             {
               risk: 'Invisible agent authority',
-              desc: 'Agents accumulate operational influence without explicit permission. They shape what people see, know, and prioritise — without a declared role or a named human accountable for their outputs.'
+              desc: 'Agents accumulate operational influence without explicit permission. They shape what people see, know, and prioritize — without a declared role or a named human accountable for their outputs.'
             },
             {
               risk: 'Context leaking across boundaries',
@@ -642,8 +642,8 @@ const PageModes = ({ onNav }) => (
               desc: 'When agents collaborate with agents, and agents are managed by other agents, the human who is actually accountable for an outcome becomes impossible to identify. Nobody is wrong. The system did it.'
             },
             {
-              risk: 'Optimising locally against purpose',
-              desc: 'Agents optimise for measurable proxies rather than the deeper mission. Work gets done faster. The organisation becomes less coherent. The metrics improve while the meaning dissolves.'
+              risk: 'Optimizing locally against purpose',
+              desc: 'Agents optimize for measurable proxies rather than the deeper mission. Work gets done faster. The organization becomes less coherent. The metrics improve while the meaning dissolves.'
             },
             {
               risk: 'Using agents to avoid hard conversations',
@@ -678,8 +678,8 @@ const PageModes = ({ onNav }) => (
 
         <div className="q-body" style={{ maxWidth: 760 }}>
           <p>Audax OS is not designed to be paranoid about agents. It is designed to be clear-eyed.</p>
-          <p>The risks above do not require AI to be malicious. They only require organisations to be careless, rushed, or politically incentivised to avoid accountability.</p>
-          <p className="lead">The antidote to these risks is not less AI. <em>It is better organisational design.</em></p>
+          <p>The risks above do not require AI to be malicious. They only require organizations to be careless, rushed, or politically incentivized to avoid accountability.</p>
+          <p className="lead">The antidote to these risks is not less AI. <em>It is better organizational design.</em></p>
         </div>
       </div>
     </section>
@@ -708,7 +708,7 @@ const PageModes = ({ onNav }) => (
               Who is this<br /><em style={{ color: 'var(--forest-700)' }}>OS for?</em>
             </h2>
             <p style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.5, color: 'var(--ink-600)', margin: '0 0 32px', maxWidth: 480 }}>
-              Audax OS is designed for the people building, leading, and inhabiting the next generation of organisations. Founders, practitioners, investors, agents.
+              Audax OS is designed for the people building, leading, and inhabiting the next generation of organizations. Founders, practitioners, investors, agents.
             </p>
             <Button size="lg" icon="arrow-right" onClick={() => onNav('whofor')}>
               Explore Who For?
@@ -734,7 +734,7 @@ const PageModes = ({ onNav }) => (
 
     <CtaBand
       title="Help define the protocols<br />for <em>human–agent collaboration.</em>"
-      body="If you work with agents, build agent infrastructure, or design organisations for the agentic age — the protocols are still being written."
+      body="If you work with agents, build agent infrastructure, or design organizations for the agentic age — the protocols are still being written."
       onPrimary={() => window.open(JOIN_URL, '_blank')}
     />
   </>

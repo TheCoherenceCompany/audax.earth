@@ -28,7 +28,7 @@ const MatrixDiagram = () => {
   });
 
   // Layers — five equal isometric planes, vertically aligned
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerTint = ['#C8DBC9', '#E2EBDD', '#E2EBDD', '#F0F4EC', '#F0F4EC'];
   const lcx = 500,
     lcyBase = 314,
@@ -421,7 +421,7 @@ const LayersColDiagram = () => {
     hw = 90,
     hh = 22,
     step = 38;
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
   return /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 280 215",
@@ -580,7 +580,7 @@ const LayersDiagram = ({
     hw = 200,
     hh = 44,
     step = 78;
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerKeys = ['individual', 'team', 'org', 'family', 'ecosystem'];
   const layerNumerals = ['I', 'II', 'III', 'IV', 'V'];
   const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
@@ -594,7 +594,7 @@ const LayersDiagram = ({
     viewBox: "0 0 720 660",
     preserveAspectRatio: "xMidYMid meet",
     role: "img",
-    "aria-label": "Five layers of organisational scale"
+    "aria-label": "Five layers of organizational scale"
   }, /*#__PURE__*/React.createElement("text", {
     x: cx,
     y: 90,
@@ -667,12 +667,12 @@ const NestedCircles = ({
     dy: 0
   }, {
     key: 'family',
-    label: 'Organisation Family',
+    label: 'Organization Family',
     r: 256,
     dy: 0
   }, {
     key: 'org',
-    label: 'Organisation',
+    label: 'Organization',
     r: 192,
     dy: 0
   }, {
@@ -1132,7 +1132,7 @@ const SpheresOrbit = ({
     viewBox: "-340 -340 680 680",
     preserveAspectRatio: "xMidYMid meet",
     role: "img",
-    "aria-label": "Five spheres of organisational life"
+    "aria-label": "Five spheres of organizational life"
   }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("radialGradient", {
     id: "orbitGlow",
     cx: "50%",

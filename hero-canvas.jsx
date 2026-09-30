@@ -1,5 +1,5 @@
 /* Audax OS site · living-art landing hero
-   A self-organising node network (Game-of-Life rules) composited with a
+   A self-organizing node network (Game-of-Life rules) composited with a
    `difference` blend over a slow, drifting sumi-e wash (WebGL). The wash
    ignores the cursor; only the foreground network reacts. Falls back to a
    static gradient when prefers-reduced-motion is set, and pauses its render
@@ -29,10 +29,11 @@ const LivingHero = ({ children, minHeight = '92vh' }) => {
     if (gl) {
       const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
       const fs = 'precision highp float;uniform float u_time;uniform vec2 u_res;' +
-        'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
-        'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);' +
+        'float hash(vec2 p){vec3 p3=fract(vec3(p.xyx)*.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}' +
+        'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*f*(f*(f*6.-15.)+10.);' +
         'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
-        'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*noise(p);p*=2.0;a*=.5;}return v;}' +
+        'const mat2 R=mat2(0.8,0.6,-0.6,0.8);' +
+        'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=R*p*2.03+vec2(17.3,9.1);a*=.5;}return v/.96875;}' +
         'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;vec2 p=uv*vec2(3.2,4.2);' +
         'float t=u_time*0.14;' +
         'vec2 q=vec2(fbm(p+vec2(0.0,t)),fbm(p+vec2(3.1,-t*0.7)));' +
@@ -44,6 +45,7 @@ const LivingHero = ({ children, minHeight = '92vh' }) => {
         'col=mix(col,sage,smoothstep(0.3,0.62,band));' +
         'col=mix(col,mist,smoothstep(0.6,0.86,band));' +
         'col=mix(col,parch,smoothstep(0.86,1.0,band));' +
+        'col+=(hash(gl_FragCoord.xy)-0.5)/200.;' +
         'gl_FragColor=vec4(col,1.0);}';
       const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
       const prog = gl.createProgram();
@@ -154,6 +156,7 @@ const LivingHero = ({ children, minHeight = '92vh' }) => {
     <section ref={hostRef} className="living-hero" style={{ minHeight }}>
       <canvas ref={washRef} className="lh-wash"></canvas>
       <canvas ref={netRef} className="lh-net"></canvas>
+      <div className="lh-veil"></div>
       <div className="hero-fade"></div>
       <div className="container">{children}</div>
     </section>

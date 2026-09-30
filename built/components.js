@@ -199,7 +199,7 @@ const Footer = ({
   className: "footer-brand-text"
 }, "Audax OS"), /*#__PURE__*/React.createElement("div", {
   className: "footer-tagline"
-}, "An organisation OS for the agentic age."), /*#__PURE__*/React.createElement("a", {
+}, "An organization OS for the agentic age."), /*#__PURE__*/React.createElement("a", {
   href: JOIN_URL,
   target: "_blank",
   rel: "noreferrer",
@@ -215,7 +215,7 @@ const Footer = ({
   href: `#${p.key}`
 }, p.label)))), /*#__PURE__*/React.createElement("div", {
   className: "footer-bottom"
-}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 \xB7 Audax OS is an open organisation OS, stewarded by The Coherence Company."), /*#__PURE__*/React.createElement("span", null, "For humans and agents, in equal measure.")));
+}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 \xB7 Audax OS is an open organization OS, stewarded by The Coherence Company."), /*#__PURE__*/React.createElement("span", null, "For humans and agents, in equal measure.")));
 const Button = ({
   children,
   variant = 'primary',

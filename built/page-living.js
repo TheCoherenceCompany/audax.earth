@@ -663,7 +663,7 @@ const PageLiving = () => {
     className: "li-tri-q"
   }, "What should be true of the relationship between the biosphere, human beings and AI?"), /*#__PURE__*/React.createElement("p", {
     className: "li-tri-read"
-  }, "How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the centre holds the aim they serve together.")), /*#__PURE__*/React.createElement("div", {
+  }, "How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the center holds the aim they serve together.")), /*#__PURE__*/React.createElement("div", {
     className: "container li-triad-stage"
   }, /*#__PURE__*/React.createElement(TriadDiagram, null)), /*#__PURE__*/React.createElement("p", {
     className: "li-tri-note"
@@ -773,7 +773,7 @@ const PageLiving = () => {
   }, label)))), /*#__PURE__*/React.createElement(CampAside, {
     flip: true,
     shot: "delta",
-    alt: "Aerial view of a river delta, its channels fanning out in bands of colour",
+    alt: "Aerial view of a river delta, its channels fanning out in bands of color",
     ratio: "1 / 1",
     style: {
       marginTop: 40

@@ -1,7 +1,7 @@
 /* Audax OS site · Who For? page — full redesign
    17 question-led sections answering: who is this OS actually for?
    Each major audience gets a bespoke diagram. Hero is an animated
-   ecosystem of organisational species. */
+   ecosystem of organizational species. */
 
 const HERO_WHO = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
 
@@ -11,7 +11,7 @@ const SERIF = 'Instrument Serif, serif';
 const FOREST = '#1F4D2E', FOREST_MID = '#3F8657', LICHEN = '#9CBFA3';
 const INK = '#0E2419', MUTED = '#807D72';
 
-/* ─── 1 · HERO DIAGRAM ─ Animated ecosystem of organisational species ── */
+/* ─── 1 · HERO DIAGRAM ─ Animated ecosystem of organizational species ── */
 const EcosystemDiagram = () => {
   const [t, setT] = React.useState(0);
   React.useEffect(() => {
@@ -47,7 +47,7 @@ const EcosystemDiagram = () => {
 
   return (
     <div className="diagram-axes" style={{ maxWidth: 720, margin: '40px auto 0' }}>
-      <svg viewBox="-340 -340 680 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ecosystem of organisational species around Audax OS">
+      <svg viewBox="-340 -340 680 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ecosystem of organizational species around Audax OS">
         <defs>
           <radialGradient id="wf-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#E2EBDD" stopOpacity="0.55" />
@@ -498,7 +498,7 @@ const NestedConstellation = () => {
   const rings = [
     { r: 80,  label: 'Individual' },
     { r: 140, label: 'Team' },
-    { r: 200, label: 'Organisation' },
+    { r: 200, label: 'Organization' },
     { r: 260, label: 'Family' },
     { r: 320, label: 'Ecosystem' }
   ];
@@ -603,16 +603,16 @@ const NumQ = ({ n, kicker, children }) => (
 
 /* ─── AUDIENCE CARDS ──────────────────────────────────────────────────── */
 const AUDIENCES = [
-  { tag: 'Remote',     name: 'Remote-First Organisations', pain: 'Replacing office osmosis with intentional rhythm.', mod: 'Communication Architecture' },
+  { tag: 'Remote',     name: 'Remote-First Organizations', pain: 'Replacing office osmosis with intentional rhythm.', mod: 'Communication Architecture' },
   { tag: 'Fractional', name: 'Fractional Collaborations',  pain: 'People contributing across many contexts.',         mod: 'Contribution Ecology Ledger' },
-  { tag: 'Agentic',    name: 'Agentic Organisations',      pain: 'AI as first-class collaborators, not browser-tab tools.', mod: 'Agent Role Card' },
-  { tag: 'Starting',   name: 'New Organisation Starters',  pain: 'Better defaults from day one.',                     mod: 'Organisation Starter Canvas' },
+  { tag: 'Agentic',    name: 'Agentic Organizations',      pain: 'AI as first-class collaborators, not browser-tab tools.', mod: 'Agent Role Card' },
+  { tag: 'Starting',   name: 'New Organization Starters',  pain: 'Better defaults from day one.',                     mod: 'Organization Starter Canvas' },
   { tag: 'Startup',    name: 'Next-Generation Startups',   pain: 'Dynamic contribution, agents, fractional founders.', mod: 'Dynamic Contribution Ledger' },
   { tag: 'Mission',    name: 'Nonprofits & Purpose-Led',   pain: 'Clearer without becoming corporate.',               mod: 'Mission & Stakeholder Map' },
   { tag: 'Community',  name: 'Communities & Grassroots',   pain: 'Enough structure to act, not theatre.',             mod: 'Community Starter Canvas' },
   { tag: 'Student',    name: 'Student & Learning Groups',  pain: 'Continuity through annual turnover.',               mod: 'Student Continuity Kit' },
   { tag: 'DAO',        name: 'DAOs & Open Contribution',   pain: 'Counting contribution without gaming.',             mod: 'Contribution Ecology Ledger' },
-  { tag: 'Family',     name: 'Org Families & Studios',     pain: 'Shared grammar without forced sameness.',           mod: 'Organisation Family Map' },
+  { tag: 'Family',     name: 'Org Families & Studios',     pain: 'Shared grammar without forced sameness.',           mod: 'Organization Family Map' },
   { tag: 'Builder',    name: 'Tool & Agent Builders',      pain: 'A grammar to design products around.',              mod: 'Audax Object Model' },
   { tag: 'Designer',   name: 'Consultants & Org Designers',pain: 'Implementation, not only inspiration.',             mod: 'Diagnostic Wheel' }
 ];
@@ -654,9 +654,9 @@ const PageWhoFor = ({ onNav }) => (
     {/* ─── 2 · META-CATEGORY ───────────────────────────────────────────── */}
     <section id="whofor-intro" className="section manifesto">
       <div className="container">
-        <NumQ n="02" kicker="Meta-category">What counts as an <em>organisation?</em></NumQ>
+        <NumQ n="02" kicker="Meta-category">What counts as an <em>organization?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>An organisation is any group trying to coordinate around shared purpose, activity, and value. Most organisational tools were built around the company. The world is full of organisations that do not behave like one.</p>
+          <p>An organization is any group trying to coordinate around shared purpose, activity, and value. Most organizational tools were built around the company. The world is full of organizations that do not behave like one.</p>
           <p className="lead">The forms differ. <em>The operating questions rhyme.</em></p>
         </div>
         <div style={{ margin: '56px 0' }}>
@@ -672,12 +672,12 @@ const PageWhoFor = ({ onNav }) => (
         <NumQ n="03" kicker="Convergence">Why are so many different groups facing <em>the same problem?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
           <p>Three shifts are converging. Work has become distributed. Contribution has become fractional. Agents have entered the room.</p>
-          <p>The old organisational model was already struggling. Remote work exposed the cracks. Fractional work widened them. AI agents now make redesign unavoidable.</p>
+          <p>The old organizational model was already struggling. Remote work exposed the cracks. Fractional work widened them. AI agents now make redesign unavoidable.</p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <ConvergingForces />
         </div>
-        <PullQuote>The future organisation is not defined by its legal wrapper. <em>It is defined by how humans and agents coordinate.</em></PullQuote>
+        <PullQuote>The future organization is not defined by its legal wrapper. <em>It is defined by how humans and agents coordinate.</em></PullQuote>
       </div>
     </section>
 
@@ -716,8 +716,8 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="05" kicker="Remote-first">Are you remote-first but still running on <em>office assumptions?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>A physical office used to provide hidden coordination: noticing who was stressed, context in corridors, trust through small encounters. Remote-first organisations do not get this for free. They need to design it.</p>
-          <p>Without intentional structure, remote work becomes a strange soup of meetings, missing context, lonely contributors, and hidden overload. That is not remote work failing. <strong>That is underdesigned organisation.</strong></p>
+          <p>A physical office used to provide hidden coordination: noticing who was stressed, context in corridors, trust through small encounters. Remote-first organizations do not get this for free. They need to design it.</p>
+          <p>Without intentional structure, remote work becomes a strange soup of meetings, missing context, lonely contributors, and hidden overload. That is not remote work failing. <strong>That is underdesigned organization.</strong></p>
         </div>
         <div style={{ margin: '48px 0 32px' }}>
           <RemoteConstellation />
@@ -725,7 +725,7 @@ const PageWhoFor = ({ onNav }) => (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           <div style={{ background: 'var(--forest-050)', border: '1px solid var(--forest-200)', borderRadius: 14, padding: '28px 28px' }}>
             <h6 style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--forest-800)', margin: '0 0 16px' }}>What Audax OS helps remote teams see</h6>
-            {['what matters now', 'who is committed to what', 'where context lives', 'which decisions have been made', 'where people are overloaded', 'what agents can summarise & remember'].map(x => (
+            {['what matters now', 'who is committed to what', 'where context lives', 'which decisions have been made', 'where people are overloaded', 'what agents can summarize & remember'].map(x => (
               <div key={x} style={{ padding: '8px 0', borderBottom: '1px solid var(--forest-200)', fontSize: 14, color: 'var(--ink-800)' }}>· {x}</div>
             ))}
           </div>
@@ -736,7 +736,7 @@ const PageWhoFor = ({ onNav }) => (
             ))}
           </div>
         </div>
-        <PullQuote>Remote work does not remove the need for organisation. <em>It removes the illusion that organisation happens automatically.</em></PullQuote>
+        <PullQuote>Remote work does not remove the need for organization. <em>It removes the illusion that organization happens automatically.</em></PullQuote>
       </div>
     </section>
 
@@ -762,13 +762,13 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="07" kicker="Agentic">Are AI agents becoming <em>part of the work itself?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>A chatbot can survive a vague prompt. An organisational agent cannot. When agents support meetings, research, drafting, coordination, decisions, the organisation needs a new level of clarity: roles, access, authority, memory, escalation, accountability.</p>
+          <p>A chatbot can survive a vague prompt. An organizational agent cannot. When agents support meetings, research, drafting, coordination, decisions, the organization needs a new level of clarity: roles, access, authority, memory, escalation, accountability.</p>
           <p className="lead">Humans hold judgment, meaning, care, ethics, imagination, responsibility. <em>Agents extend memory, synthesis, coordination, patterns, translation, preparation.</em></p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <AgenticBoundary />
         </div>
-        <PullQuote>Agents need better organisational habitats, <em>not just better prompts.</em></PullQuote>
+        <PullQuote>Agents need better organizational habitats, <em>not just better prompts.</em></PullQuote>
       </div>
     </section>
 
@@ -777,13 +777,13 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="08" kicker="Starting">Are you starting something <em>before the operating system exists?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>Most new organisations start with a name, a logo, a WhatsApp group, a shared drive, a half-written strategy, and a faint hope that governance will somehow emerge politely after lunch. It usually does not.</p>
-          <p>Audax OS helps new organisation starters begin with better defaults. Not a giant system. A starter kit for organisational coherence.</p>
+          <p>Most new organizations start with a name, a logo, a WhatsApp group, a shared drive, a half-written strategy, and a faint hope that governance will somehow emerge politely after lunch. It usually does not.</p>
+          <p>Audax OS helps new organization starters begin with better defaults. Not a giant system. A starter kit for organizational coherence.</p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <SeedSapling />
         </div>
-        <PullQuote>Starting an organisation should not require heroic improvisation <em>and three years of avoidable confusion.</em></PullQuote>
+        <PullQuote>Starting an organization should not require heroic improvisation <em>and three years of avoidable confusion.</em></PullQuote>
       </div>
     </section>
 
@@ -814,7 +814,7 @@ const PageWhoFor = ({ onNav }) => (
             </div>
           ))}
         </div>
-        <PullQuote>The next startup advantage may not be only product speed. <em>It may be organisational coherence.</em></PullQuote>
+        <PullQuote>The next startup advantage may not be only product speed. <em>It may be organizational coherence.</em></PullQuote>
       </div>
     </section>
 
@@ -823,13 +823,13 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="10" kicker="Mission-led">Are you coordinating mission without <em>enough infrastructure?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>Nonprofits and purpose-led organisations often carry complex work with fragile infrastructure: staff, volunteers, donors, boards, partners, communities, campaigns, funders, reporting. High emotional load. Limited budgets. Shifting funding cycles.</p>
+          <p>Nonprofits and purpose-led organizations often carry complex work with fragile infrastructure: staff, volunteers, donors, boards, partners, communities, campaigns, funders, reporting. High emotional load. Limited budgets. Shifting funding cycles.</p>
           <p>Purpose-led work needs more than inspiration. <strong>It needs an operating system that protects the purpose from overload, drift, and informal power.</strong></p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, margin: '40px 0' }}>
           {[
             { h: 'What it helps see', items: ['what the mission currently requires', 'who is carrying which responsibilities', 'where volunteer energy is fading', 'what funders need to understand', 'where purpose is being stretched thin'] },
-            { h: 'Useful modules', items: ['Mission & Stakeholder Map', 'Volunteer Contribution Ledger', 'Programme Mission Canvas', 'Board–Staff Agreement', 'Impact Learning Loop', 'Agent-Assisted Reporting'] }
+            { h: 'Useful modules', items: ['Mission & Stakeholder Map', 'Volunteer Contribution Ledger', 'Program Mission Canvas', 'Board–Staff Agreement', 'Impact Learning Loop', 'Agent-Assisted Reporting'] }
           ].map((col, i) => (
             <div key={col.h} style={{ background: i ? 'var(--forest-050)' : 'var(--surface-white)', border: `1px solid ${i ? 'var(--forest-200)' : 'var(--border-1)'}`, borderRadius: 14, padding: '28px 28px' }}>
               <h6 style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: i ? 'var(--forest-800)' : 'var(--ink-500)', margin: '0 0 16px' }}>{col.h}</h6>
@@ -851,12 +851,12 @@ const PageWhoFor = ({ onNav }) => (
         <NumQ n="11" kicker="Communities">Are you a community that wants to do <em>more than gather?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
           <p>Communities often begin with belonging. That is beautiful. But when a community wants to act, it needs structure — not corporate structure, not heavy governance theatre, just enough coherence to turn shared energy into shared action.</p>
-          <p>Student groups especially need this. They are laboratories for the next generation of organising. But they suffer from fast turnover, weak continuity, lost knowledge, and structures that reset every year like <em>organisational amnesia with merch.</em></p>
+          <p>Student groups especially need this. They are laboratories for the next generation of organizing. But they suffer from fast turnover, weak continuity, lost knowledge, and structures that reset every year like <em>organizational amnesia with merch.</em></p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <CommunityFlow />
         </div>
-        <PullQuote>Community is not the opposite of organisation. <em>It is one of the oldest forms of it.</em></PullQuote>
+        <PullQuote>Community is not the opposite of organization. <em>It is one of the oldest forms of it.</em></PullQuote>
       </div>
     </section>
 
@@ -865,7 +865,7 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="12" kicker="Open contribution">Are you experimenting with <em>tokens, bounties, or dynamic ownership?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>DAOs and crypto communities have already explored many of the problems Audax OS cares about: bounties, reputation, treasury allocation, retroactive funding, peer recognition, decentralised governance. Slicing Pie offers a useful logic for early teams where people contribute at-risk before normal compensation is possible.</p>
+          <p>DAOs and crypto communities have already explored many of the problems Audax OS cares about: bounties, reputation, treasury allocation, retroactive funding, peer recognition, decentralized governance. Slicing Pie offers a useful logic for early teams where people contribute at-risk before normal compensation is possible.</p>
           <p>But these systems also reveal the hard truth: <strong>counting contribution is not enough.</strong> Someone must decide what counts. Someone must verify. Someone must handle disputes. Someone must prevent gaming. Someone must translate contribution into value without destroying trust.</p>
         </div>
         <div style={{ margin: '40px 0' }}>
@@ -882,7 +882,7 @@ const PageWhoFor = ({ onNav }) => (
       <div className="container">
         <NumQ n="13" kicker="Lineage">What comes after Teal <em>when agents enter the room?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>Audax OS sits in a lineage. Agile challenged rigid planning. Teal helped imagine self-management and evolutionary purpose. Deliberately Developmental Organisations placed human growth at the centre. Regenerative leadership reframed organisations as living systems. Slicing Pie and DAOs experimented with contribution accounting and open coordination.</p>
+          <p>Audax OS sits in a lineage. Agile challenged rigid planning. Teal helped imagine self-management and evolutionary purpose. Deliberately Developmental Organizations placed human growth at the center. Regenerative leadership reframed organizations as living systems. Slicing Pie and DAOs experimented with contribution accounting and open coordination.</p>
           <p className="lead">Audax OS should not discard the earlier wisdom. <em>It should compost it.</em></p>
         </div>
         <div style={{ margin: '48px 0' }}>
@@ -895,10 +895,10 @@ const PageWhoFor = ({ onNav }) => (
     {/* ─── 14 · ORG FAMILIES & ECOSYSTEMS ──────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <NumQ n="14" kicker="Constellations">Are you coordinating across <em>more than one organisation?</em></NumQ>
+        <NumQ n="14" kicker="Constellations">Are you coordinating across <em>more than one organization?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
-          <p>Some users of Audax OS will not be single organisations. They will be organisation families: a venture studio with several startups. A foundation supporting multiple initiatives. A regenerative network connecting land projects, communities, funders. A federation of local chapters. A field-building ecosystem.</p>
-          <p>The question shifts from <em>how does our team work?</em> to <em>how do multiple organisations share learning, talent, capital, infrastructure, trust, and agents while maintaining autonomy?</em></p>
+          <p>Some users of Audax OS will not be single organizations. They will be organization families: a venture studio with several startups. A foundation supporting multiple initiatives. A regenerative network connecting land projects, communities, funders. A federation of local chapters. A field-building ecosystem.</p>
+          <p>The question shifts from <em>how does our team work?</em> to <em>how do multiple organizations share learning, talent, capital, infrastructure, trust, and agents while maintaining autonomy?</em></p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <NestedConstellation />
@@ -910,7 +910,7 @@ const PageWhoFor = ({ onNav }) => (
     {/* ─── 15 · TOOL BUILDERS ──────────────────────────────────────────── */}
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
-        <NumQ n="15" kicker="Builders">Are you building tools <em>for the new organisation?</em></NumQ>
+        <NumQ n="15" kicker="Builders">Are you building tools <em>for the new organization?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
           <p>The problem is not tool scarcity. It is fragmentation. Tools do not share enough language around contribution, commitments, missions, decisions, learning, value, roles, permissions, and agents. Audax OS can give builders a shared grammar to design around.</p>
         </div>
@@ -926,9 +926,9 @@ const PageWhoFor = ({ onNav }) => (
     {/* ─── 16 · CONSULTANTS ────────────────────────────────────────────── */}
     <section className="section">
       <div className="container">
-        <NumQ n="16" kicker="Practitioners">Are you helping organisations <em>redesign themselves?</em></NumQ>
+        <NumQ n="16" kicker="Practitioners">Are you helping organizations <em>redesign themselves?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780, marginBottom: 40 }}>
-          <p>Audax OS is for consultants, facilitators, organisation designers, coaches, governance practitioners, and regenerative leadership practitioners. It gives a map across five spheres, five layers, and three modes — and practical objects to design with.</p>
+          <p>Audax OS is for consultants, facilitators, organization designers, coaches, governance practitioners, and regenerative leadership practitioners. It gives a map across five spheres, five layers, and three modes — and practical objects to design with.</p>
           <p>This helps practitioners move beyond inspiration into implementation. Not because inspiration is bad — but because inspiration without structure becomes <em>expensive incense.</em></p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, margin: '32px 0' }}>
@@ -950,7 +950,7 @@ const PageWhoFor = ({ onNav }) => (
             </div>
           ))}
         </div>
-        <PullQuote>The next organisation design practice must understand humans, agents, value, learning, governance, and tools <em>as one field.</em></PullQuote>
+        <PullQuote>The next organization design practice must understand humans, agents, value, learning, governance, and tools <em>as one field.</em></PullQuote>
       </div>
     </section>
 
@@ -960,8 +960,8 @@ const PageWhoFor = ({ onNav }) => (
         <NumQ n="17" kicker="The contributor">What about <em>the individual?</em></NumQ>
         <div className="q-body" style={{ maxWidth: 780 }}>
           <p>Audax OS is also for people trying to live inside the new world of work without becoming a scattered pile of obligations with a nice LinkedIn headline.</p>
-          <p>In fractional work, one person may hold commitments across many teams. They need visibility: what have I promised, where am I over capacity, what is paid, what is speculative, where am I under-recognised, where do I need to renegotiate before trust breaks.</p>
-          <p className="lead">This is not productivity optimisation. <em>It is livelihood clarity.</em></p>
+          <p>In fractional work, one person may hold commitments across many teams. They need visibility: what have I promised, where am I over capacity, what is paid, what is speculative, where am I under-recognized, where do I need to renegotiate before trust breaks.</p>
+          <p className="lead">This is not productivity optimization. <em>It is livelihood clarity.</em></p>
         </div>
         <div style={{ margin: '48px 0' }}>
           <PersonalCoherence />
@@ -971,8 +971,8 @@ const PageWhoFor = ({ onNav }) => (
     </section>
 
     <CtaBand
-      title="Help build the OS<br />for the <em>organisations that come next.</em>"
-      body="If you recognise yourself in any of these — come help write the protocols. The grammar is still being shaped."
+      title="Help build the OS<br />for the <em>organizations that come next.</em>"
+      body="If you recognize yourself in any of these — come help write the protocols. The grammar is still being shaped."
       primary="Join &amp; Build the OS"
       onPrimary={() => window.open(JOIN_URL, '_blank')}
     />

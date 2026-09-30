@@ -9,10 +9,10 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
    Alexander drew for the camp, redrawn in this site's palette with the Biosphere first.
    Lichen for the Biosphere, a warm clay for Human, sage mist for AI. Each circle lists the
    five orienting qualities from that figure; each pairwise overlap names what the two
-   share; the centre carries the aim. Hovering or focusing a set lifts its circle.
+   share; the center carries the aim. Hovering or focusing a set lifts its circle.
 
-   Geometry: three circles of radius 250 whose centres form an equilateral triangle
-   of side ~271, so the pairwise lenses and the triple centre all have room for text. */
+   Geometry: three circles of radius 250 whose centers form an equilateral triangle
+   of side ~271, so the pairwise lenses and the triple center all have room for text. */
 const TRI_R = 250;
 const TRI_C = {
   n: [500, 290],

@@ -22,7 +22,7 @@ const MatrixDiagram = () => {
   });
 
   // Layers — five equal isometric planes, vertically aligned
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerTint = ['#C8DBC9', '#E2EBDD', '#E2EBDD', '#F0F4EC', '#F0F4EC'];
   const lcx = 500, lcyBase = 314, lhw = 80, lvh = 27, ldy = 40;
 
@@ -197,7 +197,7 @@ const SpheresColDiagram = () => {
 const LayersColDiagram = () => {
   const MONO = 'JetBrains Mono, monospace';
   const cx = 140, cyBase = 195, hw = 90, hh = 22, step = 38;
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
   return (
     <svg viewBox="0 0 280 215" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
@@ -266,13 +266,13 @@ const LayersDiagram = ({ onSelect }) => {
   const MONO = 'JetBrains Mono, monospace';
   const SERIF = 'Instrument Serif, serif';
   const cx = 360, cyBase = 540, hw = 200, hh = 44, step = 78;
-  const layerNames = ['Individual', 'Team', 'Organisation', 'Family', 'Ecosystem'];
+  const layerNames = ['Individual', 'Team', 'Organization', 'Family', 'Ecosystem'];
   const layerKeys = ['individual', 'team', 'org', 'family', 'ecosystem'];
   const layerNumerals = ['I', 'II', 'III', 'IV', 'V'];
   const layerTints = ['#9CBFA3', '#AECFB5', '#C0D9C4', '#D4E7D7', '#E8F2E9'];
   return (
     <div className="diagram-axes" style={{ maxWidth: 700, margin: '48px auto' }}>
-      <svg viewBox="0 0 720 660" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five layers of organisational scale">
+      <svg viewBox="0 0 720 660" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five layers of organizational scale">
         <text x={cx} y={90} fontFamily={SERIF} fontSize="68" fill="#0E2419" textAnchor="middle">5</text>
         <text x={cx} y={128} fontFamily={MONO} fontSize="12" fill="#807D72" letterSpacing="0.24em" textAnchor="middle">LAYERS</text>
         {[4, 3, 2, 1, 0].map(i => {
@@ -304,8 +304,8 @@ const LayersDiagram = ({ onSelect }) => {
 const NestedCircles = ({ activeLayer = null }) => {
   const LAYERS = [
     { key: 'ecosystem',  label: 'Ecosystem',          r: 320, dy: 0 },
-    { key: 'family',     label: 'Organisation Family', r: 256, dy: 0 },
-    { key: 'org',        label: 'Organisation',        r: 192, dy: 0 },
+    { key: 'family',     label: 'Organization Family', r: 256, dy: 0 },
+    { key: 'org',        label: 'Organization',        r: 192, dy: 0 },
     { key: 'team',       label: 'Team',                r: 128, dy: 0 },
     { key: 'individual', label: 'Individual',          r: 64,  dy: 0 }
   ];
@@ -425,7 +425,7 @@ const ModesTriad = () => (
         {/* connector */}
         <line x1="178" y1="76" x2="502" y2="76" stroke="#2A6B3C" strokeWidth="1.4"
               markerEnd="url(#arr-hh-e)" markerStart="url(#arr-hh-s)" />
-        {/* centre label */}
+        {/* center label */}
         <rect x="278" y="62" width="124" height="26" rx="4" fill="#FBFAF3" />
         <text x="340" y="79" textAnchor="middle" fontFamily="JetBrains Mono, monospace"
               fontSize="10" fill="#2A6B3C" letterSpacing="0.2em">H ↔ H</text>
@@ -510,7 +510,7 @@ const SpheresOrbit = ({ onSelect }) => {
   const radius = 230;
   return (
     <div className="spheres-orbit">
-      <svg viewBox="-340 -340 680 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five spheres of organisational life">
+      <svg viewBox="-340 -340 680 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Five spheres of organizational life">
         <defs>
           <radialGradient id="orbitGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#E2EBDD" stopOpacity="0.7" />

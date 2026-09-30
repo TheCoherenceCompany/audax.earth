@@ -13,7 +13,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
    version, then promoted to the canonical `camp` route once it
    replaced that draft outright. Notable choices carried over from
    that rework:
-     1. "wiser" in the hero — Victor's stated centre of gravity was
+     1. "wiser" in the hero — Victor's stated center of gravity was
         "AI for a wiser society", not coordination alone.
      2. "The vanguard" as the first thing you leave with.
      3. The agent is one section, not three. It has a name (Sorrel),
@@ -29,7 +29,7 @@ const CTA_CAMP = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abst
 
 /* ─── Photography ────────────────────────────────────────────────────────
    Photographs from The Gathering 2024, in assets/photos/ as 1100–1500px
-   WebP. The watercolour washes stay on the OS pages: Audax OS is an
+   WebP. The watercolor washes stay on the OS pages: Audax OS is an
    abstraction and should look like one, Camp Audax is a place with mud
    and mosquitoes in it. Releases are held for the whole 2024 set. */
 const CPH = n => `assets/photos/${n}.webp`;
@@ -43,7 +43,7 @@ const GATHERING = /*#__PURE__*/React.createElement("a", {
 }, "The Gathering");
 
 /* ─── The Gathering's own brand ──────────────────────────────────────────
-   Their colours, not ours — used only where we are directly attributing
+   Their colors, not ours — used only where we are directly attributing
    them (the credit plaque, the pull-quote citing their own words), never
    bled into Camp Audax's forest palette elsewhere on the page. Values
    from their brand sheet: dark green #192F2B, olive #989B4B.
@@ -204,7 +204,7 @@ const CAMP_GATHERING_DNA = [['Co-creation', 'People and organizations hold real 
    of these are on it, and all four are what people will assume. */
 const CAMP_SHORTHAND = [['A festival for changemakers', 'A temporary village whose cells are communities and organizations. Camps carry representation and responsibility as well as atmosphere.'], ['An unconference', 'Participant-led sessions are in there. They sit inside a village, with camps, thresholds, ceremony and a continuity layer wrapped around them.'], ['A networking event', 'The unit is the camp you belong to for four days.'], ['A conference in a forest', 'Every camp is its own stage, and the camps are the program.']];
 
-/* Beyond our own camp, your ticket opens all of this. Programme detail is
+/* Beyond our own camp, your ticket opens all of this. Program detail is
    the host team's to confirm, so it stays at this altitude. */
 const CAMP_PROPERTY = ['20+ community-led camps', '100+ workshops, sessions and masterminds', 'Opening and closing ceremonies', 'Open space, where the agenda comes from the room', 'Fire circle conversations', 'Live music, art and shared meals', "The 'Origins' global peace celebration", '200 acres of redwood to walk, and permission to rest'];
 
@@ -226,7 +226,7 @@ const CAMP_QUESTIONS = ['How can AI help us build wiser organizations?', 'How ca
 
 /* `short` is second person and one line, because it is read in the
    self-select strip directly under the hero — where the only job is to
-   let someone recognise themselves before they are asked to read
+   let someone recognize themselves before they are asked to read
    anything. The long fields are for the slider in §03. */
 const CAMP_PROFILES = [{
   n: 'I',
@@ -596,7 +596,7 @@ const CAMP_FAQ = [['What is a Camp?', /*#__PURE__*/React.createElement(React.Fra
 /* ─── Sorrel's face ──────────────────────────────────────────────────────
    Redwood sorrel (Oxalis oregana) carpets the forest floor at Navarro and
    folds its three leaflets shut in direct sun, reopening in shade — which
-   is the behaviour we want from the agent, so it became the mark. */
+   is the behavior we want from the agent, so it became the mark. */
 const SorrelMark = ({
   size = 96,
   tone = 'var(--forest-700)'
@@ -641,7 +641,7 @@ const cphReduced = () => typeof window !== 'undefined' && window.matchMedia('(pr
 /* Split into characters for the typewriter reveal, keeping each word in
    an inline-block wrapper so words still wrap as units instead of
    breaking mid-word. Walks text nodes, so inline markup (the <em> in the
-   headline) survives with its colour intact. */
+   headline) survives with its color intact. */
 const cphSplit = el => {
   if (!el || el.dataset.cphSplit) return 0;
   let count = 0;
@@ -951,7 +951,7 @@ const useCampReveal = arm => {
 
 /* One word per inline-block, so words still wrap as units instead of
    breaking mid-word. Walks text nodes only, so the inline markup every
-   heading and quote relies on — the <em> carrying the accent colour and
+   heading and quote relies on — the <em> carrying the accent color and
    the italic — survives untouched.
 
    `pick` lets one call give different classes to different branches:
@@ -1119,8 +1119,8 @@ const useCampScrub = tick => {
 
 /* The two loops. The fading one comes apart as you pass it; the coherence
    one firms up and keeps turning. Writes two custom properties per item
-   and lets the CSS interpolate the colours from the palette tokens —
-   see the note in site.css for why the text colour is left alone. */
+   and lets the CSS interpolate the colors from the palette tokens —
+   see the note in site.css for why the text color is left alone. */
 const cphLoopsTick = {
   classes: ['cph-loops'],
   run: el => {
@@ -1334,7 +1334,7 @@ const CampGrain = () => {
 /* The sumi-e washes double as brush edges on this page: a photographic slab
    dissolves into the page ground through one of them rather than ending on a
    straight cut. `ground` must match the section on that side of the slab
-   (parchment unless the neighbour is a .manifesto section, which is white). */
+   (parchment unless the neighbor is a .manifesto section, which is white). */
 const CampTear = ({
   image,
   edge,
@@ -1534,7 +1534,7 @@ const CampNav = () => {
      immediately instead of only after the first scroll. */
   const [heroMarkVisible, setHeroMarkVisible] = React.useState(true);
   React.useEffect(() => {
-    // Initialise from the current position, don't wait for a scroll event:
+    // Initialize from the current position, don't wait for a scroll event:
     // a deep link lands already scrolled, and the bar's reversed lockup is
     // invisible against the parchment ground it gets once past the hero.
     const on = () => setScrolled(window.scrollY > 8);
@@ -1597,8 +1597,8 @@ const CampNav = () => {
    Photographic rather than typographic: it is the one device that
    carries the place instead of describing it, and the scrim is graded
    across rather than down so the type sits on the dark half while the
-   photograph stays legible on the other. Ember is the only colour on
-   it — see the token block in colors_and_type.css for why that colour
+   photograph stays legible on the other. Ember is the only color on
+   it — see the token block in colors_and_type.css for why that color
    appears nowhere else on the site.
 
    Parallax is CampBand's, at half its rate: this band is shorter, and

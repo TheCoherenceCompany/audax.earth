@@ -40,20 +40,20 @@ const PageWhy = ({
   }
 }, /*#__PURE__*/React.createElement(Eyebrow, null, "For the age of humans and agents"), /*#__PURE__*/React.createElement("h1", {
   className: "display lg"
-}, "How do we build ", /*#__PURE__*/React.createElement("em", null, "thriving", /*#__PURE__*/React.createElement("br", null), "organisations"), " in the age of", /*#__PURE__*/React.createElement("br", null), "humans and agents?"), /*#__PURE__*/React.createElement("p", {
+}, "How do we build ", /*#__PURE__*/React.createElement("em", null, "thriving", /*#__PURE__*/React.createElement("br", null), "organizations"), " in the age of", /*#__PURE__*/React.createElement("br", null), "humans and agents?"), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 700,
     marginBottom: 16
   }
-}, "The way we organise work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore."), /*#__PURE__*/React.createElement("p", {
+}, "The way we organize work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore."), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 700,
     fontStyle: 'italic',
     marginBottom: 40
   }
-}, "Audax OS is an open operating system for designing organisations where humans and AI agents work together coherently \u2014 across individuals, teams, organisations, organisation families, and ecosystems."), /*#__PURE__*/React.createElement("div", {
+}, "Audax OS is an open operating system for designing organizations where humans and AI agents work together coherently \u2014 across individuals, teams, organizations, organization families, and ecosystems."), /*#__PURE__*/React.createElement("div", {
   className: "hero-ctas"
 }, /*#__PURE__*/React.createElement(Button, {
   variant: "join",
@@ -62,10 +62,10 @@ const PageWhy = ({
   onClick: () => window.open(JOIN_URL, '_blank')
 }, "Join to co-create")))), /*#__PURE__*/React.createElement(Section, {
   n: "01 \xB7 The old model",
-  q: "Why can\u2019t the old organisation hold <em>the new work?</em>"
+  q: "Why can\u2019t the old organizational forms hold <em>the new work?</em>"
 }, /*#__PURE__*/React.createElement(ArtAside, {
   image: ART.orbHalf
-}, /*#__PURE__*/React.createElement("p", null, "Most organisations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organisation at a time."), /*#__PURE__*/React.createElement("p", null, "This model made sense when communication was slow, labour was physically concentrated, expertise was harder to access, and the organisation could be managed as a relatively stable machine.")), /*#__PURE__*/React.createElement("p", null, "But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyse, and act."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "Most organizations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organization at a time."), /*#__PURE__*/React.createElement("p", null, "This model made sense when communication was slow, labor was physically concentrated, expertise was harder to access, and the organization could be managed as a relatively stable machine."), /*#__PURE__*/React.createElement("p", null, "But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyze, and act.")), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "The old model is not simply inefficient. ", /*#__PURE__*/React.createElement("em", null, "It is misaligned"), " with the world now emerging."), /*#__PURE__*/React.createElement("div", {
   className: "contrast-grid",
@@ -74,9 +74,9 @@ const PageWhy = ({
   }
 }, /*#__PURE__*/React.createElement("div", {
   className: "contrast-col"
-}, /*#__PURE__*/React.createElement("h6", null, "Old organisation"), /*#__PURE__*/React.createElement("h3", null, "Designed for the office."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Fixed roles"), /*#__PURE__*/React.createElement("li", null, "Full-time employment as default"), /*#__PURE__*/React.createElement("li", null, "Office-based context"), /*#__PURE__*/React.createElement("li", null, "Departmental silos"), /*#__PURE__*/React.createElement("li", null, "Managerial supervision"), /*#__PURE__*/React.createElement("li", null, "Tasks and reporting"), /*#__PURE__*/React.createElement("li", null, "Culture as an HR function"), /*#__PURE__*/React.createElement("li", null, "AI as a tool added later"))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("h6", null, "Old organization"), /*#__PURE__*/React.createElement("h3", null, "Designed for the office."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Fixed roles"), /*#__PURE__*/React.createElement("li", null, "Full-time employment as default"), /*#__PURE__*/React.createElement("li", null, "Office-based context"), /*#__PURE__*/React.createElement("li", null, "Departmental silos"), /*#__PURE__*/React.createElement("li", null, "Managerial supervision"), /*#__PURE__*/React.createElement("li", null, "Tasks and reporting"), /*#__PURE__*/React.createElement("li", null, "Culture as an HR function"), /*#__PURE__*/React.createElement("li", null, "AI as a tool added later"))), /*#__PURE__*/React.createElement("div", {
   className: "contrast-col"
-}, /*#__PURE__*/React.createElement("h6", null, "Emerging organisation"), /*#__PURE__*/React.createElement("h3", null, "Designed for living systems."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Fluid contribution"), /*#__PURE__*/React.createElement("li", null, "Fractional participation"), /*#__PURE__*/React.createElement("li", null, "Distributed context"), /*#__PURE__*/React.createElement("li", null, "Mission-based cells"), /*#__PURE__*/React.createElement("li", null, "Shared accountability"), /*#__PURE__*/React.createElement("li", null, "Commitments and learning"), /*#__PURE__*/React.createElement("li", null, "Trust as infrastructure"), /*#__PURE__*/React.createElement("li", null, "AI agents as collaborators"))))), /*#__PURE__*/React.createElement(WashRule, {
+}, /*#__PURE__*/React.createElement("h6", null, "Emerging organization"), /*#__PURE__*/React.createElement("h3", null, "Designed for living systems."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Fluid contribution"), /*#__PURE__*/React.createElement("li", null, "Fractional participation"), /*#__PURE__*/React.createElement("li", null, "Distributed context"), /*#__PURE__*/React.createElement("li", null, "Mission-based cells"), /*#__PURE__*/React.createElement("li", null, "Shared accountability"), /*#__PURE__*/React.createElement("li", null, "Commitments and learning"), /*#__PURE__*/React.createElement("li", null, "Trust as infrastructure"), /*#__PURE__*/React.createElement("li", null, "AI agents as collaborators"))))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.spray,
   flip: true,
   from: "parchment",
@@ -87,7 +87,7 @@ const PageWhy = ({
   bg: "var(--surface-paper)"
 }, /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "AI is moving ", /*#__PURE__*/React.createElement("em", null, "from assistant to participant.")), /*#__PURE__*/React.createElement("p", null, "Agents can research, draft, synthesise, schedule, translate, analyse, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organisational memory."), /*#__PURE__*/React.createElement("p", null, "But agents cannot work well inside fog. They need:"), /*#__PURE__*/React.createElement("div", {
+}, "AI is moving ", /*#__PURE__*/React.createElement("em", null, "from assistant to participant.")), /*#__PURE__*/React.createElement("p", null, "Agents can research, draft, synthesize, schedule, translate, analyze, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organizational memory."), /*#__PURE__*/React.createElement("p", null, "But agents cannot work well inside fog. They need:"), /*#__PURE__*/React.createElement("div", {
   className: "protocol-grid"
 }, [['Context', '01'], ['Permission', '02'], ['Memory', '03'], ['Feedback', '04'], ['Escalation', '05'], ['Human judgment', '06']].map(([name, n]) => /*#__PURE__*/React.createElement("div", {
   key: name,
@@ -96,7 +96,7 @@ const PageWhy = ({
   className: "num"
 }, n), /*#__PURE__*/React.createElement("div", {
   className: "name"
-}, name)))), /*#__PURE__*/React.createElement("p", null, "This is the deeper shift. AI agents do not remove the need for organisational design. ", /*#__PURE__*/React.createElement("strong", null, "They make organisational design unavoidable.")), /*#__PURE__*/React.createElement("p", null, "The same clarity that helps an agent work well also helps a human work well. If a mission is clear enough for an agent to support, it is clearer for a new contributor too. If a decision right is explicit enough for an agent, it is easier for the team to trust. If purpose is operational enough to guide an agent, it is finally useful to humans as more than a sentence on a wall."), /*#__PURE__*/React.createElement(PullQuote, null, "AI agents make visible the ", /*#__PURE__*/React.createElement("em", null, "organisational design debt"), " we have been carrying for decades."), /*#__PURE__*/React.createElement("p", null, "Designing for agents may force us to design better for humans.")), /*#__PURE__*/React.createElement(WashRule, {
+}, name)))), /*#__PURE__*/React.createElement("p", null, "This is the deeper shift. AI agents do not remove the need for organizational design. ", /*#__PURE__*/React.createElement("strong", null, "They make organizational design unavoidable.")), /*#__PURE__*/React.createElement("p", null, "The same clarity that helps an agent work well also helps a human work well. If a mission is clear enough for an agent to support, it is clearer for a new contributor too. If a decision right is explicit enough for an agent, it is easier for the team to trust. If purpose is operational enough to guide an agent, it is finally useful to humans as more than a sentence on a wall."), /*#__PURE__*/React.createElement(PullQuote, null, "AI agents make visible the ", /*#__PURE__*/React.createElement("em", null, "organizational design debt"), " we have been carrying for decades."), /*#__PURE__*/React.createElement("p", null, "Designing for agents may force us to design better for humans.")), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.ribbons,
   tall: true,
   from: "paper",
@@ -133,7 +133,7 @@ const PageWhy = ({
   q: "Why should this be an <em>open OS</em>, not a platform?",
   bg: "var(--surface-paper)",
   narrow: true
-}, /*#__PURE__*/React.createElement("p", null, "No single platform should own the organisational OS of the agentic age."), /*#__PURE__*/React.createElement("p", null, "Audax OS is not being designed as one closed product that every organisation must adopt. The ambition is different."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "No single platform should own the organizational OS of the agentic age."), /*#__PURE__*/React.createElement("p", null, "Audax OS is not being designed as one closed product that every organization must adopt. The ambition is different."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "Audax OS should become a ", /*#__PURE__*/React.createElement("em", null, "shared operating system"), ": a language, architecture, and set of principles that many people can build with."), /*#__PURE__*/React.createElement("ul", {
   style: {
@@ -141,7 +141,7 @@ const PageWhy = ({
     padding: 0,
     margin: '24px 0 32px'
   }
-}, ['Organisation designers can use it.', 'AI builders can extend it.', 'Software vendors can implement it.', 'Consultancies can develop practices around it.', 'Communities can adapt it.', 'Organisations can test it.', 'Researchers can challenge it.'].map(x => /*#__PURE__*/React.createElement("li", {
+}, ['Organization designers can use it.', 'AI builders can extend it.', 'Software vendors can implement it.', 'Consultancies can develop practices around it.', 'Communities can adapt it.', 'Organizations can test it.', 'Researchers can challenge it.'].map(x => /*#__PURE__*/React.createElement("li", {
   key: x,
   style: {
     padding: '12px 0',
@@ -169,11 +169,11 @@ const PageWhy = ({
   className: "cta-band-inner"
 }, /*#__PURE__*/React.createElement(Eyebrow, {
   color: "var(--lichen-300)"
-}, "05 \xB7 Invitation"), /*#__PURE__*/React.createElement("h2", null, "Will you help shape the", /*#__PURE__*/React.createElement("br", null), "next ", /*#__PURE__*/React.createElement("em", null, "organisational OS?")), /*#__PURE__*/React.createElement("p", {
+}, "05 \xB7 Invitation"), /*#__PURE__*/React.createElement("h2", null, "Will you help shape the", /*#__PURE__*/React.createElement("br", null), "next ", /*#__PURE__*/React.createElement("em", null, "organizational OS?")), /*#__PURE__*/React.createElement("p", {
   style: {
     maxWidth: 600
   }
-}, "We are inviting organisation designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers, and serious operators to join the founding dialogue."), /*#__PURE__*/React.createElement("p", {
+}, "We are inviting organization designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers, and serious operators to join the founding dialogue."), /*#__PURE__*/React.createElement("p", {
   style: {
     fontFamily: 'var(--font-display)',
     fontSize: 'clamp(20px, 2vw, 28px)',
@@ -184,7 +184,7 @@ const PageWhy = ({
     margin: '0 auto 32px',
     lineHeight: 1.3
   }
-}, "What organisational operating system is worthy of humans and AI agents working together?"), /*#__PURE__*/React.createElement("p", {
+}, "What organizational operating system is worthy of humans and AI agents working together?"), /*#__PURE__*/React.createElement("p", {
   style: {
     marginBottom: 40,
     color: 'rgba(255,255,255,0.7)'

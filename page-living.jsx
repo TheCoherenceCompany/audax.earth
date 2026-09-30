@@ -463,7 +463,7 @@ const PageLiving = () => {
           Where the three meet, <em>a regenerative future grows.</em>
         </LICampInk>
         <p className="li-tri-q">What should be true of the relationship between the biosphere, human beings and AI?</p>
-        <p className="li-tri-read">How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the centre holds the aim they serve together.</p>
+        <p className="li-tri-read">How to read it: five qualities orient each circle, each overlap names what two intelligences share, and the center holds the aim they serve together.</p>
       </div>
       <div className="container li-triad-stage">
         <TriadDiagram />
@@ -526,7 +526,7 @@ const PageLiving = () => {
             </article>
           ))}
         </CampCascade>
-        <CampAside flip shot="delta" alt="Aerial view of a river delta, its channels fanning out in bands of colour" ratio="1 / 1" style={{ marginTop: 40 }}>
+        <CampAside flip shot="delta" alt="Aerial view of a river delta, its channels fanning out in bands of color" ratio="1 / 1" style={{ marginTop: 40 }}>
           <div className="q-body">
             <p>People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere&rsquo;s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of <a href="https://docs.google.com/document/d/150BbAGwigiNVx3-dYSZRuQ81tc2n5fQhZ9xWobTraa4/edit?usp=sharing" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>Pavel Luksha&rsquo;s work on planetary adulthood</a>, ties these threads together.</p>
             <p>One idea from the wider conversation, sometimes called ecosystemic singularity, imagines the point where the whole living system, people, machines and biosphere included, begins to think together. Coevolution describes the road toward it.</p>

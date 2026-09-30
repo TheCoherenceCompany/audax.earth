@@ -3,7 +3,7 @@
 const HERO_JOIN = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
 
 const ROLES = [
-  'Organisation designer',
+  'Organization designer',
   'Agentic AI builder',
   'Collaboration tool builder',
   'Researcher',
@@ -16,7 +16,7 @@ const ROLES = [
 const PageJoin = () => {
   const [form, setForm] = React.useState({
     name: '', email: '', org: '', site: '',
-    role: 'Organisation designer',
+    role: 'Organization designer',
     question: '', contribute: '', work: '', other: ''
   });
   const [submitted, setSubmitted] = React.useState(false);
@@ -40,7 +40,7 @@ const PageJoin = () => {
               Join to co-create.<br /><em>Help shape</em> Audax OS.
             </h1>
             <p className="lede">
-              We are convening organisation designers, agentic AI builders, and future-facing practitioners to explore the company OS needed for humans and agents working together.
+              We are convening organization designers, agentic AI builders, and future-facing practitioners to explore the company OS needed for humans and agents working together.
             </p>
           </div>
         </div>
@@ -51,16 +51,16 @@ const PageJoin = () => {
         <div className="container-narrow">
           <Eyebrow>The founding question</Eyebrow>
           <h2 className="display" style={{ marginBottom: 48 }}>
-            What organisational OS is <em>worthy</em><br />of humans and AI agents working together?
+            What organizational OS is <em>worthy</em><br />of humans and AI agents working together?
           </h2>
           <ol className="q-list">
             <li>How should humans and agents coordinate around purpose?</li>
-            <li>How should contribution and value be recognised?</li>
+            <li>How should contribution and value be recognized?</li>
             <li>How should agents participate without becoming supervisors?</li>
-            <li>How should organisations learn continuously?</li>
+            <li>How should organizations learn continuously?</li>
             <li>How should multiple vendors build around a shared OS?</li>
             <li>What protocols are needed for human–human, human–agent, and agent–agent collaboration?</li>
-            <li>How do we make humane organisations that still deliver?</li>
+            <li>How do we make humane organizations that still deliver?</li>
           </ol>
         </div>
       </section>
@@ -78,10 +78,10 @@ const PageJoin = () => {
           <div className="join-grid">
             {[
               ['01', 'Join a dialogue', 'For people exploring the core question. Closed-room conversations with practitioners across the field.'],
-              ['02', 'Contribute to the OS', 'For organisation designers, researchers, and practitioners shaping spheres, layers, and modes.'],
+              ['02', 'Contribute to the OS', 'For organization designers, researchers, and practitioners shaping spheres, layers, and modes.'],
               ['03', 'Build an implementation', 'For AI builders, toolmakers, vendors, and open-source teams. Build with the OS. Ship something real.'],
-              ['04', 'Bring a use case', 'For organisations experimenting with agentic, distributed, or fractional work. Be a case study.'],
-              ['05', 'Strategic partner', 'For aligned organisations, labs, networks, and funders willing to steward the OS.']
+              ['04', 'Bring a use case', 'For organizations experimenting with agentic, distributed, or fractional work. Be a case study.'],
+              ['05', 'Strategic partner', 'For aligned organizations, labs, networks, and funders willing to steward the OS.']
             ].map(([n, h, p]) => (
               <article key={n} className="join-card">
                 <div className="num">{n}</div>
@@ -145,7 +145,7 @@ const PageJoin = () => {
                 <input type="email" value={form.email} onChange={set('email')} placeholder="you@org.com" />
               </div>
               <div className="field">
-                <label>Organisation</label>
+                <label>Organization</label>
                 <input value={form.org} onChange={set('org')} placeholder="Where you work / belong" />
               </div>
               <div className="field">
@@ -194,7 +194,7 @@ const PageJoin = () => {
         <div className="container-narrow" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
           <Eyebrow color="var(--lichen-300)">A closing statement</Eyebrow>
           <h2 className="display" style={{ color: '#fff', fontSize: 'clamp(40px, 5vw, 72px)', marginBottom: 32 }}>
-            The old organisational OS is <em>creaking.</em>
+            The old organizational OS is <em>creaking.</em>
           </h2>
           <p style={{ fontSize: 19, fontWeight: 300, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 620, margin: '0 auto 40px' }}>
             The agentic age will not wait for perfect theory. We need to build the next OS through practice, dialogue, and serious experimentation.

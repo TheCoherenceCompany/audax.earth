@@ -164,7 +164,7 @@ const Footer = ({ onNav }) => (
       <div className="footer-brand">
         <Logo size={36} />
         <div className="footer-brand-text">Audax OS</div>
-        <div className="footer-tagline">An organisation OS for the agentic age.</div>
+        <div className="footer-tagline">An organization OS for the agentic age.</div>
         <a href={JOIN_URL} target="_blank" rel="noreferrer" className="footer-join-btn">Join &amp; Build the OS</a>
       </div>
       <div className="footer-col">
@@ -175,7 +175,7 @@ const Footer = ({ onNav }) => (
       </div>
     </div>
     <div className="footer-bottom">
-      <span>© 2026 · Audax OS is an open organisation OS, stewarded by The Coherence Company.</span>
+      <span>© 2026 · Audax OS is an open organization OS, stewarded by The Coherence Company.</span>
       <span>For humans and agents, in equal measure.</span>
     </div>
   </footer>
@@ -220,7 +220,7 @@ const CtaBand = ({ title, body, primary = 'Join to co-create', secondary = null,
       <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
       {body && <p>{body}</p>}
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-        {/* every CtaBand primary now opens the sign-up page, so it wears the one CTA colour */}
+        {/* every CtaBand primary now opens the sign-up page, so it wears the one CTA color */}
         <Button variant="join" onClick={onPrimary} icon="arrow-right">{primary}</Button>
         {secondary && <Button variant="ghost" onClick={onSecondary}>{secondary}</Button>}
       </div>

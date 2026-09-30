@@ -15,13 +15,13 @@ const SPHERES = [{
   n: 'I',
   key: 'value',
   name: 'Value Accounting',
-  q: 'How is contribution recognised and translated into value?',
+  q: 'How is contribution recognized and translated into value?',
   visible: ['contribution', 'risk', 'ownership', 'compensation', 'recognition', 'attribution', 'fairness', 'trust'],
   art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_144cfefb-78ad-48eb-a73c-6baaff85c98f_0.webp'
 }, {
   n: 'II',
   key: 'work',
-  name: 'Organisation of Work',
+  name: 'Organization of Work',
   q: 'How does purpose become action?',
   visible: ['purpose', 'principles', 'quests', 'missions', 'roles', 'commitments', 'tasks', 'evidence', 'delivery'],
   art: 'assets/accent-images/The_Gathering_httpss.mj.runUUrabdnEXiY_abstract_landscape_cal_c9bf6229-f6fd-4195-a3ed-3d795594174d_0.webp'
@@ -36,8 +36,8 @@ const SPHERES = [{
   n: 'IV',
   key: 'learn',
   name: 'Development & Learning',
-  q: 'How does the organisation become more intelligent over time?',
-  visible: ['individual learning', 'team learning', 'agent learning', 'organisational learning', 'reflection', 'adaptation', 'maturity', 'practice'],
+  q: 'How does the organization become more intelligent over time?',
+  visible: ['individual learning', 'team learning', 'agent learning', 'organizational learning', 'reflection', 'adaptation', 'maturity', 'practice'],
   art: 'assets/accent-images/The_Gathering_httpss.mj.runC6iJti0L-5Q_abstract_horizontal_ca_2aa5eb38-0f5a-4f05-88cf-543d975b0cb1_3.webp'
 }, {
   n: 'V',
@@ -137,7 +137,7 @@ const PageSpheres = ({
   className: "hero-fade"
 }), /*#__PURE__*/React.createElement("div", {
   className: "hero-vertical"
-}, /*#__PURE__*/React.createElement("span", null, "The living organs of an organisation")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("span", null, "The living organs of an organization")), /*#__PURE__*/React.createElement("div", {
   className: "container"
 }, /*#__PURE__*/React.createElement("div", {
   className: "hero-inner",
@@ -146,12 +146,12 @@ const PageSpheres = ({
   }
 }, /*#__PURE__*/React.createElement(Eyebrow, null, "The five spheres"), /*#__PURE__*/React.createElement("h1", {
   className: "display lg"
-}, "What does every healthy", /*#__PURE__*/React.createElement("br", null), "organisation ", /*#__PURE__*/React.createElement("em", null, "need to hold?")), /*#__PURE__*/React.createElement("p", {
+}, "What does every healthy", /*#__PURE__*/React.createElement("br", null), "organization ", /*#__PURE__*/React.createElement("em", null, "need to hold?")), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 720
   }
-}, "An organisation is not only a structure for assigning work. It is a living system of contribution, commitments, relationships, learning, communication, purpose, and value."), /*#__PURE__*/React.createElement("p", {
+}, "An organization is not only a structure for assigning work. It is a living system of contribution, commitments, relationships, learning, communication, purpose, and value."), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 720,
@@ -159,7 +159,7 @@ const PageSpheres = ({
     color: 'var(--ink-800)',
     marginTop: 16
   }
-}, "Every organisation already has these functions. The question is whether they are visible, coherent, and cared for \u2014 or scattered across tools, habits, meetings, spreadsheets, and heroic memory."), /*#__PURE__*/React.createElement("div", {
+}, "Every organization already has these functions. The question is whether they are visible, coherent, and cared for \u2014 or scattered across tools, habits, meetings, spreadsheets, and heroic memory."), /*#__PURE__*/React.createElement("div", {
   style: {
     marginTop: 48,
     marginBottom: 40
@@ -189,7 +189,7 @@ const PageSpheres = ({
   className: "num"
 }, "02 \xB7 Definition"), "What is a ", /*#__PURE__*/React.createElement("em", null, "sphere?")), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
-}, /*#__PURE__*/React.createElement("p", null, "A sphere is not a department. A department is a container in an organisation chart. A sphere is a living function of organisational life \u2014 something the organisation must continuously sense, maintain, improve, and integrate with everything else."), /*#__PURE__*/React.createElement("ul", {
+}, /*#__PURE__*/React.createElement("p", null, "A sphere is not a department. A department is a container in an organization chart. A sphere is a living function of organizational life \u2014 something the organization must continuously sense, maintain, improve, and integrate with everything else."), /*#__PURE__*/React.createElement("ul", {
   style: {
     listStyle: 'none',
     padding: 0,
@@ -212,13 +212,13 @@ const PageSpheres = ({
     color: 'var(--forest-700)',
     fontStyle: 'italic'
   }
-}, k), " ", v))), /*#__PURE__*/React.createElement("p", null, "Each sphere exists everywhere \u2014 inside individuals, inside teams, across the organisation, across related organisations, across ecosystems. The spheres describe ", /*#__PURE__*/React.createElement("strong", null, "what must be healthy."), " The layers describe ", /*#__PURE__*/React.createElement("strong", null, "where that health must show up.")), /*#__PURE__*/React.createElement("div", {
+}, k), " ", v))), /*#__PURE__*/React.createElement("p", null, "Each sphere exists everywhere \u2014 inside individuals, inside teams, across the organization, across related organizations, across ecosystems. The spheres describe ", /*#__PURE__*/React.createElement("strong", null, "what must be healthy."), " The layers describe ", /*#__PURE__*/React.createElement("strong", null, "where that health must show up.")), /*#__PURE__*/React.createElement("div", {
   className: "def-split"
 }, /*#__PURE__*/React.createElement("div", {
   className: "def-block"
-}, /*#__PURE__*/React.createElement("h6", null, "Sphere"), /*#__PURE__*/React.createElement("h3", null, "A living function."), /*#__PURE__*/React.createElement("p", null, "What every healthy organisation must care for.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("h6", null, "Sphere"), /*#__PURE__*/React.createElement("h3", null, "A living function."), /*#__PURE__*/React.createElement("p", null, "What every healthy organization must care for.")), /*#__PURE__*/React.createElement("div", {
   className: "def-block layer"
-}, /*#__PURE__*/React.createElement("h6", null, "Layer"), /*#__PURE__*/React.createElement("h3", null, "A scale of operation."), /*#__PURE__*/React.createElement("p", null, "Where that function operates \u2014 individual, team, organisation, family, ecosystem."))), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("h6", null, "Layer"), /*#__PURE__*/React.createElement("h3", null, "A scale of operation."), /*#__PURE__*/React.createElement("p", null, "Where that function operates \u2014 individual, team, organization, family, ecosystem."))), /*#__PURE__*/React.createElement("div", {
   className: "def-summary"
 }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
   className: "key"
@@ -232,16 +232,16 @@ const PageSpheres = ({
   className: "q-h1"
 }, /*#__PURE__*/React.createElement("span", {
   className: "num"
-}, "03 \xB7 Fragmentation"), "Why do organisations ", /*#__PURE__*/React.createElement("em", null, "fragment?")), /*#__PURE__*/React.createElement("div", {
+}, "03 \xB7 Fragmentation"), "Why do organizations ", /*#__PURE__*/React.createElement("em", null, "fragment?")), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
-}, /*#__PURE__*/React.createElement("p", null, "Most organisations already care about these domains, but they care for them separately. Finance thinks about compensation. Operations thinks about projects. HR thinks about people. Learning teams think about development. Marketing thinks about voice."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "Most organizations already care about these domains, but they care for them separately. Finance thinks about compensation. Operations thinks about projects. HR thinks about people. Learning teams think about development. Marketing thinks about voice."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "The problem is not that these areas exist. ", /*#__PURE__*/React.createElement("em", null, "The problem is that they are treated as separate worlds.")), /*#__PURE__*/React.createElement("p", null, "In real organisational life, they are deeply entangled. Nothing sits politely in one box for long.")), /*#__PURE__*/React.createElement("div", {
+}, "The problem is not that these areas exist. ", /*#__PURE__*/React.createElement("em", null, "The problem is that they are treated as separate worlds.")), /*#__PURE__*/React.createElement("p", null, "In real organizational life, they are deeply entangled. Nothing sits politely in one box for long.")), /*#__PURE__*/React.createElement("div", {
   className: "q-body",
   style: {
     marginTop: 32
   }
-}, /*#__PURE__*/React.createElement("p", null, "When the spheres are separated, the organisation begins to fragment. Values become posters. Goals become spreadsheets. Culture becomes an offsite. Learning becomes a benefit. Communication becomes marketing at the edge. ", /*#__PURE__*/React.createElement("strong", null, "Contribution becomes invisible.")), /*#__PURE__*/React.createElement("p", null, "Audax OS exists to bring the spheres back into relationship. Not to create bureaucracy. To create coherence.")), /*#__PURE__*/React.createElement(PullQuote, null, "A weak sphere does not stay isolated. ", /*#__PURE__*/React.createElement("em", null, "It leaks into the whole system.")))), /*#__PURE__*/React.createElement(WashRule, {
+}, /*#__PURE__*/React.createElement("p", null, "When the spheres are separated, the organization begins to fragment. Values become posters. Goals become spreadsheets. Culture becomes an offsite. Learning becomes a benefit. Communication becomes marketing at the edge. ", /*#__PURE__*/React.createElement("strong", null, "Contribution becomes invisible.")), /*#__PURE__*/React.createElement("p", null, "Audax OS exists to bring the spheres back into relationship. Not to create bureaucracy. To create coherence.")), /*#__PURE__*/React.createElement(PullQuote, null, "A weak sphere does not stay isolated. ", /*#__PURE__*/React.createElement("em", null, "It leaks into the whole system.")))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.tide,
   from: "parchment",
   to: "paper"
@@ -262,7 +262,7 @@ const PageSpheres = ({
     marginBottom: 56,
     maxWidth: 760
   }
-}, "Five core spheres of organisational life. Each answers a different question. Together, they create the horizontal architecture of a coherent organisation."), /*#__PURE__*/React.createElement("div", {
+}, "Five core spheres of organizational life. Each answers a different question. Together, they create the horizontal architecture of a coherent organization."), /*#__PURE__*/React.createElement("div", {
   className: "sphere-overview"
 }, SPHERES.map(s => /*#__PURE__*/React.createElement("article", {
   key: s.n,
@@ -307,14 +307,14 @@ const PageSpheres = ({
 }), /*#__PURE__*/React.createElement(SphereSection, {
   sphere: SPHERES[0],
   deep: {
-    q: 'How is contribution recognised and <em>translated into value?</em>',
+    q: 'How is contribution recognized and <em>translated into value?</em>',
     shortDef: 'Value Accounting makes contribution, risk, ownership, compensation, recognition, and value flow visible enough for trust to survive complexity.',
-    body: ['In a conventional organisation, value is hidden inside a simple container: a person has a job, the job has a salary, the salary implies contribution. Fractional, distributed, early-stage, and ecosystemic work break that container.', 'Someone gives time. Someone brings capital. Someone opens a relationship. Someone carries risk before money exists. Someone designs the architecture. Someone makes one strategic introduction that changes the entire future of the work.', 'If the organisation cannot see these contributions, it cannot honour them. And if it cannot honour them, <strong>trust begins to thin.</strong>', 'In the agentic age this becomes more important. Humans and agents will increasingly work together on the same outputs. The organisation must know who framed the work, who guided the agent, who judged quality, who carried responsibility, and what value was created.', 'The person who asks the right question, shapes the mission, and takes responsibility for the outcome must not disappear behind the agent that drafted the text.'],
+    body: ['In a conventional organization, value is hidden inside a simple container: a person has a job, the job has a salary, the salary implies contribution. Fractional, distributed, early-stage, and ecosystemic work break that container.', 'Someone gives time. Someone brings capital. Someone opens a relationship. Someone carries risk before money exists. Someone designs the architecture. Someone makes one strategic introduction that changes the entire future of the work.', 'If the organization cannot see these contributions, it cannot honor them. And if it cannot honor them, <strong>trust begins to thin.</strong>', 'In the agentic age this becomes more important. Humans and agents will increasingly work together on the same outputs. The organization must know who framed the work, who guided the agent, who judged quality, who carried responsibility, and what value was created.', 'The person who asks the right question, shapes the mission, and takes responsibility for the outcome must not disappear behind the agent that drafted the text.'],
     holds: ['contribution records', 'time and effort', 'strategic contribution', 'relationship contribution', 'capital contribution', 'creative contribution', 'care and coordination', 'risk taken', 'ownership agreements', 'payment agreements', 'credit and recognition', 'agent-assisted contribution', 'value review rituals'],
     weak: ['contribution becomes invisible', 'early contributors feel used', 'people remember agreements differently', 'resentment grows when money appears', 'ownership becomes political', 'care work disappears', 'agents make human contribution harder to attribute', 'trust is carried by goodwill alone'],
     adds: {
       name: 'A Contribution Ecology Ledger',
-      body: 'Transparent, human-sensitive recording of contribution across people, teams, organisations, and agents. Recognises quantitative contribution without pretending everything valuable can be measured. Includes review, interpretation, and dialogue. Not cold accounting. Living accounting.'
+      body: 'Transparent, human-sensitive recording of contribution across people, teams, organizations, and agents. Recognizes quantitative contribution without pretending everything valuable can be measured. Includes review, interpretation, and dialogue. Not cold accounting. Living accounting.'
     },
     pullQuote: 'Finance is administration. <em>Value Accounting is trust infrastructure.</em>'
   }
@@ -322,15 +322,15 @@ const PageSpheres = ({
   image: BAND_SPH_2,
   kicker: "Sphere II",
   numeral: "II",
-  label: "Organisation of Work",
+  label: "Organization of Work",
   tint: "paper"
 }), /*#__PURE__*/React.createElement(SphereSection, {
   sphere: SPHERES[1],
   deep: {
     bg: 'var(--surface-paper)',
     q: 'How does <em>purpose become action?</em>',
-    shortDef: 'Organisation of Work turns purpose into principles, quests, missions, commitments, delivery, and learning.',
-    body: ['Modern work is increasingly difficult to organise through static roles and long onboarding tunnels. People may only have a few hours to contribute. Teams may form around temporary missions. AI agents may support research, drafting, coordination, or delivery.', 'This means work must become more readable. A person should be able to see: what matters now, what the mission is, what help is needed, what the expected outcome is, what authority is required, what "done" would mean, and how contribution will be recognised.', 'The same is true for agents. Agents need clear context, constraints, permissions, output expectations, decision rights, and escalation pathways. If work is not clear enough for an agent to support, <strong>it is probably not clear enough for a new human contributor either.</strong>', 'That is the rude little gift of AI. It reveals where our work was already vague.', 'Audax OS proposes a work architecture built around a few simple objects: <em>Purpose</em> gives direction. <em>Principles</em> guide decisions. <em>Quests</em> define strategic arcs. <em>Missions</em> invite concrete contribution. <em>Cells</em> carry work together. <em>Commitments</em> make promises visible. <em>Learning loops</em> help the system improve.', 'The atomic unit is not the task. <strong>The atomic unit is the commitment.</strong> Tasks can be completed in isolation. Commitments create relationship, responsibility, and trust.'],
+    shortDef: 'Organization of Work turns purpose into principles, quests, missions, commitments, delivery, and learning.',
+    body: ['Modern work is increasingly difficult to organize through static roles and long onboarding tunnels. People may only have a few hours to contribute. Teams may form around temporary missions. AI agents may support research, drafting, coordination, or delivery.', 'This means work must become more readable. A person should be able to see: what matters now, what the mission is, what help is needed, what the expected outcome is, what authority is required, what "done" would mean, and how contribution will be recognized.', 'The same is true for agents. Agents need clear context, constraints, permissions, output expectations, decision rights, and escalation pathways. If work is not clear enough for an agent to support, <strong>it is probably not clear enough for a new human contributor either.</strong>', 'That is the rude little gift of AI. It reveals where our work was already vague.', 'Audax OS proposes a work architecture built around a few simple objects: <em>Purpose</em> gives direction. <em>Principles</em> guide decisions. <em>Quests</em> define strategic arcs. <em>Missions</em> invite concrete contribution. <em>Cells</em> carry work together. <em>Commitments</em> make promises visible. <em>Learning loops</em> help the system improve.', 'The atomic unit is not the task. <strong>The atomic unit is the commitment.</strong> Tasks can be completed in isolation. Commitments create relationship, responsibility, and trust.'],
     holds: ['purpose', 'principles', 'quests', 'missions', 'cells', 'roles', 'responsibilities', 'commitments', 'definitions of done', 'decision rights', 'dependencies', 'evidence of progress', 'delivery rhythms', 'learning outputs'],
     weak: ['people are busy but not aligned', 'new contributors cannot enter easily', 'missions become vague', 'tasks multiply without meaning', 'decisions stall', 'accountability becomes loose or controlling', 'agents produce confident nonsense because context is missing', 'teams confuse motion with progress'],
     adds: {
@@ -350,12 +350,12 @@ const PageSpheres = ({
   deep: {
     q: 'What holds <em>trust, belonging, meaning, and repair?</em>',
     shortDef: 'Human Relationship & Purpose makes trust, belonging, conflict, feedback, values, dignity, and shared direction part of the operating system.',
-    body: ['This is the sphere many organisations treat as optional. The "soft stuff." The offsite. The values workshop. The culture deck. The emotional weather people politely avoid until it becomes a storm.', 'In distributed, fractional, AI-native work, this mistake becomes expensive. People do not collaborate well when they feel unseen, unsupported, confused, replaceable, or disconnected from purpose.', 'Remote teams do not get trust for free. Fractional contributors do not get belonging by accident. <strong>AI agents do not understand values unless those values are made operational.</strong>', 'Purpose cannot remain a poetic sentence on a website. It must guide decisions, commitments, agent behaviour, value allocation, communication, and escalation. Relationship cannot remain private emotional labour carried by a few sensitive people in the corner. It must become visible, legitimate, and supported.', 'This does not mean turning the organisation into therapy software. It means recognising that <strong>trust is operational infrastructure.</strong>'],
+    body: ['This is the sphere many organizations treat as optional. The "soft stuff." The offsite. The values workshop. The culture deck. The emotional weather people politely avoid until it becomes a storm.', 'In distributed, fractional, AI-native work, this mistake becomes expensive. People do not collaborate well when they feel unseen, unsupported, confused, replaceable, or disconnected from purpose.', 'Remote teams do not get trust for free. Fractional contributors do not get belonging by accident. <strong>AI agents do not understand values unless those values are made operational.</strong>', 'Purpose cannot remain a poetic sentence on a website. It must guide decisions, commitments, agent behavior, value allocation, communication, and escalation. Relationship cannot remain private emotional labor carried by a few sensitive people in the corner. It must become visible, legitimate, and supported.', 'This does not mean turning the organization into therapy software. It means recognizing that <strong>trust is operational infrastructure.</strong>'],
     holds: ['purpose', 'values', 'belonging', 'trust rituals', 'onboarding conversations', 'relational agreements', 'conflict pathways', 'feedback practices', 'repair rituals', 'consent', 'psychological safety', 'dignity', 'emotional reality', 'human agency', 'boundaries for agents'],
-    weak: ['people drift from purpose', 'conflict goes underground', 'feedback becomes political', 'trust depends on charisma', 'new contributors remain peripheral', 'founders carry too much emotional load', 'agents optimise tasks without understanding relational consequences', 'the organisation delivers more while becoming less alive'],
+    weak: ['people drift from purpose', 'conflict goes underground', 'feedback becomes political', 'trust depends on charisma', 'new contributors remain peripheral', 'founders carry too much emotional load', 'agents optimize tasks without understanding relational consequences', 'the organization delivers more while becoming less alive'],
     adds: {
       name: 'A Relationship Operating Layer',
-      body: 'Explicit practices for purpose alignment, trust-building, feedback, conflict, repair, consent, and relational health. Agents can prepare conversations, remember agreements, summarise tensions, support reflection, notice when commitments are at risk. They keep the lantern lit. Humans still meet each other.'
+      body: 'Explicit practices for purpose alignment, trust-building, feedback, conflict, repair, consent, and relational health. Agents can prepare conversations, remember agreements, summarize tensions, support reflection, notice when commitments are at risk. They keep the lantern lit. Humans still meet each other.'
     },
     pullQuote: 'Trust is not soft. <em>It is load-bearing.</em>'
   }
@@ -369,16 +369,16 @@ const PageSpheres = ({
   sphere: SPHERES[3],
   deep: {
     bg: 'var(--surface-paper)',
-    q: 'How does the organisation become <em>more intelligent over time?</em>',
-    shortDef: 'Development & Learning helps people, teams, agents, organisations, and ecosystems grow through practice.',
-    body: ['A 21st-century organisation should not only deliver work. It should learn. People should grow through the work. Teams should become more capable over time. Agents should improve through feedback and correction. The organisation should notice patterns, update its practices, and become wiser through experience.', 'Most organisations say they value learning. Then they bury it under delivery pressure. Learning becomes a training budget, an abandoned course library, or a retrospective no one has time to act on.', 'Audax OS treats learning as <strong>metabolic.</strong> Every mission produces learning. Every failure is harvested. Every team improves its own operating system. Every person sees how their development connects with their contribution. Every agent improves through visible correction, not invisible drift.', 'The goal is not to design the perfect organisation from the beginning. That is a noble way to never start.', '<strong>The goal is to design an organisation that can improve itself.</strong> Perfection is brittle. Learning is adaptive.'],
-    holds: ['individual development', 'team reflection', 'retrospectives', 'learning harvests', 'practice libraries', 'agent feedback', 'organisational memory', 'experiments', 'diagnostics', 'maturity pathways', 'mentoring', 'peer learning', 'ecosystem learning'],
-    weak: ['mistakes repeat', 'reflection becomes performative', 'people grow outside the organisation, not through it', 'agents keep making the same errors', 'teams confuse busyness with maturity', 'institutional memory leaks away', 'good practices remain local and invisible', 'the organisation cannot adapt fast enough'],
+    q: 'How does the organization become <em>more intelligent over time?</em>',
+    shortDef: 'Development & Learning helps people, teams, agents, organizations, and ecosystems grow through practice.',
+    body: ['A 21st-century organization should not only deliver work. It should learn. People should grow through the work. Teams should become more capable over time. Agents should improve through feedback and correction. The organization should notice patterns, update its practices, and become wiser through experience.', 'Most organizations say they value learning. Then they bury it under delivery pressure. Learning becomes a training budget, an abandoned course library, or a retrospective no one has time to act on.', 'Audax OS treats learning as <strong>metabolic.</strong> Every mission produces learning. Every failure is harvested. Every team improves its own operating system. Every person sees how their development connects with their contribution. Every agent improves through visible correction, not invisible drift.', 'The goal is not to design the perfect organization from the beginning. That is a noble way to never start.', '<strong>The goal is to design an organization that can improve itself.</strong> Perfection is brittle. Learning is adaptive.'],
+    holds: ['individual development', 'team reflection', 'retrospectives', 'learning harvests', 'practice libraries', 'agent feedback', 'organizational memory', 'experiments', 'diagnostics', 'maturity pathways', 'mentoring', 'peer learning', 'ecosystem learning'],
+    weak: ['mistakes repeat', 'reflection becomes performative', 'people grow outside the organization, not through it', 'agents keep making the same errors', 'teams confuse busyness with maturity', 'institutional memory leaks away', 'good practices remain local and invisible', 'the organization cannot adapt fast enough'],
     adds: {
       name: 'A Learning Loop Inside Every Mission',
-      body: 'What did we intend? What happened? What did we learn? What should change? What should be remembered? What should be forgotten? What should an agent do differently next time? Learning is not an after-action report stored in a digital attic. It is how the organisation becomes alive to itself.'
+      body: 'What did we intend? What happened? What did we learn? What should change? What should be remembered? What should be forgotten? What should an agent do differently next time? Learning is not an after-action report stored in a digital attic. It is how the organization becomes alive to itself.'
     },
-    pullQuote: 'The aim is not a perfect organisation. <em>The aim is one that learns.</em>'
+    pullQuote: 'The aim is not a perfect organization. <em>The aim is one that learns.</em>'
   }
 }), /*#__PURE__*/React.createElement(ChapterBand, {
   image: BAND_SPH_5,
@@ -390,13 +390,13 @@ const PageSpheres = ({
   sphere: SPHERES[4],
   deep: {
     q: 'How does <em>context move</em> through the system?',
-    shortDef: 'Communication moves context, meaning, decisions, updates, signals, and public voice through the organisation and its ecosystem.',
-    body: ['Communication is often mistaken for channels. Slack. Email. Meetings. Docs. Newsletters. Dashboards. Social media.', 'But channels are not communication. They are pipes. The real question is whether <em>context moves.</em>', 'Do people understand what matters now? Do teams know what other teams are doing? Are decisions visible? Are commitments clear? Are tensions surfaced early? Can new contributors orient quickly? Can the organisation speak clearly to the world? Can agents summarise, translate, and route information without flattening meaning?', 'Distributed work does not survive on assumptions. AI-native work does not survive on untraceable context. Communication must become intentional.', '<strong>Not more messages. Better circulation.</strong> Communication is not marketing at the edge of the organisation. It is how the organisation knows itself and becomes knowable to others.'],
+    shortDef: 'Communication moves context, meaning, decisions, updates, signals, and public voice through the organization and its ecosystem.',
+    body: ['Communication is often mistaken for channels. Slack. Email. Meetings. Docs. Newsletters. Dashboards. Social media.', 'But channels are not communication. They are pipes. The real question is whether <em>context moves.</em>', 'Do people understand what matters now? Do teams know what other teams are doing? Are decisions visible? Are commitments clear? Are tensions surfaced early? Can new contributors orient quickly? Can the organization speak clearly to the world? Can agents summarize, translate, and route information without flattening meaning?', 'Distributed work does not survive on assumptions. AI-native work does not survive on untraceable context. Communication must become intentional.', '<strong>Not more messages. Better circulation.</strong> Communication is not marketing at the edge of the organization. It is how the organization knows itself and becomes knowable to others.'],
     holds: ['internal updates', 'decision logs', 'meeting rhythms', 'asynchronous communication', 'public narrative', 'ecosystem signals', 'agent summaries', 'context packets', 'onboarding communication', 'storytelling', 'language and tone', 'shared sensemaking', 'translation across contexts'],
-    weak: ['people drown in messages but lack meaning', 'decisions vanish into meetings', 'new contributors cannot orient', 'teams duplicate work', 'tensions surface too late', 'agents work from stale or partial context', 'the public cannot understand what the organisation is doing', 'communication becomes noise instead of circulation'],
+    weak: ['people drown in messages but lack meaning', 'decisions vanish into meetings', 'new contributors cannot orient', 'teams duplicate work', 'tensions surface too late', 'agents work from stale or partial context', 'the public cannot understand what the organization is doing', 'communication becomes noise instead of circulation'],
     adds: {
       name: 'A Communication Architecture',
-      body: 'What belongs in a meeting? What belongs in an async update? What belongs in a decision log? What belongs in a personal reflection? What belongs in a public note? What should an agent summarise? What requires a human voice? Agents help summarise, translate, draft, route. Humans remain responsible for meaning, tone, relationship, judgment.'
+      body: 'What belongs in a meeting? What belongs in an async update? What belongs in a decision log? What belongs in a personal reflection? What belongs in a public note? What should an agent summarize? What requires a human voice? Agents help summarize, translate, draft, route. Humans remain responsible for meaning, tone, relationship, judgment.'
     },
     pullQuote: 'No circulation. <em>No life.</em>'
   }
@@ -420,7 +420,7 @@ const PageSpheres = ({
   style: {
     marginTop: 32
   }
-}, /*#__PURE__*/React.createElement("p", null, "This is the deeper promise of Audax OS. It does not treat organisational health as a collection of disconnected parts. ", /*#__PURE__*/React.createElement("strong", null, "It helps the system see itself."))))), /*#__PURE__*/React.createElement("section", {
+}, /*#__PURE__*/React.createElement("p", null, "This is the deeper promise of Audax OS. It does not treat organizational health as a collection of disconnected parts. ", /*#__PURE__*/React.createElement("strong", null, "It helps the system see itself."))))), /*#__PURE__*/React.createElement("section", {
   className: "section"
 }, /*#__PURE__*/React.createElement("div", {
   className: "container"
@@ -428,13 +428,13 @@ const PageSpheres = ({
   className: "q-h1"
 }, /*#__PURE__*/React.createElement("span", {
   className: "num"
-}, "11 \xB7 Agentic age"), "How do the spheres change when ", /*#__PURE__*/React.createElement("em", null, "AI agents"), " enter the organisation?"), /*#__PURE__*/React.createElement("div", {
+}, "11 \xB7 Agentic age"), "How do the spheres change when ", /*#__PURE__*/React.createElement("em", null, "AI agents"), " enter the organization?"), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
 }, /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "AI agents do not create a separate sixth sphere. ", /*#__PURE__*/React.createElement("em", null, "They change every sphere.")), /*#__PURE__*/React.createElement("p", null, "In ", /*#__PURE__*/React.createElement("strong", null, "Value Accounting"), ", the organisation must understand human contribution, agent contribution, and human-agent contribution. In ", /*#__PURE__*/React.createElement("strong", null, "Organisation of Work"), ", missions must become clear enough for both humans and agents to support. In ", /*#__PURE__*/React.createElement("strong", null, "Human Relationship & Purpose"), ", agents must understand values, tone, relational boundaries, and when a human must step in."), /*#__PURE__*/React.createElement("p", null, "In ", /*#__PURE__*/React.createElement("strong", null, "Development & Learning"), ", agents must improve through feedback without drifting away from purpose or contaminating memory. In ", /*#__PURE__*/React.createElement("strong", null, "Communication"), ", agents must show what they know, what they assume, what they changed, and what requires human judgment."), /*#__PURE__*/React.createElement("p", null, "AI does not sit on top of the organisation. ", /*#__PURE__*/React.createElement("strong", null, "It enters the bloodstream.")), /*#__PURE__*/React.createElement("p", null, "If the spheres are incoherent, agents amplify incoherence. If the spheres are coherent, agents can help humans work with more clarity, memory, reflection, and care.")), /*#__PURE__*/React.createElement("table", {
+}, "AI agents do not create a separate sixth sphere. ", /*#__PURE__*/React.createElement("em", null, "They change every sphere.")), /*#__PURE__*/React.createElement("p", null, "In ", /*#__PURE__*/React.createElement("strong", null, "Value Accounting"), ", the organization must understand human contribution, agent contribution, and human-agent contribution. In ", /*#__PURE__*/React.createElement("strong", null, "Organization of Work"), ", missions must become clear enough for both humans and agents to support. In ", /*#__PURE__*/React.createElement("strong", null, "Human Relationship & Purpose"), ", agents must understand values, tone, relational boundaries, and when a human must step in."), /*#__PURE__*/React.createElement("p", null, "In ", /*#__PURE__*/React.createElement("strong", null, "Development & Learning"), ", agents must improve through feedback without drifting away from purpose or contaminating memory. In ", /*#__PURE__*/React.createElement("strong", null, "Communication"), ", agents must show what they know, what they assume, what they changed, and what requires human judgment."), /*#__PURE__*/React.createElement("p", null, "AI does not sit on top of the organization. ", /*#__PURE__*/React.createElement("strong", null, "It enters the bloodstream.")), /*#__PURE__*/React.createElement("p", null, "If the spheres are incoherent, agents amplify incoherence. If the spheres are coherent, agents can help humans work with more clarity, memory, reflection, and care.")), /*#__PURE__*/React.createElement("table", {
   className: "mini-matrix"
-}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Sphere"), /*#__PURE__*/React.createElement("th", null, "Human need"), /*#__PURE__*/React.createElement("th", null, "Agentic need"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Value Accounting"), /*#__PURE__*/React.createElement("td", null, "Fair recognition"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("em", null, "Attribution"), " and responsibility")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organisation of Work"), /*#__PURE__*/React.createElement("td", null, "Clear missions"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("em", null, "Agent-ready"), " mission briefs")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Relationship & Purpose"), /*#__PURE__*/React.createElement("td", null, "Trust and meaning"), /*#__PURE__*/React.createElement("td", null, "Values and ", /*#__PURE__*/React.createElement("em", null, "escalation"), " rules")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Development & Learning"), /*#__PURE__*/React.createElement("td", null, "Growth through work"), /*#__PURE__*/React.createElement("td", null, "Feedback and correction loops")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Communication"), /*#__PURE__*/React.createElement("td", null, "Context and sensemaking"), /*#__PURE__*/React.createElement("td", null, "Provenance and ", /*#__PURE__*/React.createElement("em", null, "uncertainty"))))), /*#__PURE__*/React.createElement(PullQuote, null, "Agents amplify the operating system ", /*#__PURE__*/React.createElement("em", null, "they enter.")))), /*#__PURE__*/React.createElement(WashRule, {
+}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Sphere"), /*#__PURE__*/React.createElement("th", null, "Human need"), /*#__PURE__*/React.createElement("th", null, "Agentic need"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Value Accounting"), /*#__PURE__*/React.createElement("td", null, "Fair recognition"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("em", null, "Attribution"), " and responsibility")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organization of Work"), /*#__PURE__*/React.createElement("td", null, "Clear missions"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("em", null, "Agent-ready"), " mission briefs")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Relationship & Purpose"), /*#__PURE__*/React.createElement("td", null, "Trust and meaning"), /*#__PURE__*/React.createElement("td", null, "Values and ", /*#__PURE__*/React.createElement("em", null, "escalation"), " rules")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Development & Learning"), /*#__PURE__*/React.createElement("td", null, "Growth through work"), /*#__PURE__*/React.createElement("td", null, "Feedback and correction loops")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Communication"), /*#__PURE__*/React.createElement("td", null, "Context and sensemaking"), /*#__PURE__*/React.createElement("td", null, "Provenance and ", /*#__PURE__*/React.createElement("em", null, "uncertainty"))))), /*#__PURE__*/React.createElement(PullQuote, null, "Agents amplify the operating system ", /*#__PURE__*/React.createElement("em", null, "they enter.")))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.thicket,
   from: "parchment",
   to: "paper"
@@ -449,11 +449,11 @@ const PageSpheres = ({
   className: "q-h1"
 }, /*#__PURE__*/React.createElement("span", {
   className: "num"
-}, "12 \xB7 Diagnostics"), "How can an organisation know ", /*#__PURE__*/React.createElement("em", null, "what needs attention?")), /*#__PURE__*/React.createElement("div", {
+}, "12 \xB7 Diagnostics"), "How can an organization know ", /*#__PURE__*/React.createElement("em", null, "what needs attention?")), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
-}, /*#__PURE__*/React.createElement("p", null, "Every organisation has stronger and weaker spheres. A team may be excellent at delivery but poor at learning. A founder group may have strong purpose but weak value agreements. A network may have rich relationships but unclear commitments."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "Every organization has stronger and weaker spheres. A team may be excellent at delivery but poor at learning. A founder group may have strong purpose but weak value agreements. A network may have rich relationships but unclear commitments."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "The point is not to judge the organisation. ", /*#__PURE__*/React.createElement("em", null, "The point is to see what is true.")), /*#__PURE__*/React.createElement("p", null, "Audax OS should help organisations avoid two traps: ", /*#__PURE__*/React.createElement("strong", null, "too little structure creates fog. Too much structure creates bureaucracy."), " The art is right-sized coherence.")), /*#__PURE__*/React.createElement("div", {
+}, "The point is not to judge the organization. ", /*#__PURE__*/React.createElement("em", null, "The point is to see what is true.")), /*#__PURE__*/React.createElement("p", null, "Audax OS should help organizations avoid two traps: ", /*#__PURE__*/React.createElement("strong", null, "too little structure creates fog. Too much structure creates bureaucracy."), " The art is right-sized coherence.")), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: '1fr 1.2fr',
@@ -467,7 +467,7 @@ const PageSpheres = ({
     gridTemplateColumns: '1fr 1fr',
     gap: 12
   }
-}, [['I', 'Value Accounting', 'Is contribution visible, fair, and reviewable?'], ['II', 'Organisation of Work', 'Can humans and agents understand what matters now and how to contribute?'], ['III', 'Relationship & Purpose', 'Is there enough trust, meaning, belonging, and repair to sustain collaboration?'], ['IV', 'Development & Learning', 'Does the organisation improve through experience?'], ['V', 'Communication', 'Does context move clearly through the system?']].map(([r, n, q]) => /*#__PURE__*/React.createElement("article", {
+}, [['I', 'Value Accounting', 'Is contribution visible, fair, and reviewable?'], ['II', 'Organization of Work', 'Can humans and agents understand what matters now and how to contribute?'], ['III', 'Relationship & Purpose', 'Is there enough trust, meaning, belonging, and repair to sustain collaboration?'], ['IV', 'Development & Learning', 'Does the organization improve through experience?'], ['V', 'Communication', 'Does context move clearly through the system?']].map(([r, n, q]) => /*#__PURE__*/React.createElement("article", {
   key: r,
   className: "diag-card"
 }, /*#__PURE__*/React.createElement("div", {
@@ -487,13 +487,13 @@ const PageSpheres = ({
   className: "num"
 }, "13 \xB7 Possibility"), "What becomes possible when the spheres are ", /*#__PURE__*/React.createElement("em", null, "coherent?")), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
-}, /*#__PURE__*/React.createElement("p", null, "When the spheres are coherent, the organisation becomes easier to enter, easier to trust, easier to contribute to, easier to learn from, and easier to evolve."), /*#__PURE__*/React.createElement("ul", {
+}, /*#__PURE__*/React.createElement("p", null, "When the spheres are coherent, the organization becomes easier to enter, easier to trust, easier to contribute to, easier to learn from, and easier to evolve."), /*#__PURE__*/React.createElement("ul", {
   style: {
     listStyle: 'none',
     padding: 0,
     margin: '32px 0'
   }
-}, ['A new contributor can see where they fit.', 'A team can see what needs attention.', 'A founder can see where the organisation is fragile.', 'An agent can understand what it may do and when to ask for help.', 'A partner can understand how to collaborate.', 'An ecosystem can begin to coordinate without central control.'].map(x => /*#__PURE__*/React.createElement("li", {
+}, ['A new contributor can see where they fit.', 'A team can see what needs attention.', 'A founder can see where the organization is fragile.', 'An agent can understand what it may do and when to ask for help.', 'A partner can understand how to collaborate.', 'An ecosystem can begin to coordinate without central control.'].map(x => /*#__PURE__*/React.createElement("li", {
   key: x,
   style: {
     padding: '14px 0',
@@ -505,7 +505,7 @@ const PageSpheres = ({
     color: 'var(--ink-900)',
     lineHeight: 1.25
   }
-}, x))), /*#__PURE__*/React.createElement("p", null, "This is not about creating one perfect structure. It is about creating a living architecture that helps people and agents ", /*#__PURE__*/React.createElement("strong", null, "participate with more clarity, dignity, and effectiveness.")), /*#__PURE__*/React.createElement("p", null, "Audax OS gives organisation designers and agentic AI builders a shared language for the real work ahead: making contribution visible, turning purpose into action, holding trust and repair, building learning into the work, and helping context circulate through the whole system.")), /*#__PURE__*/React.createElement(PullQuote, null, "Coherence is not control. ", /*#__PURE__*/React.createElement("em", null, "It is the capacity of a living system to act without losing itself.")))), /*#__PURE__*/React.createElement("section", {
+}, x))), /*#__PURE__*/React.createElement("p", null, "This is not about creating one perfect structure. It is about creating a living architecture that helps people and agents ", /*#__PURE__*/React.createElement("strong", null, "participate with more clarity, dignity, and effectiveness.")), /*#__PURE__*/React.createElement("p", null, "Audax OS gives organization designers and agentic AI builders a shared language for the real work ahead: making contribution visible, turning purpose into action, holding trust and repair, building learning into the work, and helping context circulate through the whole system.")), /*#__PURE__*/React.createElement(PullQuote, null, "Coherence is not control. ", /*#__PURE__*/React.createElement("em", null, "It is the capacity of a living system to act without losing itself.")))), /*#__PURE__*/React.createElement("section", {
   className: "cta-band",
   style: {
     '--cta-image': `url(${HERO_SPH})`
@@ -520,7 +520,7 @@ const PageSpheres = ({
   style: {
     maxWidth: 600
   }
-}, "The five spheres describe what every healthy organisation must care for. But every sphere operates at different scales. Value looks different for an individual than for an ecosystem. Communication looks different inside a team than across a family of organisations."), /*#__PURE__*/React.createElement("p", {
+}, "The five spheres describe what every healthy organization must care for. But every sphere operates at different scales. Value looks different for an individual than for an ecosystem. Communication looks different inside a team than across a family of organizations."), /*#__PURE__*/React.createElement("p", {
   style: {
     fontFamily: 'var(--font-display)',
     fontSize: 'clamp(18px, 1.8vw, 24px)',
@@ -530,7 +530,7 @@ const PageSpheres = ({
     margin: '0 auto 40px',
     lineHeight: 1.3
   }
-}, "That is why Audax OS also has five layers \u2014 individual, team, organisation, organisation family, ecosystem."), /*#__PURE__*/React.createElement("div", {
+}, "That is why Audax OS also has five layers \u2014 individual, team, organization, organization family, ecosystem."), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'flex',
     gap: 12,

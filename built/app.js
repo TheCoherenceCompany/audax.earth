@@ -44,7 +44,7 @@ const ROUTES = {
     view: p => /*#__PURE__*/React.createElement(PageLayers, p),
     nav: 'Layers',
     title: 'Layers — Audax OS',
-    description: 'The five vertical layers of Audax OS: Individual, Team, Organisation, Organisation Family, and Ecosystem.'
+    description: 'The five vertical layers of Audax OS: Individual, Team, Organization, Organization Family, and Ecosystem.'
   },
   modes: {
     view: p => /*#__PURE__*/React.createElement(PageModes, p),
@@ -56,7 +56,7 @@ const ROUTES = {
     view: p => /*#__PURE__*/React.createElement(PageWhoFor, p),
     nav: 'Who For?',
     title: 'Who For? — Audax OS',
-    description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organisations.'
+    description: 'Who Audax OS is designed to serve: global, remote, fractional, and human-AI organizations.'
   },
   camp: {
     view: p => /*#__PURE__*/React.createElement(PageCamp, p),
@@ -89,12 +89,12 @@ const ROUTES = {
     view: p => /*#__PURE__*/React.createElement(PageBuild, p),
     footer: "Let's Build the OS",
     title: "Let's Build the OS — Audax OS",
-    description: 'Join to co-create and help co-create the organisational OS for the agentic age.'
+    description: 'Join to co-create and help co-create the organizational OS for the agentic age.'
   },
   join: {
     view: p => /*#__PURE__*/React.createElement(PageJoin, p),
     title: 'Join — Audax OS',
-    description: 'Join to co-create on the organisational OS for the agentic age.'
+    description: 'Join to co-create on the organizational OS for the agentic age.'
   }
 };
 
@@ -177,7 +177,7 @@ const App = () => {
   // in-page jumps, a link from one page into a section of another, and a
   // deep link opened straight from the URL.
   //
-  // Two behaviours, and the difference is whether the page under the
+  // Two behaviors, and the difference is whether the page under the
   // target is settled. An in-page jump glides. A jump onto a page that
   // mounted this tick — a cold deep link, or #camp/<id> from the Sorrel
   // page — is landing on photographs that have not been sized yet, and a

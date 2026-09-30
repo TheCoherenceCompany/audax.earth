@@ -34,7 +34,7 @@ const PageMap = ({ onNav }) => (
           What Audax OS <em>is mapping</em>
         </h1>
         <p className="lede" style={{ maxWidth: 730, marginTop: 18 }}>
-          The shifts that changed how organisations work, what they made load-bearing, and the
+          The shifts that changed how organizations work, what they made load-bearing, and the
           architecture Audax OS proposes in response.
         </p>
         <p className="lede" style={{ maxWidth: 730, marginTop: 14, fontStyle: 'italic' }}>
@@ -51,7 +51,7 @@ const PageMap = ({ onNav }) => (
           What <em>changed?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>For most of the modern era, organisations were designed around one question. That question belonged to a world of factories, offices, departments, reporting lines, job descriptions, and managers who could see whether someone was at their desk.</p>
+          <p>For most of the modern era, organizations were designed around one question. That question belonged to a world of factories, offices, departments, reporting lines, job descriptions, and managers who could see whether someone was at their desk.</p>
           <p>The question no longer fits.</p>
         </div>
 
@@ -67,7 +67,7 @@ const PageMap = ({ onNav }) => (
         </div>
 
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>This is not a tools question. It is an operating system question. <strong>The organisation itself has become the design challenge.</strong></p>
+          <p>This is not a tools question. It is an operating system question. <strong>The organization itself has become the design challenge.</strong></p>
         </div>
       </div>
     </section>
@@ -76,12 +76,12 @@ const PageMap = ({ onNav }) => (
 
     {/* ─── 02 · REMOTE WORK ─────────────────────────────────────────────── */}
     <MapSection n="02 · Remote work" q="What did <em>remote work</em> reveal?" bg="var(--surface-paper)" narrow>
-      <p className="lead">Remote work did not fail. <em>Underdesigned organisations</em> failed remote work.</p>
-      <p>When work moved online, many organisations treated the shift as technical. Move meetings to Zoom. Move chat to Slack. Move documents to the cloud. Give everyone a laptop. Call it transformation.</p>
-      <p>But the office had been doing invisible organisational work. It carried ambient context. It made availability visible. It created informal learning. It allowed casual trust-building. It helped people overhear priorities, notice tension, and ask small questions before they became large problems.</p>
+      <p className="lead">Remote work did not fail. <em>Underdesigned organizations</em> failed remote work.</p>
+      <p>When work moved online, many organizations treated the shift as technical. Move meetings to Zoom. Move chat to Slack. Move documents to the cloud. Give everyone a laptop. Call it transformation.</p>
+      <p>But the office had been doing invisible organizational work. It carried ambient context. It made availability visible. It created informal learning. It allowed casual trust-building. It helped people overhear priorities, notice tension, and ask small questions before they became large problems.</p>
       <p>Distributed work removed that hidden coordination layer.</p>
       <p>Without redesign, context fragments. Trust thins. New people struggle to orient. Work becomes invisible. Managers panic. The calendar mutates into a swamp creature.</p>
-      <PullQuote>Distributed work requires <em>organisational design</em>, not just better tools.</PullQuote>
+      <PullQuote>Distributed work requires <em>organizational design</em>, not just better tools.</PullQuote>
       <p>Remote work was the first crack in the old operating system.</p>
     </MapSection>
 
@@ -92,9 +92,9 @@ const PageMap = ({ onNav }) => (
       <ArtAside image={ART.orbScript} flip>
         <p>The old bargain was simple enough: a person has a job. The job has a role. The role has a salary. The salary implies contribution. Imperfect, but stable.</p>
         <p className="lead"><em>Fractional work</em> breaks that container.</p>
-        <p>Someone may contribute ten hours one week and none the next. Another person may make one introduction that changes the future of the organisation. Someone else may offer early product thinking, design, facilitation, writing, capital, reputation, emotional labour, or strategic advice before cash exists.</p>
+        <p>Someone may contribute ten hours one week and none the next. Another person may make one introduction that changes the future of the organization. Someone else may offer early product thinking, design, facilitation, writing, capital, reputation, emotional labor, or strategic advice before cash exists.</p>
       </ArtAside>
-      <p>The old system struggles to see this. If contribution is invisible, trust becomes fragile. If risk is not acknowledged, resentment waits patiently in the basement. If value is only recognised through salary or equity, entire forms of contribution disappear.</p>
+      <p>The old system struggles to see this. If contribution is invisible, trust becomes fragile. If risk is not acknowledged, resentment waits patiently in the basement. If value is only recognized through salary or equity, entire forms of contribution disappear.</p>
 
       <div className="insight-grid" style={{ margin: '40px 0', gridTemplateColumns: 'repeat(5, 1fr)' }}>
         {[
@@ -111,15 +111,15 @@ const PageMap = ({ onNav }) => (
         ))}
       </div>
 
-      <p>Future organisations need better ways to recognise contribution without reducing people to metrics. Goodwill is beautiful. <strong>It is not an accounting system.</strong></p>
+      <p>Future organizations need better ways to recognize contribution without reducing people to metrics. Goodwill is beautiful. <strong>It is not an accounting system.</strong></p>
     </MapSection>
 
     {/* ─── 04 · THE HUMAN LAYER ─────────────────────────────────────────── */}
     <MapSection n="04 · The human layer" q="What becomes <em>load-bearing</em> now?" bg="var(--surface-paper)" narrow>
-      <p>Many organisations treat the human layer as decoration. Culture is an offsite. Purpose is a slide. Learning is a benefit. Communication is a channel. Trust is assumed until it breaks.</p>
+      <p>Many organizations treat the human layer as decoration. Culture is an offsite. Purpose is a slide. Learning is a benefit. Communication is a channel. Trust is assumed until it breaks.</p>
       <p>That no longer works.</p>
-      <p className="lead">In distributed, fractional, AI-native organisations, the human layer must <em>become part of the operating system.</em></p>
-      <p>People need to understand why they are here, what they can commit to, how decisions are made, how conflict is handled, how contribution is recognised, and how they can grow through the work.</p>
+      <p className="lead">In distributed, fractional, AI-native organizations, the human layer must <em>become part of the operating system.</em></p>
+      <p>People need to understand why they are here, what they can commit to, how decisions are made, how conflict is handled, how contribution is recognized, and how they can grow through the work.</p>
       <p>Agents need something parallel. If agents are going to act with increasing autonomy, they need more than tasks. They need values, tone, boundaries, permissions, purpose, and escalation rules.</p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, margin: '40px 0' }}>
@@ -128,7 +128,7 @@ const PageMap = ({ onNav }) => (
           ['Trust', 'must become visible.'],
           ['Learning', 'must become continuous.'],
           ['Communication', 'must become intentional.'],
-          ['Contribution', 'must become recognised.']
+          ['Contribution', 'must become recognized.']
         ].map(([k, v]) => (
           <div key={k} style={{
             padding: '20px 22px',
@@ -144,17 +144,17 @@ const PageMap = ({ onNav }) => (
         ))}
       </div>
 
-      <p>This is not about making organisations softer. <strong>It is about making them more alive and more capable.</strong></p>
+      <p>This is not about making organizations softer. <strong>It is about making them more alive and more capable.</strong></p>
 
-      <PullQuote>A humane organisation is not a loose one. It is a <em>coherent</em> one.</PullQuote>
+      <PullQuote>A humane organization is not a loose one. It is a <em>coherent</em> one.</PullQuote>
     </MapSection>
 
     <WashRule image={ART.crest} from="paper" to="parchment" />
 
     {/* ─── 05 · LIVING SYSTEMS ──────────────────────────────────────────── */}
-    <MapSection n="05 · Living systems" q="What if the organisation is <em>not a machine?</em>">
-      <p>The machine metaphor shaped modern management. Break work into parts. Optimise each part. Control the process. Measure output. Reduce variance. Scale the machine.</p>
-      <p>This logic created enormous productivity. It also created silos, bureaucracy, extraction, burnout, and organisations that struggle to adapt when the environment changes.</p>
+    <MapSection n="05 · Living systems" q="What if the organization is <em>not a machine?</em>">
+      <p>The machine metaphor shaped modern management. Break work into parts. Optimize each part. Control the process. Measure output. Reduce variance. Scale the machine.</p>
+      <p>This logic created enormous productivity. It also created silos, bureaucracy, extraction, burnout, and organizations that struggle to adapt when the environment changes.</p>
       <p className="lead">Living systems <em>work differently.</em></p>
 
       <div className="machine-living">
@@ -182,9 +182,9 @@ const PageMap = ({ onNav }) => (
         </div>
       </div>
 
-      <p>Living systems sense, adapt, learn, regenerate, organise through relationship, and maintain coherence without requiring total control.</p>
+      <p>Living systems sense, adapt, learn, regenerate, organize through relationship, and maintain coherence without requiring total control.</p>
       <p>Audax OS does not reject structure. Structure is essential. But the structure must <strong>serve life, learning, trust, contribution, and intelligent action.</strong></p>
-      <p>The future organisation cannot be a machine with a chatbot bolted on. It must become a living coordination system where humans and agents can sense, decide, act, learn, and evolve together.</p>
+      <p>The future organization cannot be a machine with a chatbot bolted on. It must become a living coordination system where humans and agents can sense, decide, act, learn, and evolve together.</p>
 
       <PullQuote>Bureaucracy is structure <em>without life.</em> Audax OS is structure <em>in service of life.</em></PullQuote>
     </MapSection>
@@ -199,7 +199,7 @@ const PageMap = ({ onNav }) => (
           What does Audax OS <em>propose?</em>
         </h1>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
-          <p>Audax OS proposes a shared architecture for coherent human-agent organisations. It brings together three dimensions of the next organisational operating system.</p>
+          <p>Audax OS proposes a shared architecture for coherent human-agent organizations. It brings together three dimensions of the next organizational operating system.</p>
         </div>
 
         <div className="fr-reveal">
@@ -208,10 +208,10 @@ const PageMap = ({ onNav }) => (
               <SpheresColDiagram />
               <div className="ax-num">5</div>
               <h4>Spheres</h4>
-              <div className="meta">What every organisation must care for</div>
+              <div className="meta">What every organization must care for</div>
               <ul>
                 <li>Value Accounting</li>
-                <li>Organisation of Work</li>
+                <li>Organization of Work</li>
                 <li>Human Relationship &amp; Purpose</li>
                 <li>Development &amp; Learning</li>
                 <li>Communication</li>
@@ -226,8 +226,8 @@ const PageMap = ({ onNav }) => (
               <ul>
                 <li>Individual</li>
                 <li>Team</li>
-                <li>Organisation</li>
-                <li>Organisation Family</li>
+                <li>Organization</li>
+                <li>Organization Family</li>
                 <li>Ecosystem</li>
               </ul>
               <Button variant="ghost" icon="arrow-right" onClick={() => onNav('layers')}>Open the Layers</Button>
@@ -248,7 +248,7 @@ const PageMap = ({ onNav }) => (
         </div>
 
         <div className="q-body" style={{ maxWidth: 760, marginTop: 40 }}>
-          <p>Together, these create a <strong>living matrix</strong> for designing organisations that can coordinate contribution, work, trust, learning, communication, and value across human and agentic systems.</p>
+          <p>Together, these create a <strong>living matrix</strong> for designing organizations that can coordinate contribution, work, trust, learning, communication, and value across human and agentic systems.</p>
           <p>Each is a piece of the map, and each is still being drawn.</p>
         </div>
       </div>
@@ -257,7 +257,7 @@ const PageMap = ({ onNav }) => (
     {/* ─── CLOSE ────────────────────────────────────────────────────────── */}
     <CtaBand
       title="This is an invitation to a<br /><em>shared inquiry</em>."
-      body="We have starting questions rather than finished answers. We know this area matters, and we know it needs the best people and organisations in the world working on it."
+      body="We have starting questions rather than finished answers. We know this area matters, and we know it needs the best people and organizations in the world working on it."
       primary="Join the inquiry"
       secondary="Who is this for?"
       onPrimary={() => window.open(JOIN_URL, '_blank')}

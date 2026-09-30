@@ -146,7 +146,7 @@ const PageSorrel = ({ onNav }) => {
         </CampCascade>
 
         {/* Christine: "this could be the start of the agent-to-agent,
-            inter-organisational communication piece." Victor: "definitely." */}
+            inter-organizational communication piece." Victor: "definitely." */}
         <div style={{ ...campNote, marginBottom: 24 }}>
           <h6 style={campNoteH6}>And one experiment we are curious about</h6>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: 'var(--forest-900)', margin: 0 }}>

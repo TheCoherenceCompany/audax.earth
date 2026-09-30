@@ -125,7 +125,7 @@ const PageModes = ({
   className: "hero-fade"
 }), /*#__PURE__*/React.createElement("div", {
   className: "hero-vertical"
-}, /*#__PURE__*/React.createElement("span", null, "Three modes of organisational collaboration")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("span", null, "Three modes of organizational collaboration")), /*#__PURE__*/React.createElement("div", {
   className: "container"
 }, /*#__PURE__*/React.createElement("div", {
   className: "hero-inner",
@@ -139,7 +139,7 @@ const PageModes = ({
   style: {
     maxWidth: 720
   }
-}, "For most of organisational history, collaboration meant humans working with other humans."), /*#__PURE__*/React.createElement("p", {
+}, "For most of organizational history, collaboration meant humans working with other humans."), /*#__PURE__*/React.createElement("p", {
   className: "lede",
   style: {
     maxWidth: 720,
@@ -170,7 +170,7 @@ const PageModes = ({
   className: "num"
 }, "02 \xB7 Definition"), "What is a ", /*#__PURE__*/React.createElement("em", null, "mode?")), /*#__PURE__*/React.createElement("div", {
   className: "q-body"
-}, /*#__PURE__*/React.createElement("p", null, "A mode is a pattern of collaboration. It describes who or what is working together, and what kind of structure that collaboration requires."), /*#__PURE__*/React.createElement("p", null, "The same work may move through all three modes. A person frames a mission with another person. A human asks an agent to research it. That agent asks another agent to analyse the data. A third agent drafts a summary. The team reviews. A human makes the judgment. The system records the learning."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "A mode is a pattern of collaboration. It describes who or what is working together, and what kind of structure that collaboration requires."), /*#__PURE__*/React.createElement("p", null, "The same work may move through all three modes. A person frames a mission with another person. A human asks an agent to research it. That agent asks another agent to analyze the data. A third agent drafts a summary. The team reviews. A human makes the judgment. The system records the learning."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "If the modes are not designed, ", /*#__PURE__*/React.createElement("em", null, "collaboration becomes fog.")), /*#__PURE__*/React.createElement("div", {
   className: "def-split",
@@ -270,7 +270,7 @@ const PageModes = ({
   deep: {
     q: 'How do humans <em>collaborate better</em> with other humans?',
     shortDef: 'Human to Human is the foundational mode of collaboration: people working with people through trust, conversation, commitment, conflict, shared meaning, and mutual responsibility.',
-    body: ['Human-to-human collaboration is the original operating system of our species.', 'Before organisations, before companies, before project boards, before agents, people gathered around shared needs and learned how to act together.', 'This mode does not disappear in the agentic age. It becomes more important.', 'Because the more powerful our tools become, the more carefully we need to protect the human field of trust, judgment, care, courage, and meaning.', 'Human-to-human collaboration is where purpose becomes felt. It is where trust is built. It is where conflict is repaired. It is where commitments become real because a person has made a promise to another person.', 'AI agents can support this mode beautifully. They can help people prepare for conversations. They can summarise meetings. They can remember agreements. They can translate across languages. They can surface tensions early. They can help teams reflect.', 'But they should not replace the relational field. An agent can remind us of the promise. <strong>It cannot make the promise for us.</strong>', 'Human-to-human collaboration needs to become more intentional, especially in distributed and fractional work. Trust can no longer depend on being in the same room. Belonging can no longer be left to office osmosis. Shared meaning can no longer hide inside founder telepathy. <em>It must be designed.</em>'],
+    body: ['Human-to-human collaboration is the original operating system of our species.', 'Before organizations, before companies, before project boards, before agents, people gathered around shared needs and learned how to act together.', 'This mode does not disappear in the agentic age. It becomes more important.', 'Because the more powerful our tools become, the more carefully we need to protect the human field of trust, judgment, care, courage, and meaning.', 'Human-to-human collaboration is where purpose becomes felt. It is where trust is built. It is where conflict is repaired. It is where commitments become real because a person has made a promise to another person.', 'AI agents can support this mode beautifully. They can help people prepare for conversations. They can summarize meetings. They can remember agreements. They can translate across languages. They can surface tensions early. They can help teams reflect.', 'But they should not replace the relational field. An agent can remind us of the promise. <strong>It cannot make the promise for us.</strong>', 'Human-to-human collaboration needs to become more intentional, especially in distributed and fractional work. Trust can no longer depend on being in the same room. Belonging can no longer be left to office osmosis. Shared meaning can no longer hide inside founder telepathy. <em>It must be designed.</em>'],
     holds: ['trust-building', 'shared purpose', 'explicit agreements', 'roles and expectations', 'conversations that matter', 'commitments', 'conflict pathways', 'feedback', 'repair', 'care and appreciation', 'human judgment', 'shared learning', 'relational memory'],
     weak: ['people talk but do not trust', 'commitments become vague', 'conflict hides in silence', 'decisions become political', 'distributed teams become lonely', 'fractional contributors stay peripheral', 'agents become substitutes for conversations people are avoiding', 'culture becomes performance rather than relationship'],
     adds: {
@@ -291,9 +291,9 @@ const PageModes = ({
     bg: 'var(--surface-paper)',
     q: 'How do humans <em>work well</em> with AI agents?',
     shortDef: 'Human to Agent is the mode where people collaborate directly with AI agents as assistants, guides, researchers, drafters, coordinators, memory-holders, and increasingly capable contributors.',
-    body: ['Human-to-agent collaboration is the new daily frontier.', 'At first, this can look simple. Ask a question. Get an answer. Ask for a draft. Receive a draft. But inside organisations, this quickly becomes more serious.', 'Agents may handle sensitive context. They may draft public communications. They may shape strategic options. They may summarise meetings. They may remember commitments. They may prepare decisions. They may influence what people see, know, and prioritise.', 'That means human-to-agent collaboration requires design.', 'Agents need role clarity before autonomy. They need to know: what is the mission? What context matters? What sources may be used? What can be changed? What must not be touched? What requires human judgment? Who is accountable?', 'The same clarity that helps an agent also helps a human contributor. If a mission is clear enough for an agent to support, it is usually clearer for a new team member too.', '<strong>This is the gift hidden inside the annoyance.</strong> AI agents force organisations to describe work, authority, context, purpose, and boundaries more clearly than they could get away with before.'],
+    body: ['Human-to-agent collaboration is the new daily frontier.', 'At first, this can look simple. Ask a question. Get an answer. Ask for a draft. Receive a draft. But inside organizations, this quickly becomes more serious.', 'Agents may handle sensitive context. They may draft public communications. They may shape strategic options. They may summarize meetings. They may remember commitments. They may prepare decisions. They may influence what people see, know, and prioritize.', 'That means human-to-agent collaboration requires design.', 'Agents need role clarity before autonomy. They need to know: what is the mission? What context matters? What sources may be used? What can be changed? What must not be touched? What requires human judgment? Who is accountable?', 'The same clarity that helps an agent also helps a human contributor. If a mission is clear enough for an agent to support, it is usually clearer for a new team member too.', '<strong>This is the gift hidden inside the annoyance.</strong> AI agents force organizations to describe work, authority, context, purpose, and boundaries more clearly than they could get away with before.'],
     holds: ['agent role cards', 'mission briefs', 'context packets', 'permissions', 'boundaries', 'decision rights', 'memory rules', 'output expectations', 'quality criteria', 'source requirements', 'feedback loops', 'escalation pathways', 'human accountability', 'audit trails'],
-    weak: ['agents produce plausible nonsense', 'humans overtrust outputs', 'private context leaks into the wrong place', 'work is delegated without accountability', 'agents imitate authority they do not have', 'people use agents to avoid judgment', 'quality becomes difficult to trace', 'organisations accelerate confusion'],
+    weak: ['agents produce plausible nonsense', 'humans overtrust outputs', 'private context leaks into the wrong place', 'work is delegated without accountability', 'agents imitate authority they do not have', 'people use agents to avoid judgment', 'quality becomes difficult to trace', 'organizations accelerate confusion'],
     adds: {
       name: 'Agent-Ready Work Protocols',
       body: 'The Agent-Ready Mission Canvas defines purpose, context, desired outcome, definition of done, available and forbidden sources, allowed and forbidden actions, output format, quality criteria, decision rights, human owner, escalation path, and memory rules. Agent Role Cards clarify what the agent may access, do, suggest, and never decide — including when it must ask a human.'
@@ -311,9 +311,9 @@ const PageModes = ({
   deep: {
     q: 'How do agents collaborate <em>without becoming invisible bureaucracy?</em>',
     shortDef: 'Agent to Agent is the mode where AI agents coordinate with other AI agents across tasks, teams, workflows, memory, research, decisions, communication, and learning.',
-    body: ['Agent-to-agent collaboration is the least mature mode. It may also become the most consequential.', 'At this level, agents do not simply respond to human prompts. They coordinate with one another. One agent gathers research. Another analyses it. Another checks sources. Another drafts a recommendation. Another updates a project context. Another notifies a team. Another notices a risk. Another asks a human to intervene.', 'This could be powerful. It could also become a fog machine with APIs.', 'The danger is not that agents collaborate. The danger is that agents create operational reality faster than humans can understand it.', 'If agents pass work between each other, alter priorities, update records, prepare decisions, or trigger workflows, humans need to be able to inspect what happened. Who did what? Based on what evidence? Under what authority? With what uncertainty? What changed?', 'Agent-to-agent collaboration needs protocols before autonomy.', 'Without them, organisations risk creating a black-box bureaucracy: not command-and-control by managers, but command-and-control by invisible chains of automated delegation. <strong>We have enough bureaucracy already. No need to teach it to wear a neural cape.</strong>'],
+    body: ['Agent-to-agent collaboration is the least mature mode. It may also become the most consequential.', 'At this level, agents do not simply respond to human prompts. They coordinate with one another. One agent gathers research. Another analyzes it. Another checks sources. Another drafts a recommendation. Another updates a project context. Another notifies a team. Another notices a risk. Another asks a human to intervene.', 'This could be powerful. It could also become a fog machine with APIs.', 'The danger is not that agents collaborate. The danger is that agents create operational reality faster than humans can understand it.', 'If agents pass work between each other, alter priorities, update records, prepare decisions, or trigger workflows, humans need to be able to inspect what happened. Who did what? Based on what evidence? Under what authority? With what uncertainty? What changed?', 'Agent-to-agent collaboration needs protocols before autonomy.', 'Without them, organizations risk creating a black-box bureaucracy: not command-and-control by managers, but command-and-control by invisible chains of automated delegation. <strong>We have enough bureaucracy already. No need to teach it to wear a neural cape.</strong>'],
     holds: ['agent identity', 'agent roles', 'capability registry', 'shared ontology of work', 'delegation contracts', 'handoff packets', 'source trails', 'provenance', 'audit logs', 'conflict detection', 'uncertainty reporting', 'permission boundaries', 'human escalation', 'interruption points', 'review cycles'],
-    weak: ['agents act beyond their mandate', 'context moves without consent', 'errors compound across chains', 'nobody knows why a decision was prepared', 'duplicated work multiplies', 'humans lose inspectability', 'accountability becomes diffuse', 'agents optimise locally against the wider purpose', 'the organisation becomes fast but less wise'],
+    weak: ['agents act beyond their mandate', 'context moves without consent', 'errors compound across chains', 'nobody knows why a decision was prepared', 'duplicated work multiplies', 'humans lose inspectability', 'accountability becomes diffuse', 'agents optimize locally against the wider purpose', 'the organization becomes fast but less wise'],
     adds: {
       name: 'Agent Collaboration Protocols',
       body: 'Every agent-to-agent chain includes clear agent identity, role declaration, task contract, permission boundary, source trail, handoff format, quality gate, conflict detection, failure state, escalation rule, human review point, and a narrative summary. Agents need machine-readable structures. Humans need human-readable decision stories. The principle: every important agent-to-agent chain should be able to say what happened, why, which agents were involved, what changed, and what needs human attention.'
@@ -337,9 +337,9 @@ const PageModes = ({
     maxWidth: 760,
     marginBottom: 40
   }
-}, /*#__PURE__*/React.createElement("p", null, "Each collaboration mode changes how the five spheres operate. The modes do not sit outside the spheres. They pass through them."), /*#__PURE__*/React.createElement("p", null, "Human-to-human asks how people recognise value, organise work, hold relationships, learn together, and communicate clearly. Human-to-agent asks how people delegate, guide, review, and learn with agents. Agent-to-agent asks how agents coordinate across value, work, purpose, learning, and communication without becoming opaque.")), /*#__PURE__*/React.createElement("table", {
+}, /*#__PURE__*/React.createElement("p", null, "Each collaboration mode changes how the five spheres operate. The modes do not sit outside the spheres. They pass through them."), /*#__PURE__*/React.createElement("p", null, "Human-to-human asks how people recognize value, organize work, hold relationships, learn together, and communicate clearly. Human-to-agent asks how people delegate, guide, review, and learn with agents. Agent-to-agent asks how agents coordinate across value, work, purpose, learning, and communication without becoming opaque.")), /*#__PURE__*/React.createElement("table", {
   className: "mini-matrix"
-}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Sphere"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Human"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Agent"), /*#__PURE__*/React.createElement("th", null, "Agent \u2194 Agent"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Value Accounting"), /*#__PURE__*/React.createElement("td", null, "Human contribution and recognition"), /*#__PURE__*/React.createElement("td", null, "Human\u2013agent ", /*#__PURE__*/React.createElement("em", null, "attribution")), /*#__PURE__*/React.createElement("td", null, "Multi-agent value ledger")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organisation of Work"), /*#__PURE__*/React.createElement("td", null, "Missions, cells, commitments"), /*#__PURE__*/React.createElement("td", null, "Agent-ready ", /*#__PURE__*/React.createElement("em", null, "mission canvas")), /*#__PURE__*/React.createElement("td", null, "Agent collaboration protocol")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Relationship & Purpose"), /*#__PURE__*/React.createElement("td", null, "Trust, feedback, repair"), /*#__PURE__*/React.createElement("td", null, "Values interface ", /*#__PURE__*/React.createElement("em", null, "for agents")), /*#__PURE__*/React.createElement("td", null, "Purpose-governed agent constitution")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Development & Learning"), /*#__PURE__*/React.createElement("td", null, "Reflection and growth"), /*#__PURE__*/React.createElement("td", null, "Human\u2013agent ", /*#__PURE__*/React.createElement("em", null, "learning loop")), /*#__PURE__*/React.createElement("td", null, "Federated correction layer")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Communication"), /*#__PURE__*/React.createElement("td", null, "Context and meaning"), /*#__PURE__*/React.createElement("td", null, "Provenance and ", /*#__PURE__*/React.createElement("em", null, "uncertainty")), /*#__PURE__*/React.createElement("td", null, "Human-readable decision story")))), /*#__PURE__*/React.createElement(PullQuote, null, "Same spheres. ", /*#__PURE__*/React.createElement("em", null, "Three modes."), " One shared grammar."))), /*#__PURE__*/React.createElement(WashRule, {
+}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Sphere"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Human"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Agent"), /*#__PURE__*/React.createElement("th", null, "Agent \u2194 Agent"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Value Accounting"), /*#__PURE__*/React.createElement("td", null, "Human contribution and recognition"), /*#__PURE__*/React.createElement("td", null, "Human\u2013agent ", /*#__PURE__*/React.createElement("em", null, "attribution")), /*#__PURE__*/React.createElement("td", null, "Multi-agent value ledger")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organization of Work"), /*#__PURE__*/React.createElement("td", null, "Missions, cells, commitments"), /*#__PURE__*/React.createElement("td", null, "Agent-ready ", /*#__PURE__*/React.createElement("em", null, "mission canvas")), /*#__PURE__*/React.createElement("td", null, "Agent collaboration protocol")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Relationship & Purpose"), /*#__PURE__*/React.createElement("td", null, "Trust, feedback, repair"), /*#__PURE__*/React.createElement("td", null, "Values interface ", /*#__PURE__*/React.createElement("em", null, "for agents")), /*#__PURE__*/React.createElement("td", null, "Purpose-governed agent constitution")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Development & Learning"), /*#__PURE__*/React.createElement("td", null, "Reflection and growth"), /*#__PURE__*/React.createElement("td", null, "Human\u2013agent ", /*#__PURE__*/React.createElement("em", null, "learning loop")), /*#__PURE__*/React.createElement("td", null, "Federated correction layer")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Communication"), /*#__PURE__*/React.createElement("td", null, "Context and meaning"), /*#__PURE__*/React.createElement("td", null, "Provenance and ", /*#__PURE__*/React.createElement("em", null, "uncertainty")), /*#__PURE__*/React.createElement("td", null, "Human-readable decision story")))), /*#__PURE__*/React.createElement(PullQuote, null, "Same spheres. ", /*#__PURE__*/React.createElement("em", null, "Three modes."), " One shared grammar."))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.tide,
   from: "paper",
   to: "parchment"
@@ -359,7 +359,7 @@ const PageModes = ({
   }
 }, /*#__PURE__*/React.createElement("p", null, "The three modes also operate differently across the five layers. At the individual layer, human-to-agent collaboration may look like a personal coherence companion. At the ecosystem layer, it may help independent actors discover alignment and coordinate open missions."), /*#__PURE__*/React.createElement("p", null, "The same mode changes by scale. That is why Audax OS needs both layers and modes.")), /*#__PURE__*/React.createElement("table", {
   className: "mini-matrix"
-}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Layer"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Human"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Agent"), /*#__PURE__*/React.createElement("th", null, "Agent \u2194 Agent"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Individual"), /*#__PURE__*/React.createElement("td", null, "Self-awareness, boundaries, personal relationships"), /*#__PURE__*/React.createElement("td", null, "Personal agent ", /*#__PURE__*/React.createElement("em", null, "constitution")), /*#__PURE__*/React.createElement("td", null, "Personal agent council")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Team"), /*#__PURE__*/React.createElement("td", null, "Agreements, trust, commitments"), /*#__PURE__*/React.createElement("td", null, "Agent role cards and ", /*#__PURE__*/React.createElement("em", null, "mission support")), /*#__PURE__*/React.createElement("td", null, "Team agent protocol")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organisation"), /*#__PURE__*/React.createElement("td", null, "Governance, culture, strategy"), /*#__PURE__*/React.createElement("td", null, "Organisational ", /*#__PURE__*/React.createElement("em", null, "agent layer")), /*#__PURE__*/React.createElement("td", null, "Agent governance system")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organisation Family"), /*#__PURE__*/React.createElement("td", null, "Shared operating grammar"), /*#__PURE__*/React.createElement("td", null, "Portable contribution ", /*#__PURE__*/React.createElement("em", null, "protocol")), /*#__PURE__*/React.createElement("td", null, "Federated agent network")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Ecosystem"), /*#__PURE__*/React.createElement("td", null, "Coherence journey and partnership"), /*#__PURE__*/React.createElement("td", null, "Ecosystem-facing ", /*#__PURE__*/React.createElement("em", null, "agent interface")), /*#__PURE__*/React.createElement("td", null, "Inter-organisational agent protocols")))))), /*#__PURE__*/React.createElement("section", {
+}, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Layer"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Human"), /*#__PURE__*/React.createElement("th", null, "Human \u2194 Agent"), /*#__PURE__*/React.createElement("th", null, "Agent \u2194 Agent"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Individual"), /*#__PURE__*/React.createElement("td", null, "Self-awareness, boundaries, personal relationships"), /*#__PURE__*/React.createElement("td", null, "Personal agent ", /*#__PURE__*/React.createElement("em", null, "constitution")), /*#__PURE__*/React.createElement("td", null, "Personal agent council")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Team"), /*#__PURE__*/React.createElement("td", null, "Agreements, trust, commitments"), /*#__PURE__*/React.createElement("td", null, "Agent role cards and ", /*#__PURE__*/React.createElement("em", null, "mission support")), /*#__PURE__*/React.createElement("td", null, "Team agent protocol")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organization"), /*#__PURE__*/React.createElement("td", null, "Governance, culture, strategy"), /*#__PURE__*/React.createElement("td", null, "Organizational ", /*#__PURE__*/React.createElement("em", null, "agent layer")), /*#__PURE__*/React.createElement("td", null, "Agent governance system")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Organization Family"), /*#__PURE__*/React.createElement("td", null, "Shared operating grammar"), /*#__PURE__*/React.createElement("td", null, "Portable contribution ", /*#__PURE__*/React.createElement("em", null, "protocol")), /*#__PURE__*/React.createElement("td", null, "Federated agent network")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Ecosystem"), /*#__PURE__*/React.createElement("td", null, "Coherence journey and partnership"), /*#__PURE__*/React.createElement("td", null, "Ecosystem-facing ", /*#__PURE__*/React.createElement("em", null, "agent interface")), /*#__PURE__*/React.createElement("td", null, "Inter-organizational agent protocols")))))), /*#__PURE__*/React.createElement("section", {
   className: "section manifesto"
 }, /*#__PURE__*/React.createElement("div", {
   className: "container"
@@ -397,8 +397,8 @@ const PageModes = ({
   body: 'Autonomy without boundaries becomes operational fog.'
 }, {
   n: '05',
-  head: 'Purpose before optimisation',
-  body: 'Agents should not optimise locally against the soul of the whole.'
+  head: 'Purpose before optimization',
+  body: 'Agents should not optimize locally against the soul of the whole.'
 }, {
   n: '06',
   head: 'Human judgment for irreversible consequences',
@@ -414,7 +414,7 @@ const PageModes = ({
 }, {
   n: '09',
   head: 'Interoperability over platform capture',
-  body: 'Audax OS should allow many tools, vendors, communities, and organisations to build with it.'
+  body: 'Audax OS should allow many tools, vendors, communities, and organizations to build with it.'
 }, {
   n: '10',
   head: 'Care with teeth',
@@ -456,7 +456,7 @@ const PageModes = ({
     lineHeight: 1.55,
     color: 'var(--ink-600)'
   }
-}, p.body))))), /*#__PURE__*/React.createElement(PullQuote, null, "The point is not to automate the organisation. ", /*#__PURE__*/React.createElement("em", null, "The point is to make collaboration wiser.")))), /*#__PURE__*/React.createElement(WashRule, {
+}, p.body))))), /*#__PURE__*/React.createElement(PullQuote, null, "The point is not to automate the organization. ", /*#__PURE__*/React.createElement("em", null, "The point is to make collaboration wiser.")))), /*#__PURE__*/React.createElement(WashRule, {
   image: ART.burst,
   from: "white",
   to: "paper"
@@ -477,7 +477,7 @@ const PageModes = ({
     maxWidth: 760,
     marginBottom: 56
   }
-}, /*#__PURE__*/React.createElement("p", null, "Modes become real through protocols. Without protocols, the three modes remain concepts. With protocols, they become usable patterns for work. A small team should be able to use a simple version. A complex organisation should be able to deepen it. The art is right-sized structure.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Modes become real through protocols. Without protocols, the three modes remain concepts. With protocols, they become usable patterns for work. A small team should be able to use a simple version. A complex organization should be able to deepen it. The art is right-sized structure.")), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -563,7 +563,7 @@ const PageModes = ({
     maxWidth: 760,
     marginBottom: 56
   }
-}, /*#__PURE__*/React.createElement("p", null, "Each mode needs diagnostics. Not to score people. Not to monitor behaviour. Not to create a dashboard panopticon with tasteful typography."), /*#__PURE__*/React.createElement("p", null, "Diagnostics should help organisations sense whether collaboration is healthy, legible, accountable, and alive.")), /*#__PURE__*/React.createElement("div", {
+}, /*#__PURE__*/React.createElement("p", null, "Each mode needs diagnostics. Not to score people. Not to monitor behavior. Not to create a dashboard panopticon with tasteful typography."), /*#__PURE__*/React.createElement("p", null, "Diagnostics should help organizations sense whether collaboration is healthy, legible, accountable, and alive.")), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -573,7 +573,7 @@ const PageModes = ({
   mode: 'Human to Human',
   glyph: 'H ↔ H',
   n: 'I',
-  questions: ['Do people understand the purpose of their collaboration?', 'Are commitments visible and realistic?', 'Is trust strong enough for truth?', 'Are conflict and repair possible?', 'Are contributions recognised fairly?', 'Are meetings creating clarity or fog?', 'Are people learning through the work?']
+  questions: ['Do people understand the purpose of their collaboration?', 'Are commitments visible and realistic?', 'Is trust strong enough for truth?', 'Are conflict and repair possible?', 'Are contributions recognized fairly?', 'Are meetings creating clarity or fog?', 'Are people learning through the work?']
 }, {
   mode: 'Human to Agent',
   glyph: 'H ↔ A',
@@ -649,7 +649,7 @@ const PageModes = ({
   }
 }, /*#__PURE__*/React.createElement("p", null, "An operating system for agentic collaboration carries real risks. These are not hypothetical future risks. Several of them are already present in early deployments."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "Audax OS should help organisations move forward ", /*#__PURE__*/React.createElement("em", null, "without becoming what they are trying to avoid."))), /*#__PURE__*/React.createElement("div", {
+}, "Audax OS should help organizations move forward ", /*#__PURE__*/React.createElement("em", null, "without becoming what they are trying to avoid."))), /*#__PURE__*/React.createElement("div", {
   style: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
@@ -661,7 +661,7 @@ const PageModes = ({
   desc: 'Agents can produce confident-sounding outputs that have not been reviewed by anyone accountable. Speed becomes a substitute for wisdom. Decisions happen faster and less wisely.'
 }, {
   risk: 'Invisible agent authority',
-  desc: 'Agents accumulate operational influence without explicit permission. They shape what people see, know, and prioritise — without a declared role or a named human accountable for their outputs.'
+  desc: 'Agents accumulate operational influence without explicit permission. They shape what people see, know, and prioritize — without a declared role or a named human accountable for their outputs.'
 }, {
   risk: 'Context leaking across boundaries',
   desc: 'Information shared with an agent in one context appears in another context where it should not be. Privacy collapses not through one big breach but through a thousand small violations.'
@@ -675,8 +675,8 @@ const PageModes = ({
   risk: 'Accountability diffusion',
   desc: 'When agents collaborate with agents, and agents are managed by other agents, the human who is actually accountable for an outcome becomes impossible to identify. Nobody is wrong. The system did it.'
 }, {
-  risk: 'Optimising locally against purpose',
-  desc: 'Agents optimise for measurable proxies rather than the deeper mission. Work gets done faster. The organisation becomes less coherent. The metrics improve while the meaning dissolves.'
+  risk: 'Optimizing locally against purpose',
+  desc: 'Agents optimize for measurable proxies rather than the deeper mission. Work gets done faster. The organization becomes less coherent. The metrics improve while the meaning dissolves.'
 }, {
   risk: 'Using agents to avoid hard conversations',
   desc: 'People delegate conflict, feedback, and difficult truths to agents. The agent says the hard thing. Nobody had the courage to say it. The relationship that needed repair gets a summary instead.'
@@ -723,9 +723,9 @@ const PageModes = ({
   style: {
     maxWidth: 760
   }
-}, /*#__PURE__*/React.createElement("p", null, "Audax OS is not designed to be paranoid about agents. It is designed to be clear-eyed."), /*#__PURE__*/React.createElement("p", null, "The risks above do not require AI to be malicious. They only require organisations to be careless, rushed, or politically incentivised to avoid accountability."), /*#__PURE__*/React.createElement("p", {
+}, /*#__PURE__*/React.createElement("p", null, "Audax OS is not designed to be paranoid about agents. It is designed to be clear-eyed."), /*#__PURE__*/React.createElement("p", null, "The risks above do not require AI to be malicious. They only require organizations to be careless, rushed, or politically incentivized to avoid accountability."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
-}, "The antidote to these risks is not less AI. ", /*#__PURE__*/React.createElement("em", null, "It is better organisational design."))))), /*#__PURE__*/React.createElement("section", {
+}, "The antidote to these risks is not less AI. ", /*#__PURE__*/React.createElement("em", null, "It is better organizational design."))))), /*#__PURE__*/React.createElement("section", {
   className: "section"
 }, /*#__PURE__*/React.createElement("div", {
   className: "container"
@@ -772,7 +772,7 @@ const PageModes = ({
     margin: '0 0 32px',
     maxWidth: 480
   }
-}, "Audax OS is designed for the people building, leading, and inhabiting the next generation of organisations. Founders, practitioners, investors, agents."), /*#__PURE__*/React.createElement(Button, {
+}, "Audax OS is designed for the people building, leading, and inhabiting the next generation of organizations. Founders, practitioners, investors, agents."), /*#__PURE__*/React.createElement(Button, {
   size: "lg",
   icon: "arrow-right",
   onClick: () => onNav('whofor')
@@ -801,7 +801,7 @@ const PageModes = ({
   }
 }, "Who?"))))), /*#__PURE__*/React.createElement(CtaBand, {
   title: "Help define the protocols<br />for <em>human\u2013agent collaboration.</em>",
-  body: "If you work with agents, build agent infrastructure, or design organisations for the agentic age \u2014 the protocols are still being written.",
+  body: "If you work with agents, build agent infrastructure, or design organizations for the agentic age \u2014 the protocols are still being written.",
   onPrimary: () => window.open(JOIN_URL, '_blank')
 }));
 window.PageModes = PageModes;

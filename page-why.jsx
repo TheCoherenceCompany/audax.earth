@@ -24,13 +24,13 @@ const PageWhy = ({ onNav }) => (
       <div className="hero-inner reveal" style={{ maxWidth: 880 }}>
         <Eyebrow>For the age of humans and agents</Eyebrow>
         <h1 className="display lg">
-          How do we build <em>thriving<br />organisations</em> in the age of<br />humans and agents?
+          How do we build <em>thriving<br />organizations</em> in the age of<br />humans and agents?
         </h1>
         <p className="lede" style={{ maxWidth: 700, marginBottom: 16 }}>
-          The way we organise work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore.
+          The way we organize work was built for a different world. Remote work exposed the cracks. Fractional work widened them. AI agents now make them impossible to ignore.
         </p>
         <p className="lede" style={{ maxWidth: 700, fontStyle: 'italic', marginBottom: 40 }}>
-          Audax OS is an open operating system for designing organisations where humans and AI agents work together coherently — across individuals, teams, organisations, organisation families, and ecosystems.
+          Audax OS is an open operating system for designing organizations where humans and AI agents work together coherently — across individuals, teams, organizations, organization families, and ecosystems.
         </p>
         <div className="hero-ctas">
           <Button variant="join" size="lg" icon="arrow-right" onClick={() => window.open(JOIN_URL, '_blank')}>Join to co-create</Button>
@@ -39,17 +39,17 @@ const PageWhy = ({ onNav }) => (
     </LivingHero>
 
     {/* 02. THE OLD MODEL */}
-    <Section n="01 · The old model" q="Why can’t the old organisation hold <em>the new work?</em>">
+    <Section n="01 · The old model" q="Why can’t the old organizational forms hold <em>the new work?</em>">
       <ArtAside image={ART.orbHalf}>
-        <p>Most organisations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organisation at a time.</p>
-        <p>This model made sense when communication was slow, labour was physically concentrated, expertise was harder to access, and the organisation could be managed as a relatively stable machine.</p>
+        <p>Most organizations still carry industrial assumptions. Work is divided into functions. Roles are fixed. Authority flows downward. Information climbs upward. Managers coordinate through meetings, reporting lines, and supervision. People are expected to belong mostly to one organization at a time.</p>
+        <p>This model made sense when communication was slow, labor was physically concentrated, expertise was harder to access, and the organization could be managed as a relatively stable machine.</p>
+        <p>But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyze, and act.</p>
       </ArtAside>
-      <p>But the conditions have changed. People now collaborate across time zones, projects, companies, networks, and communities. Work forms and dissolves around missions. Contributors enter and leave at different levels of commitment. AI agents can now remember, draft, coordinate, analyse, and act.</p>
       <p className="lead">The old model is not simply inefficient. <em>It is misaligned</em> with the world now emerging.</p>
 
       <div className="contrast-grid" style={{ marginTop: 16 }}>
         <div className="contrast-col">
-          <h6>Old organisation</h6>
+          <h6>Old organization</h6>
           <h3>Designed for the office.</h3>
           <ul>
             <li>Fixed roles</li>
@@ -63,7 +63,7 @@ const PageWhy = ({ onNav }) => (
           </ul>
         </div>
         <div className="contrast-col">
-          <h6>Emerging organisation</h6>
+          <h6>Emerging organization</h6>
           <h3>Designed for living systems.</h3>
           <ul>
             <li>Fluid contribution</li>
@@ -84,7 +84,7 @@ const PageWhy = ({ onNav }) => (
     {/* 03. AI AGENTS */}
     <Section n="02 · AI agents" q="Why do AI agents force <em>a complete rethink?</em>" bg="var(--surface-paper)">
       <p className="lead">AI is moving <em>from assistant to participant.</em></p>
-      <p>Agents can research, draft, synthesise, schedule, translate, analyse, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organisational memory.</p>
+      <p>Agents can research, draft, synthesize, schedule, translate, analyze, remember, coordinate, and support workflows. Soon they will participate more directly in missions, handoffs, decisions, communication, and organizational memory.</p>
       <p>But agents cannot work well inside fog. They need:</p>
 
       <div className="protocol-grid">
@@ -99,10 +99,10 @@ const PageWhy = ({ onNav }) => (
         ))}
       </div>
 
-      <p>This is the deeper shift. AI agents do not remove the need for organisational design. <strong>They make organisational design unavoidable.</strong></p>
+      <p>This is the deeper shift. AI agents do not remove the need for organizational design. <strong>They make organizational design unavoidable.</strong></p>
       <p>The same clarity that helps an agent work well also helps a human work well. If a mission is clear enough for an agent to support, it is clearer for a new contributor too. If a decision right is explicit enough for an agent, it is easier for the team to trust. If purpose is operational enough to guide an agent, it is finally useful to humans as more than a sentence on a wall.</p>
 
-      <PullQuote>AI agents make visible the <em>organisational design debt</em> we have been carrying for decades.</PullQuote>
+      <PullQuote>AI agents make visible the <em>organizational design debt</em> we have been carrying for decades.</PullQuote>
 
       <p>Designing for agents may force us to design better for humans.</p>
     </Section>
@@ -147,18 +147,18 @@ const PageWhy = ({ onNav }) => (
 
     {/* 05. OPEN OS, NOT PRODUCT */}
     <Section n="04 · Open OS, not product" q="Why should this be an <em>open OS</em>, not a platform?" bg="var(--surface-paper)" narrow>
-      <p>No single platform should own the organisational OS of the agentic age.</p>
-      <p>Audax OS is not being designed as one closed product that every organisation must adopt. The ambition is different.</p>
+      <p>No single platform should own the organizational OS of the agentic age.</p>
+      <p>Audax OS is not being designed as one closed product that every organization must adopt. The ambition is different.</p>
       <p className="lead">Audax OS should become a <em>shared operating system</em>: a language, architecture, and set of principles that many people can build with.</p>
 
       <ul style={{ listStyle: 'none', padding: 0, margin: '24px 0 32px' }}>
         {[
-          'Organisation designers can use it.',
+          'Organization designers can use it.',
           'AI builders can extend it.',
           'Software vendors can implement it.',
           'Consultancies can develop practices around it.',
           'Communities can adapt it.',
-          'Organisations can test it.',
+          'Organizations can test it.',
           'Researchers can challenge it.'
         ].map(x => (
           <li key={x} style={{ padding: '12px 0', borderBottom: '1px solid var(--border-2)', fontSize: 17, fontWeight: 400, color: 'var(--ink-800)' }}>
@@ -182,13 +182,13 @@ const PageWhy = ({ onNav }) => (
       <div className="cta-band-inner">
         <Eyebrow color="var(--lichen-300)">05 · Invitation</Eyebrow>
         <h2>
-          Will you help shape the<br />next <em>organisational OS?</em>
+          Will you help shape the<br />next <em>organizational OS?</em>
         </h2>
         <p style={{ maxWidth: 600 }}>
-          We are inviting organisation designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers, and serious operators to join the founding dialogue.
+          We are inviting organization designers, agentic AI builders, collaboration infrastructure makers, regenerative practitioners, future-of-work thinkers, and serious operators to join the founding dialogue.
         </p>
         <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2vw, 28px)', fontStyle: 'italic', letterSpacing: '-0.015em', color: 'var(--lichen-300)', maxWidth: 720, margin: '0 auto 32px', lineHeight: 1.3 }}>
-          What organisational operating system is worthy of humans and AI agents working together?
+          What organizational operating system is worthy of humans and AI agents working together?
         </p>
         <p style={{ marginBottom: 40, color: 'rgba(255,255,255,0.7)' }}>
           We are not looking for spectators. We are looking for people carrying pieces of the answer.

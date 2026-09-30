@@ -231,6 +231,14 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 
 /* ---------- manifesto ---------- */
 .manifesto { background: var(--surface-white); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
+/* .manifesto is a bordered card (ten of them, across build/layers/
+   spheres/whofor/modes/map): at the standard 128px section padding,
+   that's empty white space inside a visible box, stacked with the next
+   section's own 128px top padding right after the border you can see
+   close it. Halved on both sides of that one seam; every other
+   section-to-section gap on the site is untouched. */
+.manifesto { padding-bottom: 64px; }
+.manifesto + section { padding-top: 64px; }
 .manifesto-intro {
   font-family: var(--font-display);
   font-size: clamp(28px, 3vw, 40px);
@@ -1463,11 +1471,27 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
 }
 .living-hero .lh-wash { z-index: 0; }
 .living-hero .lh-net { z-index: 1; mix-blend-mode: difference; pointer-events: none; }
+/* The wash runs dark at the bottom of the hero to near-white at the top
+   (ink -> forest -> sage -> mist -> parchment), but the heading sits
+   vertically centered and spans several lines, so its top rows land in
+   the near-white band under white text. This darkens the upper half
+   where that collision happens, and clears by mid-hero where the wash
+   is already dark enough on its own. */
+.living-hero .lh-veil {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  /* forest-900, the same ink the wash's own darkest stop uses, so the
+     darkened band reads as more sumi-e ink rather than a grey scrim. */
+  background: linear-gradient(180deg, rgba(14,36,25,0.66) 0%, rgba(14,36,25,0.36) 28%, rgba(14,36,25,0.10) 50%, rgba(14,36,25,0) 66%);
+}
 .living-hero .hero-fade { z-index: 2; }     /* reuse existing fade-to-parchment */
 .living-hero .container { position: relative; z-index: 3; }
 
 /* on-dark text treatment (the wash is dark behind the copy) */
 .living-hero .eyebrow { color: var(--lichen-400); }
+/* Scoped to this hero only - h1.display.lg is shared with every other
+   page's hero, and the full size only drags this one down because its
+   heading runs four lines instead of two or three. */
+.living-hero h1.display.lg { font-size: clamp(58px, 6.8vw, 96px); margin-bottom: 40px; }
 .living-hero h1.display { color: #fff; }
 .living-hero h1.display em { color: var(--lichen-400); }
 .living-hero .lede { color: rgba(255,255,255,0.86); }
@@ -2238,7 +2262,11 @@ h2.display { font-size: clamp(40px, 4.5vw, 64px); }
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   gap: clamp(32px, 5vw, 64px);
-  align-items: center;
+  /* was center: fine when the prose runs long, but a short couple of
+     paragraphs beside a square orb centers into a short block with a
+     tall gap of nothing below it, right before the next paragraph
+     outside the aside. Top-aligned never has that failure mode. */
+  align-items: start;
   margin: 56px 0;
 }
 .art-aside.flip .art-aside-body { order: 2; }
