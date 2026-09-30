@@ -441,7 +441,7 @@ const PageLiving = () => {
 
         <CampKicker top={56} bottom={8}>What we are asking instead</CampKicker>
         <CampAside
-          shot="indoor-plate" alt="Two people in conversation in a forest clearing" ratio="4 / 3" index="Plate I"
+          shot="indoor-plate" alt="Two people in conversation in a forest clearing" ratio="4 / 3"
           caption="Slow questions, asked early."
           style={{ marginTop: 12 }}
         >
@@ -610,7 +610,7 @@ const PageLiving = () => {
 
         <CampKicker top={64} bottom={8}>Small loops first</CampKicker>
         <CampAside
-          shot="trail" alt="A sunlit dirt path through a forest" index="Plate III"
+          shot="trail" alt="A sunlit dirt path through a forest"
           caption="One small loop, then the next."
           style={{ marginTop: 12 }}
         >
