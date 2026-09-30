@@ -1,12 +1,23 @@
 # Audax OS site
 
-Static site: React 18 + Babel Standalone loaded in-browser (no build step). `index.html` pulls in each `.jsx` and `site.css` directly.
+Static site: React 18 loaded in the browser, no server. The `.jsx` files are the source. **Edit them, then run the build before you commit**:
+
+```
+python tools/build.py
+```
+
+The build compiles every `.jsx` into `built/*.js` and writes `index.html` (the fast production page that visitors load: production React, precompiled scripts, no Babel). It needs only Python 3 and a browser (a tab opens for a few seconds and closes itself). Commit `dev.html`, `index.html`, the `.jsx` files and `built/` together.
+
+- **`dev.html`** is the file you edit and the one you open while working: it compiles the `.jsx` files in the browser, so a refresh shows a change with no build (`./web_view.sh`, then `localhost:8080/dev.html#camp`). The script list and the `?v=N` numbers live here.
+- **`index.html`** is generated from `dev.html` by the build. Do not edit it by hand; the next build overwrites it.
+- **Why:** before the build step every visitor downloaded about 4.7 MB (Babel plus development React) and compiled 576 KB of source before the page appeared. The production page loads about 0.8 MB and compiles nothing.
+- Forgetting to rebuild means live visitors see the old site while `dev.html` shows your change.
 
 ## Cache busting — ALWAYS bump the version
 
-The `.jsx` and CSS files are served with a `?v=N` query in `index.html`. Browsers cache these aggressively, so changes won't reach visitors until the query changes.
+The `.jsx`/`built` and CSS files are served with a `?v=N` query in `index.html` (set in `dev.html`). Browsers cache these aggressively, so changes won't reach visitors until the query changes.
 
-**Whenever you edit any of these files, bump the `?v=N` number in `index.html` (same number for all):**
+**Whenever you edit any of these files, bump the `?v=N` number in `dev.html` (same number for all), then run `python tools/build.py`, which copies it into `index.html`:**
 
 - `site.css`
 - `components.jsx`, `diagrams.jsx`, `app.jsx`, `hero-canvas.jsx`
@@ -18,7 +29,7 @@ Note: `colors_and_type.css` is `@import`ed inside `site.css` **with its own `?v=
 
 Use the `adding-and-comparing-pages` skill (`.claude/skills/adding-and-comparing-pages/SKILL.md`).
 
-Every page is registered in the `ROUTES` object at the top of `app.jsx` — that entry drives the router, the `<title>`/OG tags, the top nav, the mobile sheet and the footer. Adding a page means a `<script>` tag in `index.html` plus one `ROUTES` entry; **don't** add nav or footer links to `components.jsx`, they're derived. An entry with no `nav` and no `footer` is unlisted — reachable at `#<key>` but absent from every menu, which is how a page variant under review is kept private.
+Every page is registered in the `ROUTES` object at the top of `app.jsx` — that entry drives the router, the `<title>`/OG tags, the top nav, the mobile sheet and the footer. Adding a page means a `<script>` tag in `dev.html` (then rebuild) plus one `ROUTES` entry; **don't** add nav or footer links to `components.jsx`, they're derived. An entry with no `nav` and no `footer` is unlisted — reachable at `#<key>` but absent from every menu, which is how a page variant under review is kept private.
 
 Copying a page file without renaming its top-level `const`s breaks the page silently (all `.jsx` files share one global scope).
 

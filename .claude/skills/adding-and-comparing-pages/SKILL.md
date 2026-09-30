@@ -20,7 +20,7 @@ Create the page file first — component plus `window.PageX = PageX;` as the las
 
 | # | File | What to add | Line ref |
 |---|---|---|---|
-| 1 | `index.html` | `<script type="text/babel" src="page-<key>.jsx?v=N">` **before** `app.jsx` | `index.html:37-48` |
+| 1 | `dev.html` | `<script type="text/babel" src="page-<key>.jsx?v=N">` **before** `app.jsx`, then run `python tools/build.py` (it regenerates `index.html` and `built/`) | `dev.html` |
 | 2 | `app.jsx` | One `ROUTES` entry | `app.jsx:21-70` |
 
 A `ROUTES` entry:
@@ -65,8 +65,8 @@ grep -nE '^const [A-Za-z0-9_]+' page-camp-b.jsx           # list what needs rena
 2. Last line: `window.PageCampB = PageCampB;`
 3. Add the script tag, and a `camp-b` entry in `ROUTES` **with no `nav` and no `footer`** so it stays unlisted.
 4. Run `grep … uniq -d` above — expect no output.
-5. Bump `?v=N` on every versioned file in `index.html` (see `CLAUDE.md`).
-6. Serve and open both: `./web_view.sh` → `localhost:8080/#camp` and `localhost:8080/#camp-b`, one per browser window. (`./web_view.sh <port>` takes a port, so you can run two servers if you want the versions on separate origins.)
+5. Bump `?v=N` on every versioned file in `dev.html` and run `python tools/build.py` (see `CLAUDE.md`).
+6. Serve and open both: `./web_view.sh` → `localhost:8080/dev.html#camp` and `localhost:8080/dev.html#camp-b`, one per browser window. (`./web_view.sh <port>` takes a port, so you can run two servers if you want the versions on separate origins.)
 
 Nav links in the variant still point at the canonical keys — that is fine for review, and means clicking nav exits the variant.
 
