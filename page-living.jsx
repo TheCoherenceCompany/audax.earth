@@ -557,7 +557,7 @@ const PageLiving = () => {
           These are candidates for discussion. Each needs an explanation, a practical example and an honest account of the tensions it creates.
         </p>
 
-        <CampAside shot="leafveins" alt="The veins of a backlit leaf, a fine network in pink and gold" ratio="4 / 5" style={{ marginTop: 64 }}>
+        <CampAside shot="wing" alt="A butterfly wing up close, teal scales with orange and cream markings" ratio="4 / 5" style={{ marginTop: 64 }}>
           <div>
             <CampKicker top={0} bottom={8}>How each property gets written</CampKicker>
             <div className="q-body">
@@ -590,7 +590,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <LICampJoinBand
+    <LICampJoinBand shot="roots" pos="center 50%"
       tearTop={ART.wave} tearGroundTop="var(--surface-parchment)"
       tear={ART.crest} tearGround="var(--surface-parchment)">
       Every future starts as a conversation. <em>Join ours.</em>
