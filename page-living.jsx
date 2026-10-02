@@ -53,7 +53,7 @@ const LI_TRIAD = [
     benefit: 'The ability to ask what a thing is for.',
     working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together.',
     brings: ['Portability that survives a change of provider', 'Agents that stay answerable', 'Shared spaces communities can govern', 'Individual and collective agency'],
-    blind: 'The long timescales and quiet costs that never reach a dashboard and what a default chosen in a sprint does ten years on.'
+    blind: 'The long timescales, quiet costs, and sophisticated patterns and connections that never reach a dashboard, and what a default chosen in a sprint does ten years on.'
   },
   {
     n: '3', name: 'AI',
@@ -69,7 +69,7 @@ const LI_VALUE_PROPERTY = [
   ['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'],
   ['Accountability', 'Can anyone see who an agent represents, what authority it holds and how to challenge what it does?'],
   ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'],
-  ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent reach a whole environment?']
+  ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent or security breach reach a whole environment?']
 ];
 
 const LI_HYPHEN = [
@@ -89,8 +89,8 @@ const LI_STEPS = [
 ];
 
 const LI_STOOL = [
-  ['Tools that work', 'Agents, protocols and infrastructure that people can inspect, leave and govern. The properties in this list turn into requirements here.', 'Technology'],
-  ['Mindsets that mature', 'Cultural maturity, sometimes called planetary adulthood: the capacity to hold long timescales, other species and other people’s needs in one decision. Learning systems built for free thinking carry this work.', 'Culture and learning'],
+  ['Tools that work', 'Agents, protocols and infrastructure that people can inspect, leave and govern. The properties in this list turn into requirements here.', 'Technology & Architecture'],
+  ['Mindsets that mature', 'Cultural maturity, sometimes called planetary adulthood: the capacity to hold long timescales, other species and other people’s needs in one decision. This maturity belongs to the collective: it grows as shared understanding and collective wisdom across whole communities, and learning systems built for free thinking carry this work.', 'Culture and learning'],
   ['Equity that reaches everyone', 'A future that is fair, free and flourishing for all, with shelter, food and energy within reach of every household and agency in the hands of the many.', 'Economy and justice']
 ];
 
@@ -544,7 +544,7 @@ const PageLiving = () => {
           Three things carry the transition: <em>tools, mindsets and equity.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760 }}>
-          <p>Technology is the first. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.</p>
+          <p>Technology and architecture are the first. Architectural solutions answer architectural problems, so this reaches past tools to the structure of the whole system. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.</p>
         </div>
         <CampCascade className="insight-grid" style={{ marginTop: 36 }}>
           {LI_STOOL.map(([h, p, label]) => (
@@ -652,7 +652,7 @@ const PageLiving = () => {
         <CampAside flip shot="forest-gathering" alt="People gathered among trees at a forest camp, some seated on hay bales and others standing in conversation" ratio="1 / 1" style={{ marginTop: 12 }}>
           <div>
             <div className="q-body">
-              <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tool fits it.</p>
+              <p>Teams across this network are building coordination tools, trust signals, matchmaking engines and community platforms. Each speaks to a different audience and the field gains from every one of them. The task is to federate them into an environment where they interoperate as needed, so that any community can work through whichever tools fit it. Together these tools become working infrastructure for collective intelligence: they help communities think, decide and learn together, which prepares all of us to work well with far more capable AI.</p>
             </div>
 
             <CampKicker top={40} bottom={8}>Emergence guides the work</CampKicker>
