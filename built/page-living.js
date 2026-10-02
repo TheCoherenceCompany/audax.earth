@@ -56,7 +56,7 @@ const LI_TRIAD = [{
   benefit: 'Four billion years of research and development, still running.',
   working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests and the practices of the people who tend them.',
   brings: ['Regenerative timescales', 'Standing for other species', 'Polycentric stewardship', 'Visible cost to the biosphere'],
-  blind: 'How much of the future of the old forests, the rivers and seas, the soil and every creature they hold is settled in rooms they cannot enter, through contracts, models and quarterly plans, and who will speak for them there.'
+  blind: 'How much of the future of the old forests, rivers and seas is settled in rooms they cannot enter, through contracts, models and quarterly plans, and who will speak for them there.'
 }, {
   n: '2',
   name: 'Human',
@@ -72,7 +72,7 @@ const LI_TRIAD = [{
   benefit: 'Pattern, speed and synthesis at a scale beyond any single team.',
   working: 'The capacity to sense, model and coordinate across more information than any person or institution can track alone.',
   brings: ['Bounded authority', 'Revocable delegation', 'Compartmentalization', 'Independent monitoring', 'Reliable provenance', 'Multiple centers of control'],
-  blind: 'The patience of living systems and the slow, place-rooted wisdom of those who tend them: understanding that deepens with time, relationship and attention.'
+  blind: 'The patience of living systems and the slow, place-rooted wisdom of elders, gardeners and old forests: understanding what deepens with time, relationship and attention.'
 }];
 const LI_VALUE_PROPERTY = [['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'], ['Accountability', 'Can anyone see who an agent represents, what authority it holds and how to challenge what it does?'], ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'], ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent or security breach reach a whole environment?']];
 const LI_HYPHEN = [['Pro-Human AI', 'Service, loyalty, accountability and control: what AI owes the people it works for.'], ['Pro Human-AI', 'The relationship itself: symbiosis, mutual augmentation and durable boundaries between distinct participants.'], ['Pro Human-Biosphere-AI', 'The living systems both depend on. Cost to the biosphere becomes visible and the health of the whole living system joins the design brief.']];
