@@ -3535,8 +3535,8 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 
 /* the nature section ends on its mycelium: no empty green below it, and the brush edge
    comes up over the foot of the network so the two read as one ending */
-.li-dark.li-precedent { padding-bottom: 64px; }
-.li-dark.li-precedent .li-myc { margin-top: 150px; margin-bottom: 0; }
+.li-dark.li-precedent { padding-bottom: 24px; }
+.li-dark.li-precedent .li-myc { margin-top: 50px; margin-bottom: 0; }
 
 
 /* button inside the photo band */
