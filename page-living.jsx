@@ -169,7 +169,7 @@ const LI_LEAF_TONES = [['#86A06A', '#BCCB9C'], ['#9AA86A', '#C9D2A0'], ['#80A082
 
 const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
   const ref = useCampReveal();
-  const { paths, nodes, leaves } = React.useMemo(() => {
+  const { paths, nodes, leaves, washes } = React.useMemo(() => {
     const r = liRng(seed);
     const W = 1200, H = height;
     const paths = [], nodes = [], leaves = [];
@@ -239,13 +239,27 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
           flip = !flip;
           growLush(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.5), len * 0.62, depth + 1, chain);
         }
-        if (r() < (depth ? 0.15 : 0.1)) {
+        if (r() < (depth ? 0.12 : 0.08)) {
           const side = flip ? 1 : -1;
           leaves.push({ x: cx, y: cy, rot: a + side * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35), s: 0.62 + r() * 0.3 - depth * 0.04, depth });
         }
       }
+      /* every large stem finishes with a leaf; a fine twig ends in a leaf or in a small defined curl */
+      if (grown && (depth <= 1 || r() < (depth === 2 ? 0.75 : 0.55))) {
+        leaves.push({ x: cx, y: cy, rot: a, s: 0.8 + r() * 0.35 - depth * 0.05, depth });
+      } else if (grown && r() < 0.6) {
+        let h = a, px = cx, py = cy;
+        const turn = r() < 0.5 ? 1 : -1;
+        for (let k = 0; k < 3; k++) {
+          h += turn * (0.75 + k * 0.4);
+          const sl = 6.5 - k * 1.8;
+          const qx = px + Math.cos(h - turn * 0.4) * sl * 0.7, qy = py + Math.sin(h - turn * 0.4) * sl * 0.7;
+          const ex = px + Math.cos(h) * sl, ey = py + Math.sin(h) * sl;
+          d += ` Q${qx.toFixed(1)} ${qy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+          px = ex; py = ey;
+        }
+      }
       entry.d = grown ? d : '';
-      if (grown && r() < 0.55) leaves.push({ x: cx, y: cy, rot: a, s: 0.8 + r() * 0.35 - depth * 0.05, depth });
     };
     const colonies = cfg.colonies;
     for (let i = 0; !lush && i < colonies; i++) {
@@ -269,17 +283,13 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
     }
     /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
     const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({ ...l, tone: (i * 5 + (i >> 2)) % 3 }));
-    return { paths: paths.filter(p => p.d), nodes, leaves: kept };
+    /* soft pigment blooms behind the clusters of leaves */
+    const washes = lush ? kept.filter((l, i) => i % 16 === 0).map((l, i) => ({ x: l.x, y: l.y, rx: 30 + ((i * 13) % 24), ry: 15 + ((i * 7) % 12), tone: l.tone })) : [];
+    return { paths: paths.filter(p => p.d), nodes, leaves: kept, washes };
   }, [seed, height, dark]);
 
   return (
     <svg ref={ref} className={`li-myc${dark ? ' dark' : ''}`} viewBox={`0 0 1200 ${height}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true" style={{ height }}>
-      {paths.map((p, i) => (
-        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 200 + (i % 12) * 20}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3)) }} />
-      ))}
-      {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: `${Math.min(350 + i * 6, 800)}ms` }} />
-      ))}
       {!dark && (
         <defs>
           {LI_LEAF_TONES.map(([a, b], k) => (
@@ -292,12 +302,39 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
             <path className="leaf-shape" d={LI_BODHI} />
             <path className="leaf-vein" d={LI_BODHI_VEINS} />
           </g>
+          <filter id={`wc-${seed}`} x="-2%" y="-8%" width="104%" height="116%" colorInterpolationFilters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed={seed} result="warp" />
+            <feDisplacementMap in="SourceGraphic" in2="warp" scale="3.2" xChannelSelector="R" yChannelSelector="G" result="wobble" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={seed + 3} result="grain" />
+            <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0.35" result="grainA" />
+            <feComposite in="wobble" in2="grainA" operator="in" />
+          </filter>
+          <filter id={`wb-${seed}`} x="-10%" y="-40%" width="120%" height="180%">
+            <feGaussianBlur stdDeviation="8" />
+          </filter>
         </defs>
       )}
+      {!dark && (
+        <g className="wc-wash" style={{ filter: `url(#wb-${seed})` }}>
+          {washes.map((w, i) => (
+            <ellipse key={i} cx={w.x} cy={w.y} rx={w.rx} ry={w.ry} fill={LI_LEAF_TONES[w.tone][0]} fillOpacity="0.22" />
+          ))}
+        </g>
+      )}
+      <g style={dark ? undefined : { filter: `url(#wc-${seed})` }}>
+      {paths.map((p, i) => (
+        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 200 + (i % 12) * 20}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3)) }} />
+      ))}
+      </g>
+      {nodes.map((n, i) => (
+        <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: `${Math.min(350 + i * 6, 800)}ms` }} />
+      ))}
+      <g style={dark ? undefined : { filter: `url(#wc-${seed})` }}>
       {leaves.map((l, i) => (
         <use key={'l' + i} className="leaf" href={`#lf-${seed}`}
           style={{ fill: `url(#lg${l.tone}-${seed})`, '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`, '--s': l.s.toFixed(2), transitionDelay: `${800 + l.depth * 200 + (i % 10) * 12}ms` }} />
       ))}
+      </g>
     </svg>
   );
 };
