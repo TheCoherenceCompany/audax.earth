@@ -1628,7 +1628,7 @@ const PageLiving = () => {
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Technology and architecture are the first. Architectural solutions answer architectural problems, so this reaches past tools to the structure of the whole system. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three."), /*#__PURE__*/React.createElement(LIMore, null, /*#__PURE__*/React.createElement("p", null, "Maturity in this sense belongs to groups more than to individuals. It is the shared understanding and collective wisdom that let a community meet fast-growing capability well: how we decide together, learn together and notice what no single person can see. Collaborative intelligence and the tools that support it are how we build it."))), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Technology and architecture are the first. Architectural solutions answer architectural problems, so this reaches past tools to the structure of the whole system. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.")), /*#__PURE__*/React.createElement(CampCascade, {
     className: "insight-grid",
     style: {
       marginTop: 36
@@ -1656,7 +1656,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere\u2019s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of ", /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("p", null, "Maturity in this sense belongs to groups more than to individuals. It is the shared understanding and collective wisdom that let a community meet fast-growing capability well: how we decide together, learn together and notice what no single person can see. Collaborative intelligence and the tools that support it are how we build it."), /*#__PURE__*/React.createElement("p", null, "People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere\u2019s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of ", /*#__PURE__*/React.createElement("a", {
     href: "https://docs.google.com/document/d/150BbAGwigiNVx3-dYSZRuQ81tc2n5fQhZ9xWobTraa4/edit?usp=sharing",
     target: "_blank",
     rel: "noreferrer",
