@@ -3657,3 +3657,14 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 .li-more-body { margin-top: 14px; animation: li-more-in 420ms var(--ease-out) both; }
 @keyframes li-more-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .li-more-body { animation: none; } }
+
+/* a soft slate-blue wash across the middle of the watercolour vines, to ground them and soften the white */
+.li-vines {
+  background:
+    linear-gradient(180deg,
+      rgba(120, 148, 180, 0) 0%,
+      rgba(120, 148, 180, 0.10) 24%,
+      rgba(112, 141, 175, 0.30) 50%,
+      rgba(120, 148, 180, 0.10) 76%,
+      rgba(120, 148, 180, 0) 100%);
+}
