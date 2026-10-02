@@ -35,7 +35,7 @@ const LI_WHY_COME = [
   ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward and to disagree about.'],
   ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'],
   ['Open to any organization, wherever its people are', 'Grown from Camp Audax and built to widen. Anyone can take part from wherever they work.'],
-  ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, for a very long time.']
+  ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, over very long timescales.']
 ];
 
 const LI_TRIAD = [
