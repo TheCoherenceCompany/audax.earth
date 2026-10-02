@@ -181,11 +181,11 @@ const LIPrompt = () => {
    LI_TELEGRAM_URL: the group's invite link. Empty means the Telegram buttons and
    lines stay hidden; paste the link here and they appear everywhere at once.
 
-   LI_LUMA_EVENTS: the next two Camp Audax calls on The Coherence Company's calendar
+   LI_LUMA_EVENTS: the next Camp Audax call on The Coherence Company's calendar
    (luma.com/thecoherenceco), by Luma event slug: Wed 30 Sep 2026 and Wed 7 Oct 2026.
    Swap in the newest two whenever new calls are scheduled. */
 const LI_TELEGRAM_URL = 'https://t.me/+msbQmsbxpAg4Yjk8'; // the Audax OS group; the older Camp Audax page used this invite
-const LI_LUMA_EVENTS = ['rlleseya', '4h2zh57m'];
+const LI_LUMA_EVENTS = ['4h2zh57m'];
 
 /* Luma's embed cannot be restyled and only lays out compactly from 700px wide, so
    the iframe stays 700x460 and .cph-luma-card scales it down for small screens. */

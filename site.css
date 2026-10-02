@@ -3668,3 +3668,8 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
       rgba(184, 209, 188, 0.20) 76%,
       rgba(156, 191, 163, 0) 100%);
 }
+
+/* ---- Meet us on a call: one upcoming event, text beside the card ---- */
+.li-call { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.li-call-text { max-width: 440px; }
+@media (max-width: 980px) { .li-call { grid-template-columns: 1fr; } .li-call-text { max-width: 640px; } }

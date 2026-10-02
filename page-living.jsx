@@ -282,7 +282,7 @@ const liBuildVines = (seed, H) => {
   return { stems: live, leaves: kept };
 };
 
-const LIVines = ({ seed = 11, height = 190 }) => {
+const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
   const wrapRef = React.useRef(null);
   const cvRef = React.useRef(null);
   const data = React.useMemo(() => liBuildVines(seed, height), [seed, height]);
@@ -414,7 +414,7 @@ const LIVines = ({ seed = 11, height = 190 }) => {
     return () => { cancelAnimationFrame(raf); if (io) io.disconnect(); window.removeEventListener('resize', onResize); };
   }, [data, height]);
   return (
-    <div ref={wrapRef} className="li-myc li-vines" style={{ height }} aria-hidden="true">
+    <div ref={wrapRef} className="li-myc li-vines" style={{ height, marginTop: above, marginBottom: below }} aria-hidden="true">
       <canvas ref={cvRef} style={{ display: 'block', width: '100%', height: '100%' }} />
     </div>
   );
@@ -923,7 +923,7 @@ const PageLiving = () => {
           <p>Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.</p>
         </div>
         <LICampPersonaSlider profiles={LI_TRIAD} />
-        <CampQuote>Each is right about something. <em>Holding the whole takes all three.</em></CampQuote>
+        <CampQuote>Each is right about many things. <em>Holding the whole takes all three.</em></CampQuote>
       </div>
     </section>
 
@@ -949,9 +949,9 @@ const PageLiving = () => {
     </section>
 
     {/* ─── Then and now: the quote pair, between the questions and the stool ───────── */}
-    <section className="section-tight li-quote-sec" style={{ ...anchor, paddingTop: 64, paddingBottom: 0 }}>
+    <section className="section-tight li-quote-sec" style={{ ...anchor, paddingTop: 128, paddingBottom: 32 }}>
       <div className="container">
-        <CampKicker bottom={20}>Now and then</CampKicker>
+        <CampKicker bottom={40}>Now and then</CampKicker>
         <LIQuotePair />
       </div>
     </section>
@@ -975,7 +975,7 @@ const PageLiving = () => {
             </article>
           ))}
         </CampCascade>
-        <CampAside flip shot="delta" alt="Aerial view of a river delta, its channels fanning out in bands of color" ratio="1 / 1" style={{ marginTop: 40 }}>
+        <CampAside flip shot="delta" alt="Aerial view of a river delta, its channels fanning out in bands of color" ratio="1 / 1" style={{ marginTop: 96 }}>
           <div className="q-body">
             <p>People in this network work where tools, mindsets and equity meet. Ecological engineers feed the biosphere&rsquo;s own data into AI systems. Storytellers help regenerative and impact movements see AI as a powerful ally. Builders keep the tools open enough that a founder in Palo Alto and a student anywhere in the world can pick them up and do something wild with them. Cultural maturity, in the sense of <a href="https://docs.google.com/document/d/150BbAGwigiNVx3-dYSZRuQ81tc2n5fQhZ9xWobTraa4/edit?usp=sharing" target="_blank" rel="noreferrer" style={{ color: 'var(--forest-700)' }}>Pavel Luksha&rsquo;s work on planetary adulthood</a>, ties these threads together.</p>
             <p>One idea from the wider conversation, sometimes called ecosystemic singularity, imagines the point where the whole living system, people, machines and biosphere included, begins to think together. Coevolution describes the road toward it.</p>
@@ -1061,7 +1061,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <Mycelium seed={37} height={180} />
+    <Mycelium seed={37} height={180} above={44} below={64} />
 
     {/* ─── 09 · WEAVING THE FIELD ───────────────────────────────────────── */}
     <section className="section" id="field" style={{ ...anchor, paddingBottom: 0, paddingTop: 24 }}>
@@ -1139,11 +1139,15 @@ const PageLiving = () => {
     {/* ─── MEET US ON A CALL ────────────────────────────────────────────── */}
     <section className="section-tight" id="calls" style={{ ...anchor, paddingTop: 56, paddingBottom: 110 }}>
       <div className="container">
-        <CampKicker bottom={8}>Meet us on a call</CampKicker>
-        <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Join one of the next Camp Audax calls to meet the people involved and bring your questions. Pick whichever time suits you.</p>
+        <div className="li-call">
+          <div className="li-call-text">
+            <CampKicker bottom={8}>Meet us on a call</CampKicker>
+            <div className="q-body">
+              <p>Join the next Camp Audax call to meet the people involved and bring your questions.</p>
+            </div>
+          </div>
+          <LILumaCarousel ids={LI_LUMA_EVENTS} />
         </div>
-        <LILumaCarousel ids={LI_LUMA_EVENTS} />
       </div>
     </section>
 

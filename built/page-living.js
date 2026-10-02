@@ -422,7 +422,9 @@ const liBuildVines = (seed, H) => {
 };
 const LIVines = ({
   seed = 11,
-  height = 190
+  height = 190,
+  above = 0,
+  below = 0
 }) => {
   const wrapRef = React.useRef(null);
   const cvRef = React.useRef(null);
@@ -653,7 +655,9 @@ const LIVines = ({
     ref: wrapRef,
     className: "li-myc li-vines",
     style: {
-      height
+      height,
+      marginTop: above,
+      marginBottom: below
     },
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("canvas", {
@@ -1515,7 +1519,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("p", null, "Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.")), /*#__PURE__*/React.createElement(LICampPersonaSlider, {
     profiles: LI_TRIAD
-  }), /*#__PURE__*/React.createElement(CampQuote, null, "Each is right about something. ", /*#__PURE__*/React.createElement("em", null, "Holding the whole takes all three.")))), /*#__PURE__*/React.createElement(LICampBand, {
+  }), /*#__PURE__*/React.createElement(CampQuote, null, "Each is right about many things. ", /*#__PURE__*/React.createElement("em", null, "Holding the whole takes all three.")))), /*#__PURE__*/React.createElement(LICampBand, {
     shot: "canopy",
     kicker: "Starting points",
     label: "Open threads we are exploring",
@@ -1559,13 +1563,13 @@ const PageLiving = () => {
     className: "section-tight li-quote-sec",
     style: {
       ...anchor,
-      paddingTop: 64,
-      paddingBottom: 0
+      paddingTop: 128,
+      paddingBottom: 32
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "container"
   }, /*#__PURE__*/React.createElement(CampKicker, {
-    bottom: 20
+    bottom: 40
   }, "Now and then"), /*#__PURE__*/React.createElement(LIQuotePair, null))), /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "stool",
@@ -1609,7 +1613,7 @@ const PageLiving = () => {
     alt: "Aerial view of a river delta, its channels fanning out in bands of color",
     ratio: "1 / 1",
     style: {
-      marginTop: 40
+      marginTop: 96
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
@@ -1750,7 +1754,9 @@ const PageLiving = () => {
     steps: LI_STEPS
   }), /*#__PURE__*/React.createElement(CampQuote, null, "A property earns its place ", /*#__PURE__*/React.createElement("em", null, "the day someone builds with it.")))), /*#__PURE__*/React.createElement(Mycelium, {
     seed: 37,
-    height: 180
+    height: 180,
+    above: 44,
+    below: 64
   }), /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "field",
@@ -1870,17 +1876,17 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "li-call"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "li-call-text"
   }, /*#__PURE__*/React.createElement(CampKicker, {
     bottom: 8
   }, "Meet us on a call"), /*#__PURE__*/React.createElement("div", {
-    className: "q-body",
-    style: {
-      maxWidth: 760,
-      marginBottom: 24
-    }
-  }, /*#__PURE__*/React.createElement("p", null, "Join one of the next Camp Audax calls to meet the people involved and bring your questions. Pick whichever time suits you.")), /*#__PURE__*/React.createElement(LILumaCarousel, {
+    className: "q-body"
+  }, /*#__PURE__*/React.createElement("p", null, "Join the next Camp Audax call to meet the people involved and bring your questions."))), /*#__PURE__*/React.createElement(LILumaCarousel, {
     ids: LI_LUMA_EVENTS
-  }))), /*#__PURE__*/React.createElement(CampJoinBand, {
+  })))), /*#__PURE__*/React.createElement(CampJoinBand, {
     shot: "trail",
     pos: "center 50%",
     tearTop: ART.wave,
