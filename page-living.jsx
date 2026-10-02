@@ -180,7 +180,7 @@ const liHex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), 
 const liMix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
 const liRgb = (c, al = 1) => `rgba(${c[0]},${c[1]},${c[2]},${al})`;
 /* leaf tones, base to tip: sage, olive sage, blue sage, and a touch of warm yellow-green */
-const LI_PAINT_TONES = [['#5F8A52', '#A9C887'], ['#7F9C4E', '#C2D487'], ['#548A64', '#9CC5A0'], ['#9E9650', '#D2CC86']];
+const LI_PAINT_TONES = [['#7F9A66', '#BFCE9E'], ['#93A464', '#CCD59C'], ['#79997C', '#B9CDB3'], ['#A9A464', '#D6D49E']];
 
 const liBuildVines = (seed, H) => {
   const r = liRng(seed), W = 1200;
@@ -276,7 +276,7 @@ const liBuildVines = (seed, H) => {
   const live = allLive;
   live.forEach((s, i) => { s.t0 = s.depth * 0.28 + (i % 12) * 0.025; s.dur = 0.85; s.n = s.pts.length; });
   const kept = leaves.filter((l, i) => !l.stem.dead && (l.tip || (i * 7 + 3) % 9 > 1)).map((l, i) => ({
-    ...l, tone: liHash(i + seed) < 0.14 ? 3 : (i * 5 + (i >> 2)) % 3, o: 0.8 + ((i * 37) % 20) / 100,
+    ...l, tone: liHash(i + seed) < 0.14 ? 3 : (i * 5 + (i >> 2)) % 3, o: 0.62 + ((i * 37) % 30) / 100,
     at: l.stem.t0 + l.stem.dur * (l.idx / Math.max(1, l.stem.n - 1)) + 0.08
   }));
   return { stems: live, leaves: kept };
@@ -304,13 +304,13 @@ const LIVines = ({ seed = 11, height = 190 }) => {
     })();
     const noisePat = ctx.createPattern(noise, 'repeat');
     const leafPath = new Path2D(LI_BODHI), veinPath = new Path2D(LI_BODHI_VEINS);
-    const widths = [3.4, 2.7, 2.1, 1.7, 1.35];
+    const widths = [3.1, 2.5, 2.0, 1.6, 1.3];
     let sc = 1, ox = 0, oy = 0, w = 0, h = 0;
     let started = false, startAt = 0, raf = 0, done = false, nowT = 0;
     const stopsFor = (s) => {
       const warm = liHash(s.id + seed) < 0.38;
-      return s.depth >= 3 ? [liHex('#6A7A4C'), liHex('#5C8A4C'), liHex('#4A8A58')]
-        : [liHex(warm ? '#7A5F44' : '#6F6650'), liHex('#5E7F44'), liHex('#4A8A58')];
+      return s.depth >= 3 ? [liHex('#74805A'), liHex('#6B8F5C'), liHex('#5E9468')]
+        : [liHex(warm ? '#86705A' : '#7A7660'), liHex('#6F8A58'), liHex('#5E9468')];
     };
     const colorAt = (stops, u) => (u < 0.5 ? liMix(stops[0], stops[1], u * 2) : liMix(stops[1], stops[2], (u - 0.5) * 2));
     const fit = () => {
@@ -353,26 +353,25 @@ const LIVines = ({ seed = 11, height = 190 }) => {
       g.addColorStop(0, t[0]); g.addColorStop(1, t[1]);
       ctx.fillStyle = g; ctx.fill(leafPath);
       ctx.save(); ctx.clip(leafPath);
-      ctx.lineWidth = 2.8; ctx.strokeStyle = 'rgba(34,70,40,0.5)'; ctx.stroke(leafPath);
+      ctx.lineWidth = 2.2; ctx.strokeStyle = 'rgba(52,88,52,0.38)'; ctx.stroke(leafPath);
       ctx.restore();
-      ctx.lineWidth = 0.5; ctx.strokeStyle = 'rgba(30,62,36,0.6)'; ctx.stroke(leafPath);
-      ctx.lineWidth = 0.6; ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(34,68,38,0.7)'; ctx.stroke(veinPath);
+      ctx.lineWidth = 0.55; ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(46,80,44,0.5)'; ctx.stroke(veinPath);
       ctx.restore();
     };
     const compose = (time) => {
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, w, h);
-      ctx.globalAlpha = 0.13; ctx.drawImage(layers.wash, 0, 0);
-      ctx.globalAlpha = 0.96; ctx.drawImage(layers.body, 0, 0);
-      ctx.globalAlpha = 0.7; ctx.drawImage(layers.edge, 0, 0);
-      ctx.globalAlpha = 0.34; ctx.drawImage(layers.hi, 0, 0);
+      ctx.globalAlpha = 0.16; ctx.drawImage(layers.wash, 0, 0);
+      ctx.globalAlpha = 0.82; ctx.drawImage(layers.body, 0, 0);
+      ctx.globalAlpha = 0.5; ctx.drawImage(layers.edge, 0, 0);
+      ctx.globalAlpha = 0.32; ctx.drawImage(layers.hi, 0, 0);
       ctx.globalAlpha = 1;
       data.leaves.forEach(l => {
         const k = Math.max(0, Math.min(1, (time - l.at) / 0.4));
         if (k > 0) { const e = 1 - Math.pow(1 - k, 3); drawLeaf(l, e); }
       });
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.globalAlpha = 0.3; ctx.fillStyle = noisePat; ctx.fillRect(0, 0, w, h);
+      ctx.globalAlpha = 0.5; ctx.fillStyle = noisePat; ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
     };
     const paint = (time) => {
