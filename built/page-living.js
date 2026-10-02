@@ -62,7 +62,7 @@ const LI_TRIAD = [{
   name: 'Human',
   short: 'The ability to ask what a thing is for.',
   benefit: 'The ability to ask what a thing is for.',
-  working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together.',
+  working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together, and the collective intelligence that grows when we learn, think & collaborate together.',
   brings: ['Portability that survives a change of provider', 'Agents that are explainable and accountable', 'Shared spaces communities can govern', 'Individual and collective agency'],
   blind: 'The long timescales, quiet costs, and sophisticated patterns and connections that never reach a dashboard, and what a default chosen in a sprint does ten years on.'
 }, {
@@ -170,6 +170,32 @@ const liRng = seed => {
 /* A bodhi leaf (Ficus religiosa), base at the origin and tip pointing up: heart-shaped, with the long drip tip. The
    light-ground bands grow bodhi vines, the same leaf as the Living Intelligence graphics. */
 const LI_BODHI = 'M0 0 C-2 1 -6.2 -1 -6.2 -5.6 C-6.2 -9.2 -2.8 -11 -1.1 -15.6 C-0.7 -16.8 0.7 -16.8 1.1 -15.6 C2.8 -11 6.2 -9.2 6.2 -5.6 C6.2 -1 2 1 0 0 Z';
+const LIMore = ({
+  label = 'Show more',
+  children
+}) => {
+  const [open, setOpen] = React.useState(false);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "li-more"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "li-more-btn",
+    "aria-expanded": open,
+    onClick: () => setOpen(o => !o)
+  }, open ? 'Show less' : label, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, open ? ' −' : ' +')), open && /*#__PURE__*/React.createElement("div", {
+    className: "li-more-body"
+  }, children));
+};
+
+/* Then and now: the familiar line and a version written for the era of aligned superintelligence, side by side. */
+const LIQuotePair = () => /*#__PURE__*/React.createElement(CampCascade, {
+  className: "li-quote-pair",
+  step: 140
+}, /*#__PURE__*/React.createElement("figure", null, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a small group of thoughtful, committed citizens can change the world; indeed, it\u2019s the only thing that ever has.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "Attributed to Margaret Mead")), /*#__PURE__*/React.createElement("figure", {
+  className: "li-quote-now"
+}, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a collectively intelligent network of networks, working with aligned superintelligence, can help humanity coordinate, protect what matters, and meet challenges at a scale once unimaginable. Indeed, our future may depend on it.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "A modern version, by Daveed Benjamin")));
 const Mycelium = ({
   seed = 7,
   height = 150,
@@ -657,7 +683,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "q-body"
-  }, /*#__PURE__*/React.createElement("p", null, "Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work and each concern deserves a serious answer."), /*#__PURE__*/React.createElement("p", null, "This page adds one question that sits beside all of those efforts: what vision of interrelationship of the biosphere, people and AI do we want to grow into? If far more capable systems arrive (which appears likely) stewardship of these systems is one part of a larger picture. That picture also holds what those systems owe the living world, what groups of people and individuals owe each other, and what healthy coevolution looks like as capability grows. A durable, mutually flourishing relationship among all three components gives every alliance a positive field to build within, on any timeline."))), /*#__PURE__*/React.createElement(CampKicker, {
+  }, /*#__PURE__*/React.createElement("p", null, "Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work and each concern deserves a serious answer."), /*#__PURE__*/React.createElement("p", null, "This page adds one question that sits beside all of those efforts: what vision of interrelationship of the biosphere, people and AI do we want to grow into? If far more capable systems arrive (which appears likely) stewardship of these systems is one part of a larger picture. That picture also holds what those systems owe the living world, what groups of people and individuals owe each other, and what healthy coevolution looks like as capability grows. A durable, mutually flourishing relationship among all three components gives every alliance a positive field to build within, on any timeline. Running through all of it is a question about us: how can humans grow as a collectively intelligent species, evolving our own natural intelligence and working hybridly with AI to enhance what\u2019s possible?"))), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
   }, "Three ways to name the field"), /*#__PURE__*/React.createElement("div", {
@@ -796,6 +822,17 @@ const PageLiving = () => {
     ground: "var(--surface-parchment)",
     deep: true
   })), /*#__PURE__*/React.createElement("section", {
+    className: "section-tight li-quote-sec",
+    style: {
+      ...anchor,
+      paddingTop: 64,
+      paddingBottom: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement(CampKicker, {
+    bottom: 20
+  }, "Then and now"), /*#__PURE__*/React.createElement(LIQuotePair, null))), /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "stool",
     style: {
@@ -814,7 +851,7 @@ const PageLiving = () => {
     style: {
       maxWidth: 760
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Technology and architecture are the first. Architectural solutions answer architectural problems, so this reaches past tools to the structure of the whole system. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three.")), /*#__PURE__*/React.createElement(CampCascade, {
+  }, /*#__PURE__*/React.createElement("p", null, "Technology and architecture are the first. Architectural solutions answer architectural problems, so this reaches past tools to the structure of the whole system. The second is the maturity to use it well and the third is a future that is fair, free and flourishing for everyone. Each supports the other two, so the properties in this list reach into all three."), /*#__PURE__*/React.createElement(LIMore, null, /*#__PURE__*/React.createElement("p", null, "Maturity in this sense belongs to groups more than to individuals. It is the shared understanding and collective wisdom that let a community meet fast-growing capability well: how we decide together, learn together and notice what no single person can see. Collaborative intelligence and the tools that support it are how we build it."))), /*#__PURE__*/React.createElement(CampCascade, {
     className: "insight-grid",
     style: {
       marginTop: 36
