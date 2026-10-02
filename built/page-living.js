@@ -215,7 +215,7 @@ const Mycelium = ({
         cy = y,
         a = ang;
       for (let i = 0; i < steps; i++) {
-        a += (r() - 0.5) * 0.9;
+        a += (r() - 0.5) * (lush ? 0.6 : 0.9);
         const nx = cx + Math.cos(a) * len / steps,
           ny = cy + Math.sin(a) * len / steps;
         const mx = (cx + nx) / 2 + (r() - 0.5) * 8,
@@ -223,7 +223,7 @@ const Mycelium = ({
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
         cx = nx;
         cy = ny;
-        if (r() < cfg.branchP) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (0.5 + r() * 0.7), len * cfg.shrink, depth + 1);
+        if (r() < cfg.branchP) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (lush ? 0.35 + r() * 0.5 : 0.5 + r() * 0.7), len * cfg.shrink, depth + 1);
         if (lush && r() < 0.22) nodes.push({
           x: cx + (r() - 0.5) * 5,
           y: cy + (r() - 0.5) * 5,
@@ -244,8 +244,12 @@ const Mycelium = ({
       const x0 = W / colonies * (i + 0.5) + (r() - 0.5) * 90,
         y0 = H / 2 + (r() - 0.5) * 24;
       const gm = cfg.grow || 1;
-      grow(x0, y0, r() * Math.PI * 2, (110 + r() * 60) * gm, 0);
-      grow(x0, y0, r() * Math.PI * 2, (90 + r() * 60) * gm, 0);
+      /* on the light grounds the main stems sweep sideways in long, gentle arcs (vines, not diagonals), one
+         heading each way from every colony; the dark band keeps its free direction */
+      const sx = lush ? (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8 : r() * Math.PI * 2;
+      const sy = lush ? (i % 2 ? 0 : Math.PI) + (r() - 0.5) * 0.8 : r() * Math.PI * 2;
+      grow(x0, y0, sx, (110 + r() * 60) * gm, 0);
+      grow(x0, y0, sy, (90 + r() * 60) * gm, 0);
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
     return {
@@ -267,7 +271,7 @@ const Mycelium = ({
     d: p.d,
     pathLength: "1",
     style: {
-      transitionDelay: `${Math.min(i * 6, 450)}ms`,
+      transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 650 + i % 12 * 35}ms`,
       strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3))
     }
   })), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
@@ -276,7 +280,7 @@ const Mycelium = ({
     cy: n.y,
     r: n.r,
     style: {
-      transitionDelay: `${Math.min(350 + i * 6, 800)}ms`
+      transitionDelay: dark ? `${Math.min(350 + i * 6, 800)}ms` : `${1800 + n.depth * 650 + i % 15 * 30}ms`
     }
   })));
 };
