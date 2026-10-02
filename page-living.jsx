@@ -184,7 +184,7 @@ const liRgb = (c, al = 1) => `rgba(${c[0]},${c[1]},${c[2]},${al})`;
 const LI_NIGHT_TONES = [['#7FA383', '#E6EFD6'], ['#A9BE80', '#F1F5DC'], ['#8DB5A2', '#E3F0E8'], ['#CFC98E', '#FAF7E0']];
 const LI_PAINT_TONES = [['#7F9A66', '#BFCE9E'], ['#93A464', '#CCD59C'], ['#79997C', '#B9CDB3'], ['#A9A464', '#D6D49E']];
 
-const liBuildVines = (seed, H) => {
+const liBuildVines = (seed, H, rich = false) => {
   const r = liRng(seed), W = 1200;
   const stems = [], leaves = [];
   const occ = new Map();
@@ -234,7 +234,7 @@ const liBuildVines = (seed, H) => {
       stem.end = { x: cx, y: cy, a };
     }
   };
-  const colonies = 14;
+  const colonies = rich ? 18 : 14;
   for (let i = 0; i < colonies; i++) {
     const x0 = (W / colonies) * (i + 0.5) + (r() - 0.5) * 90, y0 = H / 2 + (r() - 0.5) * 24;
     grow(x0, y0, (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8, (110 + r() * 60) * 1.2, 0, []);
@@ -277,17 +277,17 @@ const liBuildVines = (seed, H) => {
   });
   const live = allLive;
   live.forEach((s, i) => { s.t0 = s.depth * 0.28 + (i % 12) * 0.025; s.dur = 0.85; s.n = s.pts.length; });
-  const kept = leaves.filter((l, i) => !l.stem.dead && (l.tip || (i * 7 + 3) % 9 > 1)).map((l, i) => ({
+  const kept = leaves.filter((l, i) => !l.stem.dead && (l.tip || rich || (i * 7 + 3) % 9 > 1)).map((l, i) => ({
     ...l, tone: liHash(i + seed) < 0.14 ? 3 : (i * 5 + (i >> 2)) % 3, o: 0.62 + ((i * 37) % 30) / 100,
     at: l.stem.t0 + l.stem.dur * (l.idx / Math.max(1, l.stem.n - 1)) + 0.08
   }));
   return { stems: live, leaves: kept };
 };
 
-const LIVines = ({ seed = 11, height = 190, above = 0, below = 0, night = false }) => {
+const LIVines = ({ seed = 11, height = 190, above = 0, below = 0, night = false, rich = false }) => {
   const wrapRef = React.useRef(null);
   const cvRef = React.useRef(null);
-  const data = React.useMemo(() => liBuildVines(seed, height), [seed, height]);
+  const data = React.useMemo(() => liBuildVines(seed, height, rich), [seed, height, rich]);
   React.useEffect(() => {
     const wrap = wrapRef.current, cv = cvRef.current;
     if (!wrap || !cv) return undefined;
@@ -331,7 +331,7 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0, night = false 
       data.stems.forEach(s => { s.drawn = 1; });
     };
     const drawChunks = (s, upto) => {
-      const stops = stopsFor(s), w0 = widths[s.depth] || 1.3;
+      const stops = stopsFor(s), w0 = (widths[s.depth] || 1.3) * (rich ? 1.4 : 1);
       for (let i = s.drawn; i <= upto && i < s.n; i++) {
         const p0 = s.pts[i - 1], p1 = s.pts[i];
         if (!p0) continue;
@@ -1083,7 +1083,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <Mycelium seed={4} height={180} above={44} below={64} />
+    <Mycelium seed={8} height={180} above={44} below={64} rich />
 
     {/* ─── 09 · WEAVING THE FIELD ───────────────────────────────────────── */}
     <section className="section" id="field" style={{ ...anchor, paddingBottom: 0, paddingTop: 24 }}>
