@@ -1072,7 +1072,7 @@ const PageLiving = () => {
       <div className="container">
         <LICampInk className="q-h1">
           <span className="num">08 · From design to build</span>
-          From Desirable Properties <em>to a working system.</em>
+          From Desirable Properties <em>to new experiments.</em>
         </LICampInk>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 32 }}>
           <p>A list of properties gains force when builders can use it. The method runs in seven steps and every second step belongs to people. AI drafts at speed and people decide what the drafts are worth.</p>
@@ -1083,7 +1083,7 @@ const PageLiving = () => {
       </div>
     </section>
 
-    <Mycelium seed={37} height={180} above={44} below={64} />
+    <Mycelium seed={4} height={180} above={44} below={64} />
 
     {/* ─── 09 · WEAVING THE FIELD ───────────────────────────────────────── */}
     <section className="section" id="field" style={{ ...anchor, paddingBottom: 0, paddingTop: 24 }}>

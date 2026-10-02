@@ -1789,7 +1789,7 @@ const PageLiving = () => {
     className: "q-h1"
   }, /*#__PURE__*/React.createElement("span", {
     className: "num"
-  }, "08 \xB7 From design to build"), "From Desirable Properties ", /*#__PURE__*/React.createElement("em", null, "to a working system.")), /*#__PURE__*/React.createElement("div", {
+  }, "08 \xB7 From design to build"), "From Desirable Properties ", /*#__PURE__*/React.createElement("em", null, "to new experiments.")), /*#__PURE__*/React.createElement("div", {
     className: "q-body",
     style: {
       maxWidth: 760,
@@ -1798,7 +1798,7 @@ const PageLiving = () => {
   }, /*#__PURE__*/React.createElement("p", null, "A list of properties gains force when builders can use it. The method runs in seven steps and every second step belongs to people. AI drafts at speed and people decide what the drafts are worth.")), /*#__PURE__*/React.createElement(LISteps, {
     steps: LI_STEPS
   }), /*#__PURE__*/React.createElement(CampQuote, null, "A property earns its place ", /*#__PURE__*/React.createElement("em", null, "the day someone builds with it.")))), /*#__PURE__*/React.createElement(Mycelium, {
-    seed: 37,
+    seed: 4,
     height: 180,
     above: 44,
     below: 64
