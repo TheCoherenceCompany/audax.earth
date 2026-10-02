@@ -56,7 +56,7 @@ const LI_TRIAD = [{
   benefit: 'Four billion years of research and development, still running.',
   working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests and the practices of the people who tend them.',
   brings: ['Regenerative timescales', 'Standing for other species', 'Polycentric stewardship', 'Visible cost to the biosphere'],
-  blind: 'Its own exposure to decisions made in a language it cannot contest: contracts, models and quarterly plans.'
+  blind: 'How much of the future of the old forests, the rivers and seas, the soil and every creature they hold is settled in rooms they cannot enter, through contracts, models and quarterly plans, and who will speak for them there.'
 }, {
   n: '2',
   name: 'Human',
@@ -72,7 +72,7 @@ const LI_TRIAD = [{
   benefit: 'Pattern, speed and synthesis at a scale beyond any single team.',
   working: 'The capacity to sense, model and coordinate across more information than any person or institution can track alone.',
   brings: ['Bounded authority', 'Revocable delegation', 'Compartmentalization', 'Independent monitoring', 'Reliable provenance', 'Multiple centers of control'],
-  blind: 'What the data leaves out: whatever was never measured and whoever was never asked.'
+  blind: 'The patience of living systems and the slow, place-rooted wisdom of those who tend them: understanding that deepens with time, relationship and attention.'
 }];
 const LI_VALUE_PROPERTY = [['Agency', 'Can a person change AI provider without losing years of memory, relationships and context?'], ['Accountability', 'Can anyone see who an agent represents, what authority it holds and how to challenge what it does?'], ['Biosphere flourishing', 'Are the energy, water, materials and land a system uses visible, or invisible because the interaction happens on a screen?'], ['Resilience', 'When one part fails, does the failure stay there, or can one compromised agent or security breach reach a whole environment?']];
 const LI_HYPHEN = [['Pro-Human AI', 'Service, loyalty, accountability and control: what AI owes the people it works for.'], ['Pro Human-AI', 'The relationship itself: symbiosis, mutual augmentation and durable boundaries between distinct participants.'], ['Pro Human-Biosphere-AI', 'The living systems both depend on. Cost to the biosphere becomes visible and the health of the whole living system joins the design brief.']];
@@ -291,14 +291,13 @@ const Mycelium = ({
         });
       }
     };
-    /* Light grounds: branches grow the way plants do. A stem keeps its heading with a gentle curve, side
-       branches leave at a forward angle on alternating sides, and a branch stops where it meets another one
-       (they compete for the same light), so the stems fan out and never knot together. */
+    /* Light grounds: curving vines that fork and drift, kept from knotting by a gentle rule: a branch stops
+       where it would cut across another one, so stems lie alongside each other and seldom cross. */
     const occ = new Map();
-    const cellOf = (x, y) => Math.round(x / 3) + ',' + Math.round(y / 3);
+    const cellOf = (x, y) => Math.round(x / 2) + ',' + Math.round(y / 2);
     let uid = 0;
     const growLush = (x, y, ang, len, depth, lineage) => {
-      if (depth > 5 || len < 16) return;
+      if (depth > 4 || len < 15) return;
       const id = uid++;
       const chain = lineage.concat(id);
       const entry = {
@@ -306,28 +305,26 @@ const Mycelium = ({
         depth
       };
       paths.push(entry);
-      const steps = 5 + Math.floor(r() * 3);
+      const steps = 3 + Math.floor(r() * 3);
       const stepLen = len / steps;
-      const curve = (r() - 0.5) * 0.16;
       let d = `M${x.toFixed(1)} ${y.toFixed(1)}`;
       let cx = x,
         cy = y,
         a = ang,
         grown = 0,
         travelled = 0,
-        flip = r() < 0.5,
-        blocked = false;
+        blocked = false,
+        flip = r() < 0.5;
       for (let i = 0; i < steps && !blocked; i++) {
-        a += curve + (r() - 0.5) * 0.14 - Math.sin(a) * 0.06;
+        a += (r() - 0.5) * 0.6;
         const nx = cx + Math.cos(a) * stepLen,
           ny = cy + Math.sin(a) * stepLen;
-        if (ny < -6 || ny > H + 6) break;
         const marks = [];
         for (let k = 1; k <= 5; k++) {
           const px = cx + (nx - cx) * k / 5,
             py = cy + (ny - cy) * k / 5;
           const hit = occ.get(cellOf(px, py));
-          if (travelled + stepLen * k / 5 > 8 && hit !== undefined && !chain.includes(hit)) {
+          if (travelled + stepLen * k / 5 > 24 && hit !== undefined && !chain.includes(hit)) {
             blocked = true;
             break;
           }
@@ -337,18 +334,18 @@ const Mycelium = ({
         marks.forEach(k => {
           if (!occ.has(k)) occ.set(k, id);
         });
-        const mx = (cx + nx) / 2 + (r() - 0.5) * 3,
-          my = (cy + ny) / 2 + (r() - 0.5) * 3;
+        const mx = (cx + nx) / 2 + (r() - 0.5) * 8,
+          my = (cy + ny) / 2 + (r() - 0.5) * 8;
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
         cx = nx;
         cy = ny;
         grown++;
         travelled += stepLen;
-        if (i >= 1 && r() < 0.85) {
+        if (r() < 0.5) {
           flip = !flip;
-          growLush(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.3), len * 0.7, depth + 1, chain);
+          growLush(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.5), len * 0.62, depth + 1, chain);
         }
-        if (r() < (depth ? 0.14 : 0.08)) {
+        if (r() < (depth ? 0.15 : 0.1)) {
           const side = flip ? 1 : -1;
           leaves.push({
             x: cx,
@@ -360,7 +357,7 @@ const Mycelium = ({
         }
       }
       entry.d = grown ? d : '';
-      if (grown && r() < 0.8) leaves.push({
+      if (grown && r() < 0.55) leaves.push({
         x: cx,
         y: cy,
         rot: a,
@@ -382,13 +379,13 @@ const Mycelium = ({
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
     if (lush) {
-      const origins = 14;
-      [...Array(origins).keys()].sort((p, q) => p * 7 % origins - q * 7 % origins).forEach(i => {
-        const x0 = W / origins * (i + 0.5) + (r() - 0.5) * 50;
-        const y0 = H * (i % 2 ? 0.62 : 0.38) + (r() - 0.5) * 14;
-        growLush(x0, y0, (r() - 0.5) * 0.3, 260 + r() * 100, 0, []);
-        growLush(x0, y0, Math.PI + (r() - 0.5) * 0.3, 260 + r() * 100, 0, []);
-      });
+      const colonies14 = 14;
+      for (let i = 0; i < colonies14; i++) {
+        const x0 = W / colonies14 * (i + 0.5) + (r() - 0.5) * 90,
+          y0 = H / 2 + (r() - 0.5) * 24;
+        growLush(x0, y0, (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8, (110 + r() * 60) * 1.2, 0, []);
+        growLush(x0, y0, (i % 2 ? 0 : Math.PI) + (r() - 0.5) * 0.8, (90 + r() * 60) * 1.2, 0, []);
+      }
     }
     /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
     const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({
@@ -874,9 +871,7 @@ const PageLiving = () => {
     className: "li-tri-read"
   }, "How to read it: five qualities orient each circle, each overlap names what two intelligences share and the center holds the aim they serve together.")), /*#__PURE__*/React.createElement("div", {
     className: "container li-triad-stage"
-  }, /*#__PURE__*/React.createElement(TriadDiagram, null)), /*#__PURE__*/React.createElement("p", {
-    className: "li-tri-note"
-  }, "A second Desirable Properties process, modeled on the Meta-Layer approach, defines what is desirable where living systems, people and AI intersect."), /*#__PURE__*/React.createElement(CampTear, {
+  }, /*#__PURE__*/React.createElement(TriadDiagram, null)), /*#__PURE__*/React.createElement(CampTear, {
     image: ART.crest,
     edge: "bottom",
     ground: "var(--surface-parchment)"

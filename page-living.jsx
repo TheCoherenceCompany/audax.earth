@@ -45,7 +45,7 @@ const LI_TRIAD = [
     benefit: 'Four billion years of research and development, still running.',
     working: 'Regeneration, resilience and interdependence at every scale: soil, watersheds, seed banks, forests and the practices of the people who tend them.',
     brings: ['Regenerative timescales', 'Standing for other species', 'Polycentric stewardship', 'Visible cost to the biosphere'],
-    blind: 'Its own exposure to decisions made in a language it cannot contest: contracts, models and quarterly plans.'
+    blind: 'How much of the future of the old forests, the rivers and seas, the soil and every creature they hold is settled in rooms they cannot enter, through contracts, models and quarterly plans, and who will speak for them there.'
   },
   {
     n: '2', name: 'Human',
@@ -61,7 +61,7 @@ const LI_TRIAD = [
     benefit: 'Pattern, speed and synthesis at a scale beyond any single team.',
     working: 'The capacity to sense, model and coordinate across more information than any person or institution can track alone.',
     brings: ['Bounded authority', 'Revocable delegation', 'Compartmentalization', 'Independent monitoring', 'Reliable provenance', 'Multiple centers of control'],
-    blind: 'What the data leaves out: whatever was never measured and whoever was never asked.'
+    blind: 'The patience of living systems and the slow, place-rooted wisdom of those who tend them: understanding that deepens with time, relationship and attention.'
   }
 ];
 
@@ -205,50 +205,47 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
         else nodes.push({ x: cx, y: cy, r: 1.3 + r() * 2.2, depth });
       }
     };
-    /* Light grounds: branches grow the way plants do. A stem keeps its heading with a gentle curve, side
-       branches leave at a forward angle on alternating sides, and a branch stops where it meets another one
-       (they compete for the same light), so the stems fan out and never knot together. */
+    /* Light grounds: curving vines that fork and drift, kept from knotting by a gentle rule: a branch stops
+       where it would cut across another one, so stems lie alongside each other and seldom cross. */
     const occ = new Map();
-    const cellOf = (x, y) => Math.round(x / 3) + ',' + Math.round(y / 3);
+    const cellOf = (x, y) => Math.round(x / 2) + ',' + Math.round(y / 2);
     let uid = 0;
     const growLush = (x, y, ang, len, depth, lineage) => {
-      if (depth > 5 || len < 16) return;
+      if (depth > 4 || len < 15) return;
       const id = uid++;
       const chain = lineage.concat(id);
       const entry = { d: '', depth };
       paths.push(entry);
-      const steps = 5 + Math.floor(r() * 3);
+      const steps = 3 + Math.floor(r() * 3);
       const stepLen = len / steps;
-      const curve = (r() - 0.5) * 0.16;
       let d = `M${x.toFixed(1)} ${y.toFixed(1)}`;
-      let cx = x, cy = y, a = ang, grown = 0, travelled = 0, flip = r() < 0.5, blocked = false;
+      let cx = x, cy = y, a = ang, grown = 0, travelled = 0, blocked = false, flip = r() < 0.5;
       for (let i = 0; i < steps && !blocked; i++) {
-        a += curve + (r() - 0.5) * 0.14 - Math.sin(a) * 0.06;
+        a += (r() - 0.5) * 0.6;
         const nx = cx + Math.cos(a) * stepLen, ny = cy + Math.sin(a) * stepLen;
-        if (ny < -6 || ny > H + 6) break;
         const marks = [];
         for (let k = 1; k <= 5; k++) {
           const px = cx + (nx - cx) * k / 5, py = cy + (ny - cy) * k / 5;
           const hit = occ.get(cellOf(px, py));
-          if (travelled + stepLen * k / 5 > 8 && hit !== undefined && !chain.includes(hit)) { blocked = true; break; }
+          if (travelled + stepLen * k / 5 > 24 && hit !== undefined && !chain.includes(hit)) { blocked = true; break; }
           marks.push(cellOf(px, py));
         }
         if (blocked) break;
         marks.forEach(k => { if (!occ.has(k)) occ.set(k, id); });
-        const mx = (cx + nx) / 2 + (r() - 0.5) * 3, my = (cy + ny) / 2 + (r() - 0.5) * 3;
+        const mx = (cx + nx) / 2 + (r() - 0.5) * 8, my = (cy + ny) / 2 + (r() - 0.5) * 8;
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
         cx = nx; cy = ny; grown++; travelled += stepLen;
-        if (i >= 1 && r() < 0.85) {
+        if (r() < 0.5) {
           flip = !flip;
-          growLush(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.3), len * 0.7, depth + 1, chain);
+          growLush(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.5), len * 0.62, depth + 1, chain);
         }
-        if (r() < (depth ? 0.14 : 0.08)) {
+        if (r() < (depth ? 0.15 : 0.1)) {
           const side = flip ? 1 : -1;
           leaves.push({ x: cx, y: cy, rot: a + side * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35), s: 0.62 + r() * 0.3 - depth * 0.04, depth });
         }
       }
       entry.d = grown ? d : '';
-      if (grown && r() < 0.8) leaves.push({ x: cx, y: cy, rot: a, s: 0.8 + r() * 0.35 - depth * 0.05, depth });
+      if (grown && r() < 0.55) leaves.push({ x: cx, y: cy, rot: a, s: 0.8 + r() * 0.35 - depth * 0.05, depth });
     };
     const colonies = cfg.colonies;
     for (let i = 0; !lush && i < colonies; i++) {
@@ -263,13 +260,12 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
     if (lush) {
-      const origins = 14;
-      [...Array(origins).keys()].sort((p, q) => ((p * 7) % origins) - ((q * 7) % origins)).forEach((i) => {
-        const x0 = (W / origins) * (i + 0.5) + (r() - 0.5) * 50;
-        const y0 = H * (i % 2 ? 0.62 : 0.38) + (r() - 0.5) * 14;
-        growLush(x0, y0, (r() - 0.5) * 0.3, 260 + r() * 100, 0, []);
-        growLush(x0, y0, Math.PI + (r() - 0.5) * 0.3, 260 + r() * 100, 0, []);
-      });
+      const colonies14 = 14;
+      for (let i = 0; i < colonies14; i++) {
+        const x0 = (W / colonies14) * (i + 0.5) + (r() - 0.5) * 90, y0 = H / 2 + (r() - 0.5) * 24;
+        growLush(x0, y0, (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8, (110 + r() * 60) * 1.2, 0, []);
+        growLush(x0, y0, (i % 2 ? 0 : Math.PI) + (r() - 0.5) * 0.8, (90 + r() * 60) * 1.2, 0, []);
+      }
     }
     /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
     const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({ ...l, tone: (i * 5 + (i >> 2)) % 3 }));
@@ -598,7 +594,6 @@ const PageLiving = () => {
       <div className="container li-triad-stage">
         <TriadDiagram />
       </div>
-      <p className="li-tri-note">A second Desirable Properties process, modeled on the Meta-Layer approach, defines what is desirable where living systems, people and AI intersect.</p>
       <CampTear image={ART.crest} edge="bottom" ground="var(--surface-parchment)" />
     </section>
 
