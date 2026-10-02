@@ -1645,7 +1645,7 @@ const PageWhoFor = ({
     color: 'var(--forest-700)'
   }
 }, a.mod))))))), /*#__PURE__*/React.createElement(WashRule, {
-  image: ART.tide,
+  image: ART.spray,
   from: "paper",
   to: "parchment"
 }), /*#__PURE__*/React.createElement("section", {
@@ -1779,7 +1779,7 @@ const PageWhoFor = ({
     margin: '48px 0'
   }
 }, /*#__PURE__*/React.createElement(SeedSapling, null)), /*#__PURE__*/React.createElement(PullQuote, null, "Starting an organization should not require heroic improvisation ", /*#__PURE__*/React.createElement("em", null, "and three years of avoidable confusion.")))), /*#__PURE__*/React.createElement(WashRule, {
-  image: ART.thicket,
+  image: ART.crest,
   flip: true,
   from: "paper",
   to: "parchment"

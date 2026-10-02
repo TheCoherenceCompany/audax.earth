@@ -709,7 +709,10 @@ const PageWhoFor = ({ onNav }) => (
       </div>
     </section>
 
-    <WashRule image={ART.tide} from="paper" to="parchment" />
+    {/* Was ART.tide - see the note on visible ink in CLAUDE.md: it's a scan
+        with a hard mis-coloured line across the band. spray has the same
+        palette without that defect. */}
+    <WashRule image={ART.spray} from="paper" to="parchment" />
 
     {/* ─── 5 · REMOTE-FIRST ────────────────────────────────────────────── */}
     <section className="section">
@@ -787,7 +790,9 @@ const PageWhoFor = ({ onNav }) => (
       </div>
     </section>
 
-    <WashRule image={ART.thicket} flip from="paper" to="parchment" />
+    {/* Was ART.thicket - see the note on visible ink in CLAUDE.md: same
+        scan-edge defect as tide. crest has the same palette without it. */}
+    <WashRule image={ART.crest} flip from="paper" to="parchment" />
 
     {/* ─── 9 · STARTUPS ────────────────────────────────────────────────── */}
     <section className="section">

@@ -498,7 +498,10 @@ const PageBuild = ({ onNav }) => {
     </section>
 
     {/* ─── 13 · WHAT COULD THIS BECOME ──────────────────────────────────────── */}
-    <WashRule image={ART.thicket} from="white" to="paper" />
+    {/* Was ART.thicket - see the note on visible ink in CLAUDE.md: it's a
+        scan with a hard mis-coloured line across the band. spray has the
+        same palette without that defect. */}
+    <WashRule image={ART.spray} from="white" to="paper" />
 
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">

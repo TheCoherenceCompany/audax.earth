@@ -698,7 +698,7 @@ const PageBuild = ({
       lineHeight: 1.25
     }
   }, p)))), /*#__PURE__*/React.createElement(PullQuote, null, "We are not gathering to admire complexity. ", /*#__PURE__*/React.createElement("em", null, "We are gathering to make it workable.")))), /*#__PURE__*/React.createElement(WashRule, {
-    image: ART.thicket,
+    image: ART.spray,
     from: "white",
     to: "paper"
   }), /*#__PURE__*/React.createElement("section", {

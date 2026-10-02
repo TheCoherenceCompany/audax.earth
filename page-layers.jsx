@@ -3,11 +3,20 @@
    The vertical architecture of Audax OS:
    Individual · Team · Organization · Organization Family · Ecosystem */
 
-const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp';
+// This source image pools its ink at the bottom and leaves the top mostly
+// white, which is fine at its native landscape crop but reads as a flat
+// disconnected pale band once .hero-wash stretches it to cover a 92vh-tall
+// box - the top of the hero shows only the sparse top of the source. Swapped
+// for a file with ink distributed more evenly top-to-bottom.
+const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 // Chapter-band backgrounds (one per layer — distinct from the page hero).
 const BAND_LAY_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_LAY_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
-const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp';
+// Was the thicket scan (ca2102c1...): a hard mis-coloured line across the
+// band from the paper's own cut edge in frame - see CLAUDE.md. Reuses the
+// crest file (same as BAND_LAY_1) instead; far enough apart in the band
+// sequence not to read as a repeat.
+const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_LAY_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 const BAND_LAY_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
@@ -212,7 +221,10 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 4 · FIVE LAYERS OVERVIEW ─────────────────────────────────────────── */}
-    <WashRule image={ART.tide} from="parchment" to="paper" />
+    {/* Was ART.tide - see the note on visible ink in CLAUDE.md: it's a scan
+        with the paper's own cut edge in frame, a hard mis-coloured line
+        across the band. crest has the same palette without that defect. */}
+    <WashRule image={ART.crest} from="parchment" to="paper" />
 
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">
@@ -525,7 +537,9 @@ const PageLayers = ({ onNav }) => (
     </section>
 
     {/* ─── 13 · PROGRESSIVE ADOPTION ───────────────────────────────────────── */}
-    <WashRule image={ART.thicket} from="paper" to="parchment" />
+    {/* Was ART.thicket - see the note on visible ink in CLAUDE.md: same
+        scan-edge defect as tide. wave has the same palette without it. */}
+    <WashRule image={ART.wave} from="paper" to="parchment" />
 
     <section className="section">
       <div className="container">

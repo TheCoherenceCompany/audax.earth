@@ -4,11 +4,20 @@
    The vertical architecture of Audax OS:
    Individual · Team · Organization · Organization Family · Ecosystem */
 
-const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp';
+// This source image pools its ink at the bottom and leaves the top mostly
+// white, which is fine at its native landscape crop but reads as a flat
+// disconnected pale band once .hero-wash stretches it to cover a 92vh-tall
+// box - the top of the hero shows only the sparse top of the source. Swapped
+// for a file with ink distributed more evenly top-to-bottom.
+const HERO_LAY = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 // Chapter-band backgrounds (one per layer — distinct from the page hero).
 const BAND_LAY_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_LAY_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
-const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp';
+// Was the thicket scan (ca2102c1...): a hard mis-coloured line across the
+// band from the paper's own cut edge in frame - see CLAUDE.md. Reuses the
+// crest file (same as BAND_LAY_1) instead; far enough apart in the band
+// sequence not to read as a repeat.
+const BAND_LAY_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_LAY_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 const BAND_LAY_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 const LAYERS_META = [{
@@ -256,7 +265,7 @@ const PageLayers = ({
 }, /*#__PURE__*/React.createElement("p", null, "People now contribute across multiple teams, projects, ventures, organizations, communities and ecosystems. Some work full-time. Some work fractionally. Some join for one mission. Some hold context across years. Some bring capital, relationships, expertise, facilitation, narrative, code, design, care, or strategic intelligence."), /*#__PURE__*/React.createElement("p", null, "AI agents add another shift. They can support individuals, teams, organizations and ecosystems at once. They can remember, summarize, connect, analyze, draft, coordinate and help move context across layers."), /*#__PURE__*/React.createElement("p", {
   className: "lead"
 }, "But if the layers are not designed, ", /*#__PURE__*/React.createElement("em", null, "agents amplify confusion.")), /*#__PURE__*/React.createElement("p", null, "An individual becomes overcommitted. A team loses track of promises. An organization cannot see where work is blocked. A family of organizations duplicates effort. An ecosystem becomes a theatre of endless calls and good intentions."), /*#__PURE__*/React.createElement("p", null, "The answer is not more control. The answer is better coherence across scale.")), /*#__PURE__*/React.createElement(PullQuote, null, "The future of work is not one person in one box. ", /*#__PURE__*/React.createElement("em", null, "It is participation across many living contexts.")))), /*#__PURE__*/React.createElement(WashRule, {
-  image: ART.tide,
+  image: ART.crest,
   from: "parchment",
   to: "paper"
 }), /*#__PURE__*/React.createElement("section", {
@@ -478,7 +487,7 @@ const PageLayers = ({
 }, /*#__PURE__*/React.createElement("div", {
   className: "roman"
 }, "LAYER ", n), /*#__PURE__*/React.createElement("h5", null, name), /*#__PURE__*/React.createElement("p", null, q)))), /*#__PURE__*/React.createElement(PullQuote, null, "The purpose of diagnostics is not control. ", /*#__PURE__*/React.createElement("em", null, "It is care with eyes open.")))), /*#__PURE__*/React.createElement(WashRule, {
-  image: ART.thicket,
+  image: ART.wave,
   from: "paper",
   to: "parchment"
 }), /*#__PURE__*/React.createElement("section", {

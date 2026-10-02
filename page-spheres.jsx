@@ -8,7 +8,9 @@ const HERO_SPH = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abst
 const BAND_SPH_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_a3a5ab50-ee9c-4167-ba9d-3c83591ce255_1.webp';
 const BAND_SPH_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_SPH_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_4a2611be-ea74-45f7-96c4-c3168455b410_3.webp';
-const BAND_SPH_4 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_f86772ab-5233-4a7c-a2ff-b9f7dcf7d9f8_0.webp';
+// Was the tide scan (f86772ab...): a hard mis-coloured line across the
+// band from the paper's own cut edge in frame - see CLAUDE.md.
+const BAND_SPH_4 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 const BAND_SPH_5 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
 const SPHERES = [
@@ -415,7 +417,9 @@ const PageSpheres = ({ onNav }) => (
     </section>
 
     {/* 12. FROM SPHERES TO DIAGNOSTICS */}
-    <WashRule image={ART.thicket} from="parchment" to="paper" />
+    {/* Was ART.thicket - see the note on visible ink in CLAUDE.md: same
+        scan-edge defect as tide. crest has the same palette without it. */}
+    <WashRule image={ART.crest} from="parchment" to="paper" />
 
     <section className="section" style={{ background: 'var(--surface-paper)' }}>
       <div className="container">

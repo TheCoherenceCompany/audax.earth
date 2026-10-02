@@ -30,7 +30,7 @@ const LI_ROTATION = [
 ];
 
 const LI_WHY_COME = [
-  ['The biosphere as a participant', 'The living world is one of three intelligences whose relationship we are designing and its stewards belong at the table.'],
+  ['The Biosphere as a participant', 'Biosphere, humans and AI are three intelligences shaping one future together. The people who steward the living world belong in the room where that future is designed.'],
   ['A north star before the architecture hardens', 'The defaults set this year will be very hard to unpick later. Better to ask now what the whole system should be true of.'],
   ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward and to disagree about.'],
   ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'],

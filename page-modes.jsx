@@ -6,7 +6,9 @@
 const HERO_MOD = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_087652a0-f921-4a1b-a659-60280f755139_1.webp';
 // Chapter-band backgrounds (kept distinct from the page hero so each break
 // brings a new atmosphere rather than echoing the opener).
-const BAND_MODE_1 = 'assets/backgrounds/The_Gathering_httpss.mj.run4FR0A9JrbCs_horizontal_abstract_gr_ca2102c1-32f3-49e2-811c-9f046636f888_3.webp';
+// Was the thicket scan (ca2102c1...): a hard mis-coloured line across the
+// band from the paper's own cut edge in frame - see CLAUDE.md.
+const BAND_MODE_1 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_98617e4b-7005-4e69-8ae6-612455128b0d_0.webp';
 const BAND_MODE_2 = 'assets/backgrounds/The_Gathering_httpss.mj.runLwdlSY4QCLA_abstract_horizontal_in_3741fb5e-98d9-4e2e-9d21-50390f539a13_1.webp';
 const BAND_MODE_3 = 'assets/backgrounds/The_Gathering_httpss.mj.runqhIVc3YQOmg_abstract_horizontal_in_38ad27fc-5fb8-4666-ae30-81a3881a6893_3.webp';
 
@@ -345,7 +347,10 @@ const PageModes = ({ onNav }) => (
     </section>
 
     {/* ─── 9 · MODES × LAYERS MATRIX ───────────────────────────────────────── */}
-    <WashRule image={ART.tide} from="paper" to="parchment" />
+    {/* Was ART.tide - see the note on visible ink in CLAUDE.md: it's a scan
+        with the paper's own cut edge in frame, a hard mis-coloured line
+        across the band. wave has the same palette without that defect. */}
+    <WashRule image={ART.wave} from="paper" to="parchment" />
 
     <section className="section">
       <div className="container">
