@@ -24,7 +24,7 @@ const TRI_SETS = {
 const TRI_PAIRS = [
   { id: 'nh', at: [352, 350], lines: ['Kinship', 'Stewardship'], color: '#DDE0A0' },
   { id: 'na', at: [648, 350], lines: ['Known origins', 'Tangible impact'], color: '#D6E4C6' },
-  { id: 'ha', at: [500, 626], lines: ['Answerability', 'Consent'], color: '#EBCDB0' }
+  { id: 'ha', at: [500, 626], lines: ['Consent', 'Answerability'], color: '#EBCDB0' }
 ];
 
 const TRI_ZOOMS = [1, 1.6, 2.3, 3.2];
@@ -116,7 +116,7 @@ const TriadDiagram = () => {
         ))}
         <div className="li-tri-card li-tri-card-core">
           <h4>Where they meet</h4>
-          <p>Kinship · Stewardship · Known origins · Tangible impact · Answerability · Consent</p>
+          <p>Kinship · Stewardship · Known origins · Tangible impact · Consent · Answerability</p>
           <p className="core">Coevolution for a regenerative future</p>
         </div>
       </div>
@@ -141,23 +141,23 @@ const LISteps = ({ steps }) => (
 /* ─── A prompt to take away ──────────────────────────────────────────────
    Paste it into any assistant, add a few sentences about your own work, and get a
    first map of how that work meets the properties. */
-const LI_PROMPT = `You are a thoughtful collaborator helping me see how my work connects to Living Intelligence, a shared north star for the relationship between the biosphere, human beings and AI.
-
-Living Intelligence asks what would have to be true of that relationship for us to call it desirable. It answers with Desirable Properties: conditions specific enough to build toward and to disagree about. Three sets orient the work:
+const LI_PROMPT = `You are a thoughtful collaborator helping me find the questions that matter most about the relationship between the Biosphere, human beings and AI. These questions are where Living Intelligence begins: a shared north star that turns questions into Desirable Properties, conditions specific enough to build toward and to disagree about. Three sets orient the work:
 - Biosphere: regeneration, resilience, health of ecosystems, interdependence, more-than-human life
 - Human: dignity, agency, flourishing, equity, meaning
 - AI: augmentation, alignment, governance, transparency, responsibility
 Where the three meet, the aim is coevolution for a regenerative future.
 
-Here is my work: [describe your project, organization or question in a few sentences]
+Here is my work, concern or hope: [describe your project, organization or question in a few sentences]
 
-Please respond with:
-1. Three properties my work already advances, each with a concrete example from what I described.
-2. Two properties it could advance with a small change and the change.
-3. One tension between properties that my work surfaces and a way to hold it openly.
-4. One small experiment I could run in the next week (observe, orient, decide, act).
-5. Three kinds of people or organizations to talk to next and a question for each.
-6. One property missing from the lists above that my work suggests.`;
+Please respond with questions:
+1. Five questions my work raises about how the Biosphere, people and AI can flourish together, drawn from both my concerns and my aspirations.
+2. For each question, the property it points toward, from the lists above or a new one.
+3. One question I may be avoiding and why it matters.
+4. One question I could take to the people I work with this week and a small experiment that would explore it (observe, orient, decide, act).
+5. Two kinds of people or organizations to ask these questions, with the first thing to ask each.
+6. One question the lists above leave out.
+
+Finish by asking me which question I would most like others to explore, and help me sharpen it into one sentence I can share with the Living Intelligence community.`;
 
 const LIPrompt = () => {
   const [copied, setCopied] = React.useState(false);

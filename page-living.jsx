@@ -52,7 +52,7 @@ const LI_TRIAD = [
     short: 'The ability to ask what a thing is for.',
     benefit: 'The ability to ask what a thing is for.',
     working: 'Meaning, care and judgment and the shared spaces where people deliberate, disagree and decide together.',
-    brings: ['Portability that survives a change of provider', 'Agents that stay answerable', 'Shared spaces communities can govern', 'Individual and collective agency'],
+    brings: ['Portability that survives a change of provider', 'Agents that are explainable and accountable', 'Shared spaces communities can govern', 'Individual and collective agency'],
     blind: 'The long timescales, quiet costs, and sophisticated patterns and connections that never reach a dashboard, and what a default chosen in a sprint does ten years on.'
   },
   {
@@ -737,7 +737,7 @@ const PageLiving = () => {
       <div className="container">
         <CampKicker bottom={8}>Try it with your own AI</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>The quickest way in is to see how your own work meets the properties. Copy the prompt, paste it into any assistant, add a few sentences about what you do and read the first map it draws. If it sparks something, come and continue the conversation with us.</p>
+          <p>The quickest way in is through questions. Copy the prompt, paste it into any assistant, add a few sentences about your work and see which questions come to the surface. Keep the ones that ring true for you and bring them to us. Living Intelligence begins with them.</p>
         </div>
         <LIPrompt />
 
