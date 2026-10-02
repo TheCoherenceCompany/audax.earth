@@ -693,8 +693,12 @@ const LIVines = ({
     className: `li-myc li-vines${night ? ' li-vines-night' : ''}`,
     style: {
       height,
-      marginTop: above,
-      marginBottom: below
+      ...(above ? {
+        marginTop: above
+      } : {}),
+      ...(below ? {
+        marginBottom: below
+      } : {})
     },
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("canvas", {
@@ -1558,7 +1562,9 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("p", null, "Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.")), /*#__PURE__*/React.createElement(LICampPersonaSlider, {
     profiles: LI_TRIAD
-  }), /*#__PURE__*/React.createElement(CampQuote, null, "Each is right about many things. ", /*#__PURE__*/React.createElement("em", null, "Holding the whole takes all three.")))), /*#__PURE__*/React.createElement(LICampBand, {
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "li-oneline"
+  }, /*#__PURE__*/React.createElement(CampQuote, null, "Each is right about many things. ", /*#__PURE__*/React.createElement("em", null, "Holding the whole takes all three."))))), /*#__PURE__*/React.createElement(LICampBand, {
     shot: "canopy",
     kicker: "Starting points",
     label: "Open threads we are exploring",
@@ -1948,7 +1954,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "The quickest way in is through questions. Copy the prompt, paste it into any assistant, add a few sentences about your work and see which questions come to the surface. Keep the ones that ring true for you and bring them to us. Living Intelligence begins with them.")), /*#__PURE__*/React.createElement(LIPrompt, null), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", null, "The quickest way in is through questions. Open the project or space in your AI where information about your work already lives, so the assistant already knows your context. Copy the prompt, paste it in there and see which questions come to the surface. Keep the ones that ring true for you and bring them to us. Living Intelligence begins with them.")), /*#__PURE__*/React.createElement(LIPrompt, null), /*#__PURE__*/React.createElement("div", {
     className: "cph-apply",
     style: {
       marginTop: 56

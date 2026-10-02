@@ -147,7 +147,7 @@ const LI_PROMPT = `You are a thoughtful collaborator helping me find the questio
 - AI: augmentation, alignment, governance, transparency, responsibility
 Where the three meet, the aim is coevolution for a regenerative future.
 
-Here is my work, concern or hope: [describe your project, organization or question in a few sentences]
+Use what you already know about my work from this project or space: its files, notes, past conversations and any instructions I have given you. Where something is unclear or missing, ask me before assuming.
 
 Please respond with questions:
 1. Five questions my work raises about how the Biosphere, people and AI can flourish together, drawn from both my concerns and my aspirations.
@@ -169,7 +169,7 @@ const LIPrompt = () => {
   return (
     <div className="li-prompt">
       <div className="li-prompt-head">
-        <span>Copy into your own AI</span>
+        <span>Copy into your AI project or space</span>
         <button type="button" onClick={copy} aria-live="polite">{copied ? 'Copied' : 'Copy prompt'}</button>
       </div>
       <pre>{LI_PROMPT}</pre>

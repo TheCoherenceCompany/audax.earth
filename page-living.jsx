@@ -436,7 +436,7 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0, night = false 
     return () => { cancelAnimationFrame(raf); if (io) io.disconnect(); window.removeEventListener('resize', onResize); };
   }, [data, height]);
   return (
-    <div ref={wrapRef} className={`li-myc li-vines${night ? ' li-vines-night' : ''}`} style={{ height, marginTop: above, marginBottom: below }} aria-hidden="true">
+    <div ref={wrapRef} className={`li-myc li-vines${night ? ' li-vines-night' : ''}`} style={{ height, ...(above ? { marginTop: above } : {}), ...(below ? { marginBottom: below } : {}) }} aria-hidden="true">
       <canvas ref={cvRef} style={{ display: 'block', width: '100%', height: '100%' }} />
     </div>
   );
@@ -945,7 +945,7 @@ const PageLiving = () => {
           <p>Each of these three shapes the other two and each is right about something the others miss. The list of properties comes from all three at once. Written by any one of them alone, it becomes a wish.</p>
         </div>
         <LICampPersonaSlider profiles={LI_TRIAD} />
-        <CampQuote>Each is right about many things. <em>Holding the whole takes all three.</em></CampQuote>
+        <div className="li-oneline"><CampQuote>Each is right about many things. <em>Holding the whole takes all three.</em></CampQuote></div>
       </div>
     </section>
 
@@ -1184,7 +1184,7 @@ const PageLiving = () => {
       <div className="container">
         <CampKicker bottom={8}>Try it with your own AI</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>The quickest way in is through questions. Copy the prompt, paste it into any assistant, add a few sentences about your work and see which questions come to the surface. Keep the ones that ring true for you and bring them to us. Living Intelligence begins with them.</p>
+          <p>The quickest way in is through questions. Open the project or space in your AI where information about your work already lives, so the assistant already knows your context. Copy the prompt, paste it in there and see which questions come to the surface. Keep the ones that ring true for you and bring them to us. Living Intelligence begins with them.</p>
         </div>
         <LIPrompt />
 

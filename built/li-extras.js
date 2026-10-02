@@ -253,7 +253,7 @@ const LI_PROMPT = `You are a thoughtful collaborator helping me find the questio
 - AI: augmentation, alignment, governance, transparency, responsibility
 Where the three meet, the aim is coevolution for a regenerative future.
 
-Here is my work, concern or hope: [describe your project, organization or question in a few sentences]
+Use what you already know about my work from this project or space: its files, notes, past conversations and any instructions I have given you. Where something is unclear or missing, ask me before assuming.
 
 Please respond with questions:
 1. Five questions my work raises about how the Biosphere, people and AI can flourish together, drawn from both my concerns and my aspirations.
@@ -277,7 +277,7 @@ const LIPrompt = () => {
     className: "li-prompt"
   }, /*#__PURE__*/React.createElement("div", {
     className: "li-prompt-head"
-  }, /*#__PURE__*/React.createElement("span", null, "Copy into your own AI"), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("span", null, "Copy into your AI project or space"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: copy,
     "aria-live": "polite"
