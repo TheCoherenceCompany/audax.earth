@@ -631,13 +631,13 @@ const PageLiving = () => {
   }, /*#__PURE__*/React.createElement("p", null, "Alliances and movements around the world are shaping the future of AI: human-centered AI coalitions, safety researchers, regenerative and impact networks, labor and faith communities, open-source builders. They share an instinct that people, communities and living systems deserve a real say over the technologies that affect them. Concern about concentrated power, surveillance, lost livelihoods and strain on the biosphere motivates much of this work and each concern deserves a serious answer."), /*#__PURE__*/React.createElement("p", null, "This page adds one question that sits beside all of those efforts: what vision of interrelationship of the biosphere, people and AI do we want to grow into? If far more capable systems arrive (which appears likely) stewardship of these systems is one part of a larger picture. That picture also holds what those systems owe the living world, what groups of people and individuals owe each other, and what healthy coevolution looks like as capability grows. A durable, mutually flourishing relationship among all three components gives every alliance a positive field to build within, on any timeline."))), /*#__PURE__*/React.createElement(CampKicker, {
     top: 56,
     bottom: 8
-  }, "Three ways to name the relationship"), /*#__PURE__*/React.createElement("div", {
+  }, "Three ways to name the field"), /*#__PURE__*/React.createElement("div", {
     className: "q-body",
     style: {
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Each framing brings different things into view and read in order they widen the picture.")), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("p", null, "Each name brings a different component of the field into focus: the people AI serves, the bond between humans and AI, and the Biosphere that sustains them both. Read in order, each name takes in more of the field than the one before.")), /*#__PURE__*/React.createElement("table", {
     className: "mini-matrix"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "The framing"), /*#__PURE__*/React.createElement("th", null, "What it brings into view"))), /*#__PURE__*/React.createElement("tbody", null, LI_HYPHEN.map(([f, v]) => /*#__PURE__*/React.createElement("tr", {
     key: f

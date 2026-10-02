@@ -424,9 +424,9 @@ const PageLiving = () => {
           </div>
         </CampAside>
 
-        <CampKicker top={56} bottom={8}>Three ways to name the relationship</CampKicker>
+        <CampKicker top={56} bottom={8}>Three ways to name the field</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Each framing brings different things into view and read in order they widen the picture.</p>
+          <p>Each name brings a different component of the field into focus: the people AI serves, the bond between humans and AI, and the Biosphere that sustains them both. Read in order, each name takes in more of the field than the one before.</p>
         </div>
         <table className="mini-matrix">
           <thead><tr><th>The framing</th><th>What it brings into view</th></tr></thead>
