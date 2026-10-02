@@ -166,6 +166,10 @@ const liRng = seed => {
     return s / 4294967296;
   };
 };
+
+/* A bodhi leaf (Ficus religiosa), base at the origin and tip pointing up: heart-shaped, with the long drip tip. The
+   light-ground bands grow bodhi vines, the same leaf as the Living Intelligence graphics. */
+const LI_BODHI = 'M0 0 C-2 1 -6.2 -1 -6.2 -5.6 C-6.2 -9.2 -2.8 -11 -1.1 -15.6 C-0.7 -16.8 0.7 -16.8 1.1 -15.6 C2.8 -11 6.2 -9.2 6.2 -5.6 C6.2 -1 2 1 0 0 Z';
 const Mycelium = ({
   seed = 7,
   height = 150,
@@ -174,13 +178,15 @@ const Mycelium = ({
   const ref = useCampReveal();
   const {
     paths,
-    nodes
+    nodes,
+    leaves
   } = React.useMemo(() => {
     const r = liRng(seed);
     const W = 1200,
       H = height;
     const paths = [],
-      nodes = [];
+      nodes = [],
+      leaves = [];
     /* the light-ground bands grow fuller: more colonies, deeper branching and small leaf nodes along the stems;
        the dark band keeps its original, sparser setting */
     const lush = !dark;
@@ -191,7 +197,7 @@ const Mycelium = ({
       minLen: 15,
       branchP: 0.5,
       shrink: 0.62,
-      endNode: 0.85,
+      endNode: 0.5,
       grow: 1.2
     } : {
       colonies: 6,
@@ -224,20 +230,33 @@ const Mycelium = ({
         cx = nx;
         cy = ny;
         if (r() < cfg.branchP) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (lush ? 0.35 + r() * 0.5 : 0.5 + r() * 0.7), len * cfg.shrink, depth + 1);
-        if (lush && r() < 0.22) nodes.push({
-          x: cx + (r() - 0.5) * 5,
-          y: cy + (r() - 0.5) * 5,
-          r: 0.9 + r() * 1.5,
+        if (lush && r() < (depth ? 0.12 : 0.07)) {
+          /* alternate leaves, one each side of the stem, tilted forward along its direction */
+          const side = (i + depth) % 2 ? 1 : -1;
+          leaves.push({
+            x: cx,
+            y: cy,
+            rot: a + side * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35),
+            s: 0.58 + r() * 0.3 - depth * 0.04,
+            depth
+          });
+        }
+      }
+      entry.d = d;
+      if (r() < cfg.endNode) {
+        if (lush) leaves.push({
+          x: cx,
+          y: cy,
+          rot: a,
+          s: 0.75 + r() * 0.35 - depth * 0.05,
+          depth
+        });else nodes.push({
+          x: cx,
+          y: cy,
+          r: 1.3 + r() * 2.2,
           depth
         });
       }
-      entry.d = d;
-      if (r() < cfg.endNode) nodes.push({
-        x: cx,
-        y: cy,
-        r: 1.3 + r() * 2.2,
-        depth
-      });
     };
     const colonies = cfg.colonies;
     for (let i = 0; i < colonies; i++) {
@@ -254,7 +273,8 @@ const Mycelium = ({
     }
     return {
       paths,
-      nodes
+      nodes,
+      leaves
     };
   }, [seed, height, dark]);
   return /*#__PURE__*/React.createElement("svg", {
@@ -271,7 +291,7 @@ const Mycelium = ({
     d: p.d,
     pathLength: "1",
     style: {
-      transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 650 + i % 12 * 35}ms`,
+      transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 200 + i % 12 * 20}ms`,
       strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3))
     }
   })), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
@@ -280,7 +300,16 @@ const Mycelium = ({
     cy: n.y,
     r: n.r,
     style: {
-      transitionDelay: dark ? `${Math.min(350 + i * 6, 800)}ms` : `${1800 + n.depth * 650 + i % 15 * 30}ms`
+      transitionDelay: `${Math.min(350 + i * 6, 800)}ms`
+    }
+  })), leaves.map((l, i) => /*#__PURE__*/React.createElement("path", {
+    key: 'l' + i,
+    className: "leaf",
+    d: LI_BODHI,
+    style: {
+      '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`,
+      '--s': l.s.toFixed(2),
+      transitionDelay: `${800 + l.depth * 200 + i % 10 * 12}ms`
     }
   })));
 };
@@ -637,7 +666,7 @@ const PageLiving = () => {
       maxWidth: 760,
       marginBottom: 24
     }
-  }, /*#__PURE__*/React.createElement("p", null, "Each name brings a different component of the field into focus: the people AI serves, the bond between humans and AI, and the Biosphere that sustains them both. Read in order, each name takes in more of the field than the one before.")), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("p", null, "Each framing brings a different sense of the field into focus: the people AI serves, the potential synergies between humans and AI, and the Biosphere that sustains them both. Read in order, each frame takes in more of the field than the one before.")), /*#__PURE__*/React.createElement("table", {
     className: "mini-matrix"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "The framing"), /*#__PURE__*/React.createElement("th", null, "What it brings into view"))), /*#__PURE__*/React.createElement("tbody", null, LI_HYPHEN.map(([f, v]) => /*#__PURE__*/React.createElement("tr", {
     key: f

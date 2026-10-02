@@ -132,17 +132,21 @@ const LIMark = ({ size = 34 }) => (
    renders. Used as the relief between sections in place of a plain rule. */
 const liRng = (seed) => { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; };
 
+/* A bodhi leaf (Ficus religiosa), base at the origin and tip pointing up: heart-shaped, with the long drip tip. The
+   light-ground bands grow bodhi vines, the same leaf as the Living Intelligence graphics. */
+const LI_BODHI = 'M0 0 C-2 1 -6.2 -1 -6.2 -5.6 C-6.2 -9.2 -2.8 -11 -1.1 -15.6 C-0.7 -16.8 0.7 -16.8 1.1 -15.6 C2.8 -11 6.2 -9.2 6.2 -5.6 C6.2 -1 2 1 0 0 Z';
+
 const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
   const ref = useCampReveal();
-  const { paths, nodes } = React.useMemo(() => {
+  const { paths, nodes, leaves } = React.useMemo(() => {
     const r = liRng(seed);
     const W = 1200, H = height;
-    const paths = [], nodes = [];
+    const paths = [], nodes = [], leaves = [];
     /* the light-ground bands grow fuller: more colonies, deeper branching and small leaf nodes along the stems;
        the dark band keeps its original, sparser setting */
     const lush = !dark;
     const cfg = lush
-      ? { colonies: 11, hyphae: 2, maxDepth: 4, minLen: 15, branchP: 0.5, shrink: 0.62, endNode: 0.85, grow: 1.2 }
+      ? { colonies: 11, hyphae: 2, maxDepth: 4, minLen: 15, branchP: 0.5, shrink: 0.62, endNode: 0.5, grow: 1.2 }
       : { colonies: 6, hyphae: 2, maxDepth: 4, minLen: 16, branchP: 0.5, shrink: 0.6, endNode: 0.7 };
     const grow = (x, y, ang, len, depth) => {
       if (depth > cfg.maxDepth || len < cfg.minLen) return;
@@ -158,10 +162,17 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
         cx = nx; cy = ny;
         if (r() < cfg.branchP) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (lush ? 0.35 + r() * 0.5 : 0.5 + r() * 0.7), len * cfg.shrink, depth + 1);
-        if (lush && r() < 0.22) nodes.push({ x: cx + (r() - 0.5) * 5, y: cy + (r() - 0.5) * 5, r: 0.9 + r() * 1.5, depth });
+        if (lush && r() < (depth ? 0.12 : 0.07)) {
+          /* alternate leaves, one each side of the stem, tilted forward along its direction */
+          const side = (i + depth) % 2 ? 1 : -1;
+          leaves.push({ x: cx, y: cy, rot: a + side * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35), s: 0.58 + r() * 0.3 - depth * 0.04, depth });
+        }
       }
       entry.d = d;
-      if (r() < cfg.endNode) nodes.push({ x: cx, y: cy, r: 1.3 + r() * 2.2, depth });
+      if (r() < cfg.endNode) {
+        if (lush) leaves.push({ x: cx, y: cy, rot: a, s: 0.75 + r() * 0.35 - depth * 0.05, depth });
+        else nodes.push({ x: cx, y: cy, r: 1.3 + r() * 2.2, depth });
+      }
     };
     const colonies = cfg.colonies;
     for (let i = 0; i < colonies; i++) {
@@ -175,16 +186,20 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
       grow(x0, y0, sy, (90 + r() * 60) * gm, 0);
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
-    return { paths, nodes };
+    return { paths, nodes, leaves };
   }, [seed, height, dark]);
 
   return (
     <svg ref={ref} className={`li-myc${dark ? ' dark' : ''}`} viewBox={`0 0 1200 ${height}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true" style={{ height }}>
       {paths.map((p, i) => (
-        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 650 + (i % 12) * 35}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3)) }} />
+        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 200 + (i % 12) * 20}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3)) }} />
       ))}
       {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: dark ? `${Math.min(350 + i * 6, 800)}ms` : `${1800 + n.depth * 650 + (i % 15) * 30}ms` }} />
+        <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: `${Math.min(350 + i * 6, 800)}ms` }} />
+      ))}
+      {leaves.map((l, i) => (
+        <path key={'l' + i} className="leaf" d={LI_BODHI}
+          style={{ '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`, '--s': l.s.toFixed(2), transitionDelay: `${800 + l.depth * 200 + (i % 10) * 12}ms` }} />
       ))}
     </svg>
   );
@@ -426,7 +441,7 @@ const PageLiving = () => {
 
         <CampKicker top={56} bottom={8}>Three ways to name the field</CampKicker>
         <div className="q-body" style={{ maxWidth: 760, marginBottom: 24 }}>
-          <p>Each name brings a different component of the field into focus: the people AI serves, the bond between humans and AI, and the Biosphere that sustains them both. Read in order, each name takes in more of the field than the one before.</p>
+          <p>Each framing brings a different sense of the field into focus: the people AI serves, the potential synergies between humans and AI, and the Biosphere that sustains them both. Read in order, each frame takes in more of the field than the one before.</p>
         </div>
         <table className="mini-matrix">
           <thead><tr><th>The framing</th><th>What it brings into view</th></tr></thead>

@@ -3480,9 +3480,12 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 /* ---- mycelium: quicker draw-in (was ~5s end to end, now under 2s) ---- */
 .li-myc path   { transition: stroke-dashoffset 1300ms var(--ease-out); }
 .li-myc circle { transition: opacity 600ms var(--ease-out); }
-/* the light-ground bands grow slowly, trunks first and then the finer branches and leaf dots */
-.li-myc:not(.dark) path   { transition-duration: 2800ms; }
-.li-myc:not(.dark) circle { transition-duration: 1000ms; }
+/* the light-ground bands grow in about 2.4s, trunks first and then the finer branches and bodhi leaves */
+.li-myc:not(.dark) path   { transition-duration: 1200ms; }
+/* bodhi leaves unfurl at the stem ends */
+.li-myc path.leaf { stroke: none; stroke-dasharray: none; stroke-dashoffset: 0; fill: var(--lichen-500); opacity: 0;
+  transform: var(--t) scale(0.15); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-out); }
+.li-myc.cph-in path.leaf { opacity: 0.85; transform: var(--t) scale(var(--s)); }
 
 
 /* ---- triad, larger and zoomable ---- */
