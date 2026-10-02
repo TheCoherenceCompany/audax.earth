@@ -142,7 +142,7 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
        the dark band keeps its original, sparser setting */
     const lush = !dark;
     const cfg = lush
-      ? { colonies: 15, hyphae: 3, maxDepth: 4, minLen: 14, branchP: 0.55, shrink: 0.66, endNode: 0.85, grow: 1.3 }
+      ? { colonies: 11, hyphae: 2, maxDepth: 4, minLen: 15, branchP: 0.5, shrink: 0.62, endNode: 0.85, grow: 1.2 }
       : { colonies: 6, hyphae: 2, maxDepth: 4, minLen: 16, branchP: 0.5, shrink: 0.6, endNode: 0.7 };
     const grow = (x, y, ang, len, depth) => {
       if (depth > cfg.maxDepth || len < cfg.minLen) return;
@@ -177,7 +177,7 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
   return (
     <svg ref={ref} className={`li-myc${dark ? ' dark' : ''}`} viewBox={`0 0 1200 ${height}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true" style={{ height }}>
       {paths.map((p, i) => (
-        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: `${Math.min(i * 6, 450)}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2.3) - p.depth * (dark ? 0.25 : 0.32)) }} />
+        <path key={i} d={p.d} pathLength="1" style={{ transitionDelay: `${Math.min(i * 6, 450)}ms`, strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3)) }} />
       ))}
       {nodes.map((n, i) => (
         <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: `${Math.min(350 + i * 6, 800)}ms` }} />

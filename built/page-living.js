@@ -185,14 +185,14 @@ const Mycelium = ({
        the dark band keeps its original, sparser setting */
     const lush = !dark;
     const cfg = lush ? {
-      colonies: 15,
-      hyphae: 3,
+      colonies: 11,
+      hyphae: 2,
       maxDepth: 4,
-      minLen: 14,
-      branchP: 0.55,
-      shrink: 0.66,
+      minLen: 15,
+      branchP: 0.5,
+      shrink: 0.62,
       endNode: 0.85,
-      grow: 1.3
+      grow: 1.2
     } : {
       colonies: 6,
       hyphae: 2,
@@ -268,7 +268,7 @@ const Mycelium = ({
     pathLength: "1",
     style: {
       transitionDelay: `${Math.min(i * 6, 450)}ms`,
-      strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2.3) - p.depth * (dark ? 0.25 : 0.32))
+      strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3))
     }
   })), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
     key: i,
