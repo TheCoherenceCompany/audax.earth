@@ -220,7 +220,7 @@ const liHex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), pa
 const liMix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
 const liRgb = (c, al = 1) => `rgba(${c[0]},${c[1]},${c[2]},${al})`;
 /* leaf tones, base to tip: sage, olive sage, blue sage, and a touch of warm yellow-green */
-const LI_PAINT_TONES = [['#7F9A66', '#BFCE9E'], ['#93A464', '#CCD59C'], ['#79997C', '#B9CDB3'], ['#A9A464', '#D6D49E']];
+const LI_PAINT_TONES = [['#5F8A52', '#A9C887'], ['#7F9C4E', '#C2D487'], ['#548A64', '#9CC5A0'], ['#9E9650', '#D2CC86']];
 const liBuildVines = (seed, H) => {
   const r = liRng(seed),
     W = 1200;
@@ -306,10 +306,11 @@ const liBuildVines = (seed, H) => {
       stem.dead = true;
       return;
     }
-    /* nothing ends bare: a leaf, or a small defined curl */
-    if (depth <= 2 || r() < 0.65) {
+    /* a larger stem finishes in a leaf; a fine twig finishes in a leaf, or is left to taper to a point or curl (below) */
+    if (depth <= 2 || r() < 0.4) {
       leaves.push({
         stem,
+        tip: true,
         idx: stem.pts.length - 1,
         x: cx,
         y: cy,
@@ -317,20 +318,11 @@ const liBuildVines = (seed, H) => {
         s: (0.8 + r() * 0.35 - depth * 0.05) * 1.25
       });
     } else {
-      let h = a,
-        px = cx,
-        py = cy;
-      const turn = r() < 0.5 ? 1 : -1;
-      for (let k = 0; k < 16; k++) {
-        h += turn * (0.22 + k * 0.035);
-        const sl = 3.4 - k * 0.16;
-        px += Math.cos(h) * sl;
-        py += Math.sin(h) * sl;
-        stem.pts.push({
-          x: px,
-          y: py
-        });
-      }
+      stem.end = {
+        x: cx,
+        y: cy,
+        a
+      };
     }
   };
   const colonies = 14;
@@ -375,16 +367,52 @@ const liBuildVines = (seed, H) => {
       }
     }
   }
-  const live = stems.filter(s => !s.dead);
+  /* a small curl on a twig end only where the space around it is open; in a crowd the twig simply tapers to a point */
+  const allLive = stems.filter(s => !s.dead);
+  allLive.forEach(s => {
+    if (!s.end) return;
+    const {
+      x: ex,
+      y: ey,
+      a: ea
+    } = s.end;
+    let crowd = 0;
+    allLive.forEach(o => {
+      if (o === s) return;
+      for (let i = 0; i < o.pts.length; i += 2) {
+        const p = o.pts[i];
+        if (Math.abs(p.x - ex) < 30 && Math.abs(p.y - ey) < 30) crowd++;
+      }
+    });
+    leaves.forEach(l => {
+      if (Math.abs(l.x - ex) < 28 && Math.abs(l.y - ey) < 28) crowd += 3;
+    });
+    if (crowd > 9) return;
+    let h = ea,
+      px = ex,
+      py = ey;
+    const turn = liHash(s.id + 5) < 0.5 ? 1 : -1;
+    for (let k = 0; k < 16; k++) {
+      h += turn * (0.22 + k * 0.035);
+      const sl = 3.4 - k * 0.16;
+      px += Math.cos(h) * sl;
+      py += Math.sin(h) * sl;
+      s.pts.push({
+        x: px,
+        y: py
+      });
+    }
+  });
+  const live = allLive;
   live.forEach((s, i) => {
     s.t0 = s.depth * 0.28 + i % 12 * 0.025;
     s.dur = 0.85;
     s.n = s.pts.length;
   });
-  const kept = leaves.filter((l, i) => !l.stem.dead && (i * 7 + 3) % 9 > 1).map((l, i) => ({
+  const kept = leaves.filter((l, i) => !l.stem.dead && (l.tip || (i * 7 + 3) % 9 > 1)).map((l, i) => ({
     ...l,
     tone: liHash(i + seed) < 0.14 ? 3 : (i * 5 + (i >> 2)) % 3,
-    o: 0.62 + i * 37 % 30 / 100,
+    o: 0.8 + i * 37 % 20 / 100,
     at: l.stem.t0 + l.stem.dur * (l.idx / Math.max(1, l.stem.n - 1)) + 0.08
   }));
   return {
@@ -434,7 +462,7 @@ const LIVines = ({
     const noisePat = ctx.createPattern(noise, 'repeat');
     const leafPath = new Path2D(LI_BODHI),
       veinPath = new Path2D(LI_BODHI_VEINS);
-    const widths = [3.1, 2.5, 2.0, 1.6, 1.3];
+    const widths = [3.4, 2.7, 2.1, 1.7, 1.35];
     let sc = 1,
       ox = 0,
       oy = 0,
@@ -447,11 +475,11 @@ const LIVines = ({
       nowT = 0;
     const stopsFor = s => {
       const warm = liHash(s.id + seed) < 0.38;
-      return s.depth >= 3 ? [liHex('#74805A'), liHex('#6B8F5C'), liHex('#5E9468')] : [liHex(warm ? '#86705A' : '#7A7660'), liHex('#6F8A58'), liHex('#5E9468')];
+      return s.depth >= 3 ? [liHex('#6A7A4C'), liHex('#5C8A4C'), liHex('#4A8A58')] : [liHex(warm ? '#7A5F44' : '#6F6650'), liHex('#5E7F44'), liHex('#4A8A58')];
     };
     const colorAt = (stops, u) => u < 0.5 ? liMix(stops[0], stops[1], u * 2) : liMix(stops[1], stops[2], (u - 0.5) * 2);
     const fit = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(Math.max(window.devicePixelRatio || 1, 2), 3);
       const cw = wrap.clientWidth || 1200;
       w = Math.round(cw * dpr);
       h = Math.round(H * dpr);
@@ -478,7 +506,7 @@ const LIVines = ({
           p1 = s.pts[i];
         if (!p0) continue;
         const u = i / (s.n - 1);
-        const wd = w0 * (1 - 0.62 * Math.pow(u, 0.85)) * sc;
+        const wd = Math.max(0.35 * (window.devicePixelRatio || 1), w0 * (1 - 0.9 * Math.pow(u, 0.8)) * sc);
         const col = colorAt(stops, u);
         const x0 = ox + p0.x * sc,
           y0 = oy + p0.y * sc,
@@ -519,26 +547,29 @@ const LIVines = ({
       ctx.fill(leafPath);
       ctx.save();
       ctx.clip(leafPath);
-      ctx.lineWidth = 2.2;
-      ctx.strokeStyle = 'rgba(52,88,52,0.38)';
+      ctx.lineWidth = 2.8;
+      ctx.strokeStyle = 'rgba(34,70,40,0.5)';
       ctx.stroke(leafPath);
       ctx.restore();
-      ctx.lineWidth = 0.55;
+      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = 'rgba(30,62,36,0.6)';
+      ctx.stroke(leafPath);
+      ctx.lineWidth = 0.6;
       ctx.lineCap = 'round';
-      ctx.strokeStyle = 'rgba(46,80,44,0.5)';
+      ctx.strokeStyle = 'rgba(34,68,38,0.7)';
       ctx.stroke(veinPath);
       ctx.restore();
     };
     const compose = time => {
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, w, h);
-      ctx.globalAlpha = 0.16;
+      ctx.globalAlpha = 0.13;
       ctx.drawImage(layers.wash, 0, 0);
-      ctx.globalAlpha = 0.82;
+      ctx.globalAlpha = 0.96;
       ctx.drawImage(layers.body, 0, 0);
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.7;
       ctx.drawImage(layers.edge, 0, 0);
-      ctx.globalAlpha = 0.32;
+      ctx.globalAlpha = 0.34;
       ctx.drawImage(layers.hi, 0, 0);
       ctx.globalAlpha = 1;
       data.leaves.forEach(l => {
@@ -549,7 +580,7 @@ const LIVines = ({
         }
       });
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.3;
       ctx.fillStyle = noisePat;
       ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = 'source-over';
