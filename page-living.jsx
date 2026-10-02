@@ -180,6 +180,8 @@ const liHex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), 
 const liMix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
 const liRgb = (c, al = 1) => `rgba(${c[0]},${c[1]},${c[2]},${al})`;
 /* leaf tones, base to tip: sage, olive sage, blue sage, and a touch of warm yellow-green */
+/* the night garden: luminous ivory and pale sage leaves for the dark green ground */
+const LI_NIGHT_TONES = [['#7FA383', '#E6EFD6'], ['#A9BE80', '#F1F5DC'], ['#8DB5A2', '#E3F0E8'], ['#CFC98E', '#FAF7E0']];
 const LI_PAINT_TONES = [['#7F9A66', '#BFCE9E'], ['#93A464', '#CCD59C'], ['#79997C', '#B9CDB3'], ['#A9A464', '#D6D49E']];
 
 const liBuildVines = (seed, H) => {
@@ -282,7 +284,7 @@ const liBuildVines = (seed, H) => {
   return { stems: live, leaves: kept };
 };
 
-const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
+const LIVines = ({ seed = 11, height = 190, above = 0, below = 0, night = false }) => {
   const wrapRef = React.useRef(null);
   const cvRef = React.useRef(null);
   const data = React.useMemo(() => liBuildVines(seed, height), [seed, height]);
@@ -308,11 +310,16 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
     let sc = 1, ox = 0, oy = 0, w = 0, h = 0;
     let started = false, startAt = 0, raf = 0, done = false, nowT = 0;
     const stopsFor = (s) => {
+      if (night) return [liHex('#B3C396'), liHex('#DAE5C0'), liHex('#F3F6E4')];
       const warm = liHash(s.id + seed) < 0.38;
       return s.depth >= 3 ? [liHex('#74805A'), liHex('#6B8F5C'), liHex('#5E9468')]
         : [liHex(warm ? '#86705A' : '#7A7660'), liHex('#6F8A58'), liHex('#5E9468')];
     };
     const colorAt = (stops, u) => (u < 0.5 ? liMix(stops[0], stops[1], u * 2) : liMix(stops[1], stops[2], (u - 0.5) * 2));
+    const motes = night && data.leaves.length ? Array.from({ length: 60 }, (_, i) => {
+      const l = data.leaves[Math.floor(liHash(i * 11 + seed) * data.leaves.length)];
+      return { x: l.x + (liHash(i * 3 + 1) - 0.5) * 46, y: Math.max(8, Math.min(H - 8, l.y + (liHash(i * 3 + 2) - 0.5) * 38)), r: 0.7 + liHash(i * 5 + 4) * 1.5, a: 0.4 + liHash(i * 7 + 9) * 0.5, at: l.at + 0.2 };
+    }) : [];
     const fit = () => {
       const dpr = Math.min(Math.max(window.devicePixelRatio || 1, 2), 3);
       const cw = wrap.clientWidth || 1200;
@@ -334,15 +341,15 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
         const x0 = ox + p0.x * sc, y0 = oy + p0.y * sc, x1 = ox + p1.x * sc, y1 = oy + p1.y * sc;
         const dx = x1 - x0, dy = y1 - y0, dl = Math.hypot(dx, dy) || 1, nx = -dy / dl, ny = dx / dl;
         const line = (c, xa, ya, xb, yb, lw, colr) => { c.strokeStyle = colr; c.lineWidth = lw; c.beginPath(); c.moveTo(xa, ya); c.lineTo(xb, yb); c.stroke(); };
-        line(lctx.wash, x0, y0, x1, y1, wd * 2.4, liRgb(liMix(col, [250, 249, 240], 0.7)));
+        line(lctx.wash, x0, y0, x1, y1, wd * 2.4, liRgb(night ? [196, 222, 186] : liMix(col, [250, 249, 240], 0.7)));
         line(lctx.body, x0, y0, x1, y1, wd, liRgb(col));
-        line(lctx.edge, x0 + nx * wd * 0.3, y0 + ny * wd * 0.3, x1 + nx * wd * 0.3, y1 + ny * wd * 0.3, wd * 0.38, liRgb(liMix(col, [30, 52, 36], 0.55)));
-        line(lctx.hi, x0 - nx * wd * 0.24, y0 - ny * wd * 0.24, x1 - nx * wd * 0.24, y1 - ny * wd * 0.24, wd * 0.28, liRgb(liMix(col, [255, 253, 240], 0.6)));
+        line(lctx.edge, x0 + nx * wd * 0.3, y0 + ny * wd * 0.3, x1 + nx * wd * 0.3, y1 + ny * wd * 0.3, wd * 0.38, liRgb(night ? liMix(col, [60, 104, 74], 0.65) : liMix(col, [30, 52, 36], 0.55)));
+        line(lctx.hi, x0 - nx * wd * 0.24, y0 - ny * wd * 0.24, x1 - nx * wd * 0.24, y1 - ny * wd * 0.24, wd * 0.28, liRgb(night ? liMix(col, [255, 255, 250], 0.75) : liMix(col, [255, 253, 240], 0.6)));
       }
       s.drawn = Math.max(s.drawn, Math.min(upto + 1, s.n));
     };
     const drawLeaf = (l, k) => {
-      const t = LI_PAINT_TONES[l.tone];
+      const t = (night ? LI_NIGHT_TONES : LI_PAINT_TONES)[l.tone];
       ctx.save();
       ctx.translate(ox + l.x * sc, oy + l.y * sc);
       ctx.rotate(l.rot + Math.PI / 2);
@@ -353,25 +360,40 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
       g.addColorStop(0, t[0]); g.addColorStop(1, t[1]);
       ctx.fillStyle = g; ctx.fill(leafPath);
       ctx.save(); ctx.clip(leafPath);
-      ctx.lineWidth = 2.2; ctx.strokeStyle = 'rgba(52,88,52,0.38)'; ctx.stroke(leafPath);
+      ctx.lineWidth = 2.2; ctx.strokeStyle = night ? 'rgba(255,255,244,0.34)' : 'rgba(52,88,52,0.38)'; ctx.stroke(leafPath);
       ctx.restore();
-      ctx.lineWidth = 0.55; ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(46,80,44,0.5)'; ctx.stroke(veinPath);
+      ctx.lineWidth = 0.55; ctx.lineCap = 'round'; ctx.strokeStyle = night ? 'rgba(36,76,54,0.45)' : 'rgba(46,80,44,0.5)'; ctx.stroke(veinPath);
       ctx.restore();
     };
     const compose = (time) => {
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, w, h);
-      ctx.globalAlpha = 0.16; ctx.drawImage(layers.wash, 0, 0);
-      ctx.globalAlpha = 0.82; ctx.drawImage(layers.body, 0, 0);
-      ctx.globalAlpha = 0.5; ctx.drawImage(layers.edge, 0, 0);
-      ctx.globalAlpha = 0.32; ctx.drawImage(layers.hi, 0, 0);
+      if (night) ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = night ? 0.2 : 0.16; ctx.drawImage(layers.wash, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = night ? 0.9 : 0.82; ctx.drawImage(layers.body, 0, 0);
+      ctx.globalAlpha = night ? 0.45 : 0.5; ctx.drawImage(layers.edge, 0, 0);
+      ctx.globalAlpha = night ? 0.5 : 0.32; ctx.drawImage(layers.hi, 0, 0);
       ctx.globalAlpha = 1;
       data.leaves.forEach(l => {
         const k = Math.max(0, Math.min(1, (time - l.at) / 0.4));
         if (k > 0) { const e = 1 - Math.pow(1 - k, 3); drawLeaf(l, e); }
       });
+      if (night) {
+        ctx.globalCompositeOperation = 'lighter';
+        motes.forEach(m => {
+          const k = Math.max(0, Math.min(1, (time - m.at) / 0.5));
+          if (k <= 0) return;
+          const cx0 = ox + m.x * sc, cy0 = oy + m.y * sc, rr = m.r * sc;
+          const g = ctx.createRadialGradient(cx0, cy0, 0, cx0, cy0, rr * 3.2);
+          g.addColorStop(0, `rgba(240,247,214,${(m.a * k).toFixed(3)})`);
+          g.addColorStop(0.3, `rgba(220,236,196,${(m.a * k * 0.35).toFixed(3)})`);
+          g.addColorStop(1, 'rgba(220,236,196,0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx0, cy0, rr * 3.2, 0, 6.2832); ctx.fill();
+        });
+      }
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.globalAlpha = 0.5; ctx.fillStyle = noisePat; ctx.fillRect(0, 0, w, h);
+      ctx.globalAlpha = night ? 0.32 : 0.5; ctx.fillStyle = noisePat; ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
     };
     const paint = (time) => {
@@ -414,7 +436,7 @@ const LIVines = ({ seed = 11, height = 190, above = 0, below = 0 }) => {
     return () => { cancelAnimationFrame(raf); if (io) io.disconnect(); window.removeEventListener('resize', onResize); };
   }, [data, height]);
   return (
-    <div ref={wrapRef} className="li-myc li-vines" style={{ height, marginTop: above, marginBottom: below }} aria-hidden="true">
+    <div ref={wrapRef} className={`li-myc li-vines${night ? ' li-vines-night' : ''}`} style={{ height, marginTop: above, marginBottom: below }} aria-hidden="true">
       <canvas ref={cvRef} style={{ display: 'block', width: '100%', height: '100%' }} />
     </div>
   );
@@ -615,7 +637,7 @@ const MyceliumInk = ({ seed = 7, height = 150, dark = false }) => {
 };
 
 /* The dark band keeps its ink-line hyphae; the light grounds are painted in watercolour. */
-const Mycelium = (props) => (props.dark ? <MyceliumInk {...props} /> : <LIVines {...props} />);
+const Mycelium = (props) => <LIVines {...props} night={!!props.dark} />;
 
 /* ─── Chrome ─────────────────────────────────────────────────────────── */
 const LINav = () => {
