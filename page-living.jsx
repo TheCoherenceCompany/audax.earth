@@ -32,7 +32,7 @@ const LI_ROTATION = [
 const LI_WHY_COME = [
   ['The Biosphere as a participant', 'The Biosphere, Humanity and AI are three forms of intelligences shaping one future together. The people who steward the living world belong in the room where that future is designed.'],
   ['A north star before the architecture hardens', 'The defaults set this year will be very hard to unpick later. Better to ask now what the whole system should be true of.'],
-  ['Properties that can be tested', 'Values such as dignity and regeneration point a direction. Desirable Properties turn them into conditions specific enough to build toward and to disagree about.'],
+  ['Properties that can be tested', 'Values such as dignity and regeneration point to a direction. A Desirable Properties inquiry will turn them into conditions specific enough to build toward, or disagree about.'],
   ['Written with people who steward real places', 'Seed banks, watersheds, sacred sites, biodiversity networks. The Biosphere properties start from practice that already exists.'],
   ['Open to any organization, wherever its people are', 'Grown from Camp Audax and built to widen. Anyone can take part from wherever they work.'],
   ['Coevolution as the frame', 'Coevolution asks what it takes for three very different intelligences to shape each other well, over very long timescales.']
