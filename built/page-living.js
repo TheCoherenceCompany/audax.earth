@@ -189,13 +189,15 @@ const LIMore = ({
   }, children));
 };
 
-/* Then and now: the familiar line and a version written for the era of aligned superintelligence, side by side. */
+/* Now and then: a version written for the era of aligned superintelligence beside the familiar line it echoes, as two cards. */
 const LIQuotePair = () => /*#__PURE__*/React.createElement(CampCascade, {
   className: "li-quote-pair",
   step: 140
-}, /*#__PURE__*/React.createElement("figure", null, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a small group of thoughtful, committed citizens can change the world; indeed, it\u2019s the only thing that ever has.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "Attributed to Margaret Mead")), /*#__PURE__*/React.createElement("figure", {
+}, /*#__PURE__*/React.createElement("figure", {
   className: "li-quote-now"
-}, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a collectively intelligent network of networks, working with aligned superintelligence, can help humanity coordinate, protect what matters, and meet challenges at a scale once unimaginable. Indeed, our future may depend on it.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "A modern version, by Daveed Benjamin")));
+}, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a collectively intelligent network of networks, working with aligned superintelligence, can help humanity coordinate, protect what matters, and meet challenges at a scale once unimaginable. Indeed, our future may depend on it.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "A modern version, by Daveed Benjamin")), /*#__PURE__*/React.createElement("figure", {
+  className: "li-quote-then"
+}, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a small group of thoughtful, committed citizens can change the world; indeed, it\u2019s the only thing that ever has.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "Attributed to Margaret Mead")));
 
 /* Faint veins for the leaf: a midrib and three pairs of side veins. */
 const LI_BODHI_VEINS = 'M0 -1 L0 -14.6 M0 -3 L-3.8 -6.6 M0 -3 L3.8 -6.6 M0 -6.6 L-4.6 -9.8 M0 -6.6 L4.6 -9.8 M0 -10 L-2.5 -12.6 M0 -10 L2.5 -12.6';
@@ -951,7 +953,7 @@ const PageLiving = () => {
     className: "container"
   }, /*#__PURE__*/React.createElement(CampKicker, {
     bottom: 20
-  }, "Then and now"), /*#__PURE__*/React.createElement(LIQuotePair, null))), /*#__PURE__*/React.createElement("section", {
+  }, "Now and then"), /*#__PURE__*/React.createElement(LIQuotePair, null))), /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "stool",
     style: {

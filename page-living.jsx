@@ -148,16 +148,16 @@ const LIMore = ({ label = 'Show more', children }) => {
   );
 };
 
-/* Then and now: the familiar line and a version written for the era of aligned superintelligence, side by side. */
+/* Now and then: a version written for the era of aligned superintelligence beside the familiar line it echoes, as two cards. */
 const LIQuotePair = () => (
   <CampCascade className="li-quote-pair" step={140}>
-    <figure>
-      <blockquote>&ldquo;Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it&rsquo;s the only thing that ever has.&rdquo;</blockquote>
-      <figcaption>Attributed to Margaret Mead</figcaption>
-    </figure>
     <figure className="li-quote-now">
       <blockquote>&ldquo;Never doubt that a collectively intelligent network of networks, working with aligned superintelligence, can help humanity coordinate, protect what matters, and meet challenges at a scale once unimaginable. Indeed, our future may depend on it.&rdquo;</blockquote>
       <figcaption>A modern version, by Daveed Benjamin</figcaption>
+    </figure>
+    <figure className="li-quote-then">
+      <blockquote>&ldquo;Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it&rsquo;s the only thing that ever has.&rdquo;</blockquote>
+      <figcaption>Attributed to Margaret Mead</figcaption>
     </figure>
   </CampCascade>
 );
@@ -640,7 +640,7 @@ const PageLiving = () => {
     {/* ─── Then and now: the quote pair, between the questions and the stool ───────── */}
     <section className="section-tight li-quote-sec" style={{ ...anchor, paddingTop: 64, paddingBottom: 0 }}>
       <div className="container">
-        <CampKicker bottom={20}>Then and now</CampKicker>
+        <CampKicker bottom={20}>Now and then</CampKicker>
         <LIQuotePair />
       </div>
     </section>

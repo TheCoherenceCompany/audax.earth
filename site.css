@@ -3627,15 +3627,24 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 .li-page .pull-quote { margin-bottom: 32px; }
 @media (max-width: 900px) { .li-page .section { padding-top: 52px; } }
 
-/* ---- Then and now: the quote pair ---- */
-.li-quote-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); }
-.li-quote-pair figure { margin: 0; padding: 30px 0 0; border-top: 1px solid var(--border-1); position: relative; }
-.li-quote-pair figure::before { content: ''; position: absolute; left: 0; top: -1px; width: 56px; height: 2px; background: var(--forest-700); }
+/* ---- Now and then: the quote pair, as two cards ---- */
+.li-quote-pair { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(20px, 3vw, 36px); align-items: stretch; }
+.li-quote-pair figure { margin: 0; padding: clamp(28px, 3.4vw, 46px); border-radius: 18px; position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; overflow: hidden; }
+.li-quote-pair figure::before { content: '“'; position: absolute; right: 22px; top: -18px; font-family: var(--font-display); font-size: 150px; line-height: 1; opacity: 0.14; pointer-events: none; }
 .li-quote-pair blockquote { margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: clamp(21px, 2.1vw, 30px); line-height: 1.28; letter-spacing: -0.016em; color: var(--ink-900); text-wrap: balance; }
-.li-quote-pair figcaption { margin-top: 20px; font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest-700); }
-.li-quote-now blockquote { color: var(--forest-700); }
-@media (max-width: 800px) { .li-quote-pair { grid-template-columns: 1fr; gap: 36px; } }
+  font-size: clamp(21px, 2.1vw, 30px); line-height: 1.28; letter-spacing: -0.016em; text-wrap: balance; position: relative; }
+.li-quote-pair figcaption { font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; position: relative; }
+/* the modern version: deep forest, the stronger card */
+.li-quote-now { background: linear-gradient(160deg, var(--forest-800) 0%, var(--forest-900) 100%); color: #F2F5E4; box-shadow: 0 18px 40px -22px rgba(14, 36, 25, 0.55); }
+.li-quote-now blockquote { color: #F4F7E8; }
+.li-quote-now figcaption { color: var(--lichen-400); }
+.li-quote-now::before { color: var(--lichen-400); }
+/* the familiar line: lichen, lighter and quieter */
+.li-quote-then { background: var(--lichen-100); border: 1px solid var(--lichen-300); color: var(--forest-800); }
+.li-quote-then blockquote { color: var(--forest-800); }
+.li-quote-then figcaption { color: var(--forest-700); }
+.li-quote-then::before { color: var(--forest-700); }
+@media (max-width: 800px) { .li-quote-pair { grid-template-columns: 1fr; } }
 
 /* ---- "Show more" ---- */
 .li-more { margin-top: 4px; }
