@@ -335,17 +335,23 @@ const liBuildVines = (seed, H, rich = false) => {
     grow(x0, y0, (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8, (110 + r() * 60) * 1.2, 0, []);
     grow(x0, y0, (i % 2 ? 0 : Math.PI) + (r() - 0.5) * 0.8, (90 + r() * 60) * 1.2, 0, []);
   }
-  /* fill wide empty patches with short branches grown from the nearest stem */
-  for (let pass = 0; pass < 3; pass++) {
-    const cw = 48,
-      ch = H / 4;
-    const filled = new Set();
+  /* fill thin or empty patches with branches grown from the nearest stem; the richer setting looks for thin patches as
+     well as empty ones, finer cells, more passes, and grows the fill as heavier (depth 1) stems */
+  const passes = rich ? 6 : 3;
+  for (let pass = 0; pass < passes; pass++) {
+    const cw = rich ? 40 : 48,
+      ch = rich ? H / 5 : H / 4;
+    const need = rich ? 8 : 1;
+    const dens = new Map();
     stems.forEach(s => {
-      if (!s.dead) s.pts.forEach(p => filled.add(Math.floor(p.x / cw) + ',' + Math.floor(p.y / ch)));
+      if (!s.dead) s.pts.forEach(p => {
+        const k = Math.floor(p.x / cw) + ',' + Math.floor(p.y / ch);
+        dens.set(k, (dens.get(k) || 0) + 1);
+      });
     });
     for (let gx = 0; gx < W / cw; gx++) {
-      for (let gy = 1; gy <= 2; gy++) {
-        if (filled.has(gx + ',' + gy)) continue;
+      for (let gy = 1; gy <= (rich ? 3 : 2); gy++) {
+        if ((dens.get(gx + ',' + gy) || 0) >= need) continue;
         const tx = (gx + 0.5) * cw,
           ty = (gy + 0.5) * ch;
         let best = null,
@@ -364,9 +370,9 @@ const liBuildVines = (seed, H, rich = false) => {
             }
           }
         });
-        if (!best || bd > 170 * 170) continue;
+        if (!best || bd > (rich ? 260 : 170) * (rich ? 260 : 170)) continue;
         const ang = Math.atan2(ty - best.p.y, tx - best.p.x);
-        grow(best.p.x, best.p.y, ang, Math.sqrt(bd) * 1.15 + 34, 2, best.s.chain);
+        grow(best.p.x, best.p.y, ang, Math.sqrt(bd) * 1.15 + 34, rich ? 1 : 2, best.s.chain);
       }
     }
   }
@@ -1782,7 +1788,7 @@ const PageLiving = () => {
     style: {
       ...anchor,
       paddingBottom: 0,
-      paddingTop: 24
+      paddingTop: 104
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "container"
@@ -1798,7 +1804,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("p", null, "A list of properties gains force when builders can use it. The method runs in seven steps and every second step belongs to people. AI drafts at speed and people decide what the drafts are worth.")), /*#__PURE__*/React.createElement(LISteps, {
     steps: LI_STEPS
-  }), /*#__PURE__*/React.createElement(CampQuote, null, "A property earns its place ", /*#__PURE__*/React.createElement("em", null, "the day someone builds with it.")))), /*#__PURE__*/React.createElement(Mycelium, {
+  }), /*#__PURE__*/React.createElement(CampQuote, null, "A Desirable Property earns its place ", /*#__PURE__*/React.createElement("em", null, "the day someone builds with it.")))), /*#__PURE__*/React.createElement(Mycelium, {
     seed: 8,
     height: 180,
     above: 44,
