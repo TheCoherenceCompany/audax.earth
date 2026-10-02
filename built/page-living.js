@@ -196,6 +196,11 @@ const LIQuotePair = () => /*#__PURE__*/React.createElement(CampCascade, {
 }, /*#__PURE__*/React.createElement("figure", null, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a small group of thoughtful, committed citizens can change the world; indeed, it\u2019s the only thing that ever has.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "Attributed to Margaret Mead")), /*#__PURE__*/React.createElement("figure", {
   className: "li-quote-now"
 }, /*#__PURE__*/React.createElement("blockquote", null, "\u201CNever doubt that a collectively intelligent network of networks, working with aligned superintelligence, can help humanity coordinate, protect what matters, and meet challenges at a scale once unimaginable. Indeed, our future may depend on it.\u201D"), /*#__PURE__*/React.createElement("figcaption", null, "A modern version, by Daveed Benjamin")));
+
+/* Faint veins for the leaf: a midrib and three pairs of side veins. */
+const LI_BODHI_VEINS = 'M0 -1 L0 -14.6 M0 -3 L-3.8 -6.6 M0 -3 L3.8 -6.6 M0 -6.6 L-4.6 -9.8 M0 -6.6 L4.6 -9.8 M0 -10 L-2.5 -12.6 M0 -10 L2.5 -12.6';
+/* Three quiet leaf tones, base to tip: sage, olive sage and blue sage. */
+const LI_LEAF_TONES = [['#86A06A', '#BCCB9C'], ['#9AA86A', '#C9D2A0'], ['#80A082', '#B6CAB2']];
 const Mycelium = ({
   seed = 7,
   height = 150,
@@ -297,10 +302,15 @@ const Mycelium = ({
       grow(x0, y0, sy, (90 + r() * 60) * gm, 0);
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
+    /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
+    const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({
+      ...l,
+      tone: (i * 5 + (i >> 2)) % 3
+    }));
     return {
       paths,
       nodes,
-      leaves
+      leaves: kept
     };
   }, [seed, height, dark]);
   return /*#__PURE__*/React.createElement("svg", {
@@ -328,11 +338,34 @@ const Mycelium = ({
     style: {
       transitionDelay: `${Math.min(350 + i * 6, 800)}ms`
     }
-  })), leaves.map((l, i) => /*#__PURE__*/React.createElement("path", {
+  })), !dark && /*#__PURE__*/React.createElement("defs", null, LI_LEAF_TONES.map(([a, b], k) => /*#__PURE__*/React.createElement("linearGradient", {
+    key: k,
+    id: `lg${k}-${seed}`,
+    gradientUnits: "userSpaceOnUse",
+    x1: "0",
+    y1: "0",
+    x2: "0",
+    y2: "-16"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0",
+    stopColor: a
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "1",
+    stopColor: b
+  }))), /*#__PURE__*/React.createElement("g", {
+    id: `lf-${seed}`
+  }, /*#__PURE__*/React.createElement("path", {
+    className: "leaf-shape",
+    d: LI_BODHI
+  }), /*#__PURE__*/React.createElement("path", {
+    className: "leaf-vein",
+    d: LI_BODHI_VEINS
+  }))), leaves.map((l, i) => /*#__PURE__*/React.createElement("use", {
     key: 'l' + i,
     className: "leaf",
-    d: LI_BODHI,
+    href: `#lf-${seed}`,
     style: {
+      fill: `url(#lg${l.tone}-${seed})`,
       '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`,
       '--s': l.s.toFixed(2),
       transitionDelay: `${800 + l.depth * 200 + i % 10 * 12}ms`

@@ -162,6 +162,11 @@ const LIQuotePair = () => (
   </CampCascade>
 );
 
+/* Faint veins for the leaf: a midrib and three pairs of side veins. */
+const LI_BODHI_VEINS = 'M0 -1 L0 -14.6 M0 -3 L-3.8 -6.6 M0 -3 L3.8 -6.6 M0 -6.6 L-4.6 -9.8 M0 -6.6 L4.6 -9.8 M0 -10 L-2.5 -12.6 M0 -10 L2.5 -12.6';
+/* Three quiet leaf tones, base to tip: sage, olive sage and blue sage. */
+const LI_LEAF_TONES = [['#86A06A', '#BCCB9C'], ['#9AA86A', '#C9D2A0'], ['#80A082', '#B6CAB2']];
+
 const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
   const ref = useCampReveal();
   const { paths, nodes, leaves } = React.useMemo(() => {
@@ -212,7 +217,9 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
       grow(x0, y0, sy, (90 + r() * 60) * gm, 0);
       if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
-    return { paths, nodes, leaves };
+    /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
+    const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({ ...l, tone: (i * 5 + (i >> 2)) % 3 }));
+    return { paths, nodes, leaves: kept };
   }, [seed, height, dark]);
 
   return (
@@ -223,9 +230,23 @@ const Mycelium = ({ seed = 7, height = 150, dark = false }) => {
       {nodes.map((n, i) => (
         <circle key={i} cx={n.x} cy={n.y} r={n.r} style={{ transitionDelay: `${Math.min(350 + i * 6, 800)}ms` }} />
       ))}
+      {!dark && (
+        <defs>
+          {LI_LEAF_TONES.map(([a, b], k) => (
+            <linearGradient key={k} id={`lg${k}-${seed}`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-16">
+              <stop offset="0" stopColor={a} />
+              <stop offset="1" stopColor={b} />
+            </linearGradient>
+          ))}
+          <g id={`lf-${seed}`}>
+            <path className="leaf-shape" d={LI_BODHI} />
+            <path className="leaf-vein" d={LI_BODHI_VEINS} />
+          </g>
+        </defs>
+      )}
       {leaves.map((l, i) => (
-        <path key={'l' + i} className="leaf" d={LI_BODHI}
-          style={{ '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`, '--s': l.s.toFixed(2), transitionDelay: `${800 + l.depth * 200 + (i % 10) * 12}ms` }} />
+        <use key={'l' + i} className="leaf" href={`#lf-${seed}`}
+          style={{ fill: `url(#lg${l.tone}-${seed})`, '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`, '--s': l.s.toFixed(2), transitionDelay: `${800 + l.depth * 200 + (i % 10) * 12}ms` }} />
       ))}
     </svg>
   );

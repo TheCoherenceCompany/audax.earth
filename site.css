@@ -3483,9 +3483,10 @@ html:has(.li-page), body:has(.li-page) { overflow-x: clip; }
 /* the light-ground bands grow in about 2.4s, trunks first and then the finer branches and bodhi leaves */
 .li-myc:not(.dark) path   { transition-duration: 1200ms; }
 /* bodhi leaves unfurl at the stem ends */
-.li-myc path.leaf { stroke: none; stroke-dasharray: none; stroke-dashoffset: 0; fill: var(--lichen-500); opacity: 0;
-  transform: var(--t) scale(0.15); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-out); }
-.li-myc.cph-in path.leaf { opacity: 0.85; transform: var(--t) scale(var(--s)); }
+.li-myc .leaf { opacity: 0; transform: var(--t) scale(0.15); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-out); }
+.li-myc.cph-in .leaf { opacity: 0.8; transform: var(--t) scale(var(--s)); }
+.li-myc path.leaf-shape { fill: inherit; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; }
+.li-myc path.leaf-vein { fill: none; stroke: #3E5E3A; stroke-width: 0.5; stroke-linecap: round; stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0.42; }
 
 
 /* ---- triad, larger and zoomable ---- */
