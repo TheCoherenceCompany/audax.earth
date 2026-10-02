@@ -181,8 +181,29 @@ const Mycelium = ({
       H = height;
     const paths = [],
       nodes = [];
+    /* the light-ground bands grow fuller: more colonies, deeper branching and small leaf nodes along the stems;
+       the dark band keeps its original, sparser setting */
+    const lush = !dark;
+    const cfg = lush ? {
+      colonies: 15,
+      hyphae: 3,
+      maxDepth: 4,
+      minLen: 14,
+      branchP: 0.55,
+      shrink: 0.66,
+      endNode: 0.85,
+      grow: 1.3
+    } : {
+      colonies: 6,
+      hyphae: 2,
+      maxDepth: 4,
+      minLen: 16,
+      branchP: 0.5,
+      shrink: 0.6,
+      endNode: 0.7
+    };
     const grow = (x, y, ang, len, depth) => {
-      if (depth > 4 || len < 16) return;
+      if (depth > cfg.maxDepth || len < cfg.minLen) return;
       const entry = {
         d: '',
         depth
@@ -202,28 +223,36 @@ const Mycelium = ({
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
         cx = nx;
         cy = ny;
-        if (r() < 0.5) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (0.5 + r() * 0.7), len * 0.6, depth + 1);
+        if (r() < cfg.branchP) grow(cx, cy, a + (r() < 0.5 ? -1 : 1) * (0.5 + r() * 0.7), len * cfg.shrink, depth + 1);
+        if (lush && r() < 0.22) nodes.push({
+          x: cx + (r() - 0.5) * 5,
+          y: cy + (r() - 0.5) * 5,
+          r: 0.9 + r() * 1.5,
+          depth
+        });
       }
       entry.d = d;
-      if (r() < 0.7) nodes.push({
+      if (r() < cfg.endNode) nodes.push({
         x: cx,
         y: cy,
         r: 1.3 + r() * 2.2,
         depth
       });
     };
-    const colonies = 6;
+    const colonies = cfg.colonies;
     for (let i = 0; i < colonies; i++) {
       const x0 = W / colonies * (i + 0.5) + (r() - 0.5) * 90,
         y0 = H / 2 + (r() - 0.5) * 24;
-      grow(x0, y0, r() * Math.PI * 2, 110 + r() * 60, 0);
-      grow(x0, y0, r() * Math.PI * 2, 90 + r() * 60, 0);
+      const gm = cfg.grow || 1;
+      grow(x0, y0, r() * Math.PI * 2, (110 + r() * 60) * gm, 0);
+      grow(x0, y0, r() * Math.PI * 2, (90 + r() * 60) * gm, 0);
+      if (cfg.hyphae > 2) grow(x0, y0, r() * Math.PI * 2, (80 + r() * 60) * gm, 0);
     }
     return {
       paths,
       nodes
     };
-  }, [seed, height]);
+  }, [seed, height, dark]);
   return /*#__PURE__*/React.createElement("svg", {
     ref: ref,
     className: `li-myc${dark ? ' dark' : ''}`,
@@ -239,7 +268,7 @@ const Mycelium = ({
     pathLength: "1",
     style: {
       transitionDelay: `${Math.min(i * 6, 450)}ms`,
-      strokeWidth: Math.max(0.6, 1.5 - p.depth * 0.25)
+      strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2.3) - p.depth * (dark ? 0.25 : 0.32))
     }
   })), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
     key: i,
