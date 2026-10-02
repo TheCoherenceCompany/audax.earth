@@ -202,8 +202,442 @@ const LIQuotePair = () => /*#__PURE__*/React.createElement(CampCascade, {
 /* Faint veins for the leaf: a midrib and three pairs of side veins. */
 const LI_BODHI_VEINS = 'M0 -1 L0 -14.6 M0 -3 L-3.8 -6.6 M0 -3 L3.8 -6.6 M0 -6.6 L-4.6 -9.8 M0 -6.6 L4.6 -9.8 M0 -10 L-2.5 -12.6 M0 -10 L2.5 -12.6';
 /* Three quiet leaf tones, base to tip: sage, olive sage and blue sage. */
+/* Stem tones, base to tip: warm grey-brown, olive sage, fresh sage. */
+const LI_STEM_TONES = ['#7A6F57', '#6F8A58', '#5E9468'];
 const LI_LEAF_TONES = [['#86A06A', '#BCCB9C'], ['#9AA86A', '#C9D2A0'], ['#80A082', '#B6CAB2']];
-const Mycelium = ({
+
+/* ─── Watercolour vines ──────────────────────────────────────────────────
+   The light-ground bands are painted on a canvas: tapering stems built from layered washes (a pale bloom, the body
+   colour, a dark wet edge on one side and a light lift on the other), bodhi leaves with a painted gradient and
+   pooled edges, and a paper grain knocked out of the whole. Growth is the same forking, curving vine as before;
+   branches stop where they would cut across another, every stem finishes in a leaf or a small curl, and empty
+   patches are filled by short branches grown from the nearest stem. */
+const liHash = n => {
+  const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
+};
+const liHex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+const liMix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+const liRgb = (c, al = 1) => `rgba(${c[0]},${c[1]},${c[2]},${al})`;
+/* leaf tones, base to tip: sage, olive sage, blue sage, and a touch of warm yellow-green */
+const LI_PAINT_TONES = [['#7F9A66', '#BFCE9E'], ['#93A464', '#CCD59C'], ['#79997C', '#B9CDB3'], ['#A9A464', '#D6D49E']];
+const liBuildVines = (seed, H) => {
+  const r = liRng(seed),
+    W = 1200;
+  const stems = [],
+    leaves = [];
+  const occ = new Map();
+  const cellOf = (x, y) => Math.round(x / 2) + ',' + Math.round(y / 2);
+  let uid = 0;
+  const grow = (x, y, ang, len, depth, lineage) => {
+    if (depth > 4 || len < 14) return;
+    const id = uid++;
+    const chain = lineage.concat(id);
+    const stem = {
+      id,
+      depth,
+      chain,
+      pts: [{
+        x,
+        y
+      }],
+      dead: false
+    };
+    stems.push(stem);
+    const steps = 3 + Math.floor(r() * 3);
+    const stepLen = len / steps;
+    let cx = x,
+      cy = y,
+      a = ang,
+      grown = 0,
+      travelled = 0,
+      blocked = false,
+      flip = r() < 0.5;
+    for (let i = 0; i < steps && !blocked; i++) {
+      a += (r() - 0.5) * 0.6;
+      const nx = cx + Math.cos(a) * stepLen,
+        ny = cy + Math.sin(a) * stepLen;
+      if (ny < -4 || ny > H + 4) break;
+      const marks = [];
+      for (let k = 1; k <= 5; k++) {
+        const px = cx + (nx - cx) * k / 5,
+          py = cy + (ny - cy) * k / 5;
+        const hit = occ.get(cellOf(px, py));
+        if (travelled + stepLen * k / 5 > 24 && hit !== undefined && !chain.includes(hit)) {
+          blocked = true;
+          break;
+        }
+        marks.push(cellOf(px, py));
+      }
+      if (blocked) break;
+      marks.forEach(k => {
+        if (!occ.has(k)) occ.set(k, id);
+      });
+      const mx = (cx + nx) / 2 + (r() - 0.5) * 8,
+        my = (cy + ny) / 2 + (r() - 0.5) * 8;
+      for (let k = 1; k <= 8; k++) {
+        const u = k / 8,
+          iu = 1 - u;
+        stem.pts.push({
+          x: iu * iu * cx + 2 * iu * u * mx + u * u * nx,
+          y: iu * iu * cy + 2 * iu * u * my + u * u * ny
+        });
+      }
+      cx = nx;
+      cy = ny;
+      grown++;
+      travelled += stepLen;
+      if (r() < 0.5) {
+        flip = !flip;
+        grow(cx, cy, a + (flip ? 1 : -1) * (0.35 + r() * 0.5), len * 0.62, depth + 1, chain);
+      }
+      if (r() < (depth ? 0.12 : 0.08)) {
+        leaves.push({
+          stem,
+          idx: stem.pts.length - 1,
+          x: cx,
+          y: cy,
+          rot: a + (flip ? 1 : -1) * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35),
+          s: (0.62 + r() * 0.3 - depth * 0.04) * 1.25
+        });
+      }
+    }
+    if (!grown) {
+      stem.dead = true;
+      return;
+    }
+    /* nothing ends bare: a leaf, or a small defined curl */
+    if (depth <= 2 || r() < 0.65) {
+      leaves.push({
+        stem,
+        idx: stem.pts.length - 1,
+        x: cx,
+        y: cy,
+        rot: a,
+        s: (0.8 + r() * 0.35 - depth * 0.05) * 1.25
+      });
+    } else {
+      let h = a,
+        px = cx,
+        py = cy;
+      const turn = r() < 0.5 ? 1 : -1;
+      for (let k = 0; k < 16; k++) {
+        h += turn * (0.22 + k * 0.035);
+        const sl = 3.4 - k * 0.16;
+        px += Math.cos(h) * sl;
+        py += Math.sin(h) * sl;
+        stem.pts.push({
+          x: px,
+          y: py
+        });
+      }
+    }
+  };
+  const colonies = 14;
+  for (let i = 0; i < colonies; i++) {
+    const x0 = W / colonies * (i + 0.5) + (r() - 0.5) * 90,
+      y0 = H / 2 + (r() - 0.5) * 24;
+    grow(x0, y0, (i % 2 ? Math.PI : 0) + (r() - 0.5) * 0.8, (110 + r() * 60) * 1.2, 0, []);
+    grow(x0, y0, (i % 2 ? 0 : Math.PI) + (r() - 0.5) * 0.8, (90 + r() * 60) * 1.2, 0, []);
+  }
+  /* fill wide empty patches with short branches grown from the nearest stem */
+  for (let pass = 0; pass < 3; pass++) {
+    const cw = 48,
+      ch = H / 4;
+    const filled = new Set();
+    stems.forEach(s => {
+      if (!s.dead) s.pts.forEach(p => filled.add(Math.floor(p.x / cw) + ',' + Math.floor(p.y / ch)));
+    });
+    for (let gx = 0; gx < W / cw; gx++) {
+      for (let gy = 1; gy <= 2; gy++) {
+        if (filled.has(gx + ',' + gy)) continue;
+        const tx = (gx + 0.5) * cw,
+          ty = (gy + 0.5) * ch;
+        let best = null,
+          bd = 1e9;
+        stems.forEach(s => {
+          if (s.dead) return;
+          for (let i = 0; i < s.pts.length; i += 3) {
+            const p = s.pts[i];
+            const d = (p.x - tx) * (p.x - tx) + (p.y - ty) * (p.y - ty);
+            if (d < bd) {
+              bd = d;
+              best = {
+                p,
+                s
+              };
+            }
+          }
+        });
+        if (!best || bd > 170 * 170) continue;
+        const ang = Math.atan2(ty - best.p.y, tx - best.p.x);
+        grow(best.p.x, best.p.y, ang, Math.sqrt(bd) * 1.15 + 34, 2, best.s.chain);
+      }
+    }
+  }
+  const live = stems.filter(s => !s.dead);
+  live.forEach((s, i) => {
+    s.t0 = s.depth * 0.28 + i % 12 * 0.025;
+    s.dur = 0.85;
+    s.n = s.pts.length;
+  });
+  const kept = leaves.filter((l, i) => !l.stem.dead && (i * 7 + 3) % 9 > 1).map((l, i) => ({
+    ...l,
+    tone: liHash(i + seed) < 0.14 ? 3 : (i * 5 + (i >> 2)) % 3,
+    o: 0.62 + i * 37 % 30 / 100,
+    at: l.stem.t0 + l.stem.dur * (l.idx / Math.max(1, l.stem.n - 1)) + 0.08
+  }));
+  return {
+    stems: live,
+    leaves: kept
+  };
+};
+const LIVines = ({
+  seed = 11,
+  height = 190
+}) => {
+  const wrapRef = React.useRef(null);
+  const cvRef = React.useRef(null);
+  const data = React.useMemo(() => liBuildVines(seed, height), [seed, height]);
+  React.useEffect(() => {
+    const wrap = wrapRef.current,
+      cv = cvRef.current;
+    if (!wrap || !cv) return undefined;
+    const H = height,
+      T_END = 2.6;
+    const ctx = cv.getContext('2d');
+    const mk = () => document.createElement('canvas');
+    const layers = {
+      wash: mk(),
+      body: mk(),
+      edge: mk(),
+      hi: mk()
+    };
+    const lctx = {};
+    Object.keys(layers).forEach(k => {
+      lctx[k] = layers[k].getContext('2d');
+      lctx[k].lineCap = 'round';
+      lctx[k].lineJoin = 'round';
+    });
+    const noise = (() => {
+      const c = mk();
+      c.width = c.height = 200;
+      const x = c.getContext('2d'),
+        id = x.createImageData(200, 200);
+      for (let i = 0; i < id.data.length; i += 4) {
+        const v = Math.random();
+        id.data[i + 3] = v > 0.8 ? 255 * (v - 0.6) : v < 0.1 ? 150 : 0;
+      }
+      x.putImageData(id, 0, 0);
+      return c;
+    })();
+    const noisePat = ctx.createPattern(noise, 'repeat');
+    const leafPath = new Path2D(LI_BODHI),
+      veinPath = new Path2D(LI_BODHI_VEINS);
+    const widths = [3.1, 2.5, 2.0, 1.6, 1.3];
+    let sc = 1,
+      ox = 0,
+      oy = 0,
+      w = 0,
+      h = 0;
+    let started = false,
+      startAt = 0,
+      raf = 0,
+      done = false,
+      nowT = 0;
+    const stopsFor = s => {
+      const warm = liHash(s.id + seed) < 0.38;
+      return s.depth >= 3 ? [liHex('#74805A'), liHex('#6B8F5C'), liHex('#5E9468')] : [liHex(warm ? '#86705A' : '#7A7660'), liHex('#6F8A58'), liHex('#5E9468')];
+    };
+    const colorAt = (stops, u) => u < 0.5 ? liMix(stops[0], stops[1], u * 2) : liMix(stops[1], stops[2], (u - 0.5) * 2);
+    const fit = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const cw = wrap.clientWidth || 1200;
+      w = Math.round(cw * dpr);
+      h = Math.round(H * dpr);
+      [cv, ...Object.values(layers)].forEach(c => {
+        c.width = w;
+        c.height = h;
+      });
+      Object.values(lctx).forEach(c => {
+        c.lineCap = 'round';
+        c.lineJoin = 'round';
+      });
+      sc = Math.max(w / 1200, h / H);
+      ox = (w - 1200 * sc) / 2;
+      oy = (h - H * sc) / 2;
+      data.stems.forEach(s => {
+        s.drawn = 1;
+      });
+    };
+    const drawChunks = (s, upto) => {
+      const stops = stopsFor(s),
+        w0 = widths[s.depth] || 1.3;
+      for (let i = s.drawn; i <= upto && i < s.n; i++) {
+        const p0 = s.pts[i - 1],
+          p1 = s.pts[i];
+        if (!p0) continue;
+        const u = i / (s.n - 1);
+        const wd = w0 * (1 - 0.62 * Math.pow(u, 0.85)) * sc;
+        const col = colorAt(stops, u);
+        const x0 = ox + p0.x * sc,
+          y0 = oy + p0.y * sc,
+          x1 = ox + p1.x * sc,
+          y1 = oy + p1.y * sc;
+        const dx = x1 - x0,
+          dy = y1 - y0,
+          dl = Math.hypot(dx, dy) || 1,
+          nx = -dy / dl,
+          ny = dx / dl;
+        const line = (c, xa, ya, xb, yb, lw, colr) => {
+          c.strokeStyle = colr;
+          c.lineWidth = lw;
+          c.beginPath();
+          c.moveTo(xa, ya);
+          c.lineTo(xb, yb);
+          c.stroke();
+        };
+        line(lctx.wash, x0, y0, x1, y1, wd * 2.4, liRgb(liMix(col, [250, 249, 240], 0.7)));
+        line(lctx.body, x0, y0, x1, y1, wd, liRgb(col));
+        line(lctx.edge, x0 + nx * wd * 0.3, y0 + ny * wd * 0.3, x1 + nx * wd * 0.3, y1 + ny * wd * 0.3, wd * 0.38, liRgb(liMix(col, [30, 52, 36], 0.55)));
+        line(lctx.hi, x0 - nx * wd * 0.24, y0 - ny * wd * 0.24, x1 - nx * wd * 0.24, y1 - ny * wd * 0.24, wd * 0.28, liRgb(liMix(col, [255, 253, 240], 0.6)));
+      }
+      s.drawn = Math.max(s.drawn, Math.min(upto + 1, s.n));
+    };
+    const drawLeaf = (l, k) => {
+      const t = LI_PAINT_TONES[l.tone];
+      ctx.save();
+      ctx.translate(ox + l.x * sc, oy + l.y * sc);
+      ctx.rotate(l.rot + Math.PI / 2);
+      const z = sc * l.s * (0.25 + 0.75 * k);
+      ctx.scale(z, z);
+      ctx.globalAlpha = l.o * Math.min(1, k * 1.6);
+      const g = ctx.createLinearGradient(0, 0, 0, -16);
+      g.addColorStop(0, t[0]);
+      g.addColorStop(1, t[1]);
+      ctx.fillStyle = g;
+      ctx.fill(leafPath);
+      ctx.save();
+      ctx.clip(leafPath);
+      ctx.lineWidth = 2.2;
+      ctx.strokeStyle = 'rgba(52,88,52,0.38)';
+      ctx.stroke(leafPath);
+      ctx.restore();
+      ctx.lineWidth = 0.55;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = 'rgba(46,80,44,0.5)';
+      ctx.stroke(veinPath);
+      ctx.restore();
+    };
+    const compose = time => {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalAlpha = 0.16;
+      ctx.drawImage(layers.wash, 0, 0);
+      ctx.globalAlpha = 0.82;
+      ctx.drawImage(layers.body, 0, 0);
+      ctx.globalAlpha = 0.5;
+      ctx.drawImage(layers.edge, 0, 0);
+      ctx.globalAlpha = 0.32;
+      ctx.drawImage(layers.hi, 0, 0);
+      ctx.globalAlpha = 1;
+      data.leaves.forEach(l => {
+        const k = Math.max(0, Math.min(1, (time - l.at) / 0.4));
+        if (k > 0) {
+          const e = 1 - Math.pow(1 - k, 3);
+          drawLeaf(l, e);
+        }
+      });
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.globalAlpha = 0.5;
+      ctx.fillStyle = noisePat;
+      ctx.fillRect(0, 0, w, h);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = 1;
+    };
+    const paint = time => {
+      data.stems.forEach(s => {
+        const f = Math.max(0, Math.min(1, (time - s.t0) / s.dur));
+        const upto = Math.floor(f * (s.n - 1));
+        if (upto >= s.drawn) drawChunks(s, upto);
+      });
+      compose(time);
+    };
+    const finalPaint = () => {
+      fit();
+      Object.values(lctx).forEach(c => c.clearRect(0, 0, w, h));
+      nowT = T_END;
+      paint(T_END);
+      done = true;
+    };
+    const loop = ts => {
+      if (!startAt) startAt = ts;
+      nowT = (ts - startAt) / 1000;
+      if (nowT >= T_END) {
+        paint(T_END);
+        done = true;
+        return;
+      }
+      paint(nowT);
+      raf = requestAnimationFrame(loop);
+    };
+    const begin = () => {
+      if (started) return;
+      started = true;
+      if (cphReduced()) {
+        finalPaint();
+        return;
+      }
+      fit();
+      Object.values(lctx).forEach(c => c.clearRect(0, 0, w, h));
+      raf = requestAnimationFrame(loop);
+    };
+    fit();
+    let io = null;
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          begin();
+          io.disconnect();
+        }
+      }, {
+        threshold: 0.25
+      });
+      io.observe(wrap);
+    } else begin();
+    let lastW = wrap.clientWidth;
+    const onResize = () => {
+      if (wrap.clientWidth === lastW) return;
+      lastW = wrap.clientWidth;
+      const t = done ? T_END : nowT;
+      fit();
+      Object.values(lctx).forEach(c => c.clearRect(0, 0, w, h));
+      if (started) paint(t);
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      cancelAnimationFrame(raf);
+      if (io) io.disconnect();
+      window.removeEventListener('resize', onResize);
+    };
+  }, [data, height]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: wrapRef,
+    className: "li-myc li-vines",
+    style: {
+      height
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("canvas", {
+    ref: cvRef,
+    style: {
+      display: 'block',
+      width: '100%',
+      height: '100%'
+    }
+  }));
+};
+const MyceliumInk = ({
   seed = 7,
   height = 150,
   dark = false
@@ -213,7 +647,7 @@ const Mycelium = ({
     paths,
     nodes,
     leaves,
-    washes
+    pieces
   } = React.useMemo(() => {
     const r = liRng(seed);
     const W = 1200,
@@ -303,7 +737,8 @@ const Mycelium = ({
       const chain = lineage.concat(id);
       const entry = {
         d: '',
-        depth
+        depth,
+        segs: []
       };
       paths.push(entry);
       const steps = 3 + Math.floor(r() * 3);
@@ -338,6 +773,11 @@ const Mycelium = ({
         const mx = (cx + nx) / 2 + (r() - 0.5) * 8,
           my = (cy + ny) / 2 + (r() - 0.5) * 8;
         d += ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`;
+        entry.segs.push({
+          sx: cx,
+          sy: cy,
+          q: ` Q${mx.toFixed(1)} ${my.toFixed(1)} ${nx.toFixed(1)} ${ny.toFixed(1)}`
+        });
         cx = nx;
         cy = ny;
         grown++;
@@ -352,7 +792,7 @@ const Mycelium = ({
             x: cx,
             y: cy,
             rot: a + side * (Math.PI / 2 - 0.5 + (r() - 0.5) * 0.35),
-            s: 0.62 + r() * 0.3 - depth * 0.04,
+            s: (0.62 + r() * 0.3 - depth * 0.04) * 1.2,
             depth
           });
         }
@@ -363,7 +803,7 @@ const Mycelium = ({
           x: cx,
           y: cy,
           rot: a,
-          s: 0.8 + r() * 0.35 - depth * 0.05,
+          s: (0.8 + r() * 0.35 - depth * 0.05) * 1.2,
           depth
         });
       } else if (grown && r() < 0.6) {
@@ -379,6 +819,11 @@ const Mycelium = ({
           const ex = px + Math.cos(h) * sl,
             ey = py + Math.sin(h) * sl;
           d += ` Q${qx.toFixed(1)} ${qy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+          entry.segs.push({
+            sx: px,
+            sy: py,
+            q: ` Q${qx.toFixed(1)} ${qy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}`
+          });
           px = ex;
           py = ey;
         }
@@ -410,21 +855,34 @@ const Mycelium = ({
     /* a quieter canopy: drop about a fifth of the leaves, evenly, and give each survivor one of three tones */
     const kept = leaves.filter((l, i) => (i * 7 + 3) % 9 > 1).map((l, i) => ({
       ...l,
-      tone: (i * 5 + (i >> 2)) % 3
+      tone: (i * 5 + (i >> 2)) % 3,
+      o: 0.6 + i * 37 % 30 / 100
     }));
-    /* soft pigment blooms behind the clusters of leaves */
-    const washes = lush ? kept.filter((l, i) => i % 16 === 0).map((l, i) => ({
-      x: l.x,
-      y: l.y,
-      rx: 30 + i * 13 % 24,
-      ry: 15 + i * 7 % 12,
-      tone: l.tone
-    })) : [];
+    /* Watercolour stems: a large stem is painted in up to three pieces that thin and shift colour along its length,
+       the way a brush does when it is lifted; fine twigs are a single light stroke. */
+    const pieces = [];
+    if (lush) {
+      paths.filter(p => p.d && p.segs.length).forEach((p, pi) => {
+        const n = p.depth <= 2 ? Math.min(3, p.segs.length) : 1;
+        const per = Math.ceil(p.segs.length / n);
+        for (let k = 0; k < n; k++) {
+          const part = p.segs.slice(k * per, (k + 1) * per);
+          if (!part.length) continue;
+          pieces.push({
+            d: `M${part[0].sx.toFixed(1)} ${part[0].sy.toFixed(1)}` + part.map(s => s.q).join(''),
+            depth: p.depth,
+            k,
+            n,
+            pi
+          });
+        }
+      });
+    }
     return {
       paths: paths.filter(p => p.d),
       nodes,
       leaves: kept,
-      washes
+      pieces
     };
   }, [seed, height, dark]);
   return /*#__PURE__*/React.createElement("svg", {
@@ -467,17 +925,51 @@ const Mycelium = ({
     colorInterpolationFilters: "sRGB"
   }, /*#__PURE__*/React.createElement("feTurbulence", {
     type: "fractalNoise",
-    baseFrequency: "0.035",
-    numOctaves: "2",
+    baseFrequency: "0.05",
+    numOctaves: "3",
     seed: seed,
     result: "warp"
   }), /*#__PURE__*/React.createElement("feDisplacementMap", {
     in: "SourceGraphic",
     in2: "warp",
-    scale: "3.2",
+    scale: "3.6",
     xChannelSelector: "R",
     yChannelSelector: "G",
     result: "wobble"
+  }), /*#__PURE__*/React.createElement("feGaussianBlur", {
+    in: "wobble",
+    stdDeviation: "1.1",
+    result: "soft"
+  }), /*#__PURE__*/React.createElement("feComposite", {
+    in: "wobble",
+    in2: "soft",
+    operator: "out",
+    result: "rim"
+  }), /*#__PURE__*/React.createElement("feFlood", {
+    floodColor: "#2E5A3B",
+    floodOpacity: "0.6",
+    result: "ink"
+  }), /*#__PURE__*/React.createElement("feComposite", {
+    in: "ink",
+    in2: "rim",
+    operator: "in",
+    result: "wetEdge"
+  }), /*#__PURE__*/React.createElement("feTurbulence", {
+    type: "fractalNoise",
+    baseFrequency: "0.016 0.09",
+    numOctaves: "2",
+    seed: seed + 7,
+    result: "mottle"
+  }), /*#__PURE__*/React.createElement("feColorMatrix", {
+    in: "mottle",
+    type: "matrix",
+    values: "0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0.55",
+    result: "mottleA"
+  }), /*#__PURE__*/React.createElement("feComposite", {
+    in: "wobble",
+    in2: "mottleA",
+    operator: "in",
+    result: "bloom"
   }), /*#__PURE__*/React.createElement("feTurbulence", {
     type: "fractalNoise",
     baseFrequency: "0.85",
@@ -487,46 +979,47 @@ const Mycelium = ({
   }), /*#__PURE__*/React.createElement("feColorMatrix", {
     in: "grain",
     type: "matrix",
-    values: "0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0.35",
+    values: "0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0.62",
     result: "grainA"
-  }), /*#__PURE__*/React.createElement("feComposite", {
-    in: "wobble",
+  }), /*#__PURE__*/React.createElement("feMerge", {
+    result: "paint"
+  }, /*#__PURE__*/React.createElement("feMergeNode", {
+    in: "bloom"
+  }), /*#__PURE__*/React.createElement("feMergeNode", {
+    in: "wetEdge"
+  })), /*#__PURE__*/React.createElement("feComposite", {
+    in: "paint",
     in2: "grainA",
     operator: "in"
-  })), /*#__PURE__*/React.createElement("filter", {
-    id: `wb-${seed}`,
-    x: "-10%",
-    y: "-40%",
-    width: "120%",
-    height: "180%"
-  }, /*#__PURE__*/React.createElement("feGaussianBlur", {
-    stdDeviation: "8"
-  }))), !dark && /*#__PURE__*/React.createElement("g", {
-    className: "wc-wash",
-    style: {
-      filter: `url(#wb-${seed})`
-    }
-  }, washes.map((w, i) => /*#__PURE__*/React.createElement("ellipse", {
-    key: i,
-    cx: w.x,
-    cy: w.y,
-    rx: w.rx,
-    ry: w.ry,
-    fill: LI_LEAF_TONES[w.tone][0],
-    fillOpacity: "0.22"
   }))), /*#__PURE__*/React.createElement("g", {
     style: dark ? undefined : {
       filter: `url(#wc-${seed})`
     }
-  }, paths.map((p, i) => /*#__PURE__*/React.createElement("path", {
+  }, dark && paths.map((p, i) => /*#__PURE__*/React.createElement("path", {
     key: i,
     d: p.d,
     pathLength: "1",
     style: {
-      transitionDelay: dark ? `${Math.min(i * 6, 450)}ms` : `${p.depth * 200 + i % 12 * 20}ms`,
-      strokeWidth: Math.max(dark ? 0.6 : 0.9, (dark ? 1.5 : 2) - p.depth * (dark ? 0.25 : 0.3))
+      transitionDelay: `${Math.min(i * 6, 450)}ms`,
+      strokeWidth: Math.max(0.6, 1.5 - p.depth * 0.25)
     }
-  }))), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
+  })), !dark && pieces.map((pc, i) => {
+    const base = Math.max(1.2, 3.3 - pc.depth * 0.5);
+    const w = pc.n > 1 ? base * (1 - 0.5 * (pc.k + 0.5) / pc.n) : Math.max(0.9, base * 0.8);
+    const tone = pc.n > 1 ? LI_STEM_TONES[Math.min(2, Math.round(pc.k * 2 / (pc.n - 1)))] : LI_STEM_TONES[2];
+    const dur = 1200 / pc.n;
+    return /*#__PURE__*/React.createElement("path", {
+      key: i,
+      d: pc.d,
+      pathLength: "1",
+      style: {
+        stroke: tone,
+        strokeWidth: w.toFixed(2),
+        transitionDuration: `${dur.toFixed(0)}ms`,
+        transitionDelay: `${pc.depth * 200 + pc.pi % 12 * 20 + pc.k * dur}ms`
+      }
+    });
+  })), nodes.map((n, i) => /*#__PURE__*/React.createElement("circle", {
     key: i,
     cx: n.x,
     cy: n.y,
@@ -546,10 +1039,14 @@ const Mycelium = ({
       fill: `url(#lg${l.tone}-${seed})`,
       '--t': `translate(${l.x.toFixed(1)}px, ${l.y.toFixed(1)}px) rotate(${((l.rot + Math.PI / 2) * 180 / Math.PI).toFixed(0)}deg)`,
       '--s': l.s.toFixed(2),
+      '--o': l.o.toFixed(2),
       transitionDelay: `${800 + l.depth * 200 + i % 10 * 12}ms`
     }
   }))));
 };
+
+/* The dark band keeps its ink-line hyphae; the light grounds are painted in watercolour. */
+const Mycelium = props => props.dark ? /*#__PURE__*/React.createElement(MyceliumInk, props) : /*#__PURE__*/React.createElement(LIVines, props);
 
 /* ─── Chrome ─────────────────────────────────────────────────────────── */
 const LINav = () => {
