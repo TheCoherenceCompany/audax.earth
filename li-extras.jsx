@@ -187,6 +187,12 @@ const LIPrompt = () => {
 const LI_TELEGRAM_URL = 'https://t.me/+msbQmsbxpAg4Yjk8'; // the Audax OS group; the older Camp Audax page used this invite
 const LI_LUMA_EVENTS = ['4h2zh57m'];
 
+/* LI_LUMA_URL: registration for the Living Intelligence hybrid event. Registering on
+   Luma (not only RSVPing on LinkedIn) is what puts it on a calendar and issues the
+   attendance link, so the hero and the closing CTA both send people here. */
+const LI_LUMA_URL = 'https://luma.com/8z38qj2h';
+const LI_LUMA_CTA = 'Register on Luma';
+
 /* Luma's embed cannot be restyled and only lays out compactly from 700px wide, so
    the iframe stays 700x460 and .cph-luma-card scales it down for small screens. */
 const LILumaCarousel = ({ ids }) => (
@@ -216,4 +222,4 @@ const LIPlate = ({ index, caption, ratio = '21 / 9' }) => (
   </figure>
 );
 
-Object.assign(window, { LIPlate, TriadDiagram, LISteps, LIPrompt, LI_PROMPT, LI_TELEGRAM_URL, LI_LUMA_EVENTS, LILumaCarousel });
+Object.assign(window, { LIPlate, TriadDiagram, LISteps, LIPrompt, LI_PROMPT, LI_TELEGRAM_URL, LI_LUMA_EVENTS, LI_LUMA_URL, LI_LUMA_CTA, LILumaCarousel });

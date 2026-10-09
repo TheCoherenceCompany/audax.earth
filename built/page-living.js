@@ -1441,9 +1441,19 @@ const PageLiving = () => {
     style: {
       marginTop: 36
     }
-  }, /*#__PURE__*/React.createElement(Button, {
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "btn btn-join btn-lg",
+    href: LI_LUMA_URL,
+    target: "_blank",
+    rel: "noreferrer",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("span", null, LI_LUMA_CTA), /*#__PURE__*/React.createElement("i", {
+    "data-lucide": "calendar-check"
+  })), /*#__PURE__*/React.createElement(Button, {
     size: "lg",
-    variant: "join",
+    variant: "ghost",
     icon: "arrow-down",
     onClick: () => jump('relationship')
   }, "Read the north star")))), /*#__PURE__*/React.createElement(LILogoBar, null), /*#__PURE__*/React.createElement(LICampWhyCome, {
@@ -1969,7 +1979,17 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("h3", null, "An invitation, with no fixed membership"), /*#__PURE__*/React.createElement("p", null, "This list is incomplete on purpose. If a property is missing, a tension is understated, or a stronger example exists, that correction is exactly what this is for. Any organization already doing this work is part of the conversation, wherever its people are."), /*#__PURE__*/React.createElement("div", {
     className: "cph-apply-ctas"
-  }, /*#__PURE__*/React.createElement(Button, {
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "btn btn-join btn-lg",
+    href: LI_LUMA_URL,
+    target: "_blank",
+    rel: "noreferrer",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("span", null, LI_LUMA_CTA), /*#__PURE__*/React.createElement("i", {
+    "data-lucide": "calendar-check"
+  })), /*#__PURE__*/React.createElement(Button, {
     size: "lg",
     variant: "join",
     icon: "arrow-right",

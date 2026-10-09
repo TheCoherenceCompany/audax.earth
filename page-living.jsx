@@ -851,7 +851,10 @@ const PageLiving = () => {
           Emerging from <a href={LI_JOIN_URL} target="_blank" rel="noreferrer">Camp Audax</a> · open to all organizations building this vision
         </p>
         <div className="hero-ctas" style={{ marginTop: 36 }}>
-          <Button size="lg" variant="join" icon="arrow-down" onClick={() => jump('relationship')}>Read the north star</Button>
+          <a className="btn btn-join btn-lg" href={LI_LUMA_URL} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+            <span>{LI_LUMA_CTA}</span><i data-lucide="calendar-check"></i>
+          </a>
+          <Button size="lg" variant="ghost" icon="arrow-down" onClick={() => jump('relationship')}>Read the north star</Button>
         </div>
       </div>
     </LIHero>
@@ -1197,6 +1200,9 @@ const PageLiving = () => {
             This list is incomplete on purpose. If a property is missing, a tension is understated, or a stronger example exists, that correction is exactly what this is for. Any organization already doing this work is part of the conversation, wherever its people are.
           </p>
           <div className="cph-apply-ctas">
+            <a className="btn btn-join btn-lg" href={LI_LUMA_URL} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              <span>{LI_LUMA_CTA}</span><i data-lucide="calendar-check"></i>
+            </a>
             <Button size="lg" variant="join" icon="arrow-right" onClick={() => window.open(LI_JOIN_URL, '_blank')}>{LI_CTA}</Button>
             {LI_TELEGRAM_URL && (
               <a className="btn btn-primary btn-lg" href={LI_TELEGRAM_URL} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>

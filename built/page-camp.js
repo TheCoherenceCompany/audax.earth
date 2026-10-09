@@ -1529,7 +1529,7 @@ const CampNav = () => {
      it fades in beside ours once the hero mark scrolls off. Stowing the whole
      bar also fixed the duplication, but it took this camp's identity off its
      own hero and left only the host's, which is backwards.
-       Keyed to the hero lockup's own visibility rather than a scroll offset,
+      Keyed to the hero lockup's own visibility rather than a scroll offset,
      so arriving on a deep link part-way down the page gets both marks
      immediately instead of only after the first scroll. */
   const [heroMarkVisible, setHeroMarkVisible] = React.useState(true);
