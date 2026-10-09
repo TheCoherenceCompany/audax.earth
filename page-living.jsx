@@ -854,7 +854,6 @@ const PageLiving = () => {
           <a className="btn btn-join btn-lg" href={LI_LUMA_URL} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
             <span>{LI_LUMA_CTA}</span><i data-lucide="calendar-check"></i>
           </a>
-          <Button size="lg" variant="ghost" icon="arrow-down" onClick={() => jump('relationship')}>Read the north star</Button>
         </div>
       </div>
     </LIHero>

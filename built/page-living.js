@@ -1451,12 +1451,7 @@ const PageLiving = () => {
     }
   }, /*#__PURE__*/React.createElement("span", null, LI_LUMA_CTA), /*#__PURE__*/React.createElement("i", {
     "data-lucide": "calendar-check"
-  })), /*#__PURE__*/React.createElement(Button, {
-    size: "lg",
-    variant: "ghost",
-    icon: "arrow-down",
-    onClick: () => jump('relationship')
-  }, "Read the north star")))), /*#__PURE__*/React.createElement(LILogoBar, null), /*#__PURE__*/React.createElement(LICampWhyCome, {
+  }))))), /*#__PURE__*/React.createElement(LILogoBar, null), /*#__PURE__*/React.createElement(LICampWhyCome, {
     items: LI_WHY_COME
   }), /*#__PURE__*/React.createElement(Mycelium, {
     seed: 11,
